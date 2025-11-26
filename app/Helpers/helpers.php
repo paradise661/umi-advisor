@@ -9,7 +9,7 @@ if (! function_exists('updatesettingmedia')) {
     function updatesettingmedia($request, $name, $foldername)
     {
         if ($image = $request->file($name)) {
-            $bucket = "helpful"; // static bucket name
+            $bucket = "umi-advisor"; // static bucket name
             $baseUrl = "https://s3-np1.datahub.com.np"; // static base URL
 
             $imageName = time() . '-' . rand(0, 99) . '-' . $image->getClientOriginalName();
@@ -72,7 +72,7 @@ if (! function_exists('fileUpload')) {
     {
         try {
             if ($request->hasFile($name)) {
-                $bucket = "helpful"; // static bucket name
+                $bucket = "umi-advisor"; // static bucket name
                 $baseUrl = "https://s3-np1.datahub.com.np";
 
                 // Determine folder path
@@ -97,7 +97,7 @@ if (! function_exists('galleryfileUpload')) {
     {
         try {
             if ($request->hasFile($name)) {
-                $bucket = "helpful"; // same static bucket name
+                $bucket = "umi-advisor"; // same static bucket name
                 $baseUrl = "https://s3-np1.datahub.com.np";
 
                 // custom image name
@@ -126,7 +126,7 @@ if (! function_exists('removeFile')) {
     function removeFile($fileUrl)
     {
         try {
-            $bucket = "helpful"; // same static bucket name
+            $bucket = "umi-advisor"; // same static bucket name
             $baseUrl = "https://s3-np1.datahub.com.np";
 
             // Remove base URL + bucket from the full file URL to get the relative path
