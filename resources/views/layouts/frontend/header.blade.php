@@ -1,145 +1,236 @@
-<header>
-    <div class="top-bar d-md-block d-none border-button">
-        <div class="container d-flex justify-content-between align-items-center py-1 ">
-            <div>
-                <div class="d-flex gap-4">
-                    <div class="top-location">
-                        <i class="ri-map-pin-line"></i>{{ $settings['site_location'] ?? 'ktm' }}
+<header class="header header-1 header-3">
+    <div class="top-header d-none d-xl-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <div class="header-right-socail d-flex align-items-center">
+                        <h6 class="font-la color-white fw-normal">Follow On:</h6>
+
+                        <div class="social-profile">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <a href="mailto:{{ $settings['site_email'] ?? 'xyz@gmail.com' }}" class="top-email">
-                        <i class="ri-mail-line"></i> {{ $settings['site_email'] ?? 'gmail' }}
-                    </a>
+                </div>
+
+                <div class="col-8">
+                    <div class="header-cta d-flex justify-content-end">
+                        <ul>
+                            <li><a><i class="icon-phone"></i> {{ $settings['site_phone'] ?? '' }}</a></li>
+                            <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i
+                                        class="icon-email"></i>{{ $settings['site_email'] ?? '' }}</a></li>
+                            {{-- <li><a><i class="fal fa-clock"></i> </a></li> --}}
+                        </ul>
+                    </div>
                 </div>
             </div>
-            @if ($socials->isNotEmpty())
-                <div class="d-flex gap-4">
-                    @foreach ($socials as $item)
-                        <a href="{{ $item->link }}"><i class="{{ $item->icon }}"></i></a>
-                    @endforeach
-                </div>
-            @endif
         </div>
     </div>
-    <nav id="header" class="navbar navbar-expand-lg main-nav-container py-3 shadow">
-        {{-- {{$setting}} --}}
-        <div class="container nav-text ">
-            <a class="navbar-brand nav-logo nav-img " id="nav-logo" href="/"><img class=""
-                    src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('frontend/assets/images/logo.png') }}"
-                    alt="logo"></a>
-            {{-- <a class="navbar-brand nav-logo nav-img" id="nav-logo" href=""><img
-                    src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo"></a> --}}
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="ri-menu-line header-menu-icon"></i></span>
-            </button>
-            <div class="collapse navbar-collapse new-nav-container" id="navbarScroll">
-                <ul class="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll mh-100" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item nav-margin">
-                        <a href="{{ route('frontend.home') }}" class="nav-link  nav-text">Home</a>
-                    </li>
-                    <li class="nav-item  dropdown nav-margin">
-                        <a class="nav-link dropdown-toggle nav-text" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            About Us
-                            <i class="ri-arrow-down-s-line"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown_border nav-text">
-                            <li><a class="dropdown-item hover-effect border-css"
-                                    href="{{ route('frontend.about') }}">Our Company</a>
-                            </li>
-                            <li><a class="dropdown-item hover-effect border-css"
-                                    href="{{ route('frontend.service') }}">Service</a>
-                            </li>
-                            <li><a class="dropdown-item hover-effect border-css"
-                                    href="{{ route('frontend.event') }}">Events</a>
-                            </li>
-                            <li><a class="dropdown-item hover-effect border-css" href="{{ route('frontend.team') }}">Our
-                                    Teams</a>
-                            </li>
-                            <li><a class="dropdown-item hover-effect border-css"
-                                    href="{{ route('frontend.messagefromfounder') }}">Message From Ceo</a>
-                            </li>
-                            {{-- <li><a class="dropdown-item hover-effect border-css"
-                                    href="{{ route('frontend.gallery')}}">Gallery</a>
-                            </li> --}}
-                            <li class="">
-                                <a href="{{ route('frontend.studentvoice') }}"
-                                    class="dropdown-item hover-effect border-css">Student
-                                    Voice</a>
-                            </li>
-                            <li><a class="dropdown-item hover-effect border-css"
-                                    href="{{ route('frontend.testimonial') }}">Testimonial</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item  dropdown nav-margin">
-                        <a class="nav-link dropdown-toggle nav-text" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Study Abroad
-                            <i class="ri-arrow-down-s-line"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown_border nav-text">
-                            @foreach ($footer_countries as $country)
-                                <li><a class="dropdown-item hover-effect border-css"
-                                        href="{{ route('frontend.abroadsingle', $country->slug) }}">{{ $country->title }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown nav-margin">
-                        <a class="nav-link dropdown-toggle nav-text" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Our Courses
-                            <i class="ri-arrow-down-s-line"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown_border nav-text">
-                            @foreach ($footer_course as $course)
-                                <li><a class="dropdown-item hover-effect border-css"
-                                        href="{{ route('frontend.coursesingle', $course->slug) }}">{{ $course->title }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    {{-- <li class="nav-item dropdown nav-margin">
-                        <a class="nav-link dropdown-toggle nav-text" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Our Services
-                            <i class="ri-arrow-down-s-line"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown_border nav-text">
-                            @foreach ($footer_services as $service)
-                            <li><a class="dropdown-item hover-effect border-css"
-                                    href="{{ route('frontend.servicesingle', $service->slug) }}">{{ $service->title
-                                    }}</a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </li> --}}
 
-                    <li class="nav-item nav-margin">
-                        <a href="{{ route('frontend.blog') }}" class="nav-link  nav-text">Blog</a>
-                    </li>
-                    {{-- <li class="nav-item nav-margin">
-                        <a href="{{ route('frontend.studentvoice') }}" class="nav-link  nav-text">Student Voice</a>
-                    </li> --}}
-                    <li class="nav-item nav-margin"><a class="nav-link  nav-text"
-                            href="{{ route('frontend.gallery')}}">Gallery</a>
-                    </li>
-                    <li class="nav-item nav-margin">
-                        <a href="{{ route('frontend.contact') }}" class="nav-link  nav-text">Contact Us</a>
-                    </li>
+    <div class="main-header-wraper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="header-logo">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}"
+                                        alt="logo">
+                                </a>
+                            </div>
+                        </div>
 
+                        <div class="header-menu d-none d-xl-block">
+                            <div class="main-menu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Home</a>
+                                        {{-- <ul>
+                                            <li><a href="index.html">home 1</a></li>
+                                            <li><a href="index-2.html">home 2</a></li>
+                                            <li><a href="index-3.html">home 3</a></li>
+                                            <li><a href="index-4.html">home 4</a></li>
+                                            <li><a href="index-5.html">home 5</a></li>
+                                        </ul> --}}
+                                    </li>
+                                    <li>
+                                        <a>About us</a>
 
-                </ul>
-                <a href="{{ route('frontend.register') }}">
-                    <button class="custom-btn btn-8"><span>Register <i
-                                class="ri-arrow-right-up-line"></i></span></button>
-                </a>
-                {{-- <div id="google_translate_element"></div> --}}
+                                        <ul>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="table.html">Pricing Table</a></li>
+                                            <li><a href="team.html">Team</a></li>
+                                            {{-- <li><a href="team-details.html">Team Details</a></li>
+                                            <li><a href="services-details.html">Services Details</a></li>
+                                            <li><a href="our-project-details.html">Our Project Details</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="404.html">404</a></li> --}}
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="services.html">Countries</a>
 
+                                        <ul>
+                                            <li><a href="services.html">Our Services 1</a></li>
+                                            <li><a href="services-2.html">Our Services 2</a></li>
+                                        </ul>
+                                    </li>
 
+                                    <li>
+                                        <a href="our-project.html">Our Courses</a>
+                                    </li>
+                                    <li>
+                                        <a href="blog.html">Blog</a>
+
+                                        <ul>
+                                            <li><a href="blog.html">Blog 1</a></li>
+                                            <li><a href="blog-standard.html">Blog 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="our-project.html">Contact us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="header-right d-flex align-items-center">
+                            <div class="header-search">
+                                <a class="search-toggle" data-selector=".header-search">
+                                    <span class="fas fa-search"></span>
+                                </a>
+
+                                <form class="search-box" action="#" method="get">
+                                    <div class="form-group d-flex align-items-center">
+                                        <input type="search" name="s" value="" class="search-input" id="search"
+                                            placeholder="Search">
+                                        <button type="submit" class="search-submit"><i
+                                                class="fas fa-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <a href="contact.html" class="header-btn">Get A Quote <i
+                                    class="far fa-chevron-double-right"></i></a>
+                            <div class="mobile-nav-bar d-block ml-3 ml-sm-5 d-xl-none">
+                                <div class="mobile-nav-wrap">
+                                    <div id="hamburger">
+                                        <i class="fal fa-bars"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-    </nav>
+    </div>
+    <!-- mobile menu - responsive menu  -->
+    <div class="mobile-nav mobile-nav-red">
+        <button type="button" class="close-nav">
+            <i class="fal fa-times-circle"></i>
+        </button>
+        <nav class="sidebar-nav">
+            <div class="navigation">
+                <div class="consulter-mobile-nav">
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                            {{-- <ul>
+                                <li><a href="index.html">home 1</a></li>
+                                <li><a href="index-2.html">home 2</a></li>
+                                <li><a href="index-3.html">home 3</a></li>
+                                <li><a href="index-4.html">home 4</a></li>
+                                <li><a href="index-5.html">home 5</a></li>
+                            </ul> --}}
+                        </li>
+                        <li>
+                            <a>About us</a>
+
+                            <ul>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="table.html">Pricing Table</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                {{-- <li><a href="team-details.html">Team Details</a></li>
+                                <li><a href="services-details.html">Services Details</a></li>
+                                <li><a href="our-project-details.html">Our Project Details</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                                <li><a href="404.html">404</a></li> --}}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="services.html">Countries</a>
+
+                            <ul>
+                                <li><a href="services.html">Our Services 1</a></li>
+                                <li><a href="services-2.html">Our Services 2</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="our-project.html">Our Courses</a>
+                        </li>
+                        <li>
+                            <a href="blog.html">Blog</a>
+
+                            <ul>
+                                <li><a href="blog.html">Blog 1</a></li>
+                                <li><a href="blog-standard.html">Blog 2</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="our-project.html">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav__bottom mt-20">
+                    <div class="sidebar-nav__bottom-contact-infos mb-20">
+                        <h6 class="color-black mb-5">Contact Info</h6>
+                        <ul>
+                            {{-- <li><a><i class="fal fa-clock"></i> Mon – Fri: 8.00 – 18.00</a></li> --}}
+                            <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i
+                                        class="icon-email"></i>{{ $settings['site_email'] ?? '' }}</a>
+                            </li>
+                            <li>
+                                <a class="header-contact d-flex align-items-center">
+                                    <div class="icon">
+                                        <i class="icon-call"></i>
+                                        <!-- <img src="assets/img/icon/phone-1.svg" alt=""> -->
+                                    </div>
+                                    <div class="text">
+                                        <span class="font-la mb-5 d-block fw-500">Contact For Support</span>
+                                        <h5 class="fw-500">{{ $settings['site_phone'] ?? '' }}</h5>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-nav__bottom-social">
+                        <h6 class="color-black mb-5">Follow On:</h6>
+
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="offcanvas-overlay"></div>
+    <!-- offcanvas-overlay -->
+    <!-- header end -->
+
+    <div class="header-gutter home"></div>
+    <!-- header end -->
 </header>

@@ -1,158 +1,127 @@
-<footer class="footer-class relative "
-    style="background-image: url('{{ asset('frontend/assets/image/fotter.png') }}'); background-size: cover; background-position: center; ">
-    <div class="fotter-section-background">
-        <div class="top-bar-fotter py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 d-flex gap-4 align-items-center justify-content-center ">
-                        <img src="{{asset('frontend/assets/images/support1.png')}}" alt=""> <a
-                            href="tel:{{ $settings['site_phone'] ?? '+123456789' }}" class="fotter-headings">Reach Out
-                            to Our Consultant <span
-                                class="contact-info">{{ $settings['site_phone'] ?? '98777776' }}</span> </a>
-                    </div>
-                    <div class="col-lg-4 d-flex gap-4 align-items-center justify-content-center">
-                        <img src="{{asset('frontend/assets/images/email.png')}}" alt=""> <a
-                            href="{{ $settings['contact_email'] ?? 'asmita' }}" class="fotter-headings">{{
-                            $settings['site_email'] ?? 'abc@gmail.com' }} </a>
-                    </div>
-                    <div class="col-lg-4">
-                        @if ($socials->isNotEmpty())
-                            <div class="d-flex gap-4 align-items-center justify-content-center footer-social">
-                                <h4 class="mt-2 fotter-headings">Follow Us</h4>
-                                @foreach ($socials as $item)
-                                    <a href="{{ $item->link }}" target="_blank"><i class="{{ $item->icon }} social-icon">
-                                        </i></a>
-                                @endforeach
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container  pt-5 ">
-            <div class="row w-100 py-2">
-                <div class="col-lg-3 col-sm-6 mb-3 d-flex  align-lg-items-center justify-lg-content-center">
-                    <div>
-                        <div class="d-flex align-items-center justify-content-center"><img
-                                src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('frontend/assets/images/logo.png') }}"
-                                class="fotter-img " alt="logo"></div>
-                        <div class="site-descrption  fotter-css py-2">
-                            <p class="text-center">{{$settings['site_information']}}</p>
-                            <div class="d-flex gap-2 py-1 f-text align-items-center justify-content-center"><i
-                                    class="ri-map-pin-line icons-css"></i>
-                                <p> {{ $settings['site_location'] ?? 'Kathmandu,Nepal' }}</p>
-                            </div>
-                            <div class="d-flex gap-2 py-1 f-text  align-items-center justify-content-center"><i
-                                    class="ri-phone-fill icons-css"></i>
-                                <a
-                                    href="tel:{{ $settings['site_phone'] ?? '+123456789' }}">{{ $settings['site_phone'] ?? '98777776' }}</a>
-                            </div>
+<!-- footer start -->
+<footer class="footer-1 footer-3 overflow-hidden" style="background-image: url(assets/img/footer/footer-bg-3.png);">
+    <div class="overly">
+        <div class="container"></div>
+    </div>
+
+    <div class="footer-top__box pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 wow fadeInUp" data-wow-delay=".5s">
+                    <div class="footer-top__box-wrapper d-flex flex-column flex-sm-row text-center text-sm-start justify-content-sm-between align-items-center"
+                        style="background-image: url(assets/img/footer/footer-box-bg.png);">
+                        <div class="text">
+                            <h3 class="title color-white">Get updated Informed to Subscribe our Newsletter</h3>
+                        </div>
+
+                        <div class="theme-btn__wrapper d-flex flex-column">
+                            <input type="email" class="theme-btn" placeholder="Your e-mail">
+                            <a href="#" class="theme-btn">Subscribe Now</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="col-lg-3 col-6 mb-3 mt-lg-0 mt-3">
-                    <h5 class="fotter-headings">Useful links</h5>
-                    <ul class="nav flex-column fotter-text fotter-css">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-6 col-xl-3">
+                <div class="single-footer-wid widget-description">
+                    <a href="index.html" class="d-block mb-30 mb-xs-20">
+                        <img src="assets/img/logo/footer-logo-3.png" alt="">
+                    </a>
 
-                        <li class="nav-item fotter-link mb-2">
-                            <a href="" class="nav-link p-0 ">
-                                About us
-                            </a>
-                        </li>
+                    <div class="description font-la color-white mb-40 mb-sm-30 mb-xs-25">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua ut enim ad minim veniam</p>
+                    </div>
 
-                        {{-- <li class="nav-item fotter-link mb-2">
-                            <a href="" class="nav-link p-0">
-                                Our Team
-                            </a>
-                        </li> --}}
-                        {{-- <li class="nav-item fotter-link mb-2">
-                            <a href="" class="nav-link p-0">
-                                Why Chooose US
-                            </a>
-                        </li> --}}
-                        <li class="nav-item fotter-link mb-2">
-                            <a href="" class="nav-link p-0">
-                                Study Destination
-                            </a>
-                        </li>
-                        <li class="nav-item fotter-link mb-2">
-                            <a href="" class="nav-link p-0">
-                                Our Courses
-                            </a>
-                        </li>
-                        <li class="nav-item fotter-link mb-2">
-                            <a href="" class="nav-link p-0">
-                                Our Services
-                            </a>
-                        </li>
-                        <li class="nav-item fotter-link mb-2">
-                            <a href="" class="nav-link p-0">
-                                Blogs
-                            </a>
-                        </li>
-                        <li class="nav-item fotter-link mb-2">
-                            <a href="" class="nav-link p-0 ">
-                                Contact Us
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6 mb-3 mt-lg-0 mt-3">
-                    <h5 class="fotter-headings ">Our Services</h5>
-                    <ul class="nav flex-column fotter-text  fotter-css">
-                        @foreach ($footer_services as $service)
-                            <li class="nav-item mb-2 fotter-link"><a href="" class="nav-link p-0 ">{{ $service->title }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6 mb-3 mt-lg-0 mt-3">
-                    <h5 class="fotter-headings">Study Abroad</h5>
-                    <ul class="nav flex-column fotter-text fotter-css">
-                        @foreach ($footer_countries as $country)
-                            <li class="nav-item fotter-link mb-2"><a
-                                    href="{{ route('frontend.abroadsingle', $country->slug) }}"
-                                    class="nav-link p-0 ">{{ $country->title }}</a></li>
-                        @endforeach
-                        <li class="nav-item fotter-link mb-2">
-                            <a href="{{ route('frontend.abroad') }}" class="nav-link p-0 ">
-                                View All
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6 mb-3 mt-lg-0 mt-3">
-                    <h5 class="fotter-headings ">Our Courses</h5>
-                    <ul class="nav flex-column fotter-text  fotter-css">
-                        @foreach ($footer_course as $course)
-                            <li class="nav-item fotter-link mb-2"><a
-                                    href="{{ route('frontend.coursesingle', $course->slug) }}"
-                                    class="nav-link p-0 ">{{ $course->title }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6 mb-3 mt-lg-0 mt-3">
-                    {{-- <iframe
-                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fofficialroutineofnepalbanda%2Fposts%2Fpfbid02FmjRtzxQWV8kxjuz5ThVFTQSY3zas2Ai1hvVA5NUcUfBxK8KSSyadGPwHkRV8D8il&show_text=false&width=500"
-                        width="240" height="240" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                        allowfullscreen="true"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> --}}
-                    <iframe
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdearbandu&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-                        width="240" height="240" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                        allowfullscreen="true"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <a href="#" class="theme-btn btn-red btn-md fw-600">Purchase Now <i
+                            class="far fa-chevron-double-right"></i></a>
                 </div>
             </div>
+            <!-- /.col-lg-3 - single-footer-wid -->
 
+            <div class="col-md-6 col-xl-2">
+                <div class="single-footer-wid pl-xl-10 pl-50">
+                    <h4 class="wid-title mb-30 color-white">Quick Link</h4>
+
+                    <ul>
+                        <li><a href="about.html">About Company</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="services-2.html">Investor Presentation</a></li>
+                        <li><a href="table.html">Investor Career</a></li>
+                        <li><a href="team.html">Meet Our Team</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.col-lg-2 - single-footer-wid -->
+
+            <div class="col-md-6 col-xl-4">
+                <div class="single-footer-wid recent_post_widget pl-xl-10 pl-65 pr-50 pr-xl-30">
+                    <h4 class="wid-title mb-30 color-white">Resent Post</h4>
+
+                    <div class="recent-post-list">
+                        <a href="blog.html" class="single-recent-post mb-20 pb-20 d-flex align-items-center">
+                            <div class="thumb">
+                                <img src="assets/img/footer/resent-post-1.png" alt="">
+                            </div>
+
+                            <div class="post-data">
+                                <h5 class="color-white mb-10 fw-600">Why Purpose-Driven Employers Succeed</h5>
+                                <span class="color-white d-flex ailign-items-center"><i class="far fa-clock"></i>January
+                                    11, 2018</span>
+                            </div>
+                        </a>
+
+                        <a href="blog.html" class="single-recent-post mb-20 pb-20 d-flex align-items-center">
+                            <div class="thumb">
+                                <img src="assets/img/footer/resent-post-2.png" alt="">
+                            </div>
+
+                            <div class="post-data">
+                                <h5 class="color-white mb-10 fw-600">Saving Time Achieving Success in Business</h5>
+                                <span class="color-white d-flex ailign-items-center"><i
+                                        class="far fa-clock"></i>november 12, 2019</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-4 - single-footer-wid -->
+
+            <div class="col-md-6 col-xl-3">
+                <div class="single-footer-wid">
+                    <h4 class="wid-title mb-30 color-white">Office Location</h4>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.6288889943407!2d89.24179957479988!3d24.008878578805188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe9bfb7d4038fb%3A0x2e698dd3196ad36f!2sRRDevs!5e0!3m2!1sen!2sbd!4v1707636832892!5m2!1sen!2sbd"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <!-- /.col-lg-3 - single-footer-wid -->
         </div>
+    </div>
 
+    <div class="footer-bottom overflow-hidden mt-20 mt-sm-15 mt-xs-10">
+        <div class="container">
+            <div
+                class="footer-bottom-content d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div class="coppyright text-center text-md-start">
+                    © 2024 <a href="index.html">Consulter</a> | All Rights Reserved by <a
+                        href="https://themeforest.net/user/rrdevs">RRDevs</a>
+                </div>
 
-        <div class=" my-2 p-2 botton-bar-fotter  text-center">
-            <p>
-                {{ $settings['site_copyright'] ?? 'u00a9 2024 Company, Inc. All rights reserved' }}
-            </p>
+                <div class="footer-bottom-list last_no_bullet">
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
+<!-- footer end -->

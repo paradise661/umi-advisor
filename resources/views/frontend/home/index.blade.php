@@ -1,677 +1,1107 @@
 @section('seo')
     @include('frontend.seo', [
-    'name' => $settings['homepage_title'] ?? '',
-    'title' => $settings['homepage_seo_title'] ?? '',
-    'description' => $settings['home_seo_description'] ?? '',
-    'keyword' => $settings['homepage_seo_keywords'] ?? '',
-    'created_at' => '2024-04-26T08:09:15+00:00',
-    'updated_at' => '2024-04-26T10:54:05+00:00',
-])
+        'name' => $settings['homepage_title'] ?? '',
+        'title' => $settings['homepage_seo_title'] ?? '',
+        'description' => $settings['home_seo_description'] ?? '',
+        'keyword' => $settings['homepage_seo_keywords'] ?? '',
+        'created_at' => '2024-04-26T08:09:15+00:00',
+        'updated_at' => '2024-04-26T10:54:05+00:00',
+    ])
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
-           {{-- @if ($sliders->count())
-    <section class="md:py-5 pb-4 py-5 slider-section">
-        <div class="container">
-            <div id="homeSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
-                <div class="carousel-inner">
-                    @foreach($sliders as $key => $slider)
-                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                            <div class="row center">
-                                 Text area 
-                                <div class="col-lg-6 d-flex justify-items-start align-items-center">
-                                    <div>
-                                        <div class="heading-title mb-3">
-                                            <h1>{{ $slider->title }},
-                                                <span>{{ $slider->short_description }}</span>
-                                            </h1>
-                                        </div>
-                                        <div class="text-css mb-3">
-                                            {!! $slider->description !!}
-                                        </div>
-                                        <a class="d-flex align-items-center justify-content-start mb-5" href="/contact-us">
-                                            <button class="custom-btn btn-8">
-                                                <span>Contact Us <i class="ri-arrow-right-up-line"></i></span>
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
 
-                                 Image area 
-                                <div class="col-lg-6 p-0">
-                                    <div class="home-img-border">
-                                        <div class="home-img-wrapper">
-                                            <div class="img-line">
-                                                <div class="position-relative img-zindex my-3 w-100">
-                                                    <img class="home-banner-img d-block w-100"
-                                                         src="{{ asset($slider->image) }}"
-                                                         alt="slider image">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>  row end
+
+
+
+    <!-- banner-home start -->
+    <section class="banner-home overflow-hidden pt-lg-100 pt-md-90 pt-sm-80 pt-xs-70">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <div class="banner-home__content pb-lg-60 pb-md-50 pb-sm-45 pb-xs-40 wow fadeInLeft" data-wow-delay=".5s">
+                        <h6 class="sub-title color-white mb-20 mb-sm-15 mb-xs-10 d-inline-block">{{ $sliders->short_description }}</h6>
+                        <h1 class="title color-white fw-bold mb-20 mb-sm-15 mb-xs-10">{{ $sliders->title }}</h1>
+
+                        <div class="description font-la color-white mb-45 mb-md-30 mb-sm-25 mb-xs-20">
+                            <p>{!! $sliders->description !!}</p>
                         </div>
-                    @endforeach
+
+                        <div class="theme-btn__wrapper d-flex flex-wrap">
+                            <a href="blog.html" class="theme-btn fw-600 btn-red">Read more <i class="far fa-chevron-double-right"></i></a>
+                            {{-- <a href="about.html" class="theme-btn fw-600 btn-white-border">Read More <i class="far fa-chevron-double-right"></i></a> --}}
+                        </div>
+                    </div>
+
                 </div>
 
-                Prev/Next buttons 
-                <button id="prev-icon" class="carousel-control-prev" type="button" data-bs-target="#homeSlider" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button id="next-icon" class="carousel-control-next" type="button" data-bs-target="#homeSlider" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <div class="col-xl-6">
+                    <div class="banner-home__media">
+                        <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt="">
+                        <img src="assets/img/banner/banner-home.png" class="img-fluid" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    @endif --}}
-    @if ($sliders->count())
-        <section class="md:py-5 pb-4 slider-section">
-            <div class="container-fluid p-0">
-                                        <div id="homeSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
-                    <div class="carousel-inner">
-                        @foreach($sliders as $key => $slider)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <!-- Background Image -->
-                                <div class="slider-bg" style="background-image: url('{{ asset($slider->image) }}');">
-                                    <div class="slider-overlay"></div>
+    <!-- banner-home end -->
 
-                                    <!-- Text Content on top -->
-                                    <div class="carousel-caption text-start d-flex flex-column justify-content-center h-100">
-                                        <div class="heading-title mb-3">
-                                            <h1 class="text-white fw-bold">
-                                                {{ $slider->title }},
-                                                <span>{{ $slider->short_description }}</span>
-                                            </h1>
-                                        </div>
-                                        <div class="text-css mb-3 text-white">
-                                            {!! $slider->description !!}
-                                        </div>
-                                            <a class="d-flex align-items-center justify-content-start mb-5" href="/contact-us">
-                                                    <button class="custom-btn btn-8">
-                                                            <span>Contact Us <i class="ri-arrow-right-up-line"></i></span>
-                                                                    </button>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                        @endforeach
-                                </div>
-
-                                 <!--   Prev/Next buttons -->
-                                <button id="prev-icon" class="carousel-control-prev" type="button" data-bs-target="#homeSlider" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                            </button>
-                                            <button id="next-icon" class="carousel-control-next" type="button" data-bs-target="#homeSlider" data-bs-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="visually-hidden">Next</span>
-                                            </button>
-                                        </div>
+    <div class="our-company-financial overflow-hidden">
+        <div class="overly">
+            <div class="container"></div>
+        </div>
+        <!-- financial-area start -->
+        <section class="financial pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+            <div class="container">
+                <div class="row mb-minus-30">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".3s" style="background-image: url(assets/img/home/financial__item-bg.png)">
+                            <div class="icon">
+                                <img src="assets/img/icon/growth.svg" alt="">
+                                <!-- <i class="fal fa-analytics"></i> -->
                             </div>
-                        </section>
-    @endif
-            @foreach ($popup as $popups)
-            <!-- Bootstrap Modal -->
-            <div class="modal fade" id="popupModal{{ $popups->id }}" tabindex="-1" aria-labelledby="popupModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="d-flex">
-                            <div class="modal-headerpopup">
-                                <button class="btn-close red-close-btn" data-bs-dismiss="modal" type="button"
-                                    aria-label="Close">
-                                </button>
+
+                            <div class="text">
+                                <h6 class="title color-pd_black mb-10 mb-xs-5">Business Strategy</h6>
+
+                                <div class="description font-la">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="modal-body text-center">
-                            @if ($popups->image)
-                                <img class="img-fluid popup-img" src="{{ asset($popups->image) }}" alt="Popup Image"
-                                    style=" object-fit: fill;">
-                            @endif
+                    </div>
+
+                    <div class="col-xl-4 col-md-6">
+                        <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".5s" style="background-image: url(assets/img/home/financial__item-bg.png)">
+                            <div class="icon">
+                                <img src="assets/img/icon/planning-1.svg" alt="">
+                                <!-- <i class="fal fa-analytics"></i> -->
+                            </div>
+
+                            <div class="text">
+                                <h6 class="title color-pd_black mb-10 mb-xs-5">Financial Planning</h6>
+
+                                <div class="description font-la">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6">
+                        <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".7s" style="background-image: url(assets/img/home/financial__item-bg.png)">
+                            <div class="icon">
+                                <img src="assets/img/icon/international.svg" alt="">
+                                <!-- <i class="fal fa-analytics"></i> -->
+                            </div>
+
+                            <div class="text">
+                                <h6 class="title color-pd_black mb-10 mb-xs-5">International Business</h6>
+
+                                <div class="description font-la">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Auto Trigger Script -->
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    var myModal = new bootstrap.Modal(document.getElementById('popupModal{{ $popups->id }}'));
-                    myModal.show();
-                });
-            </script>
-        @endforeach
-            {{-- <video src="{{asset('frontend/assets/image/student.mp4')}}" controls></video> --}}
-            {{-- counter section --}}
-             <section class="counter-section service-section d-none d-md-block" >
-                <div class="container">
-                    <div class="row col-xl-7 justify-content-start align-items-center">
-                        <div class="col-md-4 col-6">
-                            <div class="homebanner-card p-3 text-center">
-                                <div class=" d-flex align-items-center justify-content-center">
-                                    <img class=" icon-image" src={{ $settings['home_counter_scholarship_img'] ? asset($settings['home_counter_scholarship_img']) : asset('frontend/assets/image/icon1.png') }} alt="">
-                                </div>
-                                <div class="homecard-text-num">
-                                    <p>{{ $settings['home_counter_scholarship'] ?? '' }}</p>
-                                </div>
-                                <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                    {{ $settings['home_counter_scholarship_title'] ?? '' }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-6">
-                            <div class="homebanner-card p-3 text-center">
-                                <div class=" d-flex align-items-center justify-content-center">
-                                    <img class=" icon-image" src={{ $settings['home_counter_students_img'] ? asset($settings['home_counter_students_img']) : asset('frontend/assets/image/icon1.png') }} alt="">
-                                </div>
-                                <div class="homecard-text-num">
-                                    <p>{{ $settings['home_counter_students'] ?? '' }}</p>
-                                </div>
-                                <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                    {{ $settings['home_counter_students_title'] ?? '' }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-6">
-                            <div class="homebanner-card p-3 text-center">
-                                <div class=" d-flex align-items-center justify-content-center">
-                                    <img class=" icon-image" src={{ $settings['home_counter_enrolled_img'] ? asset($settings['home_counter_enrolled_img']) : asset('frontend/assets/image/icon1.png') }} alt="">
-                                </div>
-                                <div class="homecard-text-num">
-                                    <p>{{ $settings['home_counter_enrolled'] ?? '' }} </p>
-                                </div>
-                                <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                    {{ $settings['home_counter_enrolled_title'] ?? '' }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> 
+        </section>
+        <!-- financial-area end -->
 
-            {{-- @endif --}}
-            <section class="service-section py-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 d-flex justify-content-center align-items-center"data-aos="fade-right"  data-aos-duration="2000">
-                            <div class="service-content-container">
-                                <h6 class="my-2">{{ $settings['services_title'] ?? '' }}</h6>
-                                <h3 class="my-2"> {{ $settings['services_subtitle'] ?? '' }}</h3>
-                                <p class="text-css-counter">
-                                    {{ $settings['services_description'] ?? '' }}
-                                </p>
-                                <a class="d-flex align-items-center justify-content-start my-3" href=""> <button
-                                        class="custom-btn btn-8"><span>Explore All <i
-                                                class="ri-arrow-right-up-line"></i></span></button></a>
+        <!-- our-company start -->
+        <section class="our-company pb-xs-80 pb-100 overflow-hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="our-company__meida wow fadeInUp" data-wow-delay=".3s">
+                            <img src="assets/img/about/our-company-1.png" alt="" class="img-fluid">
+
+                            <div class="years-experience overflow-hidden bg-red mt-20 mt-sm-10 mt-xs-10 text-center">
+                                <div class="number mb-5 color-white">
+                                    <span class="counter">23</span><sup>+</sup>
+                                </div>
+
+                                <h5 class="title color-white">Years Experience</h5>
                             </div>
                         </div>
-                        <div class="col-lg-6" data-aos="fade-left"  data-aos-duration="2000">
-                            <div class="row">
-                                @foreach ($services as $service)
-                                    <div class="col-lg-6 py-2">
-                                        <div class="service-card">
-                                            <!-- Floating Arrow Icon -->
-                                            <div class="arrow-icon">
-                                                <i class="ri-arrow-right-up-line"></i>
-                                            </div>
-                                            <!-- Icon -->
-                                            <div class="service-icon">
-                                                <img src="{{ asset($service->image) }}" alt="{{ $service->title }}" />
-                                            </div>
-                                            <!-- Title -->
-                                            <h3 class="line-clamp-1">{{ $service->title }}</h3>
-                                            <!-- Description -->
-                                            <div class="line-clamp-3"><p>{{($service->short_description) }}</p></div>
-                                            <!-- Read More Link -->
-                                            <a href="{{ route('frontend.servicesingle', $service->slug) }}" class="read-more pt-2">
-                                                Read More <i class="ri-arrow-right-line"></i>
-                                            </a>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="our-company__meida border-radius wow fadeInUp" data-wow-delay=".5s">
+                            <img src="assets/img/about/our-company-2.png" alt="" class="img-fluid">
+
+                            <div class="horizental-bar bg-red"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="our-company__content mt-md-50 mt-sm-40 mt-xs-35 wow fadeInUp" data-wow-delay=".7s">
+                            <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-20 d-block"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Know Our Company</span>
+                            <h2 class="title color-pd_black mb-20 mb-sm-15 mb-xs-10">Our Company Provide High Quality Idea</h2>
+
+                            <div class="descriiption font-la mb-30 mb-md-25 mb-sm-20 mb-xs-15">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+                            </div>
+
+                            <div class="client-feedback d-flex flex-column flex-sm-row">
+                                <div class="client-feedback__item client-feedback__item-two text-center">
+                                    <div class="client-feedback__item-header">
+                                        <span class="color-red font-la fw-600 text-uppercase">Success Project</span>
+                                    </div>
+
+                                    <div class="client-feedback__item-body">
+                                        <div class="number mb-10 mb-xs-5 color-pd_black fw-600">+<span class="counter">95</span>%</div>
+                                        <div class="description font-la mb-10 mb-xs-5">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
+                                        </div>
+                                        <div class="starts">
+                                            <ul>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                @endforeach
+                                </div>
+
+                                <div class="client-feedback__item client-feedback__item-two text-center">
+                                    <div class="client-feedback__item-header">
+                                        <span class="color-red font-la fw-600 text-uppercase">Customer Review</span>
+                                    </div>
+
+                                    <div class="client-feedback__item-body">
+                                        <div class="number mb-10 mb-xs-5 color-pd_black fw-600">+<span class="counter">4.7</span></div>
+                                        <div class="description font-la mb-10 mb-xs-5">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
+                                        </div>
+                                        <div class="starts">
+                                            <ul>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            {{-- about us section --}}
-            <section class="about-us-section py-5">
-                <div class="container">
-                    <div class="row">
-                        {{-- Image --}}
-                        <div class="col-lg-6 d-flex align-items-center justify-content-center"  data-aos="fade-up" data-aos-duration="2000">
-                            <div class="about-us-img">
-                                <img src="{{ asset($about_us->image_1) }}" alt="{{ $about_us->title }}">
+            </div>
+        </section>
+        <!-- our-company end -->
+    </div>
+
+    <!-- planning-success start -->
+    <section class="planning-success pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-130 overflow-hidden" style="background-image: url(assets/img/home/planning-success-bg.png);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-9">
+                    <div class="planning-success__content mb-xs-35 wow fadeInUp" data-wow-delay=".3s">
+                        <h2 class="title mb-20 mb-sm-15 mb-xs-10 color-white">Good Business Planning Ensures Success.</h2>
+
+                        <div class="description font-la color-white mb-40 mb-sm-30 mb-xs-20">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        </div>
+
+                        <a href="services.html" class="theme-btn btn-sm btn-red">View All Services <i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="planning-success__video wow fadeInUp" data-wow-delay=".5s">
+                        <a href="https://www.youtube.com/watch?v=9xwazD5SyVg" class="popup-video mx-auto" data-effect="mfp-move-from-top"><i class="icon-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- planning-success end -->
+
+    <!-- why-choose start -->
+    <section class="why-choose why-choose__home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="why-choose__content why-choose__content-home wow fadeInUp" data-wow-delay=".3s">
+                        <div class="why-choose__text">
+                            <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our solutions</span>
+                            <h2 class="title color-pd_black">Developing Solutions For The Future</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="why-choose__content why-choose__content-home mt-md-25 mt-sm-20 mt-xs-20 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="description font-la">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+                        </div>
+
+                        <a href="services-2.html" class="theme-btn btn-sm btn-red mt-30 mt-sm-25 mt-xs-20">View All Services <i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="why-choose__item-wrapper why-choose__item-two-wrapper d-grid justify-content-between mt-60 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp" data-wow-delay=".7s">
+                        <div class="why-choose__item why-choose__item-two" style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
+                            <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
+                                <i class="icon-consultation"></i>
+                            </div>
+
+                            <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">Business Consulting</h6>
+
+                            <div class="description font-la mb-20 mb-sm-15 mb-xs-10">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntu.</p>
+                            </div>
+
+                            <a href="services-details.html" class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
+                        </div>
+
+                        <div class="why-choose__item why-choose__item-two" style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
+                            <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
+                                <i class="icon-lawyer"></i>
+                            </div>
+
+                            <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">Lawyer Consulting</h6>
+
+                            <div class="description font-la mb-20 mb-sm-15 mb-xs-10">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntu.</p>
+                            </div>
+
+                            <a href="services-details.html" class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
+                        </div>
+
+                        <div class="why-choose__item why-choose__item-two" style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
+                            <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
+                                <i class="icon-financial"></i>
+                            </div>
+
+                            <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">Financial Consulting</h6>
+
+                            <div class="description font-la mb-20 mb-sm-15 mb-xs-10">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntu.</p>
+                            </div>
+
+                            <a href="services-details.html" class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
+                        </div>
+
+                        <div class="why-choose__item why-choose__item-two" style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
+                            <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
+                                <i class="icon-management"></i>
+                            </div>
+
+                            <h6 class="title -pd_black secondary-500 6b-15 mb-xs-10">IT Management</h6>
+
+                            <div class="description font-la mb-20 mb-sm-15 mb-xs-10">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntu.</p>
+                            </div>
+
+                            <a href="services-details.html" class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- why-choose end -->
+
+    <!-- get-free end -->
+    <section class="get-free get-free-home overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="get-free__content-wrapper overflow-hidden" style="background-image: url(assets/img/services/get-free-bg.png);">
+                        <div class="get-free__content d-flex align-items-center justify-content-between">
+                            <div class="get-free__content-text wow fadeInUp" data-wow-delay=".3s">
+                                <h2 class="title mb-10 mb-xs-5 color-white">Get Free Quote</h2>
+
+                                <div class="description color-white font-la fw-500">
+                                    Perfect solution for your Company
+                                </div>
+                            </div>
+
+                            <div class="get-free__content-form wow fadeInUp" data-wow-delay=".3s">
+                                <form class="d-flex flex-column flex-lg-row">
+                                    <div class="single-personal-info">
+                                        <input type="text" placeholder="Your Name">
+                                    </div>
+                                    <div class="single-personal-info">
+                                        <input type="email" placeholder="Your e-mail">
+                                    </div>
+
+                                    <button type="submit" class="theme-btn btn-sm">Get Quote <i class="far fa-chevron-double-right"></i></button>
+                                </form>
                             </div>
                         </div>
-                        {{-- Content --}}
-                        <div class="col-lg-6 d-flex align-items-center justify-content-center"  data-aos="fade-up" data-aos-duration="2000">
-                            <div class="service-content-container">
-                                <h6 class="my-2">{{ $about_us->title ?? 'About us' }}</h6>
-                                <h3 class="my-2">{{ $about_us->short_description }}</h3>
-                                <div class="text-css-counter line-clamp-14">
-                                    {!! $about_us->description !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- get-free end -->
+
+    <!-- work-process end -->
+    <section class="work-process work-process-home bg-dark_red pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="pricing__content mb-60 mb-sm-40 mb-xs-30 text-center wow fadeInUp" data-wow-delay=".3s">
+                        <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our Work Process</span>
+                        <h2 class="title color-pd_black">How Our Services Work</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-minus-30 last_no_bullet">
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".3s">
+                        <div class="icon-wrapper d-flex">
+                            <div class="icon">
+                                <i class="icon-research"></i>
+                            </div>
+
+                            <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 1</button>
+                        </div>
+
+                        <div class="text">
+                            <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Research Your Problem</h6>
+
+                            <div class="description font-la">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".5s">
+                        <div class="icon-wrapper d-flex">
+                            <div class="icon">
+                                <i class="icon-worker-1"></i>
+                            </div>
+
+                            <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 2</button>
+                        </div>
+
+                        <div class="text">
+                            <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Identifying Problem</h6>
+
+                            <div class="description font-la">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".7s">
+                        <div class="icon-wrapper d-flex">
+                            <div class="icon">
+                                <i class="icon-outline"></i>
+                            </div>
+
+                            <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 3</button>
+                        </div>
+
+                        <div class="text">
+                            <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Solutions Your Problem</h6>
+
+                            <div class="description font-la">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".9s">
+                        <div class="icon-wrapper d-flex">
+                            <div class="icon">
+                                <i class="icon-target-2"></i>
+                            </div>
+
+                            <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 4</button>
+                        </div>
+
+                        <div class="text">
+                            <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Success Your Business</h6>
+
+                            <div class="description font-la">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- work-process end -->
+
+    <!-- our-portfolio-home start -->
+    <section class="our-portfolio-home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="our-portfolio-home__content text-center mb-60 mb-sm-50 mb-xs-40 wow fadeInUp" data-wow-delay=".3s">
+                        <span class="sub-title fw-500  text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block color-red"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our Portfolio</span>
+                        <h2 class="title color-pd_black">Our Consulting Case Study</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-minus-30">
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="featured-thumb">
+                            <div class="media overflow-hidden">
+                                <img src="assets/img/home/our-portfolio-home__item-1.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content d-flex flex-row">
+                            <div class="left">
+                                <div class="post-author mb-5 mb-xs-5 text-uppercase">
+                                    <a href="blog-details.html">Business, Finance</a>
                                 </div>
-                                {{-- Optional Counters (JSON or Relationship Based) --}}
-                                {{-- <div class="row">
-                                    <div class="col-md-3 ">
-                                        <div class=" p-3 text-center">
-                                            <div class=" d-flex align-items-center justify-content-center">
-                                                <img class=" icon-image-about" src={{ asset('frontend/assets/image/icon1.png') }}
-                                                    alt="">
+
+                                <h5 class="color-pd_black mb-15 mb-xs-10"><a href="blog-details.html">Business & Strategy</a></h5>
+                                <div class="description font-la">
+                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
+                                </div>
+                            </div>
+
+                            <div class="btn-link-share">
+                                <a href="blog-details.html" class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly.png)">View Details <i class="icon-arrow-right-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="featured-thumb">
+                            <div class="media overflow-hidden">
+                                <img src="assets/img/home/our-portfolio-home__item-2.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content d-flex flex-row">
+                            <div class="left">
+                                <div class="post-author mb-5 mb-xs-5 text-uppercase">
+                                    <a href="blog-details.html">Financial solution</a>
+                                </div>
+
+                                <h5 class="color-pd_black mb-15 mb-xs-10"><a href="blog-details.html">Financial Reporting</a></h5>
+                                <div class="description font-la">
+                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
+                                </div>
+                            </div>
+
+                            <div class="btn-link-share">
+                                <a href="blog-details.html" class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly.png)">View Details <i class="icon-arrow-right-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 col-12">
+                    <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".7s">
+                        <div class="featured-thumb">
+                            <div class="media overflow-hidden">
+                                <img src="assets/img/home/our-portfolio-home__item-3.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content d-flex flex-row">
+                            <div class="left">
+                                <div class="post-author mb-5 mb-xs-5 text-uppercase">
+                                    <a href="blog-details.html">Business, Consulting</a>
+                                </div>
+
+                                <h5 class="color-pd_black mb-15 mb-xs-10"><a href="blog-details.html">Business Consulting</a></h5>
+                                <div class="description font-la">
+                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
+                                </div>
+                            </div>
+
+                            <div class="btn-link-share">
+                                <a href="blog-details.html" class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly.png)">View Details <i class="icon-arrow-right-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="our-portfolio-home__read-more text-center mt-50 mt-md-40 mt-sm-35 mt-xs-30 wow fadeInUp" data-wow-delay=".3s">
+                        <a href="blog.html" class="theme-btn  btn-border">View All Project <i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our-portfolio-home end -->
+
+    <!-- our-team-home-1 start -->
+    <section class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp" data-wow-delay=".3s">
+                        <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our Member</span>
+                        <h2 class="title color-d_black">Professional Team</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-minus-30">
+                <div class="col-xxl-3 col-lg-4 col-md-6">
+                    <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp" data-wow-delay=".3s">
+                        <div class="media">
+                            <img src="assets/img/team/team-item-10.jpg" class="img-fluid" alt="">
+
+                            <div class="social-profile">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="text d-flex align-items-center justify-content-center">
+                            <div class="left">
+                                <h5 class="title color-white">Stephen Larry</h5>
+                                <span class="position color-white font-la fw-500">Product Manager</span>
+                            </div>
+                        </div>
+
+                        <a href="team-details.html" class="theme-btn text-uppercase">View Ddetails <i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+                <!-- team-item -->
+
+                <div class="col-xxl-3 col-lg-4 col-md-6">
+                    <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp" data-wow-delay=".5s">
+                        <div class="media">
+                            <img src="assets/img/team/team-item-11.jpg" class="img-fluid" alt="">
+
+                            <div class="social-profile">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="text d-flex align-items-center justify-content-center">
+                            <div class="left">
+                                <h5 class="title color-white">Nusrat Jahan</h5>
+                                <span class="position color-white font-la fw-500">Assistent Manager, Finance</span>
+                            </div>
+                        </div>
+
+                        <a href="team-details.html" class="theme-btn text-uppercase">View Ddetails <i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+                <!-- team-item -->
+
+                <div class="col-xxl-3 col-lg-4 col-md-6">
+                    <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp" data-wow-delay=".7s">
+                        <div class="media">
+                            <img src="assets/img/team/team-item-1.jpg" class="img-fluid" alt="">
+
+                            <div class="social-profile">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="text d-flex align-items-center justify-content-center">
+                            <div class="left">
+                                <h5 class="title color-white">Richard Paul</h5>
+                                <span class="position color-white font-la fw-500">Business Consulting</span>
+                            </div>
+                        </div>
+
+                        <a href="team-details.html" class="theme-btn text-uppercase">View Ddetails <i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+                <!-- team-item -->
+
+                <div class="col-xxl-3 col-lg-4 col-md-6">
+                    <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp" data-wow-delay=".9s">
+                        <div class="media">
+                            <img src="assets/img/team/team-item-12.jpg" class="img-fluid" alt="">
+
+                            <div class="social-profile">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="text d-flex align-items-center justify-content-center">
+                            <div class="left">
+                                <h5 class="title color-white">Elizabeth Linda</h5>
+                                <span class="position color-white font-la fw-500">Consulter Agency</span>
+                            </div>
+                        </div>
+
+                        <a href="team-details.html" class="theme-btn text-uppercase">View Ddetails <i class="far fa-chevron-double-right"></i></a>
+                    </div>
+                </div>
+                <!-- team-item -->
+            </div>
+        </div>
+    </section>
+    <!-- our-team-home-1 end -->
+
+    <!-- testimonial start -->
+    <section class="testimonial test pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-9">
+                    <div class="employee-friendly__content wow fadeInUp" data-wow-delay=".3s">
+                        <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> testimonials</span>
+                        <h2 class="title color-pd_black">What people say About Us</h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="slider-controls slider-controls-two mt-xs-15 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="testimonial-slider-arrows d-flex align-content-center justify-content-sm-end"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp" data-wow-delay=".5s">
+                        <div class="slider-item active">
+                            <div class="testimonial__item testimonial-item-three">
+                                <div class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
+                                    <div class="left d-flex align-items-center">
+                                        <div class="media overflow-hidden">
+                                            <img src="assets/img/testimonial/testimonial-1.png" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="meta">
+                                            <div class="starts">
+                                                <ul>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                </ul>
                                             </div>
-                                            <div class="homecard-text-num">
-                                                <p>{{ $settings['home_counter_scholarship'] ?? '' }}</p>
-                                            </div>
-                                            <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                                {{ $settings['home_counter_scholarship_title'] ?? '' }}
-                                            </p>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 ">
-                                        <div class=" p-3 text-center">
-                                            <div class=" d-flex align-items-center justify-content-center">
-                                                <img class=" icon-image-about" src={{ asset('frontend/assets/image/icon1.png') }}
-                                                    alt="">
+
+                                    <div class="right">
+                                        <i class="fal fa-quote-right"></i>
+                                    </div>
+                                </div>
+
+                                <div class="description font-la mb-25">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam.</p>
+                                </div>
+
+                                <div class="testimonial__item-footer d-flex justify-content-between">
+                                    <div class="socail-link">
+                                        <span class="name">Bm Ashik <span>- Company Ceo</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="testimonial__item testimonial-item-three">
+                                <div class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
+                                    <div class="left d-flex align-items-center">
+                                        <div class="media overflow-hidden">
+                                            <img src="assets/img/testimonial/testimonial-4.png" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="meta">
+                                            <div class="starts">
+                                                <ul>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                </ul>
                                             </div>
-                                            <div class="homecard-text-num">
-                                                <p>{{ $settings['home_counter_students'] ?? '' }}</p>
-                                            </div>
-                                            <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                                {{ $settings['home_counter_students_title'] ?? '' }}
-                                            </p>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 ">
-                                        <div class=" p-3 text-center">
-                                            <div class=" d-flex align-items-center justify-content-center">
-                                                <img class=" icon-image-about" src={{ asset('frontend/assets/image/icon1.png') }}
-                                                    alt="">
+
+                                    <div class="right">
+                                        <i class="fal fa-quote-right"></i>
+                                    </div>
+                                </div>
+
+                                <div class="description font-la mb-25">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam.</p>
+                                </div>
+
+                                <div class="testimonial__item-footer d-flex justify-content-between">
+                                    <div class="socail-link">
+                                        <span class="name">Bm Ashik <span>- Company Ceo</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="testimonial__item testimonial-item-three">
+                                <div class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
+                                    <div class="left d-flex align-items-center">
+                                        <div class="media overflow-hidden">
+                                            <img src="assets/img/testimonial/testimonial-5.png" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="meta">
+                                            <div class="starts">
+                                                <ul>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                </ul>
                                             </div>
-                                            <div class="homecard-text-num">
-                                                <p>{{ $settings['home_counter_enrolled'] ?? '' }} </p>
-                                            </div>
-                                            <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                                {{ $settings['home_counter_enrolled_title'] ?? '' }}
-                                            </p>
                                         </div>
                                     </div>
-                                </div> --}}
-                                {{-- Read More --}}
-                                <a class="d-flex align-items-center justify-content-md-start justify-content-center my-3"
-                                    href="{{ route('frontend.about') }}">
-                                    <button class="custom-btn btn-8">
-                                        <span>Read More <i class="ri-arrow-right-up-line"></i></span>
-                                    </button>
+
+                                    <div class="right">
+                                        <i class="fal fa-quote-right"></i>
+                                    </div>
+                                </div>
+
+                                <div class="description font-la mb-25">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam.</p>
+                                </div>
+
+                                <div class="testimonial__item-footer d-flex justify-content-between">
+                                    <div class="socail-link">
+                                        <span class="name">Bm Ashik <span>- Company Ceo</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="testimonial__item testimonial-item-three">
+                                <div class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
+                                    <div class="left d-flex align-items-center">
+                                        <div class="media overflow-hidden">
+                                            <img src="assets/img/testimonial/testimonial-1.png" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="meta">
+                                            <div class="starts">
+                                                <ul>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <i class="fal fa-quote-right"></i>
+                                    </div>
+                                </div>
+
+                                <div class="description font-la mb-25">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam.</p>
+                                </div>
+
+                                <div class="testimonial__item-footer d-flex justify-content-between">
+                                    <div class="socail-link">
+                                        <span class="name">Bm Ashik <span>- Company Ceo</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="testimonial__item testimonial-item-three">
+                                <div class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
+                                    <div class="left d-flex align-items-center">
+                                        <div class="media overflow-hidden">
+                                            <img src="assets/img/testimonial/testimonial-4.png" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="meta">
+                                            <div class="starts">
+                                                <ul>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <i class="fal fa-quote-right"></i>
+                                    </div>
+                                </div>
+
+                                <div class="description font-la mb-25">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam.</p>
+                                </div>
+
+                                <div class="testimonial__item-footer d-flex justify-content-between">
+                                    <div class="socail-link">
+                                        <span class="name">Bm Ashik <span>- Company Ceo</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="testimonial__item testimonial-item-three">
+                                <div class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
+                                    <div class="left d-flex align-items-center">
+                                        <div class="media overflow-hidden">
+                                            <img src="assets/img/testimonial/testimonial-5.png" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="meta">
+                                            <div class="starts">
+                                                <ul>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                    <li><span></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <i class="fal fa-quote-right"></i>
+                                    </div>
+                                </div>
+
+                                <div class="description font-la mb-25">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam.</p>
+                                </div>
+
+                                <div class="testimonial__item-footer d-flex justify-content-between">
+                                    <div class="socail-link">
+                                        <span class="name">Bm Ashik <span>- Company Ceo</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial end -->
+
+    <div class="can-help-overly-home overflow-hidden">
+        <div class="can-help-overly">
+            <div class="container"></div>
+        </div>
+        <!-- can-help start -->
+        <section class="can-help can-help-home-1 pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+            <div class="can-help-background" style="background-image: url(assets/img/home/can-help-background.png)"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7">
+                        <div class="can-help__content  mb-sm-40 mb-xs-40 mb-md-45 mb-lg-50 wow fadeInUp" data-wow-delay=".3s">
+                            <h2 class="title color-white mb-sm-15 mb-xs-10 mb-20">Experience The Evolution Of Your Business</h2>
+
+                            <div class="description font-la mb-md-25 mb-sm-25 mb-xs-20 mb-lg-30 mb-40 color-white">
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look</p>
+                            </div>
+
+                            <div class="can-help__content-btn-group d-flex flex-column flex-sm-row">
+                                <a href="tel:+1235568824" class="theme-btn d-flex flex-column flex-md-row align-items-md-center">
+                                    <div class="icon color-red">
+                                        <i class="icon-call"></i>
+                                        <!-- <img src="assets/img/icon/phone-1.svg" alt=""> -->
+                                    </div>
+                                    <div class="text">
+                                        <span class="font-la mb-10 d-block fw-500 color-white">Call Us Everyday</span>
+                                        <h5 class="fw-500 color-white">+123 556 8824</h5>
+                                    </div>
+                                </a>
+
+                                <a href="mailto:consulter@gmail.com" class="theme-btn d-flex flex-column flex-md-row align-items-md-center">
+                                    <div class="icon color-red">
+                                        <i class="icon-email-1"></i>
+                                        <!-- <img src="assets/img/icon/phone-1.svg" alt=""> -->
+                                    </div>
+                                    <div class="text">
+                                        <span class="font-la mb-10 d-block fw-500 color-white">Email Drop Us</span>
+                                        <h5 class="fw-500 color-white">consulter@gmail.com</h5>
+                                    </div>
                                 </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            {{--  country section --}}
-            <section class="py-5 page-bg-color ">
-                <div class="container">
-                    <div class="service-content-container text-center">
-                        <h6 class="my-2"> {{ $settings['countries_title'] ?? '' }}</h6>
-                        <h3 class="my-2"> {{ $settings['countries_subtitle'] ?? '' }} </h3>
-                    </div>
-                    <div class="row g-3 py-5">
-                        @foreach ($countries as $item)
-                            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
-                                <div class="country-card-container p-3 shadow rounded-lg bg-white position-relative">
-                                    <div class="country-img">
-                                        <img src="{{ asset($item->image) }}" alt="">
-                                        <div class="overlay"></div>
-                                    </div>
-                                    <div class="country-flag"><img src="{{ asset($item->image_1) }}" alt=""></div>
-                                    <div class="py-2">
-                                        <h3 class="pr-2 blog-heading">{{ $item->title }}</h3>
-                                        <p class="line-clamp-4">{{ $item->short_description }}</p>
-                                    </div>
-                                    <a href="{{ route('frontend.abroadsingle', $item->slug) }}" class="stretched-link"></a>
-                                </div>
+
+                    <div class="col-xl-5">
+                        <div class="contact-form pt-md-30 pt-sm-25 pt-xs-20 pb-md-40 pb-sm-35 pb-xs-30 pt-xl-30 pb-xl-50 pt-45 pr-xl-50 pl-md-40 pl-sm-30 pl-xs-25 pr-md-40 pr-sm-30 pr-xs-25 pl-xl-50 pr-85 pb-60 pl-85 wow fadeInUp" data-wow-delay=".5s">
+                            <div class="contact-form__header mb-sm-35 mb-xs-30 mb-40">
+                                <h6 class="sub-title fw-500 color-red text-uppercase mb-15"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Get In Touch</h6>
+                                <h3 class="title color-d_black">Free Consultation</h3>
                             </div>
-                        @endforeach
-                    </div>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <a class="d-flex align-items-center justify-content-start my-3" href=""> <button
-                                class="custom-btn btn-8"><span>Explore All <i
-                                        class="ri-arrow-right-up-line"></i></span></button></a>
-                    </div>
-                </div>
-                </div>
-            </section>
-            {{-- course section --}}
-            <section class="testimonail-section py-5">
-                <div class="container">
-                    <div class="service-content-container text-center">
-                        <h6 class="my-2">{{ $settings['courses_title'] ?? '' }}</h6>
-                        <h3 class="my-2"> {{ $settings['courses_subtitle'] ?? '' }} </h3>
-                    </div>
-                    <div class="row py-5">
-                        @foreach ($courses as $index => $course)
-                            @php
-        $isOdd = $index % 2 == 0; // 0-based index: 0 = 1st = odd position visually
-                            @endphp
 
-                            @if ($isOdd)
-                                {{-- Odd position: Image Left, Content Right --}}
-                                <div class="col-lg-6 py-3">
-                                    <div class="course-img shadow rounded" data-aos="fade-right"  data-aos-duration="2000">
-                                        <img src="{{ asset($course->image) }}" class="shadow rounded"
-                                            alt="{{ $course->title }}">
-                                    </div>
+                            <form>
+                                <div class="single-personal-info">
+                                    <input type="text" placeholder="Your Name">
                                 </div>
-                                <div class="col-lg-6 py-3 d-flex align-items-center justify-content-center">
-                                    <div class="service-content-container" data-aos="fade-left"  data-aos-duration="2000">
-                                        <h5 class="my-2">{{ $course->title }}</h5>
-                                        <p class="text-css-counter">
-                                            {{ Str::limit($course->short_description, 300) }}
-                                        </p>
-                                        <a class="d-flex align-items-center justify-content-start my-3"
-                                            href="{{ route('frontend.coursesingle', $course->slug) }}">
-                                            <button class="custom-btn btn-8">
-                                                <span>Read More <i class="ri-arrow-right-up-line"></i></span>
-                                            </button>
-                                        </a>
-                                    </div>
+                                <div class="single-personal-info">
+                                    <input type="email" placeholder="Your e-mail">
                                 </div>
-                            @else
-                                {{-- Even position: Content Left, Image Right --}}
-                                <div class="col-lg-6 py-3 d-flex align-items-center justify-content-center">
-                                    <div class="service-content-container" data-aos="fade-right"  data-aos-duration="2000">
-                                        <h5 class="my-2">{{ $course->title }}</h5>
-                                        <p class="text-css-counter">
-                                            {{ Str::limit($course->short_description, 300) }}
-                                        </p>
-                                        <a class="d-flex align-items-center justify-content-start my-3"
-                                            href="{{ route('frontend.coursesingle', $course->slug) }}">
-                                            <button class="custom-btn btn-8">
-                                                <span>Read More <i class="ri-arrow-right-up-line"></i></span>
-                                            </button>
-                                        </a>
-                                    </div>
+                                <div class="single-personal-info">
+                                    <input type="text" placeholder="Subject">
                                 </div>
-                                <div class="col-lg-6 py-3">
-                                    <div class="course-img shadow rounded" data-aos="fade-left"  data-aos-duration="2000">
-                                        <img src="{{ asset($course->image) }}" class="shadow rounded"
-                                            alt="{{ $course->title }}">
-                                    </div>
+                                <div class="single-personal-info">
+                                    <textarea placeholder="Your Massage"></textarea>
                                 </div>
-                            @endif
-                        @endforeach
 
-                        <div class="d-flex align-items-center justify-content-center">
-                            <a class="d-flex align-items-center justify-content-start my-3"
-                                href="{{ route('frontend.course') }}">
-                                <button class="custom-btn btn-8">
-                                    <span>Explore All <i class="ri-arrow-right-up-line"></i></span>
-                                </button>
-                            </a>
+                                <button type="submit" class="theme-btn btn-sm btn-red">Free Consultant <i class="far fa-chevron-double-right"></i></button>
+                            </form>
                         </div>
                     </div>
-
                 </div>
-            </section>
-            {{-- testimonial section --}}
-            <section class="testimonial-section py-5 page-bg-color">
-                <div class="container">
-                    <div class="service-content-container text-center">
-                        <h6 class="my-2"> {{ $settings['testioninal_title'] ?? '' }}</h6>
-                        <h3 class="my-2"> {{ $settings['testioninal_subtitle'] ?? '' }} </h3>
+            </div>
+        </section>
+        <!-- can-help end -->
+
+        <!-- blog-news start -->
+        <section class="blog-news pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="blog-news__content text-center wow fadeInUp" data-wow-delay=".3s">
+                            <span class="sub-title fw-500  text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block color-red"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Blog & News</span>
+                            <h2 class="title color-d_black">Consulter Latest Blog & News</h2>
+                        </div>
                     </div>
-                    <div class="row pt-2">
-                        <div class="col-lg-4 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="2000">
-                            <div class="testi-side-banner">
-                                <img src="{{ asset('frontend/assets/image/testi.jpg') }}" alt="">
+                </div>
+
+                <div class="blog-news__bottom mt-60 mt-sm-50 mt-xs-40">
+                    <div class="row mb-minus-30">
+                        <div class="col-xl-4 col-md-6 col-12">
+                            <div class="blog-item blog-item-three mb-30 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="blog-featured-thumb mb-xs-30 mb-sm-30 mb-md-35 mb-lg-40 mb-50">
+                                    <div class="media overflow-hidden">
+                                        <img src="assets/img/blog/blog-15.jpg" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="date">
+                                        <span>27</span>
+                                        <span>April</span>
+                                        <span>2020</span>
+                                    </div>
+                                </div>
+
+                                <div class="content pr-sm-25 pr-xs-15 pl-xs-15 pl-sm-25 pr-xs-15 pr-30 pb-30 pl-30">
+                                    <div class="post-author mb-5">
+                                        <a href="blog.html">Business, Consulting</a>
+                                    </div>
+
+                                    <h4><a href="blog.html">Consulted admitting wooded is power acuteness</a></h4>
+
+                                    <div class="btn-link-share mt-xs-10 mt-sm-10 mt-15">
+                                        <a href="blog.html" class="theme-btn btn-border">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 d-flex justify-content-center align-items-center">
-                            <!-- Swiper Container -->
-                            <div class="swiper mySwiper py-4">
-                                <div class="swiper-wrapper">
-                                    @foreach ($testimonials as $testimonial)
-                                        <div class="swiper-slide" data-aos="fade-up" data-aos-duration="2000">
-                                            <div class="scholar-main-card bg-white">
-                                                <div class="p-3 my-4">
-                                                    <div class="swiper-icon center"><i class="ri-double-quotes-l"></i></div>
 
-                                                    <div class="text-css text-center line-clamp my-2">
-                                                        {!! $testimonial->description !!}
-                                                    </div>
-
-                                                    <div class="scholar-img-container center mb-2">
-                                                        <img class="scholarship-img" src="{{ asset($testimonial->image) }}"
-                                                            alt="{{ $testimonial->name }}">
-                                                    </div>
-
-                                                    <div class="name center">
-                                                        <p>{{ $testimonial->name }}</p>
-                                                    </div>
-
-                                                    <div class="center">
-                                                        @for ($i = 0; $i < $testimonial->rating; $i++)
-                                                            <svg class="rating w-5 h-5 text-warning"
-                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                                fill="currentColor">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M10 2l2.72 5.792H18l-4.271 4.324 1.013 7.057L10 15.16l-5.742 3.013 1.013-7.057L2 7.792h4.28L10 2z"
-                                                                    clip-rule="evenodd" />
-                                                            </svg>
-                                                        @endfor
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
+                        <div class="col-xl-4 col-md-6 col-12">
+                            <div class="blog-item blog-item-three mb-30 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="blog-featured-thumb mb-xs-30 mb-sm-30 mb-md-35 mb-lg-40 mb-50">
+                                    <div class="media overflow-hidden">
+                                        <img src="assets/img/blog/blog-16.jpg" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="date">
+                                        <span>15</span>
+                                        <span>March</span>
+                                        <span>2021</span>
+                                    </div>
                                 </div>
-                                <div class="swiper-pagination"></div>
-                                {{-- <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div> --}}
+
+                                <div class="content pr-sm-25 pr-xs-15 pl-xs-15 pl-sm-25 pr-xs-15 pr-30 pb-30 pl-30">
+                                    <div class="post-author mb-5">
+                                        <a href="blog.html">Business, Consulting</a>
+                                    </div>
+
+                                    <h4><a href="blog.html">Consulted admitting wooded is power acuteness</a></h4>
+
+                                    <div class="btn-link-share mt-xs-10 mt-sm-10 mt-15">
+                                        <a href="blog.html" class="theme-btn btn-border">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4 col-md-6 col-12">
+                            <div class="blog-item blog-item-three mb-30 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="blog-featured-thumb mb-xs-30 mb-sm-30 mb-md-35 mb-lg-40 mb-50">
+                                    <div class="media overflow-hidden">
+                                        <img src="assets/img/blog/blog-17.jpg" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="date">
+                                        <span>24</span>
+                                        <span>Sept</span>
+                                        <span>2022</span>
+                                    </div>
+                                </div>
+
+                                <div class="content pr-sm-25 pr-xs-15 pl-xs-15 pl-sm-25 pr-xs-15 pr-30 pb-30 pl-30">
+                                    <div class="post-author mb-5">
+                                        <a href="blog.html">Business, Consulting</a>
+                                    </div>
+
+                                    <h4><a href="blog.html">Consulted admitting wooded is power acuteness</a></h4>
+
+                                    <div class="btn-link-share mt-xs-10 mt-sm-10 mt-15">
+                                        <a href="blog.html" class="theme-btn btn-border">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-                <script>
-                    const swiper = new Swiper('.mySwiper', {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                        loop: true,
-                        autoplay: {
-                            delay: 2500,
-                            disableOnInteraction: false,
-                        },
-                        pagination: {
-                            el: '.swiper-pagination',
-                            clickable: true,
-                        },
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                        breakpoints: {
-                            768: {
-                                slidesPerView: 1,
-                            },
-                        },
-                    });
-                </script>
-            </section>
-            {{-- faq section --}}
-            <section class="faq-section py-5">
-                <div class="container">
-                    <div class="service-content-container text-center">
-                        <h6 class="my-2"> {{ $faq_page->title ?? 'About Us' }}</h6>
-                        <h3 class="my-2"> {{ $faq_page->short_description ?? 'About Us' }}</h3>
-                    </div>
-                    @php $i = 0; @endphp
-                    <div class="row">
-                        <div class="col-lg-6 d-flex justify-content-center align-items-center">
-                            <div class="accordion" id="accordionExample" data-aos="fade-right"  data-aos-duration="2000">
-                                @foreach ($faq as $index => $item)
-                                    @php
-        $headingId = 'heading' . $index;
-        $collapseId = 'collapse' . $index;
-        $isFirst = $index === 0;
-                                    @endphp
-                                    <div class="accordion-item accordion-card mb-2">
-                                        <h2 class="accordion-header" id="{{ $headingId }}">
-                                            <button class="accordion-button {{ $isFirst ? '' : 'collapsed' }}" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#{{ $collapseId }}"
-                                                aria-expanded="{{ $isFirst ? 'true' : 'false' }}"
-                                                aria-controls="{{ $collapseId }}">
-                                                {{ $item->question }}
-                                            </button>
-                                        </h2>
-                                        <div id="{{ $collapseId }}"
-                                            class="accordion-collapse collapse {{ $isFirst ? 'show' : '' }}"
-                                            aria-labelledby="{{ $headingId }}" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                {!! $item->answer !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="faq-img-container" data-aos="fade-left"  data-aos-duration="2000">
-                                <img src="{{ asset('frontend/assets/image/faq.jpg') }}" alt="FAQ Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {{-- blog section --}}
-            <section class="blog-section py-5 page-bg-color">
-                <div class="container">
-                    <div class="service-content-container text-center">
-                        <h6 class="my-2"> {{ $settings['blogs_title'] ?? '' }}</h6>
-                        <h3 class="my-2"> {{ $settings['blogs_subtitle'] ?? '' }} </h3>
-                    </div>
-                    <div class="row">
-                        @foreach ($blogs as $blog)
-                            <div class="col-lg-4 col-md-6 position-relative" data-aos="fade-up" data-aos-duration="2000">
-                                <div class="shadow blog-card bg-white">
-                                    <div class="my-3">
-                                        <div class="blog-media-wrapper">
-                                            <img class="study-card-img" src="{{ asset($blog->image) }}"
-                                                alt="{{ $blog->title }}">
-                                            <div class="blog-icon">
-                                                <span class="icons"><i class="ri-heart-line"></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="p-3">
-                                            <div class="d-flex justify-content-between mt-2">
-                                                <p class="bodypart-css">
-                                                    <span><i class="ri-calendar-line offer-icon"></i></span>
-                                                    {{ \Carbon\Carbon::parse($blog->created_at)->format('d M Y') }}
-                                                </p>
-                                                <p class="book-text">
-                                                    <p class="book-text"><span><i
-                                                        class="ri-eye-line offer-icon"></i></span>{{ $blog->views }}</p>
-                                                </p>
-                                            </div>
-
-                                            <div class="subheadings my-1">
-                                                <h3 class="line-clamp-2">{{ $blog->title }}</h3>
-                                            </div>
-
-                                            <div class="bodypart-css line-clamp-3 mb-2">
-                                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($blog->description), 150) }}</p>
-                                            </div>
-
-                                            <div class="reviw-part d-flex justify-content-start">
-                                                <div class="bodypart-css">
-                                                    <span><i
-                                                            class="ri-star-fill rating-blog"></i></span>{{ $blog->rating ?? '5' }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="stretched-link" href="{{route('frontend.blogsingle', $blog->slug)}}"></a>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </section>
-            {{-- counry location section --}}
-            {{-- <div class="container py-5">
-                <div class="service-content-container text-center pb-5">
-                    <h6 class="my-2"> Location</h6>
-                    <h3 class="my-2"> Ready to study in your dream country? </h3>
-                </div>
-                <div class="shadow">
-                    <ul class="nav nav-tabs" id="countryTab" role="tablist">
-                        @foreach ($countrylocation as $index => $country)
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link @if ($index == 0) active @endif"
-                                    id="{{ Str::slug($country->countryname) }}-tab" data-bs-toggle="tab"
-                                    data-bs-target="#{{ Str::slug($country->countryname) }}" type="button" role="tab"
-                                    aria-controls="{{ Str::slug($country->countryname) }}"
-                                    aria-selected="{{ $index == 0 ? 'true' : 'false' }}">
-                                    {{ $country->countryname }}
-                                </button>
-                            </li>
-                        @endforeach
-                    </ul>
-
-                    <div class="tab-content mt-3">
-                        @foreach ($countrylocation as $index => $country)
-                            <div class="tab-pane fade @if ($index == 0) show active @endif"
-                                id="{{ Str::slug($country->countryname) }}" role="tabpanel"
-                                aria-labelledby="{{ Str::slug($country->countryname) }}-tab">
-                                <div class="country-location">
-                                    <div class="row">
-
-                                        <div class="col-lg-6">
-                                            <div class="country-location-img">
-                                                <img src="{{ asset($country->image1) }}" alt="{{ $country->image1 }}">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="location-container">
-                                                <h4>{{ $country->title ?? 'Helpful Education' }}</h4>
-
-                                                <div class="country-location-flag">
-                                                    <span>{{ strtoupper($country->country) }}</span>
-                                                    @if ($country->flag)
-                                                        <img src="{{ asset($country->image2) }}" alt="{{ $country->image2 }}">
-                                                    @endif
-                                                </div>
-
-                                                <div class="location-content d-flex align-items-center py-2">
-                                                    <i class="ri-map-pin-line location-icon"></i>
-                                                    {{ $country->location }}
-                                                </div>
-
-                                                <p class="text-css">
-                                                    {!! $country->description !!}
-                                                </p>
-
-                                                @if ($country->link)
-                                                    <div>
-                                                        <a href="{{ $country->link }}" target="_blank">
-                                                            <button class="map-btn">Google Map</button>
-                                                        </a>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                </div>
-            </div> --}}
+            </div>
+        </section>
+        <!-- blog-news end -->
+    </div>
 @endsection
