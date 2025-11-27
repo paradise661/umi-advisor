@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Providers;
-
 use App\Models\Country;
 use App\Models\Course;
 use App\Models\Service;

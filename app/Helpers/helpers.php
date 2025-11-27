@@ -11,19 +11,15 @@ if (! function_exists('updatesettingmedia')) {
         if ($image = $request->file($name)) {
             $bucket = "umi-advisor"; // static bucket name
             $baseUrl = "https://s3-np1.datahub.com.np"; // static base URL
-
             $imageName = time() . '-' . rand(0, 99) . '-' . $image->getClientOriginalName();
-
             // Upload to S3
             $path = $image->storeAs(
                 $foldername,        // folder (e.g., 'setting')
                 $imageName,         // file name
                 ['disk' => 's3', 'visibility' => 'public']
             );
-
             // Build full URL manually (same as in fileUpload)
             $fullUrl = rtrim($baseUrl, '/') . '/' . trim($bucket, '/') . '/' . ltrim($path, '/');
-
             return $fullUrl;
         }
 
@@ -63,7 +59,6 @@ if (! function_exists('generateUniqueSlug')) {
             $uniqueSlug = $originalSlug . '-' . $counter;
             $counter++;
         }
-
         return $uniqueSlug;
     }
 }
