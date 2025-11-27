@@ -44,7 +44,6 @@
                                 </a>
                             </div>
                         </div>
-
                         <div class="header-menu d-none d-xl-block">
                             <div class="main-menu">
                                 <ul>
