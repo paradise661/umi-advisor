@@ -10,10 +10,6 @@
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
-
-
-
-
     <!-- banner-home start -->
     <section class="banner-home overflow-hidden pt-lg-100 pt-md-90 pt-sm-80 pt-xs-70">
         <div class="container">
@@ -45,7 +41,6 @@
         </div>
     </section>
     <!-- banner-home end -->
-
     <div class="our-company-financial overflow-hidden">
         <div class="overly">
             <div class="container"></div>
@@ -196,7 +191,6 @@
         </section>
         <!-- our-company end -->
     </div>
-
     <!-- planning-success start -->
     <section class="planning-success pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-130 overflow-hidden" style="background-image: url(assets/img/home/planning-success-bg.png);">
         <div class="container">
@@ -222,7 +216,6 @@
         </div>
     </section>
     <!-- planning-success end -->
-
     <!-- why-choose start -->
     <section class="why-choose why-choose__home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
         <div class="container">
@@ -311,7 +304,6 @@
         </div>
     </section>
     <!-- why-choose end -->
-
     <!-- get-free end -->
     <section class="get-free get-free-home overflow-hidden">
         <div class="container">
@@ -346,7 +338,6 @@
         </div>
     </section>
     <!-- get-free end -->
-
     <!-- work-process end -->
     <section class="work-process work-process-home bg-dark_red pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
         <div class="container">
@@ -444,7 +435,6 @@
         </div>
     </section>
     <!-- work-process end -->
-
     <!-- our-portfolio-home start -->
     <section class="our-portfolio-home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
         <div class="container">
