@@ -4,11 +4,13 @@ namespace Database\Seeders;
 
 use App\Models\Page;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PagesSeeder extends Seeder
 {
     public function run()
     {
+        DB::table('pages')->truncate();
         $pages = [
             [
                 'id' => 1,
@@ -277,6 +279,24 @@ class PagesSeeder extends Seeder
                 'seo_schema' => 'University',
                 'meta_keywords' => 'University',
                 'meta_description' => 'University',
+                'created_at' => '2024-09-20 02:50:37',
+                'updated_at' => '2024-09-20 02:50:37',
+            ],
+            [
+                'id' => 16,
+                'title' => 'Good Business Planning Ensures Success.',
+                'short_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+                'image_1' => null,
+                'image_2' => null,
+                'banner_image' => null,
+                'order' => 1,
+                'status' => 1,
+                'slug' => 'service-section',
+                'seo_title' => 'service-section',
+                'seo_schema' => 'service-section',
+                'meta_keywords' => 'service-section',
+                'meta_description' => 'service-section',
                 'created_at' => '2024-09-20 02:50:37',
                 'updated_at' => '2024-09-20 02:50:37',
             ],

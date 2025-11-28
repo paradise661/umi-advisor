@@ -48,7 +48,7 @@ class FrontendController extends Controller
 
         $home_service = Settings::where('key', 'home_services')->first();
         $serviceIds = explode(',', $home_service->value);
-        $services = Service::whereIn('id', $serviceIds)->where('status', 1)->get();
+        // $services = Service::whereIn('id', $serviceIds)->where('status', 1)->get();
 
         $home_course = Settings::where('key', 'home_courses')->first();
         $courseIds = explode(',', $home_course->value);
@@ -66,9 +66,12 @@ class FrontendController extends Controller
         $abroadstudies = Country::where('status', 1)->oldest("order")->get();
         $countrylocation = CountryLocation::where('status', 1)->oldest("order")->get();
 
-        $faq_page = Page::where('status', 1)->where('slug', 'faq')->first();
 
-        return view('frontend.home.index', compact('sliders','popup', 'faq_page', 'countrylocation', 'faq', 'abroadstudies', 'universities', 'courses', 'countries', 'blogs', 'services', 'about_us', 'why_choose_us', 'teams', 'testimonials'));
+        $faq_page = Page::where('status', 1)->where('slug', 'faq')->first();
+        $service_section = Page::where('status', 1)->where('slug', 'service-section')->first();
+        $services = Service::where('status', 1)->limit(4)->get();
+
+        return view('frontend.home.index', compact('sliders','popup', 'faq_page', 'countrylocation', 'faq', 'abroadstudies', 'universities', 'courses', 'countries', 'blogs', 'services', 'about_us', 'why_choose_us', 'teams', 'testimonials','service_section'));
     }
     public function about()
     {
