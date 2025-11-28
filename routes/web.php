@@ -35,6 +35,7 @@ use App\Http\Controllers\admin\ContactInquiryController;
 use App\Http\Controllers\admin\CountryLocationController;
 use App\Http\Controllers\admin\CountryLocationController as AdminCountryLocationController;
 use App\Http\Controllers\admin\EventController;
+// use Illuminate\Support\Facades\Artisan;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -172,9 +173,15 @@ Route::group(
     
         Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
         Route::get('/', [DashboardController::class, 'index']);
-    }
 
+    }
 );
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/frontend.php';
+
+
+// Route::get('/migrate',function () {
+//     Artisan::call('migrate','cache' ,['--force' => true]);
+//     return 'Migration completed';
+// });

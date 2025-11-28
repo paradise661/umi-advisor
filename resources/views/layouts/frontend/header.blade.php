@@ -16,7 +16,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-8">
                     <div class="header-cta d-flex justify-content-end">
                         <ul>
@@ -39,7 +38,7 @@
                         <div class="header-logo">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}" style="height:60px"
+                                    <img src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}" 
                                         alt="logo">
                                 </a>
                             </div>

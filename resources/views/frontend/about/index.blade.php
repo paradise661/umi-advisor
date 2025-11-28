@@ -36,7 +36,6 @@
         </div>
     @endif
     {{-- about us section --}}
-    {{-- about us section --}}
     <section class="about-us-section py-5">
         <div class="container">
             <div class="row">
@@ -153,17 +152,4 @@
             </div>
         </div>
     </section>
-    {{-- <div class="container py-3">
-        <div class="row">
-            @foreach ($studentreviw as $studentreviw)
-                <div class="col-lg-6  mb-4">
-                    <div class="youtube-card ">
-                        <div class="youtube-content-container">
-                     {!!$studentreviw->description!!}
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div> --}}
 @endsection

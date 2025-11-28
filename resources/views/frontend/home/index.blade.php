@@ -14,14 +14,14 @@
 
 
 
-        <!-- banner-home start -->
-        <section class="banner-home overflow-hidden pt-lg-100 pt-md-90 pt-sm-80 pt-xs-70">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6">
-                        <div class="banner-home__content pb-lg-60 pb-md-50 pb-sm-45 pb-xs-40 wow fadeInLeft" data-wow-delay=".5s">
-                            <h6 class="sub-title color-white mb-20 mb-sm-15 mb-xs-10 d-inline-block">{{ $sliders->short_description }}</h6>
-                            <h1 class="title color-white fw-bold mb-20 mb-sm-15 mb-xs-10">{{ $sliders->title }}</h1>
+    <!-- banner-home start -->
+    <section class="banner-home overflow-hidden pt-lg-100 pt-md-90 pt-sm-80 pt-xs-70">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <div class="banner-home__content pb-lg-60 pb-md-50 pb-sm-45 pb-xs-40 wow fadeInLeft" data-wow-delay=".5s">
+                        <h6 class="sub-title color-white mb-20 mb-sm-15 mb-xs-10 d-inline-block">{{ $sliders->short_description }}</h6>
+                        <h1 class="title color-white fw-bold mb-20 mb-sm-15 mb-xs-10">{{ $sliders->title }}</h1>
 
                             <div class="description font-la color-white mb-45 mb-md-30 mb-sm-25 mb-xs-20">
                                 <p>{!! $sliders->description !!}</p>
@@ -35,32 +35,31 @@
 
                     </div>
 
-                    <div class="col-xl-6">
-                        <div class="banner-home__media">
-                            <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt="">
-                            {{-- <img src="assets/img/banner/banner-home.png" class="img-fluid" alt=""> --}}
-                            <img src="{{ $sliders->image }}" class="img-fluid" alt="">
-                        </div>
+                <div class="col-xl-6">
+                    <div class="banner-home__media">
+                        <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt="">
+                        <img src="assets/img/banner/banner-home.png" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- banner-home end -->
+        </div>
+    </section>
+    <!-- banner-home end -->
 
-        <div class="our-company-financial overflow-hidden">
-            <div class="overly">
-                <div class="container"></div>
-            </div>
-            <!-- financial-area start -->
-            <section class="financial pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
-                <div class="container">
-                    <div class="row mb-minus-30">
-                        <div class="col-xl-4 col-md-6">
-                            <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".3s" style="background-image: url(assets/img/home/financial__item-bg.png)">
-                                <div class="icon">
-                                    <img src="assets/img/icon/growth.svg" alt="">
-                                    <!-- <i class="fal fa-analytics"></i> -->
-                                </div>
+    <div class="our-company-financial overflow-hidden">
+        <div class="overly">
+            <div class="container"></div>
+        </div>
+        <!-- financial-area start -->
+        <section class="financial pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+            <div class="container">
+                <div class="row mb-minus-30">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".3s" style="background-image: url(assets/img/home/financial__item-bg.png)">
+                            <div class="icon">
+                                <img src="assets/img/icon/growth.svg" alt="">
+                                <!-- <i class="fal fa-analytics"></i> -->
+                            </div>
 
                                 <div class="text">
                                     <h6 class="title color-pd_black mb-10 mb-xs-5">{{ $settings['home_counter_students_title'] }}</h6>
@@ -173,20 +172,19 @@
                                             <span class="color-red font-la fw-600 text-uppercase">Customer Review</span>
                                         </div>
 
-                                        <div class="client-feedback__item-body">
-                                            <div class="number mb-10 mb-xs-5 color-pd_black fw-600">+<span class="counter">4.7</span></div>
-                                            <div class="description font-la mb-10 mb-xs-5">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
-                                            </div>
-                                            <div class="starts">
-                                                <ul>
-                                                    <li><span></span></li>
-                                                    <li><span></span></li>
-                                                    <li><span></span></li>
-                                                    <li><span></span></li>
-                                                    <li><span></span></li>
-                                                </ul>
-                                            </div>
+                                    <div class="client-feedback__item-body">
+                                        <div class="number mb-10 mb-xs-5 color-pd_black fw-600">+<span class="counter">4.7</span></div>
+                                        <div class="description font-la mb-10 mb-xs-5">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
+                                        </div>
+                                        <div class="starts">
+                                            <ul>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                                <li><span></span></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -194,17 +192,18 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- our-company end -->
-        </div>
+            </div>
+        </section>
+        <!-- our-company end -->
+    </div>
 
-        <!-- planning-success start -->
-        <section class="planning-success pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-130 overflow-hidden" style="background-image: url({{ $service_section->banner_image }});">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-sm-9">
-                        <div class="planning-success__content mb-xs-35 wow fadeInUp" data-wow-delay=".3s">
-                            <h2 class="title mb-20 mb-sm-15 mb-xs-10 color-white">{{ $service_section->title }}</h2>
+    <!-- planning-success start -->
+    <section class="planning-success pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-130 overflow-hidden" style="background-image: url(assets/img/home/planning-success-bg.png);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-9">
+                    <div class="planning-success__content mb-xs-35 wow fadeInUp" data-wow-delay=".3s">
+                        <h2 class="title mb-20 mb-sm-15 mb-xs-10 color-white">Good Business Planning Ensures Success.</h2>
 
                             <div class="description font-la color-white mb-40 mb-sm-30 mb-xs-20">
                                 <p>{{ $service_section->short_description }}</p>
@@ -214,28 +213,28 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
-                        <div class="planning-success__video wow fadeInUp" data-wow-delay=".5s">
-                            <a href="https://www.youtube.com/watch?v=9xwazD5SyVg" class="popup-video mx-auto" data-effect="mfp-move-from-top"><i class="icon-play"></i></a>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="planning-success__video wow fadeInUp" data-wow-delay=".5s">
+                        <a href="https://www.youtube.com/watch?v=9xwazD5SyVg" class="popup-video mx-auto" data-effect="mfp-move-from-top"><i class="icon-play"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- planning-success end -->
+        </div>
+    </section>
+    <!-- planning-success end -->
 
-        <!-- why-choose start -->
-        <section class="why-choose why-choose__home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="why-choose__content why-choose__content-home wow fadeInUp" data-wow-delay=".3s">
-                            <div class="why-choose__text">
-                                <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">{{$settings['services_title']}}</span>
-                                <h2 class="title color-pd_black">{{$settings['services_subtitle']}}</h2>
-                            </div>
+    <!-- why-choose start -->
+    <section class="why-choose why-choose__home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="why-choose__content why-choose__content-home wow fadeInUp" data-wow-delay=".3s">
+                        <div class="why-choose__text">
+                            <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our solutions</span>
+                            <h2 class="title color-pd_black">Developing Solutions For The Future</h2>
                         </div>
                     </div>
+                </div>
 
                     <div class="col-lg-6">
                         <div class="why-choose__content why-choose__content-home mt-md-25 mt-sm-20 mt-xs-20 wow fadeInUp" data-wow-delay=".5s">
@@ -318,24 +317,24 @@
                                     <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntu.</p>
                                 </div>
 
-                                <a href="services-details.html" class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
-                            </div> --}}
+                            <a href="services-details.html" class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- why-choose end -->
+        </div>
+    </section>
+    <!-- why-choose end -->
 
-        <!-- get-free end -->
-        {{-- <section class="get-free get-free-home overflow-hidden">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="get-free__content-wrapper overflow-hidden" style="background-image: url(assets/img/services/get-free-bg.png);">
-                            <div class="get-free__content d-flex align-items-center justify-content-between">
-                                <div class="get-free__content-text wow fadeInUp" data-wow-delay=".3s">
-                                    <h2 class="title mb-10 mb-xs-5 color-white">Get Free Quote</h2>
+    <!-- get-free end -->
+    <section class="get-free get-free-home overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="get-free__content-wrapper overflow-hidden" style="background-image: url(assets/img/services/get-free-bg.png);">
+                        <div class="get-free__content d-flex align-items-center justify-content-between">
+                            <div class="get-free__content-text wow fadeInUp" data-wow-delay=".3s">
+                                <h2 class="title mb-10 mb-xs-5 color-white">Get Free Quote</h2>
 
                                     <div class="description color-white font-la fw-500">
                                         Perfect solution for your Company
@@ -351,28 +350,28 @@
                                             <input type="email" placeholder="Your e-mail">
                                         </div>
 
-                                        <button type="submit" class="theme-btn btn-sm">Get Quote <i class="far fa-chevron-double-right"></i></button>
-                                    </form>
-                                </div>
+                                    <button type="submit" class="theme-btn btn-sm">Get Quote <i class="far fa-chevron-double-right"></i></button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section> --}}
-        <!-- get-free end -->
+        </div>
+    </section>
+    <!-- get-free end -->
 
-        <!-- work-process end -->
-        <section class="work-process work-process-home bg-dark_red pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="pricing__content mb-60 mb-sm-40 mb-xs-30 text-center wow fadeInUp" data-wow-delay=".3s">
-                            <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our Work Process</span>
-                            <h2 class="title color-pd_black">How Our Services Work</h2>
-                        </div>
+    <!-- work-process end -->
+    <section class="work-process work-process-home bg-dark_red pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="pricing__content mb-60 mb-sm-40 mb-xs-30 text-center wow fadeInUp" data-wow-delay=".3s">
+                        <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our Work Process</span>
+                        <h2 class="title color-pd_black">How Our Services Work</h2>
                     </div>
                 </div>
+            </div>
 
                 <div class="row mb-minus-30 last_no_bullet">
                     <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -449,28 +448,28 @@
                             <div class="text">
                                 <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Success Your Business</h6>
 
-                                <div class="description font-la">
-                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
-                                </div>
+                            <div class="description font-la">
+                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- work-process end -->
+        </div>
+    </section>
+    <!-- work-process end -->
 
-        <!-- our-portfolio-home start -->
-        <section class="our-portfolio-home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-12">
-                        <div class="our-portfolio-home__content text-center mb-60 mb-sm-50 mb-xs-40 wow fadeInUp" data-wow-delay=".3s">
-                            <span class="sub-title fw-500  text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block color-red"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our Portfolio</span>
-                            <h2 class="title color-pd_black">Our Consulting Case Study</h2>
-                        </div>
+    <!-- our-portfolio-home start -->
+    <section class="our-portfolio-home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="our-portfolio-home__content text-center mb-60 mb-sm-50 mb-xs-40 wow fadeInUp" data-wow-delay=".3s">
+                        <span class="sub-title fw-500  text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block color-red"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our Portfolio</span>
+                        <h2 class="title color-pd_black">Our Consulting Case Study</h2>
                     </div>
                 </div>
+            </div>
 
                 <div class="row mb-minus-30">
                     <div class="col-xl-4 col-md-6 col-12">
