@@ -52,15 +52,15 @@ class FrontendController extends Controller
 
         $home_course = Settings::where('key', 'home_courses')->first();
         $courseIds = explode(',', $home_course->value);
-        $courses = Course::whereIn('id', $courseIds)->where('status', 1)->get();
+        // $courses = Course::whereIn('id', $courseIds)->where('status', 1)->get();
 
         $home_testimonial = Settings::where('key', 'home_testioninals')->first();
         $testimonialIds = explode(',', $home_testimonial->value);
-        $testimonials = Testimonial::whereIn('id', $testimonialIds)->where('status', 1)->get();
+        // $testimonials = Testimonial::whereIn('id', $testimonialIds)->where('status', 1)->get();
 
         $home_blog = Settings::where('key', 'home_blogs')->first();
         $blogIds = explode(',', $home_blog->value);
-        $blogs = Blog::whereIn('id', $blogIds)->where('status', 1)->get();
+        // $blogs = Blog::whereIn('id', $blogIds)->where('status', 1)->get();
         $universities = University::where('status', 1)->oldest("order")->get();
 
         $abroadstudies = Country::where('status', 1)->oldest("order")->get();
@@ -70,6 +70,9 @@ class FrontendController extends Controller
         $faq_page = Page::where('status', 1)->where('slug', 'faq')->first();
         $service_section = Page::where('status', 1)->where('slug', 'service-section')->first();
         $services = Service::where('status', 1)->limit(4)->get();
+        $courses = Course::where('status', 1)->limit(4)->get();
+        $testimonials = Testimonial::where('status', 1)->get();
+        $blogs = Blog::where('status', 1)->limit(4)->get();
 
         return view('frontend.home.index', compact('sliders','popup', 'faq_page', 'countrylocation', 'faq', 'abroadstudies', 'universities', 'courses', 'countries', 'blogs', 'services', 'about_us', 'why_choose_us', 'teams', 'testimonials','service_section'));
     }
