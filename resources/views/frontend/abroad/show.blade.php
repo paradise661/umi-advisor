@@ -11,193 +11,150 @@
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
-    @if ($abroad_page)
-        <div class="hero-banner2 position-relative ">
-            <div class="row g-0 text-bannner-section">
-                <div class="col-md-6 d-flex justify-content-center align-items-center py-5">
-                    <div class="text-center page-banner-lft px-4">
-                        <h1 class="text-white font-weight-bold">{{ $abroadstudiesingle->title ?? 'About Us' }}</h1>
-                        <p class="breadcrumb-text text-white">
-                            <a href="{{ route('frontend.home') }}" class="text-white text-decoration-none">Home</a> /
-                            <a href="{{ route('frontend.abroad') }}" class="text-white text-decoration-none">{{$abroad_page->title}}</a> /
-                            <a href="#"
-                                class="text-white text-decoration-none">{{ $abroadstudiesingle->title ?? 'About Us' }}</a>
-                        </p>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="img-container-banner">
-                        <div class="img-wrapper-2">
-                            <img src="{{ asset($abroad_page->banner_image) }}" alt="Creative Design" class="background-img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 py-5" data-aos="fade-right"  data-aos-duration="3000">
-                    <div class="country-main-section ">
-                        <div class="country-img-wrapper">
-                            <img src="{{ asset($abroadstudiesingle->image) }}" class="country-image" alt="">
-                        </div>
-                        <div class="country-content pt-3">
-                            <h2 class="heading-css">{{ $abroadstudiesingle->title }}
-                            </h2>
-                            <div class="text-css mb-3">
-                                <p>{!! $abroadstudiesingle->description !!}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 pt-0 pt-lg-5 pb-5" data-aos="fade-left"  data-aos-duration="3000">
-                    <div class="sticky-sidebar" style="position: sticky; top: 85px;">
-                        {{-- <form class="main-card-sidebar  shadow rounded p-4" action="{{ route('frontend.contact.submit') }}"
-                            method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <h4 class="form-title py-3 heading-css">
-                                Turn your Study Abroad Dream to {{ $abroadstudiesingle->title }}
-                            </h4>
-                            <div class="form-group">
-                                <input type="text" name="name" placeholder="Enter your Name*" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder=" Enter Your Email*" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="phone" name="phone" placeholder=" Enter Your Phone*" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="address" name="city" placeholder=" Enter Your address*" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message" placeholder="Your Message ..." rows="5" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit " class="custom-btn btn-8">
-                                    Send Message
-                                </button>
-                            </div>
-                        </form> --}}
-                        <div class="shadow p-4 rounded text-center side-box">
-                            <h4 class="">Ready to take the next step?</h4>
-                            <p>Apply now and get started on your journey toward success with our expert-led programs.</p>
-                            <a class="d-flex align-items-center justify-content-center py-2"
-                                href="{{ route('frontend.register') }}"> <button class="custom-btn btn-8"><span>Apply Now
-                                        <i class="ri-arrow-right-up-line"></i></span></button></a>
-                        </div>
-                        <div class="faq-container shadow rounded text-center p-3 my-3 side-box">
-                            <h4 class="FAQs">FAQs</h4>
-                            @php $i = 0; @endphp
-                            <div class="row">
-                                <div class="col-lg-12 d-flex justify-content-center align-items-center">
-                                    <div class="accordion" id="accordionExample">
-                                        @foreach ($abroadstudiesingle->countryFaqs as $index => $item)
-                                            @if ($item->status != 1)
-                                                @continue
-                                            @endif
-                                            @php
-                                                
-                                                $headingId = 'heading' . $index;
-                                                $collapseId = 'collapse' . $index;
-                                                $isFirst = $index === 0;
-
-                                            @endphp
-                                            <div class="accordion-item accordion-card mb-2">
-                                                <h2 class="accordion-header" id="{{ $headingId }}">
-                                                    <button class="accordion-button {{ $isFirst ? '' : 'collapsed' }}" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#{{ $collapseId }}"
-                                                        aria-expanded="{{ $isFirst ? 'true' : 'false' }}"
-                                                        aria-controls="{{ $collapseId }}">
-                                                        {{ $item->question }}
-                                                    </button>
-                                                </h2>
-                                                <div id="{{ $collapseId }}"
-                                                    class="accordion-collapse collapse {{ $isFirst ? 'show' : '' }}"
-                                                    aria-labelledby="{{ $headingId }}" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        {!! $item->answer !!}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Swiper CSS -->
-        {{-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> --}}
-        @if ($universities->isNotEmpty())
-            <section class="country-section pb-5">
+    <!-- page-banner start -->
+            <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
                 <div class="container">
-                    <div class="heading-css text-center mb-4">
-                        <h3>Our Partner <span>Universities</span> </h3>
-                    </div>
-                    <div class="swiper-container swiper-universities">
-                        <div class="swiper-wrapper">
-                            @foreach ($universities as $university)
-                                <div class="swiper-slide">
-                                    <div class="university-card mb-3 position-relative">
-                                        <div class="card-img-container shadow">
-                                            <img src="{{ asset($university->image) }}" alt="{{ $university->name }}"
-                                                class="card-img-top">
-                                        </div>
-                                        <a class="stretched-link" href=""></a>
-                                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
+                                <div class="transparent-text">About Us</div>
+                                <div class="page-title">
+                                    <h1>{{ $abroadstudiesingle->title }}</h1>
                                 </div>
-                            @endforeach
+                            </div>
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ $abroadstudiesingle->title }}</li>
+                                </ol>
+                            </nav>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="page-banner__media mt-xs-30 mt-sm-40">
+                                <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
+                                <img src="assets/img/page-banner/page-banner.jpg" class="img-fluid" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-        @endif
-        <!-- Swiper JS -->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script>
-            var swiper = new Swiper('.swiper-universities', {
-                slidesPerView: 1,
-                spaceBetween: 10,
-                loop: true,
-                autoplay: {
-                    delay: 2100,
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 30,
-                    },
-                },
-            });
-        </script>
-         @if(session('success'))
-         <script>
-             document.addEventListener('DOMContentLoaded', function() {
-                 Toastify({
-                     text: "{{ session('success') }}",
-                     duration: 3000,
-                     gravity: "top", // top or bottom
-                     position: "right", // left, center or right
-                     backgroundColor: "#4BB543", // green success color
-                     stopOnFocus: true,
-                 }).showToast();
-             });
-         </script>
-         @endif
+            <section class="services-details pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-115 overflow-hidden">
+        <div class="container">
+            <div class="row" data-sticky_parent>
+                <div class="col-xl-8" data-sticky_column>
+                    <div class="media mb-40 mb-md-35 mb-sm-30 mb-xs-25">
+                        <img src="{{ $abroadstudiesingle->image }}" alt="">
+                    </div>
+
+                    <div class="services-details__content">
+                        <h2>{{ $abroadstudiesingle->short_description }}</h2>
+
+                        <p>{!! $abroadstudiesingle->description !!}</p>
+
+                        {{-- <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis
+                            aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae.</p>
+
+                        <ul>
+                            <li>Instant Business Growth</li>
+                            <li>Easy Customer Service</li>
+                            <li>24/7 Quality Service</li>
+                            <li>Quality Cost Service</li>
+                        </ul>
+
+                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis
+                            aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae.</p>
+
+                        <hr>
+
+                        <h4>Working Challenge</h4>
+
+                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+
+                        <figure>
+                            <img src="assets/img/services-details/services-details-1.png" alt="">
+
+                            <ul>
+                                <li>Will give you a complete account</li>
+                                <li>Easy Customer Service</li>
+                                <li>Excepteur sint occaecat cupidatat non.</li>
+                                <li>The master-builder of human happiness</li>
+                                <li>Duis aute irure dolor in reprehenderit</li>
+                                <li>complete account of the system</li>
+                            </ul>
+                        </figure>
+
+                        <hr>
+
+                        <h4>Frequently Asked Questions</h4>
+
+                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p> --}}
+                    </div>
+
+                    {{-- <div class="faq mt-40 mt-md-35 mt-sm-25 mt-xs-20" id="faq">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="h-faq-1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true" aria-controls="faq-1">
+                                    <i class="icon-question-4"></i> What should i included my personal details? 
+                                </button>
+                            </h2>
+
+                            <div id="faq-1" class="accordion-collapse collapse show" aria-labelledby="h-faq-1" data-bs-parent="#faq">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Excepteur sint occaecat cupidatat
+                                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="h-faq-2">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">
+                                    <i class="icon-question-4"></i> How do consultants solve problem?
+                                </button>
+                            </h2>
+
+                            <div id="faq-2" class="accordion-collapse collapse" aria-labelledby="h-faq-2" data-bs-parent="#faq">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="h-faq-3">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">
+                                    <i class="icon-question-4"></i> We can help your business to grow?
+                                </button>
+                            </h2>
+
+                            <div id="faq-3" class="accordion-collapse collapse" aria-labelledby="h-faq-3" data-bs-parent="#faq">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="main-sidebar" data-sticky_column>
+                        <div class="single-sidebar-widget mb-40 pt-30 pr-30 pb-40 pl-30 pl-xs-20 pr-xs-20">
+                            <h4 class="wid-title mb-30 mb-xs-20 color-d_black text-capitalize">Our provide</h4>
+
+                            <div class="widget_categories">
+                                <ul>
+                                    @foreach ($more_abroadstudies as $abroad)
+                                        <li><a href="{{ route('frontend.abroadsingle',$abroad->slug) }}">{{ $abroad->title }} <i class="fas fa-long-arrow-alt-right"></i></a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
 @endsection

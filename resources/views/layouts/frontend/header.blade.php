@@ -37,8 +37,8 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="header-logo">
                             <div class="logo">
-                                <a href="index.html">
-                                    <img src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}" 
+                                <a href="/">
+                                    <img src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}"
                                         alt="logo">
                                 </a>
                             </div>
@@ -47,7 +47,7 @@
                             <div class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="#">Home</a>
+                                        <a href="/">Home</a>
                                         {{-- <ul>
                                             <li><a href="index.html">home 1</a></li>
                                             <li><a href="index-2.html">home 2</a></li>
@@ -60,10 +60,11 @@
                                         <a>About us</a>
 
                                         <ul>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="table.html">Pricing Table</a></li>
-                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
+                                            <li><a href="{{ route('frontend.service') }}">Service</a></li>
+                                            {{-- <li><a href="{{ route('frontend.event') }}">Events</a></li> --}}
+                                            <li><a href="{{ route('frontend.team') }}">Team</a></li>
+                                            <li><a href="{{ route('frontend.testimonial') }}">Testimonial</a></li>
                                             {{-- <li><a href="team-details.html">Team Details</a></li>
                                             <li><a href="services-details.html">Services Details</a></li>
                                             <li><a href="our-project-details.html">Our Project Details</a></li>
@@ -72,27 +73,31 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="services.html">Countries</a>
+                                        <a href="{{ route('frontend.abroad') }}">Countries</a>
 
                                         <ul>
-                                            <li><a href="services.html">Our Services 1</a></li>
-                                            <li><a href="services-2.html">Our Services 2</a></li>
+                                            @foreach ($footer_countries as $country)
+                                                <li><a
+                                                        href="{{ route('frontend.abroadsingle', $country->slug) }}">{{ $country->title }}</a>
+                                                </li>
+
+                                            @endforeach
                                         </ul>
                                     </li>
 
                                     <li>
-                                        <a href="our-project.html">Our Courses</a>
+                                        <a href="{{ route('frontend.course') }}">Our Courses</a>
                                     </li>
                                     <li>
-                                        <a href="blog.html">Blog</a>
+                                        <a href="{{ route('frontend.blog') }}">Blog</a>
 
-                                        <ul>
+                                        {{-- <ul>
                                             <li><a href="blog.html">Blog 1</a></li>
                                             <li><a href="blog-standard.html">Blog 2</a></li>
-                                        </ul>
+                                        </ul> --}}
                                     </li>
                                     <li>
-                                        <a href="our-project.html">Contact us</a>
+                                        <a href="{{ route('frontend.contact.submit') }}">Contact us</a>
                                     </li>
                                 </ul>
                             </div>
@@ -114,7 +119,7 @@
                                 </form>
                             </div>
 
-                            <a href="contact.html" class="header-btn">Get A Quote <i
+                            <a href="{{ route('frontend.contact.submit') }}" class="header-btn">Get A Quote <i
                                     class="far fa-chevron-double-right"></i></a>
                             <div class="mobile-nav-bar d-block ml-3 ml-sm-5 d-xl-none">
                                 <div class="mobile-nav-wrap">

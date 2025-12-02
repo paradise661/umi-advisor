@@ -1,10 +1,11 @@
 <?php
 namespace App\Providers;
-use App\Models\Country;
+use App\Models\Blog;
 use App\Models\Course;
+use App\Models\Social;
+use App\Models\Country;
 use App\Models\Service;
 use App\Models\Settings;
-use App\Models\Social;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -39,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
         View::Share('footer_course', $footer_course);
         $footer_services = Service::where('status', 1)->orderBy('order')->limit(5)->get() ?? [];
         View::Share('footer_services', $footer_services);
+
+        $recent_post = Blog::where('status', 1)->limit(2)->get();
+        View::Share('recent_post', $recent_post);
 
         Paginator::useBootstrapFive();
     }

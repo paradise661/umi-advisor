@@ -73,8 +73,9 @@ class FrontendController extends Controller
         $courses = Course::where('status', 1)->limit(4)->get();
         $testimonials = Testimonial::where('status', 1)->get();
         $blogs = Blog::where('status', 1)->limit(4)->get();
+        $recent_post = Blog::where('status', 1)->limit(2)->get();
 
-        return view('frontend.home.index', compact('sliders','popup', 'faq_page', 'countrylocation', 'faq', 'abroadstudies', 'universities', 'courses', 'countries', 'blogs', 'services', 'about_us', 'why_choose_us', 'teams', 'testimonials','service_section'));
+        return view('frontend.home.index', compact('sliders','popup', 'faq_page', 'countrylocation', 'faq', 'abroadstudies', 'universities', 'courses', 'countries', 'blogs', 'services', 'about_us', 'why_choose_us', 'teams', 'testimonials','service_section','recent_post'));
     }
     public function about()
     {
@@ -82,7 +83,10 @@ class FrontendController extends Controller
         $why_us = Page::where('status', 1)->where('slug', 'why-choose-us')->first();
         $teams = Team::where('status', 1)->oldest("order")->get();
         $studentreviw = WhyChooseUs::get();
-        return view('frontend.about.index', compact('about_us', 'why_us', 'teams', 'studentreviw'));
+        $services = Service::where('status', 1)->limit(4)->get();
+        $testimonials = Testimonial::where('status', 1)->get();
+
+        return view('frontend.about.index', compact('about_us', 'why_us', 'teams', 'studentreviw','services','testimonials'));
     }
     public function service()
     {
@@ -96,8 +100,8 @@ class FrontendController extends Controller
         $service_page = Page::where('status', 1)->where('slug', 'service')->first();
         $servicesingle = Service::where('slug', $slug)->where('status', 1)->first();
         $services = Service::where('status', 1)->oldest("order")->get();
-
-        return view('frontend.service.show', compact('servicesingle', 'services', 'service_page'));
+        $more_services = Service::where('status', 1)->limit(4)->get();
+        return view('frontend.service.show', compact('servicesingle', 'services', 'service_page','more_services'));
     }
     public function event()
     {
@@ -115,7 +119,7 @@ class FrontendController extends Controller
     }
     function abroadstudies()
     {
-        $abroad_page = Page::where('status', 1)->where('slug', 'abroad-studies')->first();
+        $abroad_page = Page::where('status', 1)->where('slug', 'destination')->first();
         $abroadstudies = Country::where('status', 1)->oldest("order")->get();
         return view('frontend.abroad.index', compact('abroadstudies', 'abroad_page'));
     }
@@ -125,13 +129,17 @@ class FrontendController extends Controller
         $abroadstudiesingle = Country::with('countryFaqs')->where('slug', $slug)->where('status', 1)->first();
         $faq = Faq::where('status', 1)->get();
         $universities = University::where('country_id', $abroadstudiesingle->id)->where('status', 1)->oldest("order")->get();
-        return view('frontend.abroad.show', compact('abroadstudiesingle', 'faq', 'abroad_page', 'universities'));
+        $servicesingle = Service::where('slug', $slug)->where('status', 1)->first();
+        $more_abroadstudies = Country::with('countryFaqs')->where('status', 1)->get();
+
+        return view('frontend.abroad.show', compact('abroadstudiesingle', 'faq', 'abroad_page', 'universities','servicesingle','more_abroadstudies'));
     }
     function course()
     {
         $course_page = Page::where('status', 1)->where('slug', 'course')->first();
         $course = Course::get();
-        return view('frontend.course.index', compact('course', 'course_page'));
+        $courses =  Course::where('status', 1)->get();
+        return view('frontend.course.index', compact('course', 'course_page','courses'));
     }
     function coursesingle($slug)
     {
@@ -140,14 +148,15 @@ class FrontendController extends Controller
         if ($coursesingle) {
             $coursesingle->save();
             $courses = Course::where('id', '!=', $coursesingle->id)->where('status', 1)->oldest("order")->limit(5)->get();
+            
             return view("frontend.course.show", compact('courses', 'coursesingle', 'course_page'));
         }
     }
     function blog()
     {
         $blog_page = Page::where('status', 1)->where('slug', 'blog')->first();
-        $blog = Blog::where('status', 1)->oldest("order")->get();
-        return view('frontend.blog.index', compact('blog', 'blog_page'));
+        $blogs = Blog::where('status', 1)->oldest("order")->get();
+        return view('frontend.blog.index', compact('blogs', 'blog_page'));
     }
     function blogsingle($slug)
     {
@@ -175,8 +184,10 @@ class FrontendController extends Controller
     function testimonial()
     {
         $testimonial_page = Page::where('status', 1)->where('slug', 'testimonial')->first();
-        $testimonial = Testimonial::where('status', 1)->oldest("order")->get() ?? [];
-        return view('frontend.testimonial', compact('testimonial', 'testimonial_page'));
+        $testimonials = Testimonial::where('status', 1)->oldest("order")->get() ?? [];
+        // $testimonials = Testimonial::where('status', 1)->get();
+
+        return view('frontend.testimonial', compact('testimonials', 'testimonial_page'));
     }
     function gallery()
     {
@@ -334,4 +345,5 @@ class FrontendController extends Controller
             return redirect()->back()->with('success', 'Registration successful!');
         }
     }
+    
 }

@@ -47,12 +47,11 @@
                     <h4 class="wid-title mb-30 color-white">Quick Link</h4>
 
                     <ul>
-                        <li><a href="">About Company</a></li>
-                        <li><a href="">Our Services</a></li>
-                        <li><a href="">Investor Presentation</a></li>
-                        <li><a href="">Investor Career</a></li>
-                        <li><a href="">Meet Our Team</a></li>
-                        <li><a href="">Support</a></li>
+                        <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
+                        <li><a href="{{ route('frontend.service') }}">Service</a></li>
+                        {{-- <li><a href="{{ route('frontend.event') }}">Events</a></li> --}}
+                        <li><a href="{{ route('frontend.team') }}">Team</a></li>
+                        <li><a href="{{ route('frontend.testimonial') }}">Testimonial</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,29 +62,22 @@
                     <h4 class="wid-title mb-30 color-white">Resent Post</h4>
 
                     <div class="recent-post-list">
-                        <a href="blog.html" class="single-recent-post mb-20 pb-20 d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="assets/img/footer/resent-post-1.png" alt="">
-                            </div>
+                        @foreach ($recent_post as $post)
 
-                            <div class="post-data">
-                                <h5 class="color-white mb-10 fw-600">Why Purpose-Driven Employers Succeed</h5>
-                                <span class="color-white d-flex ailign-items-center"><i class="far fa-clock"></i>January
-                                    11, 2018</span>
-                            </div>
-                        </a>
 
-                        <a href="blog.html" class="single-recent-post mb-20 pb-20 d-flex align-items-center">
-                            <div class="thumb">
-                                <img src="assets/img/footer/resent-post-2.png" alt="">
-                            </div>
+                            <a href="blog.html" class="single-recent-post mb-20 pb-20 d-flex align-items-center">
+                                <div class="thumb">
+                                    <img src="{{ $post->image }}" alt="blog image">
+                                </div>
 
-                            <div class="post-data">
-                                <h5 class="color-white mb-10 fw-600">Saving Time Achieving Success in Business</h5>
-                                <span class="color-white d-flex ailign-items-center"><i
-                                        class="far fa-clock"></i>november 12, 2019</span>
-                            </div>
-                        </a>
+                                <div class="post-data">
+                                    <h5 class="color-white mb-10 fw-600">{{ $post->title }}</h5>
+                                    {{-- <span class="color-white d-flex ailign-items-center"><i
+                                            class="far fa-clock"></i>January
+                                        11, 2018</span> --}}
+                                </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>

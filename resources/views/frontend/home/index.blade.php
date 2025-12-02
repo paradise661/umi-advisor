@@ -38,7 +38,8 @@
                 <div class="col-xl-6">
                     <div class="banner-home__media">
                         <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt="">
-                        <img src="assets/img/banner/banner-home.png" class="img-fluid" alt="">
+                        {{-- <img src="assets/img/banner/banner-home.png" class="img-fluid" alt=""> --}}
+                        <img src="{{ $sliders->image }}" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
