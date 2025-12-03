@@ -38,7 +38,7 @@
                         <div class="header-logo">
                             <div class="logo">
                                 <a href="/">
-                                    <img src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}"
+                                    <img style="height: 50px" src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}"
                                         alt="logo">
                                 </a>
                             </div>
