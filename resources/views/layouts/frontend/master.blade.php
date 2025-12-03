@@ -13,6 +13,7 @@
     @yield('seo')
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
+    <script src="{{ asset('admin/assets/js/sweetalert-new.js') }}"></script>
     <!-- ===========  All Stylesheet ================= -->
     <link rel="stylesheet" href="{{ asset('assets/css/icons.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
@@ -20,6 +21,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+        media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
 </head>
 
@@ -42,6 +46,12 @@
     <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('assets/js/active.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="{{ asset('admin/assets/js/sweetalert-new.js') }}"></script>
+
+
+
 </body>
 
 </html>

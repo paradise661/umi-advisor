@@ -113,7 +113,7 @@
                 </div>
             </section>
              <!-- blog-news start -->
-            <section class="blog-news pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
+            <section class="blog-news pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden blog-margin">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-12">

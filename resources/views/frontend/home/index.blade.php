@@ -35,7 +35,7 @@
 
                 <div class="col-xl-6">
                     <div class="banner-home__media">
-                        <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt="">
+                        {{-- <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt=""> --}}
                         {{-- <img src="assets/img/banner/banner-home.png" class="img-fluid" alt=""> --}}
                         <img src="{{ $sliders->image }}" class="img-fluid" alt="">
                     </div>
@@ -209,7 +209,7 @@
     <!-- planning-success start -->
     <section
         class="planning-success pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-130 overflow-hidden"
-        style="background-image: url(assets/img/home/planning-success-bg.png);">
+        style="background-image: url({{ $service_section->banner_image }});">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-9">
@@ -226,10 +226,10 @@
                 </div>
 
                 <div class="col-sm-3">
-                    <div class="planning-success__video wow fadeInUp" data-wow-delay=".5s">
+                    {{-- <div class="planning-success__video wow fadeInUp" data-wow-delay=".5s">
                         <a href="https://www.youtube.com/watch?v=9xwazD5SyVg" class="popup-video mx-auto"
                             data-effect="mfp-move-from-top"><i class="icon-play"></i></a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -282,7 +282,8 @@
                                 <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
 
 
-                                    {!! $icons[$key % count($icons)] !!}
+                                    {{-- {!! $icons[$key % count($icons)] !!} --}}
+                                    <i class="{{ $service-> }}"></i>
 
                                 </div>
 

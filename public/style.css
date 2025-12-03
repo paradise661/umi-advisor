@@ -13502,10 +13502,12 @@ header.transparent.stop.header-2 .main-header-wraper {
     bottom: 150px;
   }
 }
+
 .banner-home .container {
   z-index: 1;
   position: relative;
 }
+
 .banner-home .container:after {
   top: 42px;
   content: "";
@@ -13517,11 +13519,13 @@ header.transparent.stop.header-2 .main-header-wraper {
   background-repeat: no-repeat;
   /* background-image: url(assets/img/banner/banner-overly.svg); */
 }
+
 .banner-home__content .sub-title {
   border-radius: 2px;
   padding: 10.5px 19px;
   background-color: #00b3ea;
 }
+
 .banner-home__content .sub-title span {
   color: #fe0302;
 }
@@ -19766,7 +19770,7 @@ header.transparent.stop.header-2 .main-header-wraper {
   position: absolute;
   background-size: auto;
   background-repeat: no-repeat;
-  background-image: url(assets/img/home/our-company-financial-overly.svg);
+  /* background-image: url(assets/img/home/our-company-financial-overly.svg); */
 }
 
 .our-company-financial .our-company .container:after {
@@ -22892,6 +22896,10 @@ header.transparent.stop.header-2 .main-header-wraper {
 
 .footer-1 .footer-bottom-list ul li:last-child a:before {
   display: none;
+}
+
+.blog-margin {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

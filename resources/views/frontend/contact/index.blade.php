@@ -2,153 +2,184 @@
 
 @section('seo')
     @include('frontend.seo', [
-        'name' => $contact_page->seo_title ?? '',
-        'title' => $contact_page->seo_title ?? $contact_page->title,
-        'description' => $contact_page->meta_description ?? '',
-        'keyword' => $contact_page->meta_keywords ?? '',
-        'schema' => $contact_page->seo_schema ?? '',
-        'created_at' => $contact_page->created_at,
-        'updated_at' => $contact_page->updated_at,
-    ])
+    'name' => $contact_page->seo_title ?? '',
+    'title' => $contact_page->seo_title ?? $contact_page->title,
+    'description' => $contact_page->meta_description ?? '',
+    'keyword' => $contact_page->meta_keywords ?? '',
+    'schema' => $contact_page->seo_schema ?? '',
+    'created_at' => $contact_page->created_at,
+    'updated_at' => $contact_page->updated_at,
+])
 @endsection
 @section('content')
-    @if ($contact_page)
-        <div class="hero-banner2 position-relative ">
-            <div class="row g-0 text-bannner-section">
-                <div class="col-md-6 d-flex justify-content-center align-items-center py-5">
-                    <div class="text-center page-banner-lft px-4">
-                        <h1 class="text-white font-weight-bold">{{ $contact_page->title ?? 'About Us' }}</h1>
-                        <p class="breadcrumb-text text-white">
-                            <a href="{{ route('frontend.home') }}" class="text-white text-decoration-none">Home</a> /
-                            <a href="#"
-                                class="text-white text-decoration-none">{{ $contact_page->title ?? 'About Us' }}</a>
-                        </p>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="img-container-banner">
-                        <div class="img-wrapper-2">
-                            <img src="{{ asset($contact_page->banner_image) }}" alt="Creative Design"
-                                class="background-img">
+    <!-- page-banner start -->
+            <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
+                                <div class="transparent-text">About Us</div>
+                                <div class="page-title">
+                                    <h1>{{ $contact_page->title }}</h1>
+                                </div>
+                            </div>
+
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ $contact_page->title }}</li>
+                                </ol>
+                            </nav>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="page-banner__media mt-xs-30 mt-sm-40">
+                                <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
+                                <img src="assets/img/page-banner/page-banner.jpg" class="img-fluid" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    @endif
-    <div class="container pt-4">
+            </section>
+    <!-- contact-us start -->
+    <section class="contact-us pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card shadow contact-card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-2 gap-2">
-                                <i class="ri-map-pin-line contact-icon ri-5x"></i>
-                                <div>
-                                    <p class="contact-css mb-0">Office Location</p>
-                                    <p class="bodypart-css">{{ $settings['contact_location'] }}</p>
-                                </div>
-                            </div>
+                <div class="col-lg-6">
+                    <div class="contact-us__content wow fadeInUp" data-wow-delay=".3s">
+                        <h6 class="sub-title fw-500 color-primary text-uppercase mb-sm-15 mb-xs-10 mb-20"><img src="assets/img/team-details/badge-line.svg" class="img-fluid mr-10" alt="">{{ $settings['contact_section_title'] }}</h6>
+                        <h2 class="title color-d_black mb-sm-15 mb-xs-10 mb-20">{{ $settings['contact_title'] }}</h2>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card shadow contact-card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-2 gap-2">
-                                <i class="ri-mail-line contact-icon ri-5x"></i>
-                                <div>
-                                    <p class="contact-css mb-0">Email Address</p>
-                                    <a href="mailto:{{ $settings['contact_email'] ?? 'mail@gmail.com' }}"
-                                        class="bodypart-css">{{ $settings['contact_email'] }}</a>
-                                </div>
-                            </div>
-
+                        <div class="description font-la">
+                            <p>{{ $settings['contact_description'] }}</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 mb-4">
-                    <div class="card shadow contact-card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-2 gap-2">
-                                <i class="ri-phone-line contact-icon ri-5x"></i>
-                                <div>
-                                    <p class="contact-css mb-0">WhatsApp / Phone</p>
-                                    <p class="bodypart-css">{{ $settings['contact_phone'] }}</p>
+                <div class="col-lg-6">
+                    <div class="row contact-us__item-wrapper mt-xs-35 mt-sm-40 mt-md-45">
+                        {{-- <div class="col-sm-6">
+                            <div class="contact-us__item mb-40 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="contact-us__item-header mb-25 mb-md-20 mb-sm-15 mb-xs-10 d-flex align-items-center">
+                                    <div class="icon mr-10 color-primary">
+                                        <i class="fal fa-map-marker-alt"></i>
+                                    </div>
+
+                                    <h5 class="title color-d_black">London Office</h5>
+                                </div>
+
+                                <div class="contact-us__item-body font-la">
+                                    4517 Washington Ave. Manchester, Kentucky 39495
                                 </div>
                             </div>
+                        </div> --}}
 
+                        {{-- <div class="col-sm-6">
+                            <div class="contact-us__item mb-40 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="contact-us__item-header mb-25 mb-md-20 mb-sm-15 mb-xs-10 d-flex align-items-center">
+                                    <div class="icon mr-10 color-primary">
+                                        <i class="icon-home-location"></i>
+                                    </div>
+
+                                    <h5 class="title color-d_black">Ontario Office</h5>
+                                </div>
+
+                                <div class="contact-us__item-body font-la">
+                                    3891 Ranchview Dr. Richardson, California 62639
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        <div class="col-sm-6">
+                            <div class="contact-us__item mb-40 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="contact-us__item-header mb-25 mb-md-20 mb-sm-15 mb-xs-10 d-flex align-items-center">
+                                    <div class="icon mr-10 color-primary">
+                                        <i class="icon-phone"></i>
+                                    </div>
+
+                                    <h5 class="title color-d_black">Call Us Toll Free</h5>
+                                </div>
+
+                                <div class="contact-us__item-body font-la">
+                                    <ul>
+                                        <li><a href="tell:{{ $settings['contact_phone'] }}">{{ $settings['contact_phone'] }}</a></li>
+                                        {{-- <li><a href="tell:(208)555-0112">(208) 555-0112</a></li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="contact-us__item mb-40 wow fadeInUp" data-wow-delay=".9s">
+                                <div class="contact-us__item-header mb-25 mb-md-20 mb-sm-15 mb-xs-10 d-flex align-items-center">
+                                    <div class="icon mr-10 color-primary">
+                                        <i class="icon-email"></i>
+                                    </div>
+
+                                    <h5 class="title color-d_black">Email Us</h5>
+                                </div>
+
+                                <div class="contact-us__item-body font-la">
+                                    <ul>
+                                        {{-- <li><a href="mailto:consulter@example.com">consulter@example.com </a></li> --}}
+                                        <li><a href="mailto:{{ $settings['contact_email'] }}">{{ $settings['contact_email'] }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <section class=" py-5 contact-page">
-        <div class="container contact-main shadow p-4 py-3 ">
-            <div class="row d-flex align-items-center justify-content-center ">
-                {{-- <div class="col-md-4  gap-x-4 ">
-                    <div class="contact-container">
-                        <div class="contact-detail ">
-                            <div class="contact-title">{{ $settings['contact_title'] ?? 'Contact us' }}</div>
-                            <div class="contact-phone d-flex"><i class="ri-phone-line"></i>
-                                <a class="mx-2"
-                                    href="tel:{{ $settings['site_phone'] ?? '9876543212' }}">{{ $settings['site_phone'] ?? '9876543212' }}</a>
-                            </div>
-                            <div class="contact-location d-flex"><i class="ri-map-pin-line"></i>
-                                <p class="mx-2">{{ $settings['site_location'] ?? 'ktm' }}</p>
-                            </div>
-                            <div class="contact-mail d-flex"><i class="ri-mail-line"></i>
-                                <a class="mx-2"
-                                    href="mailto:{{ $settings['site_email'] ?? 'xyz@gmail.com' }}">{{ $settings['site_email'] ?? 'gmail' }}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                <div class="col-md-12  ">
-                    {{-- {{ $settings }} --}}
-                    <div class="">
-                        <form class=" px-4 " action="" method="post">
-                            @csrf
-                            @method('post')
-                            <div class="heading-title-contact  center mt-1">
-                                {{ $settings['contact_section_title'] ?? 'Get In Touch' }} </div>
-                            <div class="form-group">
-                                <label for="name">First Name <i class="ri-asterisk asterisk"></i></label>
-                                <input id="name" type="text" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number <i class="ri-asterisk asterisk"></i></label>
-                                <input id="phone" type="tel" name="phone" placeholder="" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email <i class="ri-asterisk asterisk"></i></label>
-                                <input id="email" type="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message <i class="ri-asterisk asterisk"></i></label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <div class="form-group center">
-                                <a href="{{ route('frontend.contact.submit') }}">
-                                    <button class="custom-btn btn-8"><span>Contact Us <i
-                                     class="ri-arrow-right-up-line"></i></span></button>
-                                </a>
-                            </div>
-                    </div>
 
-                    </form>
+            <div class="row">
+                <div class="col-12">
+                    <hr class="mt-md-45 mt-sm-30 mt-xs-30 mt-60">
                 </div>
             </div>
-        </div>
-        <div class="map pt-5">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.7584007067744!2d84.42124197447188!3d27.69386112608786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb0b4d5486cf%3A0x33f37bae941e59c9!2sHELPFUL%20EDUCATIONAL%20INSTITUTE!5e0!3m2!1sen!2snp!4v1751616338506!5m2!1sen!2snp"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
+    <!-- contact-us end -->
+
+    <!-- contact-us form end -->
+    <section class="contact-form  mb-xs-80 mb-sm-100 mb-md-100 mb-120 overflow-hidden">
+        <div id="contact-map" class="mb-sm-30 mb-xs-25">
+            <iframe src="{{ $settings['contact_map'] }}" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <!-- contact-map -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form pt-md-30 pt-sm-25 pt-xs-20 pb-md-40 pb-sm-35 pb-xs-30 pt-xl-30 pb-xl-50 pt-45 pr-xl-50 pl-md-40 pl-sm-30 pl-xs-25 pr-md-40 pr-sm-30 pr-xs-25 pl-xl-50 pr-85 pb-60 pl-85 wow fadeInUp" data-wow-delay=".3s">
+                        <div class="contact-form__header mb-sm-35 mb-xs-30 mb-40">
+                            <h6 class="sub-title fw-500 color-primary text-uppercase mb-15"><img src="assets/img/team-details/badge-line.svg" class="img-fluid mr-10" alt=""> {{ $settings['contact_form_title'] }}</h6>
+                            <h3 class="title color-d_black">{{ $settings['contact_form_subtitle'] }}</h3>
+                        </div>
+
+                        <form action="{{ route('frontend.contact.submit.home') }}" method="POST">
+                            @csrf
+                            <div class="single-personal-info">
+                                        <input type="text" placeholder="Your Name" name="name">
+                                    </div>
+                                    <div class="single-personal-info">
+                                        <input type="email" placeholder="Your e-mail" name="email">
+                                    </div>
+                                    <div class="single-personal-info">
+                                        <input type="text" placeholder="Subject" name="course">
+                                    </div>
+                                    <div class="single-personal-info">
+                                        <textarea placeholder="Your Message" name="message"></textarea>
+                                    </div>
+
+                            <button type="submit" class="theme-btn btn-sm">Submit Message <i class="far fa-chevron-double-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact-us form end -->
+
     @if (session('success'))
         <script>
             document.addEventListener('DOMContentLoaded', function() {

@@ -59,7 +59,7 @@
 
             <div class="col-md-6 col-xl-4">
                 <div class="single-footer-wid recent_post_widget pl-xl-10 pl-65 pr-50 pr-xl-30">
-                    <h4 class="wid-title mb-30 color-white">Resent Post</h4>
+                    <h4 class="wid-title mb-30 color-white">Recent Blogs</h4>
 
                     <div class="recent-post-list">
                         @foreach ($recent_post as $post)
