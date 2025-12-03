@@ -462,13 +462,11 @@
                                     <img src="{{ $course->image }}" class="img-fluid" alt="">
                                 </div>
                             </div>
-
                             <div class="content d-flex flex-row">
                                 <div class="left">
                                     <div class="post-author mb-5 mb-xs-5 text-uppercase">
                                         {{-- <a href="blog-details.html">Business, Finance</a> --}}
                                     </div>
-
                                     <h5 class="color-pd_black mb-15 mb-xs-10"><a
                                             href="blog-details.html">{{ $course->title }}</a></h5>
                                     <div class="description font-la line-clamp-4">
@@ -546,9 +544,6 @@
                     </div>
                 @endforeach
                 <!-- team-item -->
-
-
-
                 <!-- team-item -->
             </div>
         </div>
@@ -567,14 +562,12 @@
                         <h2 class="title color-pd_black">{{ $settings['testioninal_subtitle'] }}</h2>
                     </div>
                 </div>
-
                 <div class="col-sm-3">
                     <div class="slider-controls slider-controls-two mt-xs-15 wow fadeInUp" data-wow-delay=".3s">
                         <div class="testimonial-slider-arrows d-flex align-content-center justify-content-sm-end"></div>
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-12">
                     <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
@@ -588,7 +581,6 @@
                                             <div class="media overflow-hidden">
                                                 <img src="{{ $testimonial->image }}" class="img-fluid" alt="">
                                             </div>
-
                                             <div class="meta">
                                                 <div class="starts">
                                                     <ul>
@@ -601,16 +593,13 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="right">
                                             <i class="fal fa-quote-right"></i>
                                         </div>
                                     </div>
-
                                     <div class="description font-la mb-25">
                                         <p>{!! $testimonial->description !!}</p>
                                     </div>
-
                                     <div class="testimonial__item-footer d-flex justify-content-between">
                                         <div class="socail-link">
                                             {{-- <span class="name"><span>- </span></span> --}}
@@ -707,7 +696,6 @@
             </div>
         </section>
         <!-- can-help end -->
-
         <!-- blog-news start -->
         <section class="blog-news pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
             <div class="container">

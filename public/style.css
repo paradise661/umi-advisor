@@ -13488,7 +13488,7 @@ header.transparent.stop.header-2 .main-header-wraper {
   height: 545.85px;
   position: absolute;
   background-repeat: no-repeat;
-  background-image: url(assets/img/banner/pattern.svg);
+  /* background-image: url(assets/img/banner/pattern.svg); */
 }
 
 @media (max-width: 1199px) {
@@ -13502,12 +13502,10 @@ header.transparent.stop.header-2 .main-header-wraper {
     bottom: 150px;
   }
 }
-
 .banner-home .container {
   z-index: 1;
   position: relative;
 }
-
 .banner-home .container:after {
   top: 42px;
   content: "";
@@ -13517,15 +13515,13 @@ header.transparent.stop.header-2 .main-header-wraper {
   height: 208px;
   position: absolute;
   background-repeat: no-repeat;
-  background-image: url(assets/img/banner/banner-overly.svg);
+  /* background-image: url(assets/img/banner/banner-overly.svg); */
 }
-
 .banner-home__content .sub-title {
   border-radius: 2px;
   padding: 10.5px 19px;
   background-color: #00b3ea;
 }
-
 .banner-home__content .sub-title span {
   color: #fe0302;
 }
