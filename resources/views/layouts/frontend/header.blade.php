@@ -5,7 +5,6 @@
                 <div class="col-4">
                     <div class="header-right-socail d-flex align-items-center">
                         <h6 class="font-la color-white fw-normal">Follow On:</h6>
-
                         <div class="social-profile">
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -29,7 +28,6 @@
             </div>
         </div>
     </div>
-
     <div class="main-header-wraper">
         <div class="container">
             <div class="row">
@@ -233,7 +231,6 @@
     <div class="offcanvas-overlay"></div>
     <!-- offcanvas-overlay -->
     <!-- header end -->
-
     <div class="header-gutter home"></div>
     <!-- header end -->
 </header>
