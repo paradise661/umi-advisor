@@ -133,8 +133,6 @@
                             <h3>{{ $blogsingle->short_description }}</h3>
 
                             <p>{!! $blogsingle->description !!}</p>
-
-
                         </div>
                     </div>
                 </div>
