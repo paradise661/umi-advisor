@@ -283,7 +283,7 @@
 
 
                                     {{-- {!! $icons[$key % count($icons)] !!} --}}
-                                    <i class="{{ $service-> }}"></i>
+                                    <i class="{{ $service->image }}"></i>
 
                                 </div>
 
