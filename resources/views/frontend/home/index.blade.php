@@ -21,18 +21,15 @@
                         <h1 class="title color-white fw-bold mb-20 mb-sm-15 mb-xs-10">{{ $sliders->title }}</h1>
 
                         <div class="description font-la color-white mb-45 mb-md-30 mb-sm-25 mb-xs-20">
-                            <p>{!! $sliders->description !!}</p>
+                            <p style="color: white !important">{!! $sliders->description !!}</p>
                         </div>
-
                         <div class="theme-btn__wrapper d-flex flex-wrap">
                             <a href="/contact-us" class="theme-btn fw-600 btn-red">Read more <i
                                     class="far fa-chevron-double-right"></i></a>
                             {{-- <a href="about.html" class="theme-btn fw-600 btn-white-border">Read More <i class="far fa-chevron-double-right"></i></a> --}}
                         </div>
                     </div>
-
                 </div>
-
                 <div class="col-xl-6">
                     <div class="banner-home__media">
                         {{-- <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt=""> --}}
@@ -112,7 +109,6 @@
             </div>
         </section>
         <!-- financial-area end -->
-
         <!-- our-company start -->
         <section class="our-company pb-xs-80 pb-100 overflow-hidden">
             <div class="container">
@@ -148,11 +144,11 @@
                             <h2 class="title color-pd_black mb-20 mb-sm-15 mb-xs-10">{{ $about_us->short_description }}
                             </h2>
 
-                            <div class="descriiption font-la mb-30 mb-md-25 mb-sm-20 mb-xs-15">
+                            <div class="descriiption font-la mb-30 mb-md-25 mb-sm-20 mb-xs-15 about-desc">
                                 <p>{!! $about_us->description !!}</p>
                             </div>
 
-                            <div class="client-feedback d-flex flex-column flex-sm-row">
+                            {{-- <div class="client-feedback d-flex flex-column flex-sm-row">
                                 <div class="client-feedback__item client-feedback__item-two text-center">
                                     <div class="client-feedback__item-header">
                                         <span class="color-red font-la fw-600 text-uppercase">Success Project</span>
@@ -198,7 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -289,7 +285,7 @@
 
                                 <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">{{ $service->title }}</h6>
 
-                                <div class="description font-la mb-20 mb-sm-15 mb-xs-10  line-clamp-4">
+                                <div class="description font-la mb-20 mb-sm-15 mb-xs-10  line-clamp-4 service-des">
                                     <p>{!! $service->description !!}</p>
                                 </div>
 
@@ -306,7 +302,6 @@
         </div>
     </section>
     <!-- why-choose end -->
-
     <!-- get-free end -->
     {{-- <section class="get-free get-free-home overflow-hidden">
         <div class="container">
@@ -341,7 +336,6 @@
         </div>
     </section> --}}
     <!-- get-free end -->
-
     <!-- work-process end -->
     {{-- <section class="work-process work-process-home bg-dark_red pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
         <div class="container">
@@ -353,7 +347,6 @@
                     </div>
                 </div>
             </div>
-
                 <div class="row mb-minus-30 last_no_bullet">
                     <div class="col-xl-3 col-lg-4 col-sm-6">
                         <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".3s">
@@ -361,10 +354,8 @@
                                 <div class="icon">
                                     <i class="icon-research"></i>
                                 </div>
-
                                 <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 1</button>
                             </div>
-
                             <div class="text">
                                 <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Research Your Problem</h6>
 
@@ -374,7 +365,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-xl-3 col-lg-4 col-sm-6">
                         <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".5s">
                             <div class="icon-wrapper d-flex">
@@ -384,7 +374,6 @@
 
                                 <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 2</button>
                             </div>
-
                             <div class="text">
                                 <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Identifying Problem</h6>
 
@@ -394,8 +383,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="col-xl-3 col-lg-4 col-sm-6">
                         <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".7s">
                             <div class="icon-wrapper d-flex">
@@ -405,7 +392,6 @@
 
                                 <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 3</button>
                             </div>
-
                             <div class="text">
                                 <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Solutions Your Problem</h6>
 
@@ -415,14 +401,12 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-xl-3 col-lg-4 col-sm-6">
                         <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".9s">
                             <div class="icon-wrapper d-flex">
                                 <div class="icon">
                                     <i class="icon-target-2"></i>
                                 </div>
-
                                 <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 4</button>
                             </div>
 
@@ -470,7 +454,7 @@
                                     </div>
                                     <h5 class="color-pd_black mb-15 mb-xs-10"><a
                                             href="blog-details.html">{{ $course->title }}</a></h5>
-                                    <div class="description font-la line-clamp-4">
+                                    <div class="description font-la line-clamp-4 course-des">
                                         <p>{{ $course->short_description }}</p>
                                     </div>
                                 </div>
@@ -598,7 +582,7 @@
                                             <i class="fal fa-quote-right"></i>
                                         </div>
                                     </div>
-                                    <div class="description font-la mb-25">
+                                    <div class="description font-la mb-25 testi-des">
                                         <p>{!! $testimonial->description !!}</p>
                                     </div>
                                     <div class="testimonial__item-footer d-flex justify-content-between">
