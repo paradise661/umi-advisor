@@ -95,7 +95,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                <div class="transparent-text">About Us</div>
+                                <div class="transparent-text">{{ $team_page->title }}</div>
                                 <div class="page-title">
                                     <h1>{{ $team_page->title }}</h1>
                                 </div>
@@ -112,7 +112,7 @@
                         <div class="col-md-6">
                             <div class="page-banner__media mt-xs-30 mt-sm-40">
                                 <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                                <img src="assets/img/page-banner/page-banner.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset($team_page->banner_image) }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -121,14 +121,14 @@
             <!-- our-team-home-1 start -->
         <section class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
             <div class="container">
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-12">
                         <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp" data-wow-delay=".3s">
                             <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> {{ $settings['teams_title'] }}</span>
                             <h2 class="title color-d_black">{{ $settings['teams_subtitle'] }}</h2>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="row mb-minus-30">
                     @foreach ($teams as $team)
