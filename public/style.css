@@ -17422,7 +17422,8 @@ header.transparent.stop.header-2 .main-header-wraper {
 }
 
 .blog-item .content h3 {
-  color: #00b3ea;
+  /* color: #00b3ea; */
+  color: gray;
   margin-bottom: 20px;
   text-transform: capitalize;
   font-size: 22px;
@@ -22931,6 +22932,10 @@ header.transparent.stop.header-2 .main-header-wraper {
 
 .blog-margin {
   margin-top: 20px;
+}
+
+.content-blog p {
+  color: gray !important;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -122,7 +122,7 @@
                             </div>
                         </div>
 
-                        <div class="content pr-sm-25 pr-xs-15 pl-xs-15 pl-sm-25 pr-xs-15 pr-30 pl-30 pb-xs-25 pb-sm-30 pb-40">
+                        <div class="content pr-sm-25 pr-xs-15 pl-xs-15 pl-sm-25 pr-xs-15 pr-30 pl-30 pb-xs-25 pb-sm-30 pb-40 content-blog">
                             {{-- <div class="post-meta mb-10">
                                 <a href="blog-details.html"><i class="icon-user"></i>By Admin</a>
                                 <a href="blog-details.html"><i class="icon-category"></i>Business, Consulting</a>
