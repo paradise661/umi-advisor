@@ -3,8 +3,7 @@
     <div class="overly">
         <div class="container"></div>
     </div>
-
-    <div class="footer-top__box pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+    {{-- <div class="footer-top__box pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
         <div class="container">
             <div class="row">
                 <div class="col-12 wow fadeInUp" data-wow-delay=".5s">
@@ -14,16 +13,11 @@
                             <h3 class="title color-white">Get updated Informed to Subscribe our Newsletter</h3>
                         </div>
 
-                        {{-- <div class="theme-btn__wrapper d-flex flex-column">
-                            <input type="email" class="theme-btn" placeholder="Your e-mail">
-                            <a href="#" class="theme-btn">Subscribe Now</a>
-                        </div> --}}
-                    </div>
+                      
                 </div>
             </div>
         </div>
-    </div>
-
+    </div> --}}
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-md-6 col-xl-3">

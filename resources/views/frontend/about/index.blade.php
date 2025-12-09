@@ -80,7 +80,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-sm-6">
                         <div class="our-company__meida border-radius wow fadeInUp" data-wow-delay=".5s"
                             style="height: 505px;">
@@ -89,7 +88,6 @@
                             {{-- <div class="horizental-bar bg-red"></div> --}}
                         </div>
                     </div>
-
                     <div class="col-lg-6">
                         <div class="our-company__content mt-md-50 mt-sm-40 mt-xs-35 wow fadeInUp" data-wow-delay=".7s">
                             <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-20 d-block"><img
@@ -100,61 +98,12 @@
                             <div class="descriiption font-la mb-30 mb-md-25 mb-sm-20 mb-xs-15 testi-des">
                                 <p>{!! $about_us->description !!}</p>
                             </div>
-
-                            <div class="client-feedback d-flex flex-column flex-sm-row">
-                                <div class="client-feedback__item client-feedback__item-two text-center">
-                                    <div class="client-feedback__item-header">
-                                        <span class="color-red font-la fw-600 text-uppercase">Success Project</span>
-                                    </div>
-
-                                    <div class="client-feedback__item-body">
-                                        <div class="number mb-10 mb-xs-5 color-pd_black fw-600">+<span
-                                                class="counter">95</span>%</div>
-                                        <div class="description font-la mb-10 mb-xs-5">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
-                                        </div>
-                                        <div class="starts">
-                                            <ul>
-                                                <li><span></span></li>
-                                                <li><span></span></li>
-                                                <li><span></span></li>
-                                                <li><span></span></li>
-                                                <li><span></span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="client-feedback__item client-feedback__item-two text-center">
-                                    <div class="client-feedback__item-header">
-                                        <span class="color-red font-la fw-600 text-uppercase">Customer Review</span>
-                                    </div>
-
-                                    <div class="client-feedback__item-body">
-                                        <div class="number mb-10 mb-xs-5 color-pd_black fw-600">+<span
-                                                class="counter">4.7</span></div>
-                                        <div class="description font-la mb-10 mb-xs-5">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
-                                        </div>
-                                        <div class="starts">
-                                            <ul>
-                                                <li><span></span></li>
-                                                <li><span></span></li>
-                                                <li><span></span></li>
-                                                <li><span></span></li>
-                                                <li><span></span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
     <!-- why-choose start -->
     <section
         class="why-choose why-choose__home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pb-120 overflow-hidden">
