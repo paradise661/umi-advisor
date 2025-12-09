@@ -7,10 +7,12 @@
                         <h6 class="font-la color-white fw-normal">Follow On:</h6>
                         <div class="social-profile">
                             <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                @foreach ($socials as $social)
+                                    <li><a href="{{ $social->link }}"><i class="{{ $social->icon }}"></i></a></li>
+                                @endforeach
+                                {{-- <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li> --}}
+                                {{-- <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -36,7 +38,8 @@
                         <div class="header-logo">
                             <div class="logo">
                                 <a href="/">
-                                    <img style="height: 50px" src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}"
+                                    <img style="height: 50px"
+                                        src="{{ $settings['site_main_logo'] ? asset($settings['site_main_logo']) : asset('assets/images/logo.png') }}"
                                         alt="logo">
                                 </a>
                             </div>

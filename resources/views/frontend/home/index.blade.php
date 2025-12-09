@@ -53,7 +53,7 @@
                         <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".3s"
                             style="background-image: url(assets/img/home/financial__item-bg.png)">
                             <div class="icon">
-                                <img src="assets/img/icon/growth.svg" alt="">
+                                <img src="{{ $settings['home_counter_students_img'] }}" alt="">
                                 <!-- <i class="fal fa-analytics"></i> -->
                             </div>
 
@@ -72,7 +72,7 @@
                         <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".5s"
                             style="background-image: url(assets/img/home/financial__item-bg.png)">
                             <div class="icon">
-                                <img src="assets/img/icon/planning-1.svg" alt="">
+                                <img src="{{ $settings['home_counter_scholarship_img'] }}" alt="">
                                 <!-- <i class="fal fa-analytics"></i> -->
                             </div>
 
@@ -91,7 +91,7 @@
                         <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".7s"
                             style="background-image: url(assets/img/home/financial__item-bg.png)">
                             <div class="icon">
-                                <img src="assets/img/icon/international.svg" alt="">
+                                <img src="{{ $settings['home_counter_enrolled_img'] }}" alt="">
                                 <!-- <i class="fal fa-analytics"></i> -->
                             </div>
 
@@ -276,11 +276,8 @@
                             <div class="why-choose__item why-choose__item-two"
                                 style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
                                 <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
-
-
                                     {{-- {!! $icons[$key % count($icons)] !!} --}}
-                                    <i class="{{ $service->image }}"></i>
-
+                                    <img height="230px" src="{{ $service->image }}">
                                 </div>
 
                                 <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">{{ $service->title }}</h6>
@@ -293,8 +290,6 @@
                                     class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
                             </div>
                         @endforeach
-
-
                     </div>
                 </div>
             </div>
