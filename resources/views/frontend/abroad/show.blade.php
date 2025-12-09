@@ -26,7 +26,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('frontend.abroad') }}">Study Abroad</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('frontend.abroad') }}">Countries</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">{{ $abroadstudiesingle->title }}</li>
                                 </ol>
                             </nav>
