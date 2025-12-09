@@ -246,6 +246,10 @@ button {
   color: #FFF;
 }
 
+.color-gray {
+  color: gray;
+}
+
 .color-black {
   color: #000;
 }
@@ -12605,14 +12609,17 @@ header.hover-color-green .main-header-wraper .header-right .header-search .searc
   padding-right: 15px;
   content: var(--bs-breadcrumb-divider, "|");
 }
+
 .page-banner .breadcrumb .breadcrumb-item.active {
   color: #ff2020;
 }
+
 .page-banner__media {
   max-height: 450px;
   position: relative;
   margin-right: calc(-50vw + 50%) !important;
 }
+
 .page-banner__media:after {
   top: 0;
   width: 100%;
@@ -12624,6 +12631,7 @@ header.hover-color-green .main-header-wraper .header-right .header-search .searc
   background-size: cover;
   background-image: url(assets/img/page-banner/new.png);
 }
+
 .page-banner__media:before {
   content: "";
   top: -395px;
@@ -13521,24 +13529,31 @@ header.transparent.stop.header-2 .main-header-wraper {
   padding: 10.5px 19px;
   background-color: #00b3ea;
 }
-.about-desc p{
+
+.about-desc p {
   color: gray;
 }
-.service-des p{
+
+.service-des p {
   color: gray;
 }
-.course-des p{
+
+.course-des p {
   color: gray;
 }
-.testi-des p{
+
+.testi-des p {
   color: gray;
 }
-.testimonial__item:hover .testi-des p{
-color: white;
+
+.testimonial__item:hover .testi-des p {
+  color: white;
 }
+
 .banner-home__content .sub-title span {
   color: #fe0302;
 }
+
 /* p{
   color: gray ;
 } */
@@ -13800,7 +13815,8 @@ color: white;
 .contact-us__item ul li a {
   font-size: 16px;
   line-height: 28px;
-  color: #00b3ea;
+  /* color: #00b3ea; */
+  color: gray;
   font-family: "Lato", sans-serif;
 }
 

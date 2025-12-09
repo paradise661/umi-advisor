@@ -18,7 +18,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                <div class="transparent-text">About Us</div>
+                                <div class="transparent-text">{{ $contact_page->title }}</div>
                                 <div class="page-title">
                                     <h1>{{ $contact_page->title }}</h1>
                                 </div>
@@ -47,11 +47,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-us__content wow fadeInUp" data-wow-delay=".3s">
-                        <h6 class="sub-title fw-500 color-primary text-uppercase mb-sm-15 mb-xs-10 mb-20"><img src="assets/img/team-details/badge-line.svg" class="img-fluid mr-10" alt="">{{ $settings['contact_section_title'] }}</h6>
+                        <h6 class="sub-title fw-500 color-gray text-uppercase mb-sm-15 mb-xs-10 mb-20"><img src="assets/img/team-details/badge-line.svg" class="img-fluid mr-10" alt="">{{ $settings['contact_section_title'] }}</h6>
                         <h2 class="title color-d_black mb-sm-15 mb-xs-10 mb-20">{{ $settings['contact_title'] }}</h2>
 
                         <div class="description font-la">
-                            <p>{{ $settings['contact_description'] }}</p>
+                            <p class="color-gray">{{ $settings['contact_description'] }}</p>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                                     <h5 class="title color-d_black">Call Us Toll Free</h5>
                                 </div>
 
-                                <div class="contact-us__item-body font-la">
+                                <div class="contact-us__item-body font-la ">
                                     <ul>
                                         <li><a href="tell:{{ $settings['contact_phone'] }}">{{ $settings['contact_phone'] }}</a></li>
                                         {{-- <li><a href="tell:(208)555-0112">(208) 555-0112</a></li> --}}
@@ -152,7 +152,7 @@
                 <div class="col-12">
                     <div class="contact-form pt-md-30 pt-sm-25 pt-xs-20 pb-md-40 pb-sm-35 pb-xs-30 pt-xl-30 pb-xl-50 pt-45 pr-xl-50 pl-md-40 pl-sm-30 pl-xs-25 pr-md-40 pr-sm-30 pr-xs-25 pl-xl-50 pr-85 pb-60 pl-85 wow fadeInUp" data-wow-delay=".3s">
                         <div class="contact-form__header mb-sm-35 mb-xs-30 mb-40">
-                            <h6 class="sub-title fw-500 color-primary text-uppercase mb-15"><img src="assets/img/team-details/badge-line.svg" class="img-fluid mr-10" alt=""> {{ $settings['contact_form_title'] }}</h6>
+                            <h6 class="sub-title fw-500 color-gray text-uppercase mb-15"><img src="assets/img/team-details/badge-line.svg" class="img-fluid mr-10" alt=""> {{ $settings['contact_form_title'] }}</h6>
                             <h3 class="title color-d_black">{{ $settings['contact_form_subtitle'] }}</h3>
                         </div>
 

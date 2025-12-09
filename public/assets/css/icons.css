@@ -8351,7 +8351,7 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 .icon-dot-1:before { content: '\e814'; }
 .icon-download:before { content: '\e815'; }
 .icon-download-1:before { content: '\e816'; }
-.icon-email:before { content: '\e817'; }
+.icon-email:before { content: '\e817'; color: #00b3ea;}
 .icon-email-1:before { content: '\e818'; }
 .icon-employe:before { content: '\e819'; }
 .icon-facbook:before { content: '\e81a'; }
@@ -8412,7 +8412,7 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 .icon-notification-2:before { content: '\e851'; }
 .icon-outline:before { content: '\e852'; }
 .icon-paddle-1:before { content: '\e853'; }
-.icon-phone:before { content: '\e854'; }
+.icon-phone:before { content: '\e854'; color: #00b3ea; }
 .icon-phone-1:before { content: '\e855'; }
 .icon-piggy-bank-1:before { content: '\e856'; }
 .icon-planning:before { content: '\e857'; }
