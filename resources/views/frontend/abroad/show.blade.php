@@ -1,13 +1,13 @@
 @section('seo')
     @include('frontend.seo', [
-        'name' => $abroadstudiesingle->seo_title ?? '',
-        'title' => $abroadstudiesingle->seo_title ?? $abroadstudiesingle->title,
-        'description' => $abroadstudiesingle->meta_description ?? '',
-        'keyword' => $abroadstudiesingle->meta_keywords ?? '',
-        'schema' => $abroadstudiesingle->seo_schema ?? '',
-        'created_at' => $abroadstudiesingle->created_at,
-        'updated_at' => $abroadstudiesingle->updated_at,
-    ])
+    'name' => $abroadstudiesingle->seo_title ?? '',
+    'title' => $abroadstudiesingle->seo_title ?? $abroadstudiesingle->title,
+    'description' => $abroadstudiesingle->meta_description ?? '',
+    'keyword' => $abroadstudiesingle->meta_keywords ?? '',
+    'schema' => $abroadstudiesingle->seo_schema ?? '',
+    'created_at' => $abroadstudiesingle->created_at,
+    'updated_at' => $abroadstudiesingle->updated_at,
+])
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
@@ -26,6 +26,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('frontend.abroad') }}">Study Abroad</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">{{ $abroadstudiesingle->title }}</li>
                                 </ol>
                             </nav>
@@ -146,7 +147,7 @@
                             <div class="widget_categories">
                                 <ul>
                                     @foreach ($more_abroadstudies as $abroad)
-                                        <li><a href="{{ route('frontend.abroadsingle',$abroad->slug) }}">{{ $abroad->title }} <i class="fas fa-long-arrow-alt-right"></i></a></li>
+                                        <li><a href="{{ route('frontend.abroadsingle', $abroad->slug) }}">{{ $abroad->title }} <i class="fas fa-long-arrow-alt-right"></i></a></li>
                                     @endforeach
                                 </ul>
                             </div>

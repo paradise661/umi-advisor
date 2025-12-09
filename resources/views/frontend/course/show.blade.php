@@ -1,13 +1,13 @@
 @section('seo')
     @include('frontend.seo', [
-        'name' => $coursesingle->seo_title ?? '',
-        'title' => $coursesingle->seo_title ?? $coursesingle->title,
-        'description' => $coursesingle->meta_description ?? '',
-        'keyword' => $coursesingle->meta_keywords ?? '',
-        'schema' => $coursesingle->seo_schema ?? '',
-        'created_at' => $coursesingle->created_at,
-        'updated_at' => $coursesingle->updated_at,
-    ])
+    'name' => $coursesingle->seo_title ?? '',
+    'title' => $coursesingle->seo_title ?? $coursesingle->title,
+    'description' => $coursesingle->meta_description ?? '',
+    'keyword' => $coursesingle->meta_keywords ?? '',
+    'schema' => $coursesingle->seo_schema ?? '',
+    'created_at' => $coursesingle->created_at,
+    'updated_at' => $coursesingle->updated_at,
+])
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
@@ -96,6 +96,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('frontend.course') }}">Course</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">{{ $coursesingle->title }}</li>
                                 </ol>
                             </nav>
@@ -216,7 +217,7 @@
                             <div class="widget_categories">
                                 <ul>
                                     @foreach ($courses as $course)
-                                        <li><a href="{{ route('frontend.coursesingle',$course->slug) }}">{{ $course->title }} <i class="fas fa-long-arrow-alt-right"></i></a></li>
+                                        <li><a href="{{ route('frontend.coursesingle', $course->slug) }}">{{ $course->title }} <i class="fas fa-long-arrow-alt-right"></i></a></li>
                                     @endforeach
                                 </ul>
                             </div>

@@ -96,7 +96,8 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ $blog_page->title }}</li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('frontend.blog') }}">Blogs</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ $blogsingle->title }}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -152,7 +153,7 @@
                                         {{-- <a href="blog-details.html" class="post-date d-block mb-10 text-uppercase">
                                             <i class="far fa-clock"></i>12 jun, 2022
                                         </a> --}}
-                                        <h6><a href="{{ route('frontend.blogsingle',$blog->slug) }}">{{ $blog->title }}</a></h6>
+                                        <h6><a href="{{ route('frontend.blogsingle', $blog->slug) }}">{{ $blog->title }}</a></h6>
                                     </div>
                                 </div>
                                 @endforeach
