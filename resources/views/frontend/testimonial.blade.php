@@ -104,7 +104,7 @@
              <!-- testimonial start -->
         <section class="testimonial test pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
             <div class="container">
-                <div class="row align-items-center">
+                {{-- <div class="row align-items-center">
                     <div class="col-sm-9">
                         <div class="employee-friendly__content wow fadeInUp" data-wow-delay=".3s">
                             <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">{{ $settings['testioninal_title'] }}</span>
@@ -117,7 +117,7 @@
                             <div class="testimonial-slider-arrows d-flex align-content-center justify-content-sm-end"></div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="row">
                     <div class="col-12">

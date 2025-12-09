@@ -12606,7 +12606,7 @@ header.hover-color-green .main-header-wraper .header-right .header-search .searc
   content: var(--bs-breadcrumb-divider, "|");
 }
 .page-banner .breadcrumb .breadcrumb-item.active {
-  color: #4069FF;
+  color: #ff2020;
 }
 .page-banner__media {
   max-height: 450px;
