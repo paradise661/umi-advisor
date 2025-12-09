@@ -17114,7 +17114,8 @@ header.transparent.stop.header-2 .main-header-wraper {
 }
 
 .services-details__content h2 {
-  color: #00b3ea;
+  /* color: #00b3ea; */
+  color: gray;
 }
 
 .services-details__content h2 span {
@@ -17178,6 +17179,7 @@ header.transparent.stop.header-2 .main-header-wraper {
   font-family: "Lato", sans-serif;
   max-width: 840px;
   margin-bottom: 20px;
+  color: gray;
 }
 
 .services-details__content ul {
