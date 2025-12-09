@@ -46,10 +46,10 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12">
-                    <div class="our-portfolio-home__content text-center mb-60 mb-sm-50 mb-xs-40 wow fadeInUp" data-wow-delay=".3s">
+                    {{-- <div class="our-portfolio-home__content text-center mb-60 mb-sm-50 mb-xs-40 wow fadeInUp" data-wow-delay=".3s">
                         <span class="sub-title fw-500  text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block color-red"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> {{ $settings['courses_title'] }}</span>
                         <h2 class="title color-pd_black">{{ $settings['courses_subtitle'] }}</h2>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
