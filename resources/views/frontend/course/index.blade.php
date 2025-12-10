@@ -17,7 +17,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                <div class="transparent-text">About Us</div>
+                                <div class="transparent-text">{{ $course_page->title }}</div>
                                 <div class="page-title">
                                     <h1>{{ $course_page->title }}</h1>
                                 </div>
@@ -73,7 +73,7 @@
 
                                         <h5 class="color-pd_black mb-15 mb-xs-10"><a href="blog-details.html">{{ $course->title }}</a></h5>
                                         <div class="description font-la">
-                                            <p>{{ $course->short_description }}</p>
+                                            <p class="line-clamp-4">{{ $course->short_description }}</p>
                                         </div>
                                     </div>
 
