@@ -277,7 +277,7 @@
                                     style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
                                     <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
                                         {{-- {!! $icons[$key % count($icons)] !!} --}}
-                                        <img height="230px" src="{{ $service->image }}">
+                                        <img height="50px" src="{{ $service->image }}">
                                     </div>
 
                                     <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">{{ $service->title }}</h6>

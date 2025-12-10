@@ -17984,7 +17984,7 @@ header.transparent.stop.header-2 .main-header-wraper {
 }
 
 .widget_categories ul li a i {
-  color: #4069FF;
+  color: #f71a1a;
   font-size: 20px;
   font-weight: 400;
 }
@@ -17992,7 +17992,7 @@ header.transparent.stop.header-2 .main-header-wraper {
 .widget_categories ul li a:hover,
 .widget_categories ul li a:focus {
   color: #FFF;
-  background-color: #4069FF;
+  background-color: #f71a1a;
 }
 
 .widget_categories ul li a:hover i,
@@ -22925,17 +22925,16 @@ header.transparent.stop.header-2 .main-header-wraper {
   padding: 21px 200px 21px 20px;
   border: none !important;
 }
-
 .footer-1 .footer-bottom-list ul li:last-child a:before {
   display: none;
 }
-
 .blog-margin {
   margin-top: 20px;
 }
-
 .content-blog p {
   color: gray !important;
 }
-
 /*# sourceMappingURL=style.css.map */
+.service-main-title{
+  color: #00b3ea !important;
+}

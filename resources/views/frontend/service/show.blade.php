@@ -10,82 +10,14 @@
 ])
 @endsection
 @extends('layouts.frontend.master')
-@section('content')
-    {{-- @if ($service_page)
-        <div class="hero-banner2 position-relative ">
-            <div class="row g-0 text-bannner-section">
-                <div class="col-md-6 d-flex justify-content-center align-items-center py-5">
-                    <div class="text-center page-banner-lft px-4">
-                        <h1 class="text-white font-weight-bold">{{ $servicesingle->title ?? 'About Us' }}</h1>
-                        <p class="breadcrumb-text text-white">
-                            <a href="{{ route('frontend.home') }}" class="text-white text-decoration-none">Home</a> /
-                            <a href="{{ route('frontend.service') }}"
-                                class="text-white text-decoration-none">{{ $service_page->title ?? 'About Us' }}</a> /
-                            <a href="#"
-                                class="text-white text-decoration-none">{{ $servicesingle->title ?? 'About Us' }}</a>
-                        </p>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="img-container-banner">
-                        <div class="img-wrapper-2">
-                            <img src="{{ asset($service_page->banner_image) }}" alt="Creative Design" class="background-img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 py-5">
-                    <div class="country-main-section ">
-                        <div class="country-img-wrapper">
-                            <img src="{{ asset($servicesingle->image_1) }}" class="country-image" alt="">
-                        </div>
-                        <div class="country-content pt-3">
-                            <h2 class="heading-css">{{ $servicesingle->title }}
-                            </h2>
-                            <div class="text-css mb-3">
-                                <p>{!! $servicesingle->description !!}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 py-3">
-                    <div class="sticky-sidebar" style="position: sticky; top: 85px;">
-                        <p class="course-detail-heading">Top Services</p>
-                        @foreach ($services as $course)
-                            <div class="shadow course-detail-list-card d-flex gap-3 position-relative">
-                                <div class="main-img-course-detail-container">
-                                    <img src="{{ asset($course->image_1 ?? 'frontend/assets/images/default.jpg') }}"
-                                        alt="{{ $course->title }}" class="main-img-course-detail">
-                                </div>
-                                <div class="course-detail-card-text">
-                                    <div class="fotter-headings">
-                                        {!! $course->title !!}
-                                    </div>
-                                    <div class="line-clamp-2 text-css">
-                                        {{ $course->short_description }}
-                                    </div>
-                                </div>
-                                <a class="stretched-link" href="{{ route('frontend.servicesingle', $course->slug) }}"></a>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
+@section('content') 
     <!-- page-banner start -->
             <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                <div class="transparent-text">About Us</div>
+                                <div class="transparent-text">{{ $service_page->title }}</div>
                                 <div class="page-title">
                                     <h1>{{ $servicesingle->title }}</h1>
                                 </div>
@@ -93,8 +25,9 @@
 
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ $service_page->title }}</li>
+                                    <li class="breadcrumb-item"><a href="{{route('frontend.home')}}">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a href="{{route('frontend.service')}}">{{ $service_page->title }}</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ $servicesingle->title }}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -102,7 +35,7 @@
                         <div class="col-md-6">
                             <div class="page-banner__media mt-xs-30 mt-sm-40">
                                 <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                                <img src="assets/img/page-banner/page-banner.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset($service_page->banner_image) }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -114,11 +47,11 @@
             <div class="row" data-sticky_parent>
                 <div class="col-xl-8" data-sticky_column>
                     <div class="media mb-40 mb-md-35 mb-sm-30 mb-xs-25">
-                        <img src="{{ $servicesingle->image }}" alt="">
+                        <img src="{{ $servicesingle->image_1 }}" alt="">
                     </div>
 
                     <div class="services-details__content">
-                        <h2>{{ $servicesingle->short_description }}</h2>
+                        <h2 class="service-main-title">{{ $servicesingle->title}}</h2>
 
                         <p>{!! $servicesingle->description !!}</p>
 
