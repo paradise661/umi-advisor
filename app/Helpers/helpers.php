@@ -157,4 +157,21 @@ if (! function_exists('formatBlogDate')) {
 
         return $formattedDate;
     }
+
 }
+if (!function_exists('getGlobalData')) {
+    function getGlobalData()
+    {
+        return [
+            'settings' => \App\Models\Settings::pluck('value', 'key'),
+            'socials' => \App\Models\Social::where('status', 1)->orderBy('order')->get() ?? [],
+            'footer_countries' => \App\Models\Country::where('status', 1)->orderBy('order')->get() ?? [],
+            'footer_countries_1' => \App\Models\Country::where('status', 1)->orderBy('order')->limit(5)->get() ?? [],
+            'footer_course' => \App\Models\Course::where('status', 1)->orderBy('order')->limit(5)->get() ?? [],
+            'footer_services' => \App\Models\Service::where('status', 1)->orderBy('order')->limit(5)->get() ?? [],
+            'recent_post' => \App\Models\Blog::where('status', 1)->limit(2)->get()??[],
+
+        ];
+    }
+}
+
