@@ -22,7 +22,6 @@
                             <h1>{{ $course_page->title }}</h1>
                         </div>
                     </div>
-
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -30,11 +29,11 @@
                         </ol>
                     </nav>
                 </div>
-
                 <div class="col-md-6">
                     <div class="page-banner__media mt-xs-30 mt-sm-40">
                         <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                        <img src="assets/img/page-banner/page-banner.jpg" class="img-fluid" alt="">
+                        <img src="{{ asset($course_page->banner_image) }}" class="img-fluid" alt="">
+
                     </div>
                 </div>
             </div>

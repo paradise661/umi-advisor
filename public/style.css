@@ -283,7 +283,7 @@ button {
 }
 
 .color-d_black {
-  color: #00b3ea;
+  color: #f71a1a;
 }
 
 .color-pd_black {
@@ -11930,7 +11930,7 @@ header.header-3 .header-menu ul>li.active>a {
 }
 
 header.header-3 .header-menu ul>li a {
-  color: #00b3ea;
+  color: gray;
   padding: 33px 20px;
 }
 
@@ -17115,7 +17115,7 @@ header.transparent.stop.header-2 .main-header-wraper {
 
 .services-details__content h2 {
   /* color: #00b3ea; */
-  color: gray;
+  color: #f71a1a;
 }
 
 .services-details__content h2 span {
@@ -17205,7 +17205,7 @@ header.transparent.stop.header-2 .main-header-wraper {
 .services-details__content ul li {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  color: #00b3ea;
+  color: gray;
   padding-left: 50px;
   position: relative;
   margin-bottom: 20px;

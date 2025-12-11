@@ -89,7 +89,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-6">
                                 <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                    <div class="transparent-text">About Us</div>
+                                    <div class="transparent-text">{{ $blog_page->title }}</div>
                                     <div class="page-title">
                                         <h1>{{ $blog_page->title }}</h1>
                                     </div>
@@ -106,7 +106,7 @@
                             <div class="col-md-6">
                                 <div class="page-banner__media mt-xs-30 mt-sm-40">
                                     <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                                    <img src="assets/img/page-banner/page-banner.jpg" class="img-fluid" alt="">
+                                    <img src="{{ asset($blog_page->banner_image) }}" class="img-fluid" alt="">
                                 </div>
                             </div>
                         </div>

@@ -11,53 +11,7 @@
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
-    {{-- @if ($abroad_page)
-        <div class="hero-banner2 position-relative ">
-            <div class="row g-0 text-bannner-section">
-                <div class="col-md-6 d-flex justify-content-center align-items-center py-5">
-                    <div class="text-center page-banner-lft px-4">
-                        <h1 class="text-white font-weight-bold">{{ $abroad_page->title ?? 'About Us' }}</h1>
-                        <p class="breadcrumb-text text-white">
-                            <a href="{{ route('frontend.home') }}" class="text-white text-decoration-none">Home</a> /
-                            <a href="#"
-                                class="text-white text-decoration-none">{{ $abroad_page->title ?? 'About Us' }}</a>
-                        </p>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="img-container-banner">
-                        <div class="img-wrapper-2">
-                            <img src="{{ asset($abroad_page->banner_image) }}" alt="Creative Design" class="background-img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-    <section class="py-5 page-bg-color ">
-        <div class="container">
-            <div class="row g-3 py-5">
-                @foreach ($abroadstudies as $item)
-                    <div class="col-md-4" data-aos="fade-up" data-aos-duration="3000">
-                        <div class="country-card-container p-3 shadow rounded-lg bg-white position-relative">
-                            <div class="country-img">
-                                <img src="{{ asset($item->image) }}" alt="">
-                                <div class="overlay"></div>
-                            </div>
-                            <div class="country-flag"><img src="{{ asset($item->image_1) }}" alt=""></div>
-                            <div class="py-2">
-                                <h3 class="pr-2 blog-heading">{{ $item->title }}</h3>
-                                <p class="line-clamp-4">{{ $item->short_description }}</p>
-                            </div>
-                            <a href="{{ route('frontend.abroadsingle', $item->slug) }}" class="stretched-link"></a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        </div>
-    </section> --}}
+
     <!-- page-banner start -->
             <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
                 <div class="container">
@@ -69,7 +23,6 @@
                                     <h1>{{ $abroad_page->title }}</h1>
                                 </div>
                             </div>
-
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -77,11 +30,10 @@
                                 </ol>
                             </nav>
                         </div>
-
                         <div class="col-md-6">
                             <div class="page-banner__media mt-xs-30 mt-sm-40">
                                 <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                                <img src="assets/img/page-banner/page-banner.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset($abroad_page->banner_image) }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -97,7 +49,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row mb-minus-30">
                     @foreach ($abroadstudies as $abroad)
                         <div class="col-xxl-3 col-lg-4 col-md-6">
@@ -113,14 +64,12 @@
                                         </ul>
                                     </div> --}}
                                 </div>
-
                                 <div class="text d-flex align-items-center justify-content-center">
                                     <div class="left">
                                         <a href="{{ route('frontend.abroadsingle',$abroad->slug) }}"><h5 class="title color-white">{{ $abroad->title }}</h5></a>
                                         {{-- <span class="position color-white font-la fw-500">{{ $team->position }}</span> --}}
                                     </div>
                                 </div>
-
                                 {{-- <a href="team-details.html" class="theme-btn text-uppercase">View Details <i class="far fa-chevron-double-right"></i></a> --}}
                             </div>
                         </div>
@@ -129,5 +78,4 @@
                 </div>
             </div>
         </section>
-
 @endsection
