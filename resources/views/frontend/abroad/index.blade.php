@@ -1,13 +1,13 @@
 @section('seo')
     @include('frontend.seo', [
-        'name' => $abroad_page->seo_title ?? '',
-        'title' => $abroad_page->seo_title ?? $abroad_page->title,
-        'description' => $abroad_page->meta_description ?? '',
-        'keyword' => $abroad_page->meta_keywords ?? '',
-        'schema' => $abroad_page->seo_schema ?? '',
-        'created_at' => $abroad_page->created_at,
-        'updated_at' => $abroad_page->updated_at,
-    ])
+    'name' => $abroad_page->seo_title ?? '',
+    'title' => $abroad_page->seo_title ?? $abroad_page->title,
+    'description' => $abroad_page->meta_description ?? '',
+    'keyword' => $abroad_page->meta_keywords ?? '',
+    'schema' => $abroad_page->seo_schema ?? '',
+    'created_at' => $abroad_page->created_at,
+    'updated_at' => $abroad_page->updated_at,
+])
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
@@ -18,7 +18,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                <div class="transparent-text">About Us</div>
+                                <div class="transparent-text">{{ $abroad_page->title }}</div>
                                 <div class="page-title">
                                     <h1>{{ $abroad_page->title }}</h1>
                                 </div>
@@ -45,37 +45,43 @@
                     <div class="container">
                         <div class="courses-block py-5">
                             <div class="row justify-content-center g-4">
-                                @foreach ($abroadstudies as $country)
-                                    <div class="col-md-6">
-                                        <div class="courses-card position-relative h-100"> <!-- add h-100 -->
-                                            <div class="row g-0 h-100"> <!-- row full height -->
-                                                <div class="col-lg-7 d-flex align-items-start position-relative"> <!-- content aligns at top -->
-                                                    <div class="p-3 w-100">
-                                                        <div class="courses-text line-clamp-4">
-                                                            {!! $country->short_description ?? 'No description available.' !!}
+                                    @foreach ($abroadstudies as $country)
+                                        <div class="col-md-6">
+                                            <div class="courses-card position-relative">  {{-- required for stretched-link --}}
+                                                <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
+
+
+                                                <div class="row">
+                                                    <div class="col-lg-7">
+                                                        <div class="p-3">
+                                                            <div class="courses-text line-clamp-4">
+                                                                {{-- <a href="{{ route('frontend.abroadsingle', $country->slug) }}"> --}}
+                                                                {!! $country->short_description ?? 'No description available.' !!}
+                                                                {{-- </a> --}}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
 
-                                                </div>
-                                                <div class="col-lg-5 d-flex position-relative">
-                                                    <div class="courses-author py-3 w-100 d-flex flex-column align-items-center justify-content-center">
-                                                        <img src="{{ asset($country->image) }}" alt="{{ $country->name }}">
-                                                        <div class="author-name"><a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link">{{ $country->title }}</a></div>
+                                                    <div class="col-lg-5">
+                                                        <div class="courses-author py-3">
+                                                            <img src="{{ asset($country->image) }}" alt="{{ $country->name }}">
+                                                            <div class="author-name">{{ $country->title }}</div>
+                                                        </div>
                                                     </div>
-                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
-                                                                                                
                                                 </div>
+
+                                                {{-- <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a> --}}
+
+                                                </a>
                                             </div>
-                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
                                         </div>
-                                    </div>
-                                @endforeach
-                            </div>
+                                    @endforeach
+                                </div>
+
                         </div>
                     </div>
                 </section>
-                
+
             </div>
         </section>
 @endsection

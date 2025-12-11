@@ -12515,7 +12515,7 @@ header.hover-color-green .main-header-wraper .header-right .header-search .searc
 @media (max-width: 1346px) {
   .page-banner__content .transparent-text {
     top: -26px;
-    font-size: 120px;
+    font-size: 80px;
     line-height: 80px;
   }
 }
@@ -12550,6 +12550,7 @@ header.hover-color-green .main-header-wraper .header-right .header-search .searc
 .page-banner__content h1 {
   color: #FFF;
   font-weight: 700;
+  font-size: 36px;
 }
 
 .page-banner__content h1 span {
@@ -22925,28 +22926,35 @@ header.transparent.stop.header-2 .main-header-wraper {
   padding: 21px 200px 21px 20px;
   border: none !important;
 }
+
 .footer-1 .footer-bottom-list ul li:last-child a:before {
   display: none;
 }
+
 .blog-margin {
   margin-top: 20px;
 }
+
 .content-blog p {
   color: gray !important;
 }
+
 /*# sourceMappingURL=style.css.map */
-.service-main-title{
+.service-main-title {
   color: #00b3ea !important;
 }
+
 .line-clamp-4 {
   --lines: 4;
-  display: -webkit-box;            /* for WebKit (Chrome, Safari, Edge) */
+  display: -webkit-box;
+  /* for WebKit (Chrome, Safari, Edge) */
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;           /* the clamp (kept explicit for compatibility) */
+  -webkit-line-clamp: 4;
+  /* the clamp (kept explicit for compatibility) */
 
   overflow: hidden;
   text-overflow: ellipsis;
- 
+
   /* keep white-space normal so wrapping happens */
   white-space: normal;
 }
@@ -22958,9 +22966,10 @@ header.transparent.stop.header-2 .main-header-wraper {
 .courses-card {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  position: relative; /* required for stretched-link */
+  position: relative;
+  /* required for stretched-link */
   transition: transform 0.3s ease-in-out;
 }
 
@@ -22969,6 +22978,20 @@ header.transparent.stop.header-2 .main-header-wraper {
 }
 
 .courses-text {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.courses-text a {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.courses-card a {
   font-size: 18px;
   color: #444;
   line-height: 1.6;
@@ -22995,16 +23018,19 @@ header.transparent.stop.header-2 .main-header-wraper {
 
 .line-clamp-2 {
   --lines: 2;
-  display: -webkit-box;            /* for WebKit (Chrome, Safari, Edge) */
+  display: -webkit-box;
+  /* for WebKit (Chrome, Safari, Edge) */
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;           /* the clamp (kept explicit for compatibility) */
+  -webkit-line-clamp: 2;
+  /* the clamp (kept explicit for compatibility) */
 
   overflow: hidden;
   text-overflow: ellipsis;
- 
+
   /* keep white-space normal so wrapping happens */
   white-space: normal;
 }
+
 .resent-posts .single-post-item1 .thumb {
   width: 100%;
   height: 200px;
