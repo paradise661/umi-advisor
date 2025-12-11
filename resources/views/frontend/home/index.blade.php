@@ -486,46 +486,46 @@
                             data-wow-delay=".3s">
                             <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
                                     src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
-                                {{ $settings['teams_title'] }}</span>
-                            <h2 class="title color-d_black">{{ $settings['teams_subtitle'] }}</h2>
+                                {{ $settings['countries_title'] }}</span>
+                            <h2 class="title color-d_black">{{ $settings['countries_subtitle'] }}</h2>
                         </div>
                     </div>
                 </div>
-
-                <div class="row mb-minus-30">
-                    @foreach ($teams as $team)
-                        <div class="col-xxl-3 col-lg-4 col-md-6">
-                            <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp"
-                                data-wow-delay=".3s">
-                                <div class="media">
-                                    <img src="{{ $team->image }}" class="img-fluid" alt="">
-
-                                    <div class="social-profile">
-                                        <ul>
-                                            <li><a href="{{ $team->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="{{ $team->whatsapp }}"><i class="fab fa-whatsapp"></i></a></li>
-                                            <li><a href="{{ $team->email }}"><i class="fab fa-google"></i></a></li>
-                                            {{-- <li><a href="#"><i class="fab fa-twitter"></i></a></li> --}}
-                                            {{-- <li><a href="#"><i class="fab fa-instagram"></i></a></li> --}}
-                                            {{-- <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> --}}
-                                        </ul>
+                <section class="courses-section">
+                    <div class="container">
+                        <div class="courses-block py-5">
+                            <div class="row justify-content-center g-4">
+                                @foreach ($countries as $country)
+                                    <div class="col-md-6">
+                                        <div class="courses-card position-relative">  {{-- required for stretched-link --}}
+                                            
+                                            <div class="row">
+                                                <div class="col-lg-7">
+                                                    <div class="p-3">
+                                                        <div class="courses-text line-clamp-4">
+                                                            {!! $country->short_description ?? 'No description available.' !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                            
+                                                <div class="col-lg-5">
+                                                    <div class="courses-author py-3">
+                                                        <img src="{{ asset($country->image) }}" alt="{{ $country->name }}">
+                                                        <div class="author-name">{{ $country->title }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                            
+                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
+                            
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="text d-flex align-items-center justify-content-center">
-                                    <div class="left">
-                                        <h5 class="title color-white">{{ $team->name }}</h5>
-                                        <span class="position color-white font-la fw-500">{{ $team->position }}</span>
-                                    </div>
-                                </div>
-
-                                {{-- <a href="team-details.html" class="theme-btn text-uppercase">View Details <i class="far fa-chevron-double-right"></i></a> --}}
+                                @endforeach
                             </div>
+                            
                         </div>
-                    @endforeach
-                    <!-- team-item -->
-                    <!-- team-item -->
-                </div>
+                    </div>
+                </section>
             </div>
         </section>
         <!-- our-team-home-1 end -->
@@ -711,7 +711,7 @@
                                                 {{-- <a href="blog.html">{{ $blog->short_description }}</a> --}}
                                             </div>
 
-                                            <h4><a href="{{ route('frontend.blogsingle', $blog->slug) }}">{{ $blog->title }}</a></h4>
+                                            <h4 class="line-clamp-2"><a href="{{ route('frontend.blogsingle', $blog->slug) }}">{{ $blog->title }}</a></h4>
 
                                             <div class="btn-link-share mt-xs-10 mt-sm-10 mt-15">
                                                 <a href="{{ route('frontend.blogsingle', $blog->slug) }}"
