@@ -20,9 +20,8 @@
                 <div class="col-8">
                     <div class="header-cta d-flex justify-content-end">
                         <ul>
-                            <li><a><i class="icon-phone"></i> {{ $settings['site_phone'] ?? '' }}</a></li>
-                            <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i
-                                        class="icon-email"></i>{{ $settings['site_email'] ?? '' }}</a></li>
+                            <li><a><i class="ri-phone-fill"></i> {{ $settings['site_phone'] ?? '' }}</a></li>
+                            <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i class="ri-mail-line"></i></i>{{ $settings['site_email'] ?? '' }}</a></li>
                             {{-- <li><a><i class="fal fa-clock"></i> </a></li> --}}
                         </ul>
                     </div>
