@@ -493,7 +493,7 @@
                     </div>
                     <section class="courses-section">
                         <div class="container">
-                            <div class="courses-block py-5">
+                            <div class="courses-block ">
                                 <div class="row justify-content-center g-4">
                                     @foreach ($countries as $country)
                                         <div class="col-md-6">
