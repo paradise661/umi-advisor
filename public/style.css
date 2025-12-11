@@ -22956,14 +22956,11 @@ header.transparent.stop.header-2 .main-header-wraper {
 } */
 
 .courses-card {
-  background-color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center !important;
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  position: relative; /* required for stretched-link */
   transition: transform 0.3s ease-in-out;
 }
 
@@ -22972,21 +22969,9 @@ header.transparent.stop.header-2 .main-header-wraper {
 }
 
 .courses-text {
-  flex: 1;
-  padding: 5px;
   font-size: 18px;
   color: #444;
   line-height: 1.6;
-}
-
-.courses-author {
-  background-color: #e9e7f0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
 }
 
 .courses-author img {
@@ -23003,10 +22988,11 @@ header.transparent.stop.header-2 .main-header-wraper {
   font-size: 19px;
 }
 
-.author-title {
-  font-size: 13px;
-  color: #777;
+.courses-author {
+  background-color: #e9e7f0;
+  text-align: center;
 }
+
 .line-clamp-2 {
   --lines: 2;
   display: -webkit-box;            /* for WebKit (Chrome, Safari, Edge) */

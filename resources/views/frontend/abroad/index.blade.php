@@ -41,41 +41,41 @@
             </section>
             <section class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp" data-wow-delay=".3s">
-                            <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> {{ $settings['countries_title'] }}</span>
-                            <h2 class="title color-d_black">{{ $settings['countries_subtitle'] }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-minus-30">
-                    @foreach ($abroadstudies as $abroad)
-                        <div class="col-xxl-3 col-lg-4 col-md-6">
-                            <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp" data-wow-delay=".3s">
-                                <div class="media">
-                                    <img src="{{ $abroad->image }}" class="img-fluid" alt="">
-                                    {{-- <div class="social-profile">
-                                        <ul>
-                                            <li><a href="{{ $team->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="{{ $team->whatsapp }}"><i class="fab fa-whatsapp"></i></a></li>
-                                            <li><a href="{{ $team->email }}"><i class="fab fa-google"></i></a></li>
+                <section class="courses-section">
+                    <div class="container">
+                        <div class="courses-block py-5">
+                            <div class="row justify-content-center g-4">
+                                @foreach ($abroadstudies as $country)
+                                    <div class="col-md-6">
+                                        <div class="courses-card position-relative h-100"> <!-- add h-100 -->
+                                            <div class="row g-0 h-100"> <!-- row full height -->
+                                                <div class="col-lg-7 d-flex align-items-start position-relative"> <!-- content aligns at top -->
+                                                    <div class="p-3 w-100">
+                                                        <div class="courses-text line-clamp-4">
+                                                            {!! $country->short_description ?? 'No description available.' !!}
+                                                        </div>
+                                                    </div>
+                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
 
-                                        </ul>
-                                    </div> --}}
-                                </div>
-                                <div class="text d-flex align-items-center justify-content-center">
-                                    <div class="left">
-                                        <a href="{{ route('frontend.abroadsingle',$abroad->slug) }}"><h5 class="title color-white">{{ $abroad->title }}</h5></a>
-                                        {{-- <span class="position color-white font-la fw-500">{{ $team->position }}</span> --}}
+                                                </div>
+                                                <div class="col-lg-5 d-flex position-relative">
+                                                    <div class="courses-author py-3 w-100 d-flex flex-column align-items-center justify-content-center">
+                                                        <img src="{{ asset($country->image) }}" alt="{{ $country->name }}">
+                                                        <div class="author-name"><a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link">{{ $country->title }}</a></div>
+                                                    </div>
+                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
+                                                                                                
+                                                </div>
+                                            </div>
+                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
+                                        </div>
                                     </div>
-                                </div>
-                                {{-- <a href="team-details.html" class="theme-btn text-uppercase">View Details <i class="far fa-chevron-double-right"></i></a> --}}
+                                @endforeach
                             </div>
                         </div>
-                    @endforeach
-                    <!-- team-item -->
-                </div>
+                    </div>
+                </section>
+                
             </div>
         </section>
 @endsection
