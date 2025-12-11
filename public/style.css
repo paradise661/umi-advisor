@@ -11014,7 +11014,7 @@ header.header-1 .main-menu ul>li>ul li {
 
 header.header-1 .main-menu ul>li>ul li a {
   display: block;
-  color: #00b3ea;
+  color: gray;
   padding: 12px 25px;
 }
 
@@ -23006,4 +23006,20 @@ header.transparent.stop.header-2 .main-header-wraper {
 .author-title {
   font-size: 13px;
   color: #777;
+}
+.line-clamp-2 {
+  --lines: 2;
+  display: -webkit-box;            /* for WebKit (Chrome, Safari, Edge) */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;           /* the clamp (kept explicit for compatibility) */
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+ 
+  /* keep white-space normal so wrapping happens */
+  white-space: normal;
+}
+.resent-posts .single-post-item1 .thumb {
+  width: 100%;
+  height: 200px;
 }

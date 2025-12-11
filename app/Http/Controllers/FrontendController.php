@@ -132,7 +132,12 @@ class FrontendController extends Controller
         $servicesingle = Service::where('slug', $slug)->where('status', 1)->first();
         $more_abroadstudies = Country::with('countryFaqs')->where('status', 1)->get();
 
-        return view('frontend.abroad.show', compact('abroadstudiesingle', 'faq', 'abroad_page', 'universities','servicesingle','more_abroadstudies'));
+        if ($abroadstudiesingle) {
+            $abroads = Country::where('id', '!=', $abroadstudiesingle->id)->where('status', 1)->oldest("order")->limit(5)->get();
+            return view('frontend.abroad.show', compact('abroadstudiesingle','abroads' ,'faq', 'abroad_page', 'universities','servicesingle','more_abroadstudies'));
+
+        }
+
     }
     function course()
     {
