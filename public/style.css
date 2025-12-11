@@ -12477,7 +12477,7 @@ header.hover-color-green .main-header-wraper .header-right .header-search .searc
   bottom: -280px;
   height: 486.71px;
   position: absolute;
-  background-image: url("assets/img/page-banner/pattern.svg");
+  /* background-image: url("assets/img/page-banner/pattern.svg"); */
 }
 
 @media (max-width: 767px) {
