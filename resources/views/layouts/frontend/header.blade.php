@@ -21,7 +21,8 @@
                     <div class="header-cta d-flex justify-content-end">
                         <ul>
                             <li><a><i class="ri-phone-fill"></i> {{ $settings['site_phone'] ?? '' }}</a></li>
-                            <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i class="ri-mail-line"></i></i>{{ $settings['site_email'] ?? '' }}</a></li>
+                            <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i
+                                        class="ri-mail-line"></i></i>{{ $settings['site_email'] ?? '' }}</a></li>
                             {{-- <li><a><i class="fal fa-clock"></i> </a></li> --}}
                         </ul>
                     </div>
@@ -157,10 +158,11 @@
                             <a>About us</a>
 
                             <ul>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="table.html">Pricing Table</a></li>
-                                <li><a href="team.html">Team</a></li>
+                                <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
+                                <li><a href="{{ route('frontend.service') }}">Service</a></li>
+                                {{-- <li><a href="{{ route('frontend.event') }}">Events</a></li> --}}
+                                <li><a href="{{ route('frontend.team') }}">Team</a></li>
+                                <li><a href="{{ route('frontend.testimonial') }}">Testimonial</a></li>
                                 {{-- <li><a href="team-details.html">Team Details</a></li>
                                 <li><a href="services-details.html">Services Details</a></li>
                                 <li><a href="our-project-details.html">Our Project Details</a></li>
@@ -169,28 +171,33 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="services.html">Countries</a>
+                            <a href="{{ route('frontend.abroad') }}">Countries
+                            </a>
 
                             <ul>
-                                <li><a href="services.html">Our Services 1</a></li>
-                                <li><a href="services-2.html">Our Services 2</a></li>
-                            </ul>
-                        </li>
+                                @foreach ($footer_countries as $country)
+                                            <l i><a
+                                                    href="{{ route('frontend.abroadsingle', $country->slug) }}">{{ $country->title }}</a>
+                                    </li>
 
-                        <li>
-                            <a href="our-project.html">Our Courses</a>
-                        </li>
-                        <li>
-                            <a href="blog.html">Blog</a>
+                                @endforeach
+                    </ul>
+                    </li>
 
-                            <ul>
-                                <li><a href="blog.html">Blog 1</a></li>
-                                <li><a href="blog-standard.html">Blog 2</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="our-project.html">Contact us</a>
-                        </li>
+                    <li>
+                        <a href="{{ route('frontend.course') }}">Our Courses</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('frontend.blog') }}">Blog</a>
+
+                        {{-- <ul>
+                            <li><a href="blog.html">Blog 1</a></li>
+                            <li><a href="blog-standard.html">Blog 2</a></li>
+                        </ul> --}}
+                    </li>
+                    <li>
+                        <a href="{{ route('frontend.contact.submit') }}">Contact us</a>
+                    </li>
                     </ul>
                 </div>
                 <div class="sidebar-nav__bottom mt-20">
@@ -220,10 +227,13 @@
                         <h6 class="color-black mb-5">Follow On:</h6>
 
                         <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            {{-- <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> --}}
+                            @foreach ($socials as $social)
+                                <li><a href="{{ $social->link }}"><i class="{{ $social->icon }}"></i></a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
