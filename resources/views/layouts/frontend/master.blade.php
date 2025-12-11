@@ -12,7 +12,8 @@
     <!-- ======== Page title ============ -->
     @yield('seo')
     <!-- ========== Favicon Icon ========== -->
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
+    <link rel="icon" type="image/x-icon"
+    href="{{ $settings['site_fav_icon'] ? asset($settings['site_fav_icon']) : 'Umi Advisor' }}" />
     <script src="{{ asset('admin/assets/js/sweetalert-new.js') }}"></script>
     <!-- ===========  All Stylesheet ================= -->
     <link rel="stylesheet" href="{{ asset('assets/css/icons.css') }}">
