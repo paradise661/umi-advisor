@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <header class="header header-1 header-3">
     <div class="top-header d-none d-xl-block">
         <div class="container">
@@ -20,7 +21,7 @@
                             <li><a><i class="ri-phone-fill"></i> {{ $settings['site_phone'] ?? '' }}</a></li>
                             <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i
                                         class="ri-mail-line"></i></i>{{ $settings['site_email'] ?? '' }}</a></li>
-                
+
                         </ul>
                     </div>
                 </div>
@@ -51,29 +52,18 @@
                                         <a>About us</a>
                                         <ul>
                                             <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
-                                           
+
                                             <li><a href="{{ route('frontend.team') }}">Team</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="{{ route('frontend.abroad') }}">Countries</a>
-                                        <ul>
-                                            @foreach ($footer_countries as $country)
-                                                <li><a
-                                                        href="{{ route('frontend.abroadsingle', $country->slug) }}">{{ $country->title }}</a>
-                                                </li>
-
-                                            @endforeach
-                                        </ul>
+                                        <a href="{{ route('frontend.abroad') }}">Why Japan</a>
                                     </li>
-
                                     <li>
                                         <a href="{{ route('frontend.course') }}">Our Courses</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('frontend.blog') }}">Blog</a>
-
-                                      
                                     </li>
                                     <li>
                                         <a href="{{ route('frontend.contact.submit') }}">Contact us</a>
@@ -81,7 +71,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="header-right d-flex align-items-center">
                             <div class="header-search">
                                 <a class="search-toggle" data-selector=".header-search">
@@ -90,8 +79,8 @@
 
                                 <form class="search-box" action="#" method="get">
                                     <div class="form-group d-flex align-items-center">
-                                        <input type="search" name="s" value="" class="search-input" id="search"
-                                            placeholder="Search">
+                                        <input type="search" name="s" value="" class="search-input"
+                                            id="search" placeholder="Search">
                                         <button type="submit" class="search-submit"><i
                                                 class="fas fa-search"></i></button>
                                     </div>
@@ -124,10 +113,10 @@
                     <ul>
                         <li>
                             <a href="#">Home</a>
-                         
+
                         </li>
                         <li>
-                            <a>About us</a>
+                            <a>About us </a></i>
                             <ul>
                                 <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
                                 <li><a href="{{ route('frontend.service') }}">Service</a></li>
@@ -140,14 +129,12 @@
                             </a>
                             <ul>
                                 @foreach ($footer_countries as $country)
-                                            <l i><a
-                                                    href="{{ route('frontend.abroadsingle', $country->slug) }}">{{ $country->title }}</a>
-                                    </li>
-
-                                @endforeach
+                                    <l i><a
+                                            href="{{ route('frontend.abroadsingle', $country->slug) }}">{{ $country->title }}</a>
+                        </li>
+                        @endforeach
                     </ul>
                     </li>
-
                     <li>
                         <a href="{{ route('frontend.course') }}">Our Courses</a>
                     </li>
@@ -163,7 +150,6 @@
                     <div class="sidebar-nav__bottom-contact-infos mb-20">
                         <h6 class="color-black mb-5">Contact Info</h6>
                         <ul>
-                     
                             <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i
                                         class="icon-email"></i>{{ $settings['site_email'] ?? '' }}</a>
                             </li>
@@ -171,7 +157,7 @@
                                 <a class="header-contact d-flex align-items-center">
                                     <div class="icon">
                                         <i class="icon-call"></i>
-                                       
+
                                     </div>
                                     <div class="text">
                                         <span class="font-la mb-5 d-block fw-500">Contact For Support</span>
@@ -181,12 +167,10 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="sidebar-nav__bottom-social">
                         <h6 class="color-black mb-5">Follow On:</h6>
-
                         <ul>
-                            
+
                             @foreach ($socials as $social)
                                 <li><a href="{{ $social->link }}"><i class="{{ $social->icon }}"></i></a></li>
                             @endforeach

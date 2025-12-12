@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="zxx">
-
-
-
 <head>
     <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8">
@@ -22,6 +19,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
         media="print" onload="this.media='all'">
         <link
@@ -48,13 +49,13 @@
     <script src="
     https://cdn.gtranslate.net/widgets/latest/float.js"
     defer></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
     <a href="https://api.whatsapp.com/send?phone={{ preg_replace('/\D+/', '', $setting['whatsapp_number'] ?? '817092770229') }}" 
    class="float" 
    target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> --}}
     @include('layouts.frontend.footer')
     <!--  ALl JS Plugins
         ====================================== -->
