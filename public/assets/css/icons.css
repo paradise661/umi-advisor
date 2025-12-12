@@ -1385,16 +1385,13 @@
 .fa-caret-circle-up:before {
     content: "\f331"
 }
-/* .fa-caret-down:before {
-    content: "▼";
-} */
 
 /* .fa-caret-down:before {
-    content: "▼";
-    font-size: 10px; 
-    margin-left: 5px; 
+    content: "▼"
 } */
-
+.fa-caret-down:before {
+    content: "▼" !important;
+}
 .fa-caret-left:before {
     content: "\f0d9"
 }
