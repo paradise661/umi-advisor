@@ -35,6 +35,8 @@ class CountryLocationController extends Controller
     {
         $input = $request->all();
         $input['seo_title'] = $request->seo_title ?? $request->title;
+        $input['slug'] = $input['slug'] ? make_slug($input['slug']) : make_slug($input['name']);
+
         $rules = [
             'name' => 'required|min:3',
             'countryname' => 'required|min:3',
@@ -90,6 +92,8 @@ class CountryLocationController extends Controller
         $countrylocation = CountryLocation::findOrFail($id);
         $input = $request->all();
         $input['seo_title'] = $request->seo_title ?? $request->title;
+        $input['slug'] = $input['slug'] ? make_slug($input['slug']) : make_slug($input['name']);
+
         $rules = [];
 
         $imagelist = ['image1', 'image2'];

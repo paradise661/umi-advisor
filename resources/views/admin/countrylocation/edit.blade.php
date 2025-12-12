@@ -34,6 +34,14 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
+                        <div class="mb-4">
+                            <label for="slug" class="form-label">Slug</label>
+                            <input type="text" class="form-control" id="name" name="slug" placeholder="name"
+                                value="{{ old('slug', ${$name}->slug) }}" />
+                            @error('slug')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
 
 
                         <div class="row">

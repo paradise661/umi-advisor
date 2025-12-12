@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CountryLocation extends Model
 {
     protected $fillable = [
+        'slug',
         'status',
         'order',
         'name',
