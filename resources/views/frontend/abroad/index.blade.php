@@ -41,24 +41,63 @@
             </section>
             <section class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
             <div class="container">
-                <section class="courses-section">
-                    <div class="container">
-                        <div class="courses-block ">
-                            <div class="row justify-content-center g-4">
-                                    @foreach ($abroadstudies as $country)
-                                    <div class="courses-author-main py-3">
-                                        <img src="{{ asset($country->image) }}" alt="{{ $country->name }}">
-                                        <div class="services-details__content">
-                                            <h2>{{ $country->title }}</h2>
-                                            <p>{!! $country->description !!}</p>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-
+                <section
+                class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp"
+                                data-wow-delay=".3s">
+                                <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
+                                        src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
+                                    {{ $settings['countries_title'] }}</span>
+                                <h2 class="title color-d_black">{{ $settings['countries_subtitle'] }}</h2>
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <section class="courses-section">
+                        <div class="container">
+                            <div class="courses-block ">
+                                <div class="row justify-content-center g-4">
+                                    @foreach ($countrylocation as $country)
+                                        <div class="col-md-6">
+                                            <div class="courses-card position-relative"> {{-- required for stretched-link --}}
+                                                <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
+        
+        
+                                                    <div class="row">
+                                                        <div class="col-lg-7">
+                                                            <div class="p-3">
+                                                                <div class="courses-text line-clamp-4">
+                                                                    {{-- <a href="{{ route('frontend.abroadsingle', $country->slug) }}"> --}}
+                                                                    {!! $country->short_description ?? 'No description available.' !!}
+                                                                    {{-- </a> --}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="col-lg-5">
+                                                            <div class="courses-author py-3">
+                                                                <img src="{{ asset($country->image) }}"
+                                                                    alt="{{ $country->name }}">
+                                                                <div class="author-name">{{ $country->title }}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+        
+                                                    {{-- <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a> --}}
+        
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+        
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
 
             </div>
         </section>

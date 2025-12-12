@@ -117,6 +117,13 @@ class FrontendController extends Controller
         $popular_events = Event::where('status', 1)->take(5)->get();
         return view('frontend.event.show', compact('eventsingle', 'event_page', 'popular_events'));
     }
+    function japan()
+    {
+        $abroad_page = Page::where('status', 1)->where('slug', 'destination')->first();
+        $abroadstudies = Country::where('status', 1)->oldest("order")->get();
+        $universities = University::where('status', 1)->oldest("order")->get();
+        return view('frontend.countrydetail', compact('abroadstudies', 'abroad_page','universities'));
+    }
     function abroadstudies()
     {
         $abroad_page = Page::where('status', 1)->where('slug', 'destination')->first();

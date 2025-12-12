@@ -58,7 +58,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="{{ route('frontend.abroad') }}">Japan Info</a>
+                                        <a href="{{ route('frontend.japan') }}">Japan Info</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('frontend.course') }}">Our Courses</a>
