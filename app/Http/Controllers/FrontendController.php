@@ -196,7 +196,7 @@ class FrontendController extends Controller
     }
     function gallery()
     {
-        $gallery_page = Page::where('status', 1)->where('slug', 'testimonial')->first();
+        $gallery_page = Page::where('status', 1)->where('slug', 'gallery')->first();
         $albums = Album::with(['galleries' => function ($query) {
             $query->orderBy('title'); // or 'id' or whatever you prefer
         }])
@@ -207,8 +207,9 @@ class FrontendController extends Controller
     }
     public function galleryshow(Album $album)
     {
+        $gallery_page = Page::where('status', 1)->where('slug', 'gallery')->first();
         $album->load('galleries');
-        return view('frontend.album.show', compact('album'));
+        return view('frontend.album.show', compact('album','gallery_page'));
     }
 
     function studentvoice()
