@@ -10,9 +10,6 @@
                                 @foreach ($socials as $social)
                                     <li><a href="{{ $social->link }}"><i class="{{ $social->icon }}"></i></a></li>
                                 @endforeach
-                                {{-- <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li> --}}
-                                {{-- <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -23,7 +20,7 @@
                             <li><a><i class="ri-phone-fill"></i> {{ $settings['site_phone'] ?? '' }}</a></li>
                             <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i
                                         class="ri-mail-line"></i></i>{{ $settings['site_email'] ?? '' }}</a></li>
-                            {{-- <li><a><i class="fal fa-clock"></i> </a></li> --}}
+                
                         </ul>
                     </div>
                 </div>
@@ -48,34 +45,17 @@
                             <div class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="/">Home</a>
-                                        {{-- <ul>
-                                            <li><a href="index.html">home 1</a></li>
-                                            <li><a href="index-2.html">home 2</a></li>
-                                            <li><a href="index-3.html">home 3</a></li>
-                                            <li><a href="index-4.html">home 4</a></li>
-                                            <li><a href="index-5.html">home 5</a></li>
-                                        </ul> --}}
+                                        <a href="{{ route('frontend.home') }}">Home</a>
                                     </li>
                                     <li>
                                         <a>About us</a>
-
                                         <ul>
                                             <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
-                                            {{-- <li><a href="{{ route('frontend.service') }}">Service</a></li> --}}
-                                            {{-- <li><a href="{{ route('frontend.event') }}">Events</a></li> --}}
                                             <li><a href="{{ route('frontend.team') }}">Team</a></li>
-                                            {{-- <li><a href="{{ route('frontend.testimonial') }}">Testimonial</a></li> --}}
-                                            {{-- <li><a href="team-details.html">Team Details</a></li>
-                                            <li><a href="services-details.html">Services Details</a></li>
-                                            <li><a href="our-project-details.html">Our Project Details</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="404.html">404</a></li> --}}
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="{{ route('frontend.abroad') }}">Countries</a>
-
                                         <ul>
                                             @foreach ($footer_countries as $country)
                                                 <li><a
@@ -92,10 +72,7 @@
                                     <li>
                                         <a href="{{ route('frontend.blog') }}">Blog</a>
 
-                                        {{-- <ul>
-                                            <li><a href="blog.html">Blog 1</a></li>
-                                            <li><a href="blog-standard.html">Blog 2</a></li>
-                                        </ul> --}}
+                                      
                                     </li>
                                     <li>
                                         <a href="{{ route('frontend.contact.submit') }}">Contact us</a>
@@ -146,34 +123,20 @@
                     <ul>
                         <li>
                             <a href="#">Home</a>
-                            {{-- <ul>
-                                <li><a href="index.html">home 1</a></li>
-                                <li><a href="index-2.html">home 2</a></li>
-                                <li><a href="index-3.html">home 3</a></li>
-                                <li><a href="index-4.html">home 4</a></li>
-                                <li><a href="index-5.html">home 5</a></li>
-                            </ul> --}}
+                         
                         </li>
                         <li>
                             <a>About us</a>
-
                             <ul>
                                 <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
                                 <li><a href="{{ route('frontend.service') }}">Service</a></li>
-                                {{-- <li><a href="{{ route('frontend.event') }}">Events</a></li> --}}
                                 <li><a href="{{ route('frontend.team') }}">Team</a></li>
                                 <li><a href="{{ route('frontend.testimonial') }}">Testimonial</a></li>
-                                {{-- <li><a href="team-details.html">Team Details</a></li>
-                                <li><a href="services-details.html">Services Details</a></li>
-                                <li><a href="our-project-details.html">Our Project Details</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                                <li><a href="404.html">404</a></li> --}}
                             </ul>
                         </li>
                         <li>
                             <a href="{{ route('frontend.abroad') }}">Countries
                             </a>
-
                             <ul>
                                 @foreach ($footer_countries as $country)
                                             <l i><a
@@ -189,11 +152,6 @@
                     </li>
                     <li>
                         <a href="{{ route('frontend.blog') }}">Blog</a>
-
-                        {{-- <ul>
-                            <li><a href="blog.html">Blog 1</a></li>
-                            <li><a href="blog-standard.html">Blog 2</a></li>
-                        </ul> --}}
                     </li>
                     <li>
                         <a href="{{ route('frontend.contact.submit') }}">Contact us</a>
@@ -204,7 +162,7 @@
                     <div class="sidebar-nav__bottom-contact-infos mb-20">
                         <h6 class="color-black mb-5">Contact Info</h6>
                         <ul>
-                            {{-- <li><a><i class="fal fa-clock"></i> Mon – Fri: 8.00 – 18.00</a></li> --}}
+                     
                             <li><a href="mailto:{{ $settings['site_email'] ?? '' }}"><i
                                         class="icon-email"></i>{{ $settings['site_email'] ?? '' }}</a>
                             </li>
@@ -212,7 +170,7 @@
                                 <a class="header-contact d-flex align-items-center">
                                     <div class="icon">
                                         <i class="icon-call"></i>
-                                        <!-- <img src="assets/img/icon/phone-1.svg" alt=""> -->
+                                       
                                     </div>
                                     <div class="text">
                                         <span class="font-la mb-5 d-block fw-500">Contact For Support</span>
@@ -227,10 +185,7 @@
                         <h6 class="color-black mb-5">Follow On:</h6>
 
                         <ul>
-                            {{-- <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> --}}
+                            
                             @foreach ($socials as $social)
                                 <li><a href="{{ $social->link }}"><i class="{{ $social->icon }}"></i></a></li>
                             @endforeach

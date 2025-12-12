@@ -29,14 +29,33 @@
     rel="stylesheet"
 />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
 </head>
-
 <body class="body-wrapper">
     @include('layouts.frontend.header')
     @yield('content')
-    @include('layouts.frontend.footer')
 
+    <div class="gtranslate_wrapper"></div>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "en",
+            "languages": ["en", "ne", "ja"],
+            "wrapper_selector": ".gtranslate_wrapper",
+            "switcher_horizontal_position": "right",
+            "flag_style": "3d"
+        }
+    </script>
+    
+    <script src="
+    https://cdn.gtranslate.net/widgets/latest/float.js"
+    defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone={{ preg_replace('/\D+/', '', $setting['whatsapp_number'] ?? '817092770229') }}" 
+   class="float" 
+   target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+</a>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    @include('layouts.frontend.footer')
     <!--  ALl JS Plugins
         ====================================== -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
