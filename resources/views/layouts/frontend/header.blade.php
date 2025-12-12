@@ -51,6 +51,7 @@
                                         <a>About us</a>
                                         <ul>
                                             <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
+                                           
                                             <li><a href="{{ route('frontend.team') }}">Team</a></li>
                                         </ul>
                                     </li>
