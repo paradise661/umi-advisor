@@ -58,7 +58,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="{{ route('frontend.abroad') }}">Why Japan</a>
+                                        <a href="{{ route('frontend.abroad') }}">Japan Info</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('frontend.course') }}">Our Courses</a>
@@ -72,7 +72,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="header-right d-flex align-items-center">
+                        {{-- <div class="header-right d-flex align-items-center">
                             <div class="header-search">
                                 <a class="search-toggle" data-selector=".header-search">
                                     <span class="fas fa-search"></span>
@@ -86,7 +86,7 @@
                                                 class="fas fa-search"></i></button>
                                     </div>
                                 </form>
-                            </div>
+                            </div> --}}
 
                             <a href="{{ route('frontend.contact.submit') }}" class="header-btn">Get A Quote <i
                                     class="far fa-chevron-double-right"></i></a>
