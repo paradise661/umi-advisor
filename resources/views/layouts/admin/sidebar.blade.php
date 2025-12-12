@@ -123,7 +123,7 @@
         <li class="menu-item {{ Request::segment(2) == 'countrylocation' ? 'active' : '' }}">
             <a href="{{ route('countrylocation.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-map"></i>
-                <div>Country Location</div>
+                <div>Student Essentials</div>
             </a>
         </li>
         <li class="menu-item {{ Request::segment(2) == 'course' ? 'active' : '' }}">

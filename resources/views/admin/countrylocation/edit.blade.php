@@ -1,12 +1,12 @@
 @extends('layouts.admin.master')
 @php
-    $title = 'Country Locations';
+    $title = 'Student Essentials';
     $name = 'countrylocation';
 @endphp
 @section('content')
     <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0 text-capitalize">Edit {{ $name }}</h5>
+            <h5 class="mb-0 text-capitalize">Edit {{ $title }}</h5>
             <small class="text-muted float-end">
                 <a href="{{ route($name . '.index') }}"
                     class="btn btn-sm btn-primary d-flex justify-content-between align-items-center gap-2">
@@ -48,8 +48,8 @@
 
                             <div class="mb-4 col-md-6">
                                 <label for="location" class="form-label">Location</label>
-                                <input type="text" class="form-control" id="location" name="location"
-                                    placeholder="Location" value="{{ old('location', ${$name}->location) }}" />
+                                <input type="text" class="form-control" id="location" name="location" placeholder="Location"
+                                    value="{{ old('location', ${$name}->location) }}" />
                                 @error('location')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
@@ -60,7 +60,8 @@
 
                         <div class="mb-4">
                             <label for="short_description" class="form-label">Short Description</label>
-                            <textarea class="form-control" id="short_description" name="shortdescription" placeholder="Short Description"
+                            <textarea class="form-control" id="short_description" name="shortdescription"
+                                placeholder="Short Description"
                                 rows="4">{{ old('shortdescription', ${$name}->shortdescription) }}</textarea>
                             @error('shortdescription')
                                 <p class="text-danger">{{ $message }}</p>
@@ -70,7 +71,9 @@
 
                         <div class="mb-4">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control ckeditor" id="description" name="description" placeholder="Description" rows="10">{{ old('description', ${$name}->description) }}</textarea>
+                            <textarea class="form-control ckeditor" id="description" name="description"
+                                placeholder="Description"
+                                rows="10">{{ old('description', ${$name}->description) }}</textarea>
 
                             @error('description')
                                 <p class="text-danger">{{ $message }}</p>
