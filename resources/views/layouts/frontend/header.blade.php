@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
 <header class="header header-1 header-3">
     <div class="top-header d-none d-xl-block">
         <div class="container">
@@ -46,7 +47,7 @@
                             <div class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('frontend.home') }}">Home</a>
+                                        <a href="{{ route('frontend.home') }}">Home </a>
                                     </li>
                                     <li>
                                         <a>About us</a>
