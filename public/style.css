@@ -23058,3 +23058,86 @@ header.transparent.stop.header-2 .main-header-wraper {
 .service-content-container p {
   color: gray;
 }
+
+.courses-author-main img {
+  width: 100%;
+  height: 440px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #202020;
+  font-size: 19px;
+}
+
+.courses-author--main {
+  background-color: #e9e7f0;
+  /* text-align: center; */
+}
+.card-img-top {
+  transition: transform 0.3s ease;
+  z-index: 1;
+  /* Ensure image is under the border pseudo-elements */
+}
+
+.university-card .card-img-top {
+  transition: transform 0.3s ease;
+  object-fit: contain;
+  z-index: 1;
+  /* Ensure image is under the border pseudo-elements */
+}
+
+.university-card:hover .card-img-top {
+  transform: scale(1.1);
+  z-index: 0;
+  /* Ensure image zoom doesn't overlap the border */
+}
+
+.university-card::before,
+.university-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #0475af;
+  transition: transform 0.3s ease;
+  z-index: 2;
+  /* Ensure the border is on top of the image */
+}
+
+.university-card::before {
+  top: 0;
+  transform: scaleX(0);
+}
+
+.university-card::after {
+  bottom: 0;
+  transform: scaleX(0);
+}
+
+.university-card:hover::before,
+.university-card:hover::after {
+  transform: scaleX(1);
+}
+
+.university-card .card-body {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /* padding: 15px; */
+}
+
+.university-card:hover .card-body {
+  opacity: 1;
+}
+
+.card-img-container img {
+  height: 200px;
+  display: block;
+  /* Ensure no extra space below the image */
+  width: 100%;
+  /* Make sure the image fills the container */
+}

@@ -46,7 +46,7 @@
                     <div class="container"></div>
                 </div>
                 <!-- financial-area start -->
-                <section class="financial pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+                {{-- <section class="financial pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
                     <div class="container">
                         <div class="row mb-minus-30">
                             <div class="col-xl-4 col-md-6">
@@ -54,7 +54,7 @@
                                     style="background-image: url(assets/img/home/financial__item-bg.png)">
                                     <div class="icon">
                                         <img src="{{ $settings['home_counter_students_img'] }}" alt="">
-                                        <!-- <i class="fal fa-analytics"></i> -->
+                                      
                                     </div>
 
                                     <div class="text">
@@ -73,7 +73,7 @@
                                     style="background-image: url(assets/img/home/financial__item-bg.png)">
                                     <div class="icon">
                                         <img src="{{ $settings['home_counter_scholarship_img'] }}" alt="">
-                                        <!-- <i class="fal fa-analytics"></i> -->
+                                       
                                     </div>
 
                                     <div class="text">
@@ -107,6 +107,37 @@
                             </div>
                         </div>
                     </div>
+                </section> --}}
+                <section class="section-background py-5 ">
+                    <div class=" container">
+                        <div class=" pt-5">
+                            <div class="heading-css text-center mb-4">
+                                <h3>Our  <span>Universities</span></h3>
+                            </div>
+                            <!-- Swiper container -->
+                            <!-- Swiper container -->
+                            <div class="swiper-container swiper-universities">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    @foreach ($universities as $university)
+                                        <div class="swiper-slide">
+                                            <div class="university-card mb-3 position-relative">
+                                                <div class="card-img-container shadow">
+                                                    <img src="{{ asset($university->image) }}" alt="{{ $university->name }}"
+                                                        class="card-img-top">
+                                                </div>
+                                                <a class="stretched-link"
+                                                    href=""></a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <!-- Pagination -->
+                                {{-- <div class="swiper-pagination"></div> --}}
+                            </div>
+                          
+                        </div>
+                    </div>
                 </section>
                 <!-- financial-area end -->
                 <!-- our-company start -->
@@ -126,7 +157,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-lg-3 col-sm-6">
                                 <div class="our-company__meida border-radius wow fadeInUp" data-wow-delay=".5s"
                                     style="height: 505px;">
@@ -135,7 +165,6 @@
                                     {{-- <div class="horizental-bar bg-red"></div> --}}
                                 </div>
                             </div>
-
                             <div class="col-lg-6">
                                 <div class="our-company__content mt-md-50 mt-sm-40 mt-xs-35 wow fadeInUp" data-wow-delay=".7s">
                                     <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-20 d-block"><img
@@ -147,54 +176,6 @@
                                     <div class="descriiption font-la mb-30 mb-md-25 mb-sm-20 mb-xs-15 about-desc">
                                         <p>{!! $about_us->description !!}</p>
                                     </div>
-
-                                    {{-- <div class="client-feedback d-flex flex-column flex-sm-row">
-                                        <div class="client-feedback__item client-feedback__item-two text-center">
-                                            <div class="client-feedback__item-header">
-                                                <span class="color-red font-la fw-600 text-uppercase">Success Project</span>
-                                            </div>
-
-                                            <div class="client-feedback__item-body">
-                                                <div class="number mb-10 mb-xs-5 color-pd_black fw-600">+<span
-                                                        class="counter">95</span>%</div>
-                                                <div class="description font-la mb-10 mb-xs-5">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
-                                                </div>
-                                                <div class="starts">
-                                                    <ul>
-                                                        <li><span></span></li>
-                                                        <li><span></span></li>
-                                                        <li><span></span></li>
-                                                        <li><span></span></li>
-                                                        <li><span></span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="client-feedback__item client-feedback__item-two text-center">
-                                            <div class="client-feedback__item-header">
-                                                <span class="color-red font-la fw-600 text-uppercase">Customer Review</span>
-                                            </div>
-
-                                            <div class="client-feedback__item-body">
-                                                <div class="number mb-10 mb-xs-5 color-pd_black fw-600">+<span
-                                                        class="counter">4.7</span></div>
-                                                <div class="description font-la mb-10 mb-xs-5">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
-                                                </div>
-                                                <div class="starts">
-                                                    <ul>
-                                                        <li><span></span></li>
-                                                        <li><span></span></li>
-                                                        <li><span></span></li>
-                                                        <li><span></span></li>
-                                                        <li><span></span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -296,129 +277,6 @@
                 </div>
                 </div>
             </section>
-            <!-- why-choose end -->
-            <!-- get-free end -->
-            {{-- <section class="get-free get-free-home overflow-hidden">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="get-free__content-wrapper overflow-hidden" style="background-image: url(assets/img/services/get-free-bg.png);">
-                                <div class="get-free__content d-flex align-items-center justify-content-between">
-                                    <div class="get-free__content-text wow fadeInUp" data-wow-delay=".3s">
-                                        <h2 class="title mb-10 mb-xs-5 color-white">Get Free Quote</h2>
-
-                                            <div class="description color-white font-la fw-500">
-                                                Perfect solution for your Company
-                                            </div>
-                                        </div>
-
-                                        <div class="get-free__content-form wow fadeInUp" data-wow-delay=".3s">
-                                            <form class="d-flex flex-column flex-lg-row">
-                                                <div class="single-personal-info">
-                                                    <input type="text" placeholder="Your Name">
-                                                </div>
-                                                <div class="single-personal-info">
-                                                    <input type="email" placeholder="Your e-mail">
-                                                </div>
-
-                                            <button type="submit" class="theme-btn btn-sm">Get Quote <i class="far fa-chevron-double-right"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> --}}
-            <!-- get-free end -->
-            <!-- work-process end -->
-            {{-- <section class="work-process work-process-home bg-dark_red pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="pricing__content mb-60 mb-sm-40 mb-xs-30 text-center wow fadeInUp" data-wow-delay=".3s">
-                                <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> Our Work Process</span>
-                                <h2 class="title color-pd_black">How Our Services Work</h2>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="row mb-minus-30 last_no_bullet">
-                            <div class="col-xl-3 col-lg-4 col-sm-6">
-                                <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="icon-wrapper d-flex">
-                                        <div class="icon">
-                                            <i class="icon-research"></i>
-                                        </div>
-                                        <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 1</button>
-                                    </div>
-                                    <div class="text">
-                                        <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Research Your Problem</h6>
-
-                                        <div class="description font-la">
-                                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-sm-6">
-                                <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="icon-wrapper d-flex">
-                                        <div class="icon">
-                                            <i class="icon-worker-1"></i>
-                                        </div>
-
-                                        <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 2</button>
-                                    </div>
-                                    <div class="text">
-                                        <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Identifying Problem</h6>
-
-                                        <div class="description font-la">
-                                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-sm-6">
-                                <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".7s">
-                                    <div class="icon-wrapper d-flex">
-                                        <div class="icon">
-                                            <i class="icon-outline"></i>
-                                        </div>
-
-                                        <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 3</button>
-                                    </div>
-                                    <div class="text">
-                                        <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Solutions Your Problem</h6>
-
-                                        <div class="description font-la">
-                                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-4 col-sm-6">
-                                <div class="work-process__item work-process__item-two mb-30 text-center wow fadeInUp" data-wow-delay=".9s">
-                                    <div class="icon-wrapper d-flex">
-                                        <div class="icon">
-                                            <i class="icon-target-2"></i>
-                                        </div>
-                                        <button class="theme-btn color-pd_black" style="background-image: url(assets/img/home/theme-btn-overly-1.png)">Step - 4</button>
-                                    </div>
-
-                                    <div class="text">
-                                        <h6 class="title color-pd_black mb-15 mb-sm-10 mb-xs-5">Success Your Business</h6>
-
-                                    <div class="description font-la">
-                                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> --}}
-            <!-- work-process end -->
-            <!-- our-portfolio-home start -->
             <section
                 class="our-portfolio-home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
                 <div class="container">
@@ -773,4 +631,22 @@
                 </section>
                 <!-- blog-news end -->
             </div>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var swiper = new Swiper('.swiper-universities', {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    loop: true,
+                    autoplay: {
+                        delay: 2100,
+                    },
+                    breakpoints: {
+                        640: { slidesPerView: 1, spaceBetween: 10 },
+                        768: { slidesPerView: 2, spaceBetween: 20 },
+                        1024: { slidesPerView: 4, spaceBetween: 30 },
+                    },
+                });
+            });
+            </script>
 @endsection
