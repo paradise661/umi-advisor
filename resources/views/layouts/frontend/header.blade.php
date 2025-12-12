@@ -198,6 +198,9 @@
                     <li>
                         <a href="{{ route('frontend.contact.submit') }}">Contact us</a>
                     </li>
+                    <li>
+                        <a href="{{ route('frontend.contact.submit') }}">Events</a>
+                    </li>
                     </ul>
                 </div>
                 <div class="sidebar-nav__bottom mt-20">
