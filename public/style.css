@@ -23035,6 +23035,7 @@ header.transparent.stop.header-2 .main-header-wraper {
   width: 100%;
   height: 200px;
 }
+
 .float {
   position: fixed;
   width: 60px;
@@ -23052,4 +23053,8 @@ header.transparent.stop.header-2 .main-header-wraper {
 
 .my-float {
   margin-top: 16px;
+}
+
+.service-content-container p {
+  color: gray;
 }
