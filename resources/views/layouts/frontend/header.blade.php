@@ -62,10 +62,10 @@
 
                                         <ul>
                                             <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
-                                            <li><a href="{{ route('frontend.service') }}">Service</a></li>
+                                            {{-- <li><a href="{{ route('frontend.service') }}">Service</a></li> --}}
                                             {{-- <li><a href="{{ route('frontend.event') }}">Events</a></li> --}}
                                             <li><a href="{{ route('frontend.team') }}">Team</a></li>
-                                            <li><a href="{{ route('frontend.testimonial') }}">Testimonial</a></li>
+                                            {{-- <li><a href="{{ route('frontend.testimonial') }}">Testimonial</a></li> --}}
                                             {{-- <li><a href="team-details.html">Team Details</a></li>
                                             <li><a href="services-details.html">Services Details</a></li>
                                             <li><a href="our-project-details.html">Our Project Details</a></li>
