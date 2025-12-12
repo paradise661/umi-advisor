@@ -599,6 +599,46 @@
                 </div>
             </section>
             <!-- testimonial end -->
+            <!-- Teams start -->
+            <section class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp" data-wow-delay=".3s">
+                            <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> {{ $settings['teams_title'] }}</span>
+                            <h2 class="title color-d_black">{{ $settings['teams_subtitle'] }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-minus-30">
+                    @foreach ($teams as $team)
+                        <div class="col-xxl-3 col-lg-4 col-md-6">
+                            <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp" data-wow-delay=".3s">
+                                <div class="media">
+                                    <img src="{{ $team->image }}" class="img-fluid" alt="">
+
+                                    <div class="social-profile">
+                                        <ul>
+                                            <li><a href="{{ $team->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="{{ $team->whatsapp }}"><i class="fab fa-whatsapp"></i></a></li>
+                                            <li><a href="{{ $team->email }}"><i class="fab fa-google"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="text d-flex align-items-center justify-content-center">
+                                    <div class="left">
+                                        <h5 class="title color-white">{{ $team->name }}</h5>
+                                        <span class="position color-white font-la fw-500">{{ $team->position }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
             <div class="can-help-overly-home overflow-hidden">
                 <div class="can-help-overly">
                     <div class="container"></div>
