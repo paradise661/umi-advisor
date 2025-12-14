@@ -127,22 +127,22 @@ class FrontendController extends Controller
     function abroadstudies()
     {
         $abroad_page = Page::where('status', 1)->where('slug', 'destination')->first();
-        $abroadstudies = Country::where('status', 1)->oldest("order")->get();
-        $universities = University::where('status', 1)->oldest("order")->get();
+        $abroadstudies = CountryLocation::where('status', 1)->oldest("order")->get();
+        // $universities = University::where('status', 1)->oldest("order")->get();
         return view('frontend.abroad.index', compact('abroadstudies', 'abroad_page','universities'));
     }
     function abroadstudiesingle($slug)
     {
         $abroad_page = Page::where('status', 1)->where('slug', 'abroad-studies')->first();
-        $abroadstudiesingle = Country::with('countryFaqs')->where('slug', $slug)->where('status', 1)->first();
-        $faq = Faq::where('status', 1)->get();
-        $universities = University::where('country_id', $abroadstudiesingle->id)->where('status', 1)->oldest("order")->get();
-        $servicesingle = Service::where('slug', $slug)->where('status', 1)->first();
-        $more_abroadstudies = Country::with('countryFaqs')->where('status', 1)->get();
+        $abroadstudiesingle = CountryLocation::where('slug', $slug)->where('status', 1)->first();
+        // $faq = Faq::where('status', 1)->get();
+        // $universities = University::where('country_id', $abroadstudiesingle->id)->where('status', 1)->oldest("order")->get();
+        // $servicesingle = Service::where('slug', $slug)->where('status', 1)->first();
+        // $more_abroadstudies = Country::with('countryFaqs')->where('status', 1)->get();
 
         if ($abroadstudiesingle) {
-            $abroads = Country::where('id', '!=', $abroadstudiesingle->id)->where('status', 1)->oldest("order")->limit(5)->get();
-            return view('frontend.abroad.show', compact('abroadstudiesingle','abroads' ,'faq', 'abroad_page', 'universities','servicesingle','more_abroadstudies'));
+            $abroads = CountryLocation::where('id', '!=', $abroadstudiesingle->id)->where('status', 1)->oldest("order")->limit(5)->get();
+            return view('frontend.abroad.show', compact('abroadstudiesingle','abroads' , 'abroad_page'));
 
         }
 

@@ -22996,10 +22996,12 @@ header.transparent.stop.header-2 .main-header-wraper {
   color: #444;
   line-height: 1.6;
 }
-
+.courses-author{
+  height: 100%;
+}
 .courses-author img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 20%;
   object-fit: cover;
   margin-bottom: 10px;

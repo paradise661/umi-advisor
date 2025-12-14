@@ -348,7 +348,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <section class="courses-section">
+            <section class="courses-section">
                 <div class="container">
                     <div class="courses-block ">
                         <div class="row justify-content-center g-4">
@@ -356,24 +356,21 @@
                                 <div class="col-md-6">
                                     <div class="courses-card position-relative"> 
                                         <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
-
-
                                             <div class="row">
                                                 <div class="col-lg-7">
                                                     <div class="p-3">
+                                                        <div class="author-name">{{ $country->name }}</div>
                                                         <div class="courses-text line-clamp-4">
                                                             <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
-                                                            {!! $country->short_description ?? 'No description available.' !!}
+                                                            {!! $country->shortdescription ?? 'No description available.' !!}
                                                             </a>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-lg-5">
                                                     <div class="courses-author py-3">
-                                                        <img src="{{ asset($country->image) }}"
+                                                        <img src="{{ asset($country->image1) }}"
                                                             alt="{{ $country->name }}">
-                                                        <div class="author-name">{{ $country->title }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -388,7 +385,7 @@
 
                     </div>
                 </div>
-            </section> --}}
+            </section>
         </div>
     </section>
     <!-- our-team-home-1 end -->

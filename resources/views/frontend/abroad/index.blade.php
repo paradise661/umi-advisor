@@ -69,7 +69,7 @@
                                                         <div class="col-lg-7">
                                                             <div class="p-3">
                                                                 <div class="courses-text line-clamp-4">
-                                                                    {{-- <a href="{{ route('frontend.abroadsingle', $country->slug) }}"> --}}
+                                                                    <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
                                                                     {!! $country->short_description ?? 'No description available.' !!}
                                                                     {{-- </a> --}}
                                                                 </div>
@@ -85,7 +85,7 @@
                                                         </div>
                                                     </div>
         
-                                                    {{-- <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a> --}}
+                                                    <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
         
                                                 </a>
                                             </div>

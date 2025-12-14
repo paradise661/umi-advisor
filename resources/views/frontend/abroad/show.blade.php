@@ -32,7 +32,7 @@
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('frontend.abroad') }}">Countries</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ $abroadstudiesingle->title }}
+                                {{ $abroadstudiesingle->name }}
                             </li>
                         </ol>
                     </nav>
@@ -61,7 +61,7 @@
                 <div class="col-xl-8" data-sticky_column>
 
                     <div class="media mb-40 mb-md-35 mb-sm-30 mb-xs-25">
-                        <img src="{{ $abroadstudiesingle->image }}" alt="">
+                        <img src="{{ $abroadstudiesingle->image1 }}" alt="">
                     </div>
 
                     <div class="services-details__content">
@@ -82,14 +82,14 @@
                                 @foreach ($abroads as $blog)
                                 <div class="single-post-item mb-20">
                                     <div class="thumb overflow-hidden">
-                                        <img src="{{ $blog->image }}" class="img-fluid" alt="">
+                                        <img src="{{ $blog->image1 }}" class="img-fluid" alt="">
                                     </div>
 
                                     <div class="post-content">
                                         {{-- <a href="blog-details.html" class="post-date d-block mb-10 text-uppercase">
                                             <i class="far fa-clock"></i>12 jun, 2022
                                         </a> --}}
-                                        <h6><a href="{{ route('frontend.abroadsingle', $blog->slug) }}">{{ $blog->title }}</a></h6>
+                                        <h6><a href="{{ route('frontend.abroadsingle', $blog->slug) }}">{{ $blog->name }}</a></h6>
                                         <p style="color: white" class="line-clamp-2">{{$blog->short_description}}</p>
                                     </div>
                                 </div>
