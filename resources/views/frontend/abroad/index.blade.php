@@ -44,7 +44,7 @@
                 <section
                 class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
                 <div class="container">
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-12">
                             <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp"
                                 data-wow-delay=".3s">
@@ -54,33 +54,30 @@
                                 <h2 class="title color-d_black">{{ $settings['countries_subtitle'] }}</h2>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <section class="courses-section">
                         <div class="container">
                             <div class="courses-block ">
                                 <div class="row justify-content-center g-4">
-                                    @foreach ($countrylocation as $country)
+                                    @foreach ($abroadstudies as $country)
                                         <div class="col-md-6">
-                                            <div class="courses-card position-relative"> {{-- required for stretched-link --}}
+                                            <div class="courses-card position-relative"> 
                                                 <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
-        
-        
                                                     <div class="row">
                                                         <div class="col-lg-7">
                                                             <div class="p-3">
+                                                                <div class="author-name">{{ $country->name }}</div>
                                                                 <div class="courses-text line-clamp-4">
                                                                     <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
-                                                                    {!! $country->short_description ?? 'No description available.' !!}
-                                                                    {{-- </a> --}}
+                                                                    {!! $country->shortdescription ?? 'No description available.' !!}
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                         </div>
-        
                                                         <div class="col-lg-5">
                                                             <div class="courses-author py-3">
-                                                                <img src="{{ asset($country->image) }}"
+                                                                <img src="{{ asset($country->image1) }}"
                                                                     alt="{{ $country->name }}">
-                                                                <div class="author-name">{{ $country->title }}</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -92,7 +89,6 @@
                                         </div>
                                     @endforeach
                                 </div>
-        
                             </div>
                         </div>
                     </section>
