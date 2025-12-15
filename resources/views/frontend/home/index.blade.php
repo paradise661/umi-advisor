@@ -45,69 +45,7 @@
         <div class="overly">
             <div class="container"></div>
         </div>
-        <!-- financial-area start -->
-        {{-- <section class="financial pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
-                    <div class="container">
-                        <div class="row mb-minus-30">
-                            <div class="col-xl-4 col-md-6">
-                                <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".3s"
-                                    style="background-image: url(assets/img/home/financial__item-bg.png)">
-                                    <div class="icon">
-                                        <img src="{{ $settings['home_counter_students_img'] }}" alt="">
-                                      
-                                    </div>
 
-                                    <div class="text">
-                                        <h6 class="title color-pd_black mb-10 mb-xs-5">
-                                            {{ $settings['home_counter_students_title'] }}</h6>
-
-                                        <div class="description font-la">
-                                            <p>{{ $settings['home_counter_students'] }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-4 col-md-6">
-                                <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".5s"
-                                    style="background-image: url(assets/img/home/financial__item-bg.png)">
-                                    <div class="icon">
-                                        <img src="{{ $settings['home_counter_scholarship_img'] }}" alt="">
-                                       
-                                    </div>
-
-                                    <div class="text">
-                                        <h6 class="title color-pd_black mb-10 mb-xs-5">
-                                            {{ $settings['home_counter_scholarship_title'] }}</h6>
-
-                                        <div class="description font-la">
-                                            <p>{{ $settings['home_counter_scholarship'] }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-4 col-md-6">
-                                <div class="financial__item d-flex mb-30 wow fadeInUp" data-wow-delay=".7s"
-                                    style="background-image: url(assets/img/home/financial__item-bg.png)">
-                                    <div class="icon">
-                                        <img src="{{ $settings['home_counter_enrolled_img'] }}" alt="">
-                                        <!-- <i class="fal fa-analytics"></i> -->
-                                    </div>
-
-                                    <div class="text">
-                                        <h6 class="title color-pd_black mb-10 mb-xs-5">
-                                            {{ $settings['home_counter_enrolled_title'] }}</h6>
-
-                                        <div class="description font-la">
-                                            <p>{{ $settings['home_counter_enrolled'] }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> --}}
         <section class="section-background py-5 ">
             <div class=" container">
                 <div class=" pt-5">
@@ -354,15 +292,16 @@
                         <div class="row justify-content-center g-4">
                             @foreach ($countrylocation as $country)
                                 <div class="col-md-6">
-                                    <div class="courses-card position-relative"> 
+                                    <div class="courses-card position-relative">
                                         <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
                                             <div class="row">
                                                 <div class="col-lg-7">
                                                     <div class="p-3">
                                                         <div class="author-name">{{ $country->name }}</div>
                                                         <div class="courses-text line-clamp-4">
-                                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}">
-                                                            {!! $country->shortdescription ?? 'No description available.' !!}
+                                                            <a
+                                                                href="{{ route('frontend.abroadsingle', $country->slug) }}">
+                                                                {!! $country->shortdescription ?? 'No description available.' !!}
                                                             </a>
                                                         </div>
                                                     </div>
@@ -375,7 +314,8 @@
                                                 </div>
                                             </div>
 
-                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}" class="stretched-link"></a>
+                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}"
+                                                class="stretched-link"></a>
 
                                         </a>
                                     </div>
@@ -384,7 +324,7 @@
                         </div>
                         <div class="d-flex justify-content-center align-items-center" style="height: 100px;">
                             <a href="{{ route('frontend.abroad') }}" class="theme-btn btn-sm btn-red">
-                                View All  <i class="far fa-chevron-double-right"></i>
+                                View All <i class="far fa-chevron-double-right"></i>
                             </a>
                         </div>
                     </div>

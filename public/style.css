@@ -23137,7 +23137,7 @@ header.transparent.stop.header-2 .main-header-wraper {
 }
 
 .card-img-container img {
-  height: 200px;
+  height: 100px;
   display: block;
   /* Ensure no extra space below the image */
   width: 100%;
