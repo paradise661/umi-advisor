@@ -64,6 +64,9 @@
                                         <a href="{{ route('frontend.course') }}">Our Courses</a>
                                     </li>
                                     <li>
+                                        <a href="{{ route('frontend.gallery') }}">Gallery</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('frontend.blog') }}">Blog</a>
                                     </li>
                                     <li>
