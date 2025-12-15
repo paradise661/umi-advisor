@@ -85,8 +85,9 @@ class FrontendController extends Controller
         $studentreviw = WhyChooseUs::get();
         $services = Service::where('status', 1)->limit(4)->get();
         $testimonials = Testimonial::where('status', 1)->get();
-
-        return view('frontend.about.index', compact('about_us', 'why_us', 'teams', 'studentreviw','services','testimonials'));
+        $message_page = Page::where('status', 1)->where('slug', 'message-from-ceo')->first();
+        $message_from_founder_1 = Page::where('status', 1)->where('slug', 'message-from-founder-1')->first();
+        return view('frontend.about.index', compact('about_us','message_page','message_from_founder_1', 'why_us', 'teams', 'studentreviw','services','testimonials'));
     }
     public function service()
     {

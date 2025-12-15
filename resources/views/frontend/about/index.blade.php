@@ -63,7 +63,7 @@
         </div>
     </section>
     <!-- our-company start -->
-    <div class="our-company-financial overflow-hidden">
+    <div class="our-company-financial overflow-hidden bg-dark_red">
         <section class="our-company pb-xs-80 pb-100 overflow-hidden">
             <div class="container">
                 <div class="row">
@@ -105,7 +105,7 @@
         </section>
     </div>
     <!-- why-choose start -->
-    <section
+    {{-- <section
         class="why-choose why-choose__home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pb-120 overflow-hidden">
         <div class="container">
             <div class="row">
@@ -149,7 +149,7 @@
                                 <div class="why-choose__item why-choose__item-two"
                                     style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
                                     <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
-                                        {{-- {!! $icons[$key % count($icons)] !!} --}}
+                                    
                                         <img height="50px" src="{{ $service->image }}">
                                     </div>
 
@@ -167,6 +167,30 @@
                     </div>
                 </div>
         </div>
+        </div>
+    </section> --}}
+    <section class="about-us-section py-5">
+        <div class="container">
+            <div class="row">
+                {{-- Image --}}
+                <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="fade-right"
+                    data-aos-duration="3000">
+                    <div class="about-us-img-ceo">
+                        <img src="{{ asset($message_page->image_1) }}" alt="{{ $message_page->title }}">
+                    </div>
+                </div>
+                {{-- Content --}}
+                <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="fade-left"
+                    data-aos-duration="3000">
+                    <div class="service-content-container">
+                        <h6 class="my-2 color-red">{{ $message_page->title ?? 'About us' }}</h6>
+                        <h3 class="my-2">{{ $message_page->short_description }}</h3>
+                        <p class="text-css-counter">
+                            {!! $message_page->description !!}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-- our-team-home-1 start -->
