@@ -381,18 +381,14 @@
                                     </div>
                                 </div>
                             @endforeach
-                           
                         </div>
                         <div class="d-flex justify-content-center align-items-center" style="height: 100px;">
                             <a href="{{ route('frontend.abroad') }}" class="theme-btn btn-sm btn-red">
-                                View All Services <i class="far fa-chevron-double-right"></i>
+                                View All  <i class="far fa-chevron-double-right"></i>
                             </a>
                         </div>
-                        
-                       
                     </div>
                 </div>
-    
             </section>
         </div>
     </section>
