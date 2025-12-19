@@ -56,7 +56,7 @@
                 <div>Application</div>
             </a>
         </li> --}}
-        <li
+        {{-- <li
             class="menu-item {{ Request::segment(2) == 'application' || Request::segment(2) == 'visa-grant' || Request::segment(2) == 'visa-refused' || Request::segment(2) == 'visa-withdraw' ? 'active open' : '' }} ">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-support"></i>
@@ -89,7 +89,7 @@
                 </li>
             </ul>
 
-        </li>
+        </li> --}}
         {{-- <li class="menu-item {{ Request::segment(2) == 'result' ? 'active' : '' }}">
             <a href="{{ route('result.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-trophy"></i>
