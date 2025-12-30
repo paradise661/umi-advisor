@@ -128,7 +128,7 @@
             <div class="row align-items-center">
                 <div class="col-sm-9">
                     <div class="planning-success__content mb-xs-35 wow fadeInUp" data-wow-delay=".3s">
-                        <h2 class="title mb-20 mb-sm-15 mb-xs-10 color-white">Good Business Planning Ensures Success.</h2>
+                        <h2 class="title mb-20 mb-sm-15 mb-xs-10 color-white">{{ $service_section->title }}</h2>
 
                         <div class="description font-la color-white mb-40 mb-sm-30 mb-xs-20">
                             <p>{{ $service_section->short_description }}</p>
