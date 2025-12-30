@@ -45,7 +45,6 @@
         <div class="overly">
             <div class="container"></div>
         </div>
-
         <section class="section-background py-5 ">
             <div class=" container">
                 <div class=" pt-5">
@@ -138,7 +137,6 @@
                                 class="far fa-chevron-double-right"></i></a>
                     </div>
                 </div>
-
                 <div class="col-sm-3">
                     {{-- <div class="planning-success__video wow fadeInUp" data-wow-delay=".5s">
                                 <a href="https://www.youtube.com/watch?v=9xwazD5SyVg" class="popup-video mx-auto"
