@@ -24,7 +24,7 @@
                             <p style="color: white !important">{!! $sliders->description !!}</p>
                         </div>
                         <div class="theme-btn__wrapper d-flex flex-wrap">
-                            <a href="/contact-us" class="theme-btn fw-600 btn-red">Read more <i
+                            <a href="{{route('frontend.about')}}" class="theme-btn fw-600 btn-red">Read more <i
                                     class="far fa-chevron-double-right"></i></a>
                             {{-- <a href="about.html" class="theme-btn fw-600 btn-white-border">Read More <i class="far fa-chevron-double-right"></i></a> --}}
                         </div>

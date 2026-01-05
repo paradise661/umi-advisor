@@ -150,36 +150,28 @@
                             <input type="text" name="name" class="form-control py-3"
                                 placeholder="Your Name" required>
                         </div>
-
                         <div class="mb-3">
                             <input type="email" name="email" class="form-control py-3"
                                 placeholder="Your Email" required>
                         </div>
-
                         <div class="mb-3">
                             <input type="text" name="course" class="form-control py-3"
                                 placeholder="Subject">
                         </div>
-
                         <div class="mb-3">
                             <textarea name="message" class="form-control py-3" rows="5"
                                 placeholder="Your Message" required></textarea>
                         </div>
-
                         <button type="submit"
                             class="btn w-100 py-3 text-white"
                             style="background:#00b3ea; border:none;">
                             Submit Message
                         </button>
-
                     </form>
-
                 </div>
-
             </div>
         </div>
     </div>
-   
 </section>
   <!-- Map -->
   <div class=" mt-4">
@@ -190,7 +182,6 @@
                 loading="lazy"></iframe>
     </div>
 </div>
-
     @if (session('success'))
         <script>
             document.addEventListener('DOMContentLoaded', function() {
