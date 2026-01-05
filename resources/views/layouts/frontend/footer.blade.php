@@ -22,7 +22,7 @@
         <div class="row justify-content-between">
             <div class="col-md-6 col-xl-3">
                 <div class="single-footer-wid widget-description">
-                    <a href="index.html" class="d-block mb-30 mb-xs-20">
+                    <a href="{{route('frontend.home')}}" class="d-block mb-30 mb-xs-20">
                         <img src="{{ $settings['site_footer_logo'] }}" alt="footer logo">
                     </a>
 
