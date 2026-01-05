@@ -184,7 +184,7 @@
   <!-- Map -->
   <div class=" mt-4">
     <div class="rounded overflow-hidden shadow-sm" style="height:350px;">
-        <iframe src="{{ $settings['contact_map'] }}" 
+        <iframe src="{{ $settings['site_location_url'] }}" 
                 style="border:0; width:100%; height:100%;" 
                 allowfullscreen 
                 loading="lazy"></iframe>
