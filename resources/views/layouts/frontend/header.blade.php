@@ -69,9 +69,9 @@
                                     <li>
                                         <a href="{{ route('frontend.blog') }}">Blog</a>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{ route('frontend.contact.submit') }}">Contact us</a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                                 </form>
                             </div> --}}
 
-                            <a href="{{ route('frontend.contact.submit') }}" class="header-btn">Get A Quote <i
+                            <a href="{{ route('frontend.contact.submit') }}" class="header-btn">Contact us <i
                                     class="far fa-chevron-double-right"></i></a>
                             <div class="mobile-nav-bar d-block ml-3 ml-sm-5 d-xl-none">
                                 <div class="mobile-nav-wrap">
