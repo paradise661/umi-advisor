@@ -10,7 +10,7 @@ if (! function_exists('updatesettingmedia')) {
     {
         if ($image = $request->file($name)) {
             $bucket = "umi-advisor"; // static bucket name
-            $baseUrl = "https://s3-np1.datahub.com.np"; // static base URL
+            $baseUrl = "https://paradises3.sgp1.digitaloceanspaces.com"; // static base URL
             $imageName = time() . '-' . rand(0, 99) . '-' . $image->getClientOriginalName();
             // Upload to S3
             $path = $image->storeAs(
@@ -68,7 +68,7 @@ if (! function_exists('fileUpload')) {
         try {
             if ($request->hasFile($name)) {
                 $bucket = "umi-advisor"; // static bucket name
-                $baseUrl = "https://s3-np1.datahub.com.np";
+                $baseUrl = "https://paradises3.sgp1.digitaloceanspaces.com";
 
                 // Determine folder path
                 $folderPath = $folder ? trim($folder, '/') : ''; // if folder is passed, use it; else root
@@ -93,7 +93,7 @@ if (! function_exists('galleryfileUpload')) {
         try {
             if ($request->hasFile($name)) {
                 $bucket = "umi-advisor"; // same static bucket name
-                $baseUrl = "https://s3-np1.datahub.com.np";
+                $baseUrl = "https://paradises3.sgp1.digitaloceanspaces.com";
 
                 // custom image name
                 $image = $request->file($name);
@@ -122,7 +122,7 @@ if (! function_exists('removeFile')) {
     {
         try {
             $bucket = "umi-advisor"; // same static bucket name
-            $baseUrl = "https://s3-np1.datahub.com.np";
+            $baseUrl = "https://paradises3.sgp1.digitaloceanspaces.com";
 
             // Remove base URL + bucket from the full file URL to get the relative path
             $prefix = rtrim($baseUrl, '/') . '/' . trim($bucket, '/');
@@ -157,7 +157,6 @@ if (! function_exists('formatBlogDate')) {
 
         return $formattedDate;
     }
-
 }
 if (!function_exists('getGlobalData')) {
     function getGlobalData()
@@ -169,9 +168,8 @@ if (!function_exists('getGlobalData')) {
             'footer_countries_1' => \App\Models\Country::where('status', 1)->orderBy('order')->limit(5)->get() ?? [],
             'footer_course' => \App\Models\Course::where('status', 1)->orderBy('order')->limit(5)->get() ?? [],
             'footer_services' => \App\Models\Service::where('status', 1)->orderBy('order')->limit(5)->get() ?? [],
-            'recent_post' => \App\Models\Blog::where('status', 1)->limit(2)->get()??[],
+            'recent_post' => \App\Models\Blog::where('status', 1)->limit(2)->get() ?? [],
 
         ];
     }
 }
-

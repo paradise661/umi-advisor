@@ -1,13 +1,13 @@
 @section('seo')
     @include('frontend.seo', [
-    'name' => $blog_page->seo_title ?? '',
-    'title' => $blog_page->seo_title ?? $blog_page->title,
-    'description' => $blog_page->meta_description ?? '',
-    'keyword' => $blog_page->meta_keywords ?? '',
-    'schema' => $blog_page->seo_schema ?? '',
-    'created_at' => $blog_page->created_at,
-    'updated_at' => $blog_page->updated_at,
-])
+        'name' => $blog_page->seo_title ?? '',
+        'title' => $blog_page->seo_title ?? $blog_page->title,
+        'description' => $blog_page->meta_description ?? '',
+        'keyword' => $blog_page->meta_keywords ?? '',
+        'schema' => $blog_page->seo_schema ?? '',
+        'created_at' => $blog_page->created_at,
+        'updated_at' => $blog_page->updated_at,
+    ])
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
@@ -83,78 +83,81 @@
                 </div>
             </div>
         </section> --}}
-        <!-- page-banner start -->
-                <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
-                                <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                    <div class="transparent-text">{{ $blog_page->title }}</div>
-                                    <div class="page-title">
-                                        <h1>{{ $blog_page->title }}</h1>
-                                    </div>
-                                </div>
-
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">{{ $blog_page->title }}</li>
-                                    </ol>
-                                </nav>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="page-banner__media mt-xs-30 mt-sm-40">
-                                    <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                                    <img src="{{ asset($blog_page->banner_image) }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
+    <!-- page-banner start -->
+    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
+                        <div class="transparent-text">{{ $blog_page->title }}</div>
+                        <div class="page-title">
+                            <h1>{{ $blog_page->title }}</h1>
                         </div>
                     </div>
-                </section>
-                 <!-- blog-news start -->
-                <section class="blog-news pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden blog-margin">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            {{-- <div class="col-12">
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $blog_page->title }}</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="page-banner__media mt-xs-30 mt-sm-40">
+                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
+                        <img class="img-fluid" src="{{ asset($blog_page->banner_image) }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog-news start -->
+    <section class="blog-news pb-xs-80 pb-sm-100 pb-md-100 pb-120 overflow-hidden blog-margin">
+        <div class="container">
+            <div class="row align-items-center">
+                {{-- <div class="col-12">
                                 <div class="blog-news__content text-center wow fadeInUp" data-wow-delay=".3s">
                                     <span class="sub-title fw-500  text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block color-red"><img src="assets/img/home/line.svg" class="img-fluid mr-10" alt=""> {{ $settings['blogs_title'] }}</span>
                                     <h2 class="title color-d_black">{{ $settings['blogs_subtitle'] }}</h2>
                                 </div>
                             </div> --}}
-                        </div>
+            </div>
 
-                        <div class="blog-news__bottom mt-60 mt-sm-50 mt-xs-40">
-                            <div class="row mb-minus-30">
-                                @foreach ($blogs as $blog)
-                                    <div class="col-xl-4 col-md-6 col-12">
-                                        <div class="blog-item blog-item-three mb-30 wow fadeInUp" data-wow-delay=".3s">
-                                            <div class="blog-featured-thumb mb-xs-30 mb-sm-30 mb-md-35 mb-lg-40 mb-50">
-                                                <div class="media overflow-hidden">
-                                                    <img src="{{ $blog->image }}" class="img-fluid" alt="">
-                                                </div>
-                                                {{-- <div class="date">
+            <div class="blog-news__bottom mt-60 mt-sm-50 mt-xs-40">
+                <div class="row mb-minus-30">
+                    @foreach ($blogs as $blog)
+                        <div class="col-xl-4 col-md-6 col-12">
+                            <div class="blog-item blog-item-three mb-30 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="blog-featured-thumb mb-xs-30 mb-sm-30 mb-md-35 mb-lg-40 mb-50">
+                                    <div class="media overflow-hidden">
+                                        <img class="img-fluid" src="{{ $blog->image }}" alt="">
+                                    </div>
+                                    {{-- <div class="date">
                                                     <span>27</span>
                                                     <span>April</span>
                                                     <span>2020</span>
                                                 </div> --}}
-                                            </div>
+                                </div>
 
-                                            <div class="content pr-sm-25 pr-xs-15 pl-xs-15 pl-sm-25 pr-xs-15 pr-30 pb-30 pl-30">
-                                                <div class="post-author mb-5">
-                                                    {{-- <a href="blog.html">{{ $blog->short_description }}</a> --}}
-                                                </div>
-                                                <h4><a href="{{ route('frontend.blogsingle', $blog->slug) }}">{{ $blog->title }}</a></h4>
-                                                <div class="btn-link-share mt-xs-10 mt-sm-10 mt-15">
-                                                    <a href="{{ route('frontend.blogsingle', $blog->slug) }}" class="theme-btn btn-border">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
-                                                </div>  
-                                            </div>
-                                        </div>
+                                <div class="content pr-sm-25 pr-xs-15 pl-xs-15 pl-sm-25 pr-xs-15 pr-30 pb-30 pl-30">
+                                    <div class="post-author mb-5">
+                                        {{-- <a href="blog.html">{{ $blog->short_description }}</a> --}}
                                     </div>
-                                @endforeach
+                                    <h4><a href="{{ route('frontend.blogsingle', $blog->slug) }}">{{ $blog->title }}</a>
+                                    </h4>
+                                    <div class="btn-link-share mt-xs-10 mt-sm-10 mt-15">
+                                        <a class="theme-btn btn-border"
+                                            href="{{ route('frontend.blogsingle', $blog->slug) }}">Read More <i
+                                                class="fas fa-long-arrow-alt-right"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <!-- blog-news end -->
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog-news end -->
 @endsection

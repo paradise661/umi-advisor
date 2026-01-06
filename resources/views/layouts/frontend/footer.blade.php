@@ -13,7 +13,7 @@
                             <h3 class="title color-white">Get updated Informed to Subscribe our Newsletter</h3>
                         </div>
 
-                      
+
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="row justify-content-between">
             <div class="col-md-6 col-xl-3">
                 <div class="single-footer-wid widget-description">
-                    <a href="{{route('frontend.home')}}" class="d-block mb-30 mb-xs-20">
+                    <a class="d-block mb-30 mb-xs-20" href="{{ route('frontend.home') }}">
                         <img src="{{ $settings['site_footer_logo'] }}" alt="footer logo">
                     </a>
 
@@ -57,9 +57,8 @@
 
                     <div class="recent-post-list">
                         @foreach ($recent_post as $post)
-
-
-                            <a href="blog.html" class="single-recent-post mb-20 pb-20 d-flex align-items-center">
+                            <a class="single-recent-post mb-20 pb-20 d-flex align-items-center"
+                                href="{{ route('frontend.blogsingle', $post->slug) }}">
                                 <div class="thumb">
                                     <img src="{{ $post->image }}" alt="blog image">
                                 </div>
