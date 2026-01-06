@@ -1,5 +1,3 @@
-
-
 <header class="header header-1 header-3">
     <div class="top-header d-none d-xl-block">
         <div class="container">
@@ -67,7 +65,7 @@
                                         <a href="{{ route('frontend.gallery') }}">Gallery</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('frontend.blog') }}">Blog</a>
+                                        <a href="{{ route('frontend.blog') }}">Blogs</a>
                                     </li>
                                     {{-- <li>
                                         <a href="{{ route('frontend.contact.submit') }}">Contact us</a>
@@ -91,13 +89,12 @@
                                 </form>
                             </div> --}}
 
-                            <a href="{{ route('frontend.contact.submit') }}" class="header-btn">Contact us <i
-                                    class="far fa-chevron-double-right"></i></a>
-                            <div class="mobile-nav-bar d-block ml-3 ml-sm-5 d-xl-none">
-                                <div class="mobile-nav-wrap">
-                                    <div id="hamburger">
-                                        <i class="fal fa-bars"></i>
-                                    </div>
+                        <a class="header-btn" href="{{ route('frontend.contact.submit') }}">Contact us <i
+                                class="far fa-chevron-double-right"></i></a>
+                        <div class="mobile-nav-bar d-block ml-3 ml-sm-5 d-xl-none">
+                            <div class="mobile-nav-wrap">
+                                <div id="hamburger">
+                                    <i class="fal fa-bars"></i>
                                 </div>
                             </div>
                         </div>
@@ -106,9 +103,10 @@
             </div>
         </div>
     </div>
+    </div>
     <!-- mobile menu - responsive menu  -->
     <div class="mobile-nav mobile-nav-red">
-        <button type="button" class="close-nav">
+        <button class="close-nav" type="button">
             <i class="fal fa-times-circle"></i>
         </button>
         <nav class="sidebar-nav">
