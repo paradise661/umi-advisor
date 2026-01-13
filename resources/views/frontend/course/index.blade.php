@@ -24,15 +24,15 @@
                     </div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $course_page->title }}</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-md-6">
                     <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                        <img src="{{ asset($course_page->banner_image) }}" class="img-fluid" alt="">
+                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
+                        <img class="img-fluid" src="{{ asset($course_page->banner_image) }}" alt="">
 
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".3s">
                             <div class="featured-thumb">
                                 <div class="media overflow-hidden">
-                                    <img src="{{ $course->image }}" class="img-fluid" alt="">
+                                    <img class="img-fluid" src="{{ $course->image }}" alt="">
                                 </div>
                             </div>
 
@@ -69,15 +69,16 @@
                                     </div>
 
                                     <h5 class="color-pd_black mb-15 mb-xs-10"><a
-                                            href="blog-details.html">{{ $course->title }}</a></h5>
+                                            href="{{ route('frontend.coursesingle', $course->slug) }}">{{ $course->title }}</a>
+                                    </h5>
                                     <div class="description font-la">
                                         <p class="line-clamp-4">{{ $course->short_description }}</p>
                                     </div>
                                 </div>
 
                                 <div class="btn-link-share">
-                                    <a href="{{ route('frontend.coursesingle', $course->slug) }}"
-                                        class="theme-btn color-pd_black"
+                                    <a class="theme-btn color-pd_black"
+                                        href="{{ route('frontend.coursesingle', $course->slug) }}"
                                         style="background-image: url(assets/img/home/theme-btn-overly.png)">View Details <i
                                             class="icon-arrow-right-2"></i></a>
                                 </div>
@@ -85,7 +86,6 @@
                         </div>
                     </div>
                 @endforeach
-
 
             </div>
 
