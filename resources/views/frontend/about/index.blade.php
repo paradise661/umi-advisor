@@ -48,15 +48,15 @@
                     </div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $about_us->title }}</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-md-6">
                     <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                        <img src="{{ asset($about_us->banner_image) }}" class="img-fluid" alt="">
+                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
+                        <img class="img-fluid" src="{{ asset($about_us->banner_image) }}" alt="">
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="our-company__meida wow fadeInUp" data-wow-delay=".3s">
-                            <img src="{{ $about_us->image_1 }}" alt="" class="img-fluid">
+                            <img class="img-fluid" src="{{ $about_us->image_1 }}" alt="">
 
                             <div class="years-experience overflow-hidden bg-red mt-20 mt-sm-10 mt-xs-10 text-center">
                                 <div class="number mb-5 color-white">
@@ -83,7 +83,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="our-company__meida border-radius wow fadeInUp" data-wow-delay=".5s"
                             style="height: 505px;">
-                            <img src="{{ $about_us->image_2 }}" alt="" class="img-fluid">
+                            <img class="img-fluid" src="{{ $about_us->image_2 }}" alt="">
 
                             {{-- <div class="horizental-bar bg-red"></div> --}}
                         </div>
@@ -91,7 +91,7 @@
                     <div class="col-lg-6">
                         <div class="our-company__content mt-md-50 mt-sm-40 mt-xs-35 wow fadeInUp" data-wow-delay=".7s">
                             <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-20 d-block"><img
-                                    src="assets/img/home/line.svg" class="img-fluid mr-10"
+                                    class="img-fluid mr-10" src="assets/img/home/line.svg"
                                     alt="">{{ $about_us->title ?? 'About us' }}</span>
                             <h2 class="title color-pd_black mb-20 mb-sm-15 mb-xs-10">{{ $about_us->short_description }}</h2>
 
@@ -149,7 +149,7 @@
                                 <div class="why-choose__item why-choose__item-two"
                                     style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
                                     <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
-                                    
+
                                         <img height="50px" src="{{ $service->image }}">
                                     </div>
 
@@ -202,7 +202,7 @@
                     <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp"
                         data-wow-delay=".3s">
                         <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
-                                src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
+                                class="img-fluid mr-10" src="assets/img/home/line.svg" alt="">
                             {{ $settings['teams_title'] }}</span>
                         <h2 class="title color-d_black">{{ $settings['teams_subtitle'] }}</h2>
                     </div>
@@ -215,7 +215,7 @@
                         <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp"
                             data-wow-delay=".3s">
                             <div class="media">
-                                <img src="{{ $team->image }}" class="img-fluid" alt="">
+                                <img class="img-fluid" src="{{ $team->image }}" alt="">
 
                                 <div class="social-profile">
                                     <ul>
@@ -242,8 +242,6 @@
                 @endforeach
                 <!-- team-item -->
 
-
-
                 <!-- team-item -->
             </div>
         </div>
@@ -257,7 +255,7 @@
                 <div class="col-sm-9">
                     <div class="employee-friendly__content wow fadeInUp" data-wow-delay=".3s">
                         <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
-                                src="assets/img/home/line.svg" class="img-fluid mr-10"
+                                class="img-fluid mr-10" src="assets/img/home/line.svg"
                                 alt="">{{ $settings['testioninal_title'] }}</span>
                         <h2 class="title color-pd_black">{{ $settings['testioninal_subtitle'] }}</h2>
                     </div>
@@ -280,7 +278,7 @@
                                         class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
                                         <div class="left d-flex align-items-center">
                                             <div class="media overflow-hidden">
-                                                <img src="{{ $testimonial->image }}" class="img-fluid" alt="">
+                                                <img class="img-fluid" src="{{ $testimonial->image }}" alt="">
                                             </div>
                                             <div class="meta">
                                                 <div class="starts">
@@ -397,7 +395,7 @@
                                 <h6 class="my-2">{{ $why_us->title ?? 'About us' }}</h6>
                                 <h3 class="my-2"> {{ $why_us->short_description ?? 'About us' }}</h3>
                               <div class="custom-list">
-                                {!! $why_us->description !!}</div> 
+                                {!! $why_us->description !!}</div>
                             </div>
                         </div>
                         <div class="col-lg-6">
