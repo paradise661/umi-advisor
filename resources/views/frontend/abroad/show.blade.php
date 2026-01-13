@@ -13,7 +13,6 @@
 @extends('layouts.frontend.master')
 
 @section('content')
-
     <!-- page-banner start -->
     <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
         <div class="container">
@@ -29,7 +28,7 @@
 
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('frontend.abroad') }}">Countries</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 {{ $abroadstudiesingle->name }}
@@ -40,8 +39,8 @@
 
                 <div class="col-md-6">
                     <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                        <img src="{{ asset($abroad_page->banner_image) }}" class="img-fluid" alt="">
+                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
+                        <img class="img-fluid" src="{{ asset($abroad_page->banner_image) }}" alt="">
                     </div>
                 </div>
 
@@ -50,9 +49,9 @@
     </section>
     <!-- page-banner end -->
 
-
     <!-- details section -->
-    <section class="services-details pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-115 overflow-hidden">
+    <section
+        class="services-details pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-115 overflow-hidden">
         <div class="container">
 
             <div class="row" data-sticky_parent>
@@ -71,7 +70,6 @@
 
                 </div>
 
-
                 <!-- RIGHT SIDEBAR -->
                 <div class="col-xl-4">
                     <div class="main-sidebar" data-sticky_column>
@@ -80,22 +78,25 @@
 
                             <div class="resent-posts">
                                 @foreach ($abroads as $blog)
-                                <div class="single-post-item mb-20">
-                                    <div class="thumb overflow-hidden">
-                                        <img src="{{ $blog->image1 }}" class="img-fluid" alt="">
-                                    </div>
+                                    <div class="single-post-item mb-20">
+                                        <div class="thumb overflow-hidden">
+                                            <img class="img-fluid" src="{{ $blog->image1 }}" alt="">
+                                        </div>
 
-                                    <div class="post-content">
-                                        {{-- <a href="blog-details.html" class="post-date d-block mb-10 text-uppercase">
+                                        <div class="post-content">
+                                            {{-- <a href="blog-details.html" class="post-date d-block mb-10 text-uppercase">
                                             <i class="far fa-clock"></i>12 jun, 2022
                                         </a> --}}
-                                        <h6><a href="{{ route('frontend.abroadsingle', $blog->slug) }}">{{ $blog->name }}</a></h6>
-                                        <p style="color: white" class="line-clamp-2">{{$blog->short_description}}</p>
+                                            <h6><a
+                                                    href="{{ route('frontend.abroadsingle', $blog->slug) }}">{{ $blog->name }}</a>
+                                            </h6>
+                                            <p class="line-clamp-2" style="color: white">{{ $blog->short_description }}</p>
+                                        </div>
                                     </div>
-                                </div>
                                 @endforeach
 
-                                <a href="{{ route('frontend.abroad') }}" class="theme-btn d-block"><i class="far fa-sync-alt"></i>More Post</a>
+                                <a class="theme-btn d-block" href="{{ route('frontend.abroad') }}"><i
+                                        class="far fa-sync-alt"></i>More Post</a>
                             </div>
                         </div>
                     </div>
@@ -106,5 +107,4 @@
         </div>
     </section>
     <!-- details section end -->
-
 @endsection
