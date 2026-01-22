@@ -24,15 +24,15 @@
                     </div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $service_page->title }}</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-md-6">
                     <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                        <img src="{{ asset($service_page->banner_image) }}" class="img-fluid" alt="">
+                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
+                        <img class="img-fluid" src="{{ asset($service_page->banner_image) }}" alt="">
 
                     </div>
                 </div>
@@ -81,7 +81,6 @@
                                 style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
                                 <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
 
-
                                     {{-- {!! $icons[$key % count($icons)] !!} --}}
                                     <img height="50px" src="{{ $service->image }}">
 
@@ -90,8 +89,9 @@
                                 <div class="description font-la mb-20 mb-sm-15 mb-xs-10  line-clamp-4 service-des">
                                     <p>{!! $service->description !!}</p>
                                 </div>
-                                <a href="{{ route('frontend.servicesingle', $service->slug) }}"
-                                    class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
+                                <a class="color-red d-block"
+                                    href="{{ route('frontend.servicesingle', $service->slug) }}">Read More <i
+                                        class="far fa-chevron-double-right"></i></a>
                             </div>
                         @endforeach
                     </div>

@@ -1,53 +1,54 @@
 @section('seo')
     @include('frontend.seo', [
-    'name' => $coursesingle->seo_title ?? '',
-    'title' => $coursesingle->seo_title ?? $coursesingle->title,
-    'description' => $coursesingle->meta_description ?? '',
-    'keyword' => $coursesingle->meta_keywords ?? '',
-    'schema' => $coursesingle->seo_schema ?? '',
-    'created_at' => $coursesingle->created_at,
-    'updated_at' => $coursesingle->updated_at,
-])
+        'name' => $coursesingle->seo_title ?? '',
+        'title' => $coursesingle->seo_title ?? $coursesingle->title,
+        'description' => $coursesingle->meta_description ?? '',
+        'keyword' => $coursesingle->meta_keywords ?? '',
+        'schema' => $coursesingle->seo_schema ?? '',
+        'created_at' => $coursesingle->created_at,
+        'updated_at' => $coursesingle->updated_at,
+    ])
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
-
     <!-- page-banner start -->
-            <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                <div class="transparent-text">About Us</div>
-                                <div class="page-title">
-                                    <h1>{{ $course_page->title }}</h1>
-                                </div>
-                            </div>
-
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('frontend.course') }}">Course</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ $coursesingle->title }}</li>
-                                </ol>
-                            </nav>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="page-banner__media mt-xs-30 mt-sm-40">
-                                <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                                <img src="{{ asset($course_page->banner_image) }}" class="img-fluid" alt="">
-                            </div>
+    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
+                        <div class="transparent-text">About Us</div>
+                        <div class="page-title">
+                            <h1>{{ $course_page->title }}</h1>
                         </div>
                     </div>
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a
+                                    href="{{ route('frontend.course') }}">Course</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $coursesingle->title }}</li>
+                        </ol>
+                    </nav>
                 </div>
-            </section>
-            <section class="services-details pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-115 overflow-hidden">
+
+                <div class="col-md-6">
+                    <div class="page-banner__media mt-xs-30 mt-sm-40">
+                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
+                        <img class="img-fluid" src="{{ asset($course_page->banner_image) }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section
+        class="services-details pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-115 overflow-hidden">
         <div class="container">
             <div class="row" data-sticky_parent>
                 <div class="col-xl-8" data-sticky_column>
                     <div class="media mb-40 mb-md-35 mb-sm-30 mb-xs-25">
-                        <img src="{{ $coursesingle->image }}" style="object-fit: cover" class="rounded" alt="">
+                        <img class="rounded" src="{{ $coursesingle->image }}" style="object-fit: cover" alt="">
                     </div>
 
                     <div class="services-details__content">
@@ -98,7 +99,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="h-faq-1">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true" aria-controls="faq-1">
-                                    <i class="icon-question-4"></i> What should i included my personal details? 
+                                    <i class="icon-question-4"></i> What should i included my personal details?
                                 </button>
                             </h2>
 
@@ -148,7 +149,8 @@
                             <div class="widget_categories">
                                 <ul>
                                     @foreach ($courses as $course)
-                                        <li><a href="{{ route('frontend.coursesingle', $course->slug) }}">{{ $course->title }} <i class="fas fa-long-arrow-alt-right"></i></a></li>
+                                        <li><a href="{{ route('frontend.coursesingle', $course->slug) }}">{{ $course->title }}
+                                                <i class="fas fa-long-arrow-alt-right"></i></a></li>
                                     @endforeach
                                 </ul>
                             </div>

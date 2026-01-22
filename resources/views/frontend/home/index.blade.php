@@ -24,7 +24,7 @@
                             <p style="color: white !important">{!! $sliders->description !!}</p>
                         </div>
                         <div class="theme-btn__wrapper d-flex flex-wrap">
-                            <a href="{{route('frontend.about')}}" class="theme-btn fw-600 btn-red">Get In Touch<i
+                            <a class="theme-btn fw-600 btn-red" href="{{ route('frontend.about') }}">Get In Touch<i
                                     class="far fa-chevron-double-right"></i></a>
                             {{-- <a href="about.html" class="theme-btn fw-600 btn-white-border">Read More <i class="far fa-chevron-double-right"></i></a> --}}
                         </div>
@@ -34,7 +34,7 @@
                     <div class="banner-home__media">
                         {{-- <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt=""> --}}
                         {{-- <img src="assets/img/banner/banner-home.png" class="img-fluid" alt=""> --}}
-                        <img src="{{ $sliders->image }}" class="img-fluid" alt="">
+                        <img class="img-fluid" src="{{ $sliders->image }}" alt="">
                     </div>
                 </div>
             </div>
@@ -57,8 +57,8 @@
                                 <div class="swiper-slide">
                                     <div class="university-card mb-3 position-relative">
                                         <div class="card-img-container shadow">
-                                            <img src="{{ asset($university->image) }}" alt="{{ $university->name }}"
-                                                class="card-img-top">
+                                            <img class="card-img-top" src="{{ asset($university->image) }}"
+                                                alt="{{ $university->name }}">
                                         </div>
                                         <a class="stretched-link" href=""></a>
                                     </div>
@@ -77,7 +77,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="our-company__meida wow fadeInUp" data-wow-delay=".3s">
-                            <img src="{{ $about_us->image_1 }}" alt="" class="img-fluid">
+                            <img class="img-fluid" src="{{ $about_us->image_1 }}" alt="">
 
                             <div class="years-experience overflow-hidden bg-red mt-20 mt-sm-10 mt-xs-10 text-center">
                                 <div class="number mb-5 color-white">
@@ -91,7 +91,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="our-company__meida border-radius wow fadeInUp" data-wow-delay=".5s"
                             style="height: 505px;">
-                            <img src="{{ $about_us->image_2 }}" alt="" class="img-fluid">
+                            <img class="img-fluid" src="{{ $about_us->image_2 }}" alt="">
 
                             {{-- <div class="horizental-bar bg-red"></div> --}}
                         </div>
@@ -99,7 +99,7 @@
                     <div class="col-lg-6">
                         <div class="our-company__content mt-md-50 mt-sm-40 mt-xs-35 wow fadeInUp" data-wow-delay=".7s">
                             <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-20 d-block"><img
-                                    src="assets/img/home/line.svg" class="img-fluid mr-10"
+                                    class="img-fluid mr-10" src="assets/img/home/line.svg"
                                     alt="">{{ $about_us->title ?? 'About us' }}</span>
                             <h2 class="title color-pd_black mb-20 mb-sm-15 mb-xs-10">{{ $about_us->short_description }}
                             </h2>
@@ -127,7 +127,7 @@
                             <p>{{ $service_section->short_description }}</p>
                         </div>
 
-                        <a href="{{ route('frontend.service') }}" class="theme-btn btn-sm btn-red">View All Services <i
+                        <a class="theme-btn btn-sm btn-red" href="{{ route('frontend.service') }}">View All Services <i
                                 class="far fa-chevron-double-right"></i></a>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                     <div class="why-choose__content why-choose__content-home wow fadeInUp" data-wow-delay=".3s">
                         <div class="why-choose__text">
                             <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img
-                                    src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
+                                    class="img-fluid mr-10" src="assets/img/home/line.svg" alt="">
                                 {{ $settings['services_title'] }}</span>
                             <h2 class="title color-pd_black">{{ $settings['services_subtitle'] }}</h2>
                         </div>
@@ -162,8 +162,14 @@
                         <div class="description font-la">
                             <p>{{ $settings['services_description'] }}</p>
                         </div>
+<<<<<<< HEAD
                         <a href="{{ route('frontend.service') }}"
                             class="theme-btn btn-sm btn-red mt-30 mt-sm-25 mt-xs-20">{{ $settings['services_button'] }} <i
+=======
+
+                        <a class="theme-btn btn-sm btn-red mt-30 mt-sm-25 mt-xs-20"
+                            href="{{ route('frontend.service') }}">{{ $settings['services_button'] }} <i
+>>>>>>> 74e4c459e598b135df3f5592c5da4c63c65889a1
                                 class="far fa-chevron-double-right"></i></a>
                     </div>
                 </div>
@@ -194,8 +200,9 @@
                                     <p>{!! $service->description !!}</p>
                                 </div>
 
-                                <a href="{{ route('frontend.servicesingle', $service->slug) }}"
-                                    class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
+                                <a class="color-red d-block"
+                                    href="{{ route('frontend.servicesingle', $service->slug) }}">Read More <i
+                                        class="far fa-chevron-double-right"></i></a>
                             </div>
                         @endforeach
                     </div>
@@ -212,7 +219,7 @@
                     <div class="our-portfolio-home__content text-center mb-60 mb-sm-50 mb-xs-40 wow fadeInUp"
                         data-wow-delay=".3s">
                         <span class="sub-title fw-500  text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block color-red"><img
-                                src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
+                                class="img-fluid mr-10" src="assets/img/home/line.svg" alt="">
                             {{ $settings['courses_title'] }}</span>
                         <h2 class="title color-pd_black">{{ $settings['courses_subtitle'] }}</h2>
                     </div>
@@ -223,22 +230,28 @@
                     <div class="col-xl-4 col-md-6 col-12">
                         <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".3s">
                             <div class="featured-thumb">
+<<<<<<< HEAD
                                 <div class="media overflow-hidden course-img">
                                     <img src="{{ $course->image }}" class="img-fluid" alt="">
+=======
+                                <div class="media overflow-hidden">
+                                    <img class="img-fluid" src="{{ $course->image }}" alt="">
+>>>>>>> 74e4c459e598b135df3f5592c5da4c63c65889a1
                                 </div>
                             </div>
                             <div class="content d-flex flex-row">
                                 <div class="left">
                                     
                                     <h5 class="color-pd_black mb-15 mb-xs-10"><a
-                                            href="blog-details.html">{{ $course->title }}</a></h5>
+                                            href="{{ route('frontend.coursesingle', $course->slug) }}">{{ $course->title }}</a>
+                                    </h5>
                                     <div class="description font-la line-clamp-4 course-des">
                                         <p>{{ $course->short_description }}</p>
                                     </div>
                                 </div>
                                 <div class="btn-link-share">
-                                    <a href="{{ route('frontend.coursesingle', $course->slug) }}"
-                                        class="theme-btn color-pd_black"
+                                    <a class="theme-btn color-pd_black"
+                                        href="{{ route('frontend.coursesingle', $course->slug) }}"
                                         style="background-image: url(assets/img/home/theme-btn-overly.png)">View Details <i
                                             class="icon-arrow-right-2"></i></a>
                                 </div>
@@ -251,7 +264,7 @@
                 <div class="col-12">
                     <div class="our-portfolio-home__read-more text-center mt-50 mt-md-40 mt-sm-35 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".3s">
-                        <a href="{{ route('frontend.course') }}" class="theme-btn  btn-border">View All Courses <i
+                        <a class="theme-btn  btn-border" href="{{ route('frontend.course') }}">View All Courses <i
                                 class="far fa-chevron-double-right"></i></a>
                     </div>
                 </div>
@@ -268,7 +281,7 @@
                     <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp"
                         data-wow-delay=".3s">
                         <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
-                                src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
+                                class="img-fluid mr-10" src="assets/img/home/line.svg" alt="">
                             {{ $settings['countries_title'] }}</span>
                         <h2 class="title color-d_black">{{ $settings['countries_subtitle'] }}</h2>
                     </div>
@@ -302,8 +315,8 @@
                                                 </div>
                                             </div>
 
-                                            <a href="{{ route('frontend.abroadsingle', $country->slug) }}"
-                                                class="stretched-link"></a>
+                                            <a class="stretched-link"
+                                                href="{{ route('frontend.abroadsingle', $country->slug) }}"></a>
 
                                         </a>
                                     </div>
@@ -311,7 +324,7 @@
                             @endforeach
                         </div>
                         <div class="d-flex justify-content-center align-items-center" style="height: 100px;">
-                            <a href="{{ route('frontend.abroad') }}" class="theme-btn btn-sm btn-red">
+                            <a class="theme-btn btn-sm btn-red" href="{{ route('frontend.abroad') }}">
                                 View All <i class="far fa-chevron-double-right"></i>
                             </a>
                         </div>
@@ -329,7 +342,7 @@
                 <div class="col-sm-9">
                     <div class="employee-friendly__content wow fadeInUp" data-wow-delay=".3s">
                         <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
-                                src="assets/img/home/line.svg" class="img-fluid mr-10"
+                                class="img-fluid mr-10" src="assets/img/home/line.svg"
                                 alt="">{{ $settings['testioninal_title'] }}</span>
                         <h2 class="title color-pd_black">{{ $settings['testioninal_subtitle'] }}</h2>
                     </div>
@@ -351,7 +364,7 @@
                                         class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
                                         <div class="left d-flex align-items-center">
                                             <div class="media overflow-hidden">
-                                                <img src="{{ $testimonial->image }}" class="img-fluid" alt="">
+                                                <img class="img-fluid" src="{{ $testimonial->image }}" alt="">
                                             </div>
                                             <div class="meta">
                                                 <div class="starts">
@@ -395,7 +408,7 @@
                     <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp"
                         data-wow-delay=".3s">
                         <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
-                                src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
+                                class="img-fluid mr-10" src="assets/img/home/line.svg" alt="">
                             {{ $settings['teams_title'] }}</span>
                         <h2 class="title color-d_black">{{ $settings['teams_subtitle'] }}</h2>
                     </div>
@@ -408,7 +421,7 @@
                         <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp"
                             data-wow-delay=".3s">
                             <div class="media">
-                                <img src="{{ $team->image }}" class="img-fluid" alt="">
+                                <img class="img-fluid" src="{{ $team->image }}" alt="">
 
                                 <div class="social-profile">
                                     <ul>
@@ -452,8 +465,8 @@
                             </div>
 
                             <div class="can-help__content-btn-group d-flex flex-column flex-sm-row">
-                                <a href="tel:+1235568824"
-                                    class="theme-btn d-flex flex-column flex-md-row align-items-md-center">
+                                <a class="theme-btn d-flex flex-column flex-md-row align-items-md-center"
+                                    href="tel:+1235568824">
                                     <div class="icon color-red">
                                         <i class="icon-call"></i>
                                         <!-- <img src="assets/img/icon/phone-1.svg" alt=""> -->
@@ -464,8 +477,8 @@
                                     </div>
                                 </a>
 
-                                <a href="mailto:consulter@gmail.com"
-                                    class="theme-btn d-flex flex-column flex-md-row align-items-md-center">
+                                <a class="theme-btn d-flex flex-column flex-md-row align-items-md-center"
+                                    href="mailto:consulter@gmail.com">
                                     <div class="icon color-red">
                                         <i class="icon-email-1"></i>
                                         <!-- <img src="assets/img/icon/phone-1.svg" alt=""> -->
@@ -483,9 +496,9 @@
                         <div class="contact-form pt-md-30 pt-sm-25 pt-xs-20 pb-md-40 pb-sm-35 pb-xs-30 pt-xl-30 pb-xl-50 pt-45 pr-xl-50 pl-md-40 pl-sm-30 pl-xs-25 pr-md-40 pr-sm-30 pr-xs-25 pl-xl-50 pr-85 pb-60 pl-85 wow fadeInUp"
                             data-wow-delay=".5s">
                             <div class="contact-form__header mb-sm-35 mb-xs-30 mb-40">
-                                <h6 class="sub-title fw-500 color-red text-uppercase mb-15"><img
-                                        src="assets/img/home/line.svg" class="img-fluid mr-10"
-                                        alt="">{{ $settings['contact_title'] }}</h6>
+                                <h6 class="sub-title fw-500 color-red text-uppercase mb-15"><img class="img-fluid mr-10"
+                                        src="assets/img/home/line.svg" alt="">{{ $settings['contact_title'] }}
+                                </h6>
                                 <h3 class="title color-d_black">{{ $settings['contact_section_title'] }}</h3>
                             </div>
 
@@ -504,7 +517,7 @@
                                     <textarea placeholder="Your Massage" name="message"></textarea>
                                 </div>
 
-                                <button type="submit" class="theme-btn btn-sm btn-red">Free Consultant <i
+                                <button class="theme-btn btn-sm btn-red" type="submit">Free Consultant <i
                                         class="far fa-chevron-double-right"></i></button>
                             </form>
                         </div>
@@ -520,7 +533,7 @@
                     <div class="col-12">
                         <div class="blog-news__content text-center wow fadeInUp" data-wow-delay=".3s">
                             <span class="sub-title fw-500  text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block color-red"><img
-                                    src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
+                                    class="img-fluid mr-10" src="assets/img/home/line.svg" alt="">
                                 {{ $settings['blogs_title'] }}</span>
                             <h2 class="title color-d_black">{{ $settings['blogs_subtitle'] }}</h2>
                         </div>
@@ -534,7 +547,7 @@
                                 <div class="blog-item blog-item-three mb-30 wow fadeInUp" data-wow-delay=".3s">
                                     <div class="blog-featured-thumb mb-xs-30 mb-sm-30 mb-md-35 mb-lg-40 mb-50">
                                         <div class="media overflow-hidden">
-                                            <img src="{{ $blog->image }}" class="img-fluid" alt="">
+                                            <img class="img-fluid" src="{{ $blog->image }}" alt="">
                                         </div>
                                         {{-- <div class="date">
                                                         <span>27</span>
@@ -553,8 +566,8 @@
                                         </h4>
 
                                         <div class="btn-link-share mt-xs-10 mt-sm-10 mt-15">
-                                            <a href="{{ route('frontend.blogsingle', $blog->slug) }}"
-                                                class="theme-btn btn-border">Read More <i
+                                            <a class="theme-btn btn-border"
+                                                href="{{ route('frontend.blogsingle', $blog->slug) }}">Read More <i
                                                     class="fas fa-long-arrow-alt-right"></i></a>
                                         </div>
                                     </div>

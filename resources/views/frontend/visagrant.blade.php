@@ -13,7 +13,8 @@
 @section('content')
     <!----page header----->
     @if ($visagrantes_page)
-        <div class="breadcumb-area d-flex" style="
+        <div class="breadcumb-area d-flex"
+            style="
             background: url('{{ asset($visagrantes_page->banner_image ?? '') }}');">
             <div class="container">
                 <div class="row align-items-center">
@@ -25,7 +26,8 @@
                             <ul>
                                 <li><a href="{{ route('frontend.home') }}"><i class="bi bi-house-door-fill"></i> Home </a>
                                 </li>
-                                <li class="rotates"><i class="bi bi-slash-lg"></i>{{ $visagrantes_page->title ?? 'About Us' }}</li>
+                                <li class="rotates"><i
+                                        class="bi bi-slash-lg"></i>{{ $visagrantes_page->title ?? 'About Us' }}</li>
                             </ul>
                         </div>
                     </div>
@@ -40,11 +42,11 @@
                 @foreach ($visagranted as $story)
                     <div class="col-lg-4 py-3" data-aos="fade-up" data-aos-duration="3000">
                         <div class="sucess-story-container">
-                            <a href="{{ asset($story->image) }}" class="fro-dropzone-image-a fancybox"
-                                data-fancybox="gallery" target="_blank">
+                            <a class="fro-dropzone-image-a fancybox" data-fancybox="gallery"
+                                href="{{ asset($story->image) }}" target="_blank">
                                 <div class="fancy_image">
-                                    <img src="{{ asset($story->image) }}" alt="{{ $story->title ?? 'Success Story' }}"
-                                        class="fro-dropzone-image-img">
+                                    <img class="fro-dropzone-image-img" src="{{ asset($story->image) }}"
+                                        alt="{{ $story->title ?? 'Success Story' }}">
                                 </div>
                             </a>
                         </div>
@@ -53,7 +55,7 @@
             </div>
         </div>
     </section>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             Fancybox.bind("[data-fancybox='gallery']", {
@@ -63,5 +65,4 @@
             });
         });
     </script>
-   
 @endsection
