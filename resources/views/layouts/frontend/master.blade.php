@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
     <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8">
@@ -12,7 +13,7 @@
 
     <!-- ========== Favicon Icon ========== -->
     <link rel="icon" type="image/x-icon"
-          href="{{ $settings['site_fav_icon'] ? asset($settings['site_fav_icon']) : 'Umi Advisor' }}" />
+        href="{{ $settings['site_fav_icon'] ? asset($settings['site_fav_icon']) : 'Umi Advisor' }}" />
 
     <!-- ========== Stylesheets ========== -->
     <link rel="stylesheet" href="{{ asset('assets/css/icons.css') }}">
@@ -23,12 +24,10 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" media="print"
-          onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+        media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
     <!-- SweetAlert JS in head (optional, can be moved to bottom if preferred) -->
     <script src="{{ asset('admin/assets/js/sweetalert-new.js') }}"></script>
@@ -60,7 +59,7 @@
 
     <!-- Floating WhatsApp -->
     <a href="https://api.whatsapp.com/send?phone={{ preg_replace('/\D+/', '', $setting['whatsapp_number'] ?? '817092770229') }}"
-       class="float" target="_blank">
+        class="float" target="_blank">
         <i class="fa fa-whatsapp my-float"></i>
     </a>
 
@@ -86,12 +85,11 @@
 
     <!-- Toastify -->
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
     <!-- SweetAlert -->
     <script src="{{ asset('admin/assets/js/sweetalert-new.js') }}"></script>
-
     <!-- Initialize FancyBox & Swiper or page-specific JS -->
     @stack('js')
-
+    
 </body>
+
 </html>

@@ -22,7 +22,6 @@ if (! function_exists('updatesettingmedia')) {
             $fullUrl = rtrim($baseUrl, '/') . '/' . trim($bucket, '/') . '/' . ltrim($path, '/');
             return $fullUrl;
         }
-
         return null;
     }
 }

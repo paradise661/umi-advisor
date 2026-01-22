@@ -23149,3 +23149,6 @@ header.transparent.stop.header-2 .main-header-wraper {
 border-radius: 15px;
 object-fit: cover;
 }
+.course-img img{
+  height: 200px !important;
+}

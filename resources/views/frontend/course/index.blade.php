@@ -51,23 +51,18 @@
                     </div> --}}
                 </div>
             </div>
-
             <div class="row mb-minus-30">
                 @foreach ($courses as $course)
                     <div class="col-xl-4 col-md-6 col-12">
                         <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".3s">
                             <div class="featured-thumb">
-                                <div class="media overflow-hidden">
+                                <div class="media overflow-hidden course-img">
                                     <img src="{{ $course->image }}" class="img-fluid" alt="">
                                 </div>
                             </div>
 
                             <div class="content d-flex flex-row">
                                 <div class="left">
-                                    <div class="post-author mb-5 mb-xs-5 text-uppercase">
-                                        {{-- <a href="blog-details.html">Business, Finance</a> --}}
-                                    </div>
-
                                     <h5 class="color-pd_black mb-15 mb-xs-10"><a
                                             href="blog-details.html">{{ $course->title }}</a></h5>
                                     <div class="description font-la">

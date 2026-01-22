@@ -45,16 +45,13 @@
         <div class="overly">
             <div class="container"></div>
         </div>
-        <section class="section-background py-5 ">
+        {{-- <section class="section-background py-5 ">
             <div class=" container">
                 <div class=" pt-5">
                     <div class="heading-css text-center mb-4">
                         <h3>Our <span>Universities</span></h3>
                     </div>
-                    <!-- Swiper container -->
-                    <!-- Swiper container -->
                     <div class="swiper-container swiper-universities">
-                        <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             @foreach ($universities as $university)
                                 <div class="swiper-slide">
@@ -68,13 +65,11 @@
                                 </div>
                             @endforeach
                         </div>
-                        <!-- Pagination -->
-                        {{-- <div class="swiper-pagination"></div> --}}
                     </div>
 
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- financial-area end -->
         <!-- our-company start -->
         <section class="our-company pb-xs-80 pb-100 overflow-hidden">
@@ -120,8 +115,7 @@
         <!-- our-company end -->
     </div>
     <!-- planning-success start -->
-    <section
-        class="planning-success pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-130 overflow-hidden"
+    <section class="planning-success pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-130 overflow-hidden"
         style="background-image: url({{ $service_section->banner_image }});">
         <div class="container">
             <div class="row align-items-center">
@@ -162,14 +156,12 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-6">
                     <div class="why-choose__content why-choose__content-home mt-md-25 mt-sm-20 mt-xs-20 wow fadeInUp"
                         data-wow-delay=".5s">
                         <div class="description font-la">
                             <p>{{ $settings['services_description'] }}</p>
                         </div>
-
                         <a href="{{ route('frontend.service') }}"
                             class="theme-btn btn-sm btn-red mt-30 mt-sm-25 mt-xs-20">{{ $settings['services_button'] }} <i
                                 class="far fa-chevron-double-right"></i></a>
@@ -231,15 +223,13 @@
                     <div class="col-xl-4 col-md-6 col-12">
                         <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".3s">
                             <div class="featured-thumb">
-                                <div class="media overflow-hidden">
+                                <div class="media overflow-hidden course-img">
                                     <img src="{{ $course->image }}" class="img-fluid" alt="">
                                 </div>
                             </div>
                             <div class="content d-flex flex-row">
                                 <div class="left">
-                                    <div class="post-author mb-5 mb-xs-5 text-uppercase">
-                                        {{-- <a href="blog-details.html">Business, Finance</a> --}}
-                                    </div>
+                                    
                                     <h5 class="color-pd_black mb-15 mb-xs-10"><a
                                             href="blog-details.html">{{ $course->title }}</a></h5>
                                     <div class="description font-la line-clamp-4 course-des">
@@ -273,7 +263,7 @@
     <section
         class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
         <div class="container">
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="our-team__content mb-60 mb-md-50 mb-sm-40 mb-xs-30 text-center wow fadeInUp"
                         data-wow-delay=".3s">
@@ -283,7 +273,7 @@
                         <h2 class="title color-d_black">{{ $settings['countries_subtitle'] }}</h2>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <section class="courses-section">
                 <div class="container">
                     <div class="courses-block ">
