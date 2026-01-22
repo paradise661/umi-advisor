@@ -394,7 +394,7 @@
     </section>
     <!-- testimonial end -->
     <!-- Teams start -->
-    <section
+    {{-- <section
         class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
         <div class="container">
             <div class="row">
@@ -437,7 +437,7 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
     <div class="can-help-overly-home overflow-hidden">
         <div class="can-help-overly">
             <div class="container"></div>
