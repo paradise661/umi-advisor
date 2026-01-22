@@ -24,15 +24,15 @@
                     </div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $course_page->title }}</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-md-6">
                     <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
-                        <img class="img-fluid" src="{{ asset($course_page->banner_image) }}" alt="">
+                        <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
+                        <img src="{{ asset($course_page->banner_image) }}" class="img-fluid" alt="">
 
                     </div>
                 </div>
@@ -56,29 +56,23 @@
                     <div class="col-xl-4 col-md-6 col-12">
                         <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".3s">
                             <div class="featured-thumb">
-<<<<<<< HEAD
                                 <div class="media overflow-hidden course-img">
                                     <img src="{{ $course->image }}" class="img-fluid" alt="">
-=======
-                                <div class="media overflow-hidden">
-                                    <img class="img-fluid" src="{{ $course->image }}" alt="">
->>>>>>> 74e4c459e598b135df3f5592c5da4c63c65889a1
                                 </div>
                             </div>
 
                             <div class="content d-flex flex-row">
                                 <div class="left">
                                     <h5 class="color-pd_black mb-15 mb-xs-10"><a
-                                            href="{{ route('frontend.coursesingle', $course->slug) }}">{{ $course->title }}</a>
-                                    </h5>
+                                            href="blog-details.html">{{ $course->title }}</a></h5>
                                     <div class="description font-la">
                                         <p class="line-clamp-4">{{ $course->short_description }}</p>
                                     </div>
                                 </div>
 
                                 <div class="btn-link-share">
-                                    <a class="theme-btn color-pd_black"
-                                        href="{{ route('frontend.coursesingle', $course->slug) }}"
+                                    <a href="{{ route('frontend.coursesingle', $course->slug) }}"
+                                        class="theme-btn color-pd_black"
                                         style="background-image: url(assets/img/home/theme-btn-overly.png)">View Details <i
                                             class="icon-arrow-right-2"></i></a>
                                 </div>
@@ -86,6 +80,7 @@
                         </div>
                     </div>
                 @endforeach
+
 
             </div>
 

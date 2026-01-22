@@ -42,7 +42,7 @@
     </section>
     <!-- banner-home end -->
     <div class="our-company-financial overflow-hidden">
-        <div class="overly">
+        {{-- <div class="overly">
             <div class="container"></div>
         </div>
         <section class="section-background py-5 ">
@@ -51,10 +51,8 @@
                     <div class="heading-css text-center mb-4">
                         <h3>Our <span>Universities</span></h3>
                     </div>
-                    <!-- Swiper container -->
-                    <!-- Swiper container -->
                     <div class="swiper-container swiper-universities">
-                        <!-- Additional required wrapper -->
+             
                         <div class="swiper-wrapper">
                             @foreach ($universities as $university)
                                 <div class="swiper-slide">
@@ -68,13 +66,10 @@
                                 </div>
                             @endforeach
                         </div>
-                        <!-- Pagination -->
-                        {{-- <div class="swiper-pagination"></div> --}}
                     </div>
-
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- financial-area end -->
         <!-- our-company start -->
         <section class="our-company pb-xs-80 pb-100 overflow-hidden">
@@ -232,7 +227,7 @@
                     <div class="col-xl-4 col-md-6 col-12">
                         <div class="our-portfolio-home__item mb-30 wow fadeInUp" data-wow-delay=".3s">
                             <div class="featured-thumb">
-                                <div class="media overflow-hidden">
+                                <div class="media overflow-hidden course-img">
                                     <img class="img-fluid" src="{{ $course->image }}" alt="">
                                 </div>
                             </div>
