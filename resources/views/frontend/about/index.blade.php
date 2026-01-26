@@ -63,47 +63,44 @@
         </div>
     </section>
     <!-- our-company start -->
-    <div class="our-company-financial overflow-hidden bg-dark_red">
-        <section class="our-company pb-xs-80 pb-100 overflow-hidden">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="our-company__meida wow fadeInUp" data-wow-delay=".3s">
-                            <img class="img-fluid" src="{{ $about_us->image_1 }}" alt="">
+    <section class="about-modern">
+        <div class="container">
+            <div class="row align-items-center">
 
-                            <div class="years-experience overflow-hidden bg-red mt-20 mt-sm-10 mt-xs-10 text-center">
-                                <div class="number mb-5 color-white">
-                                    <span class="counter">23</span><sup>+</sup>
-                                </div>
+                <!-- LEFT VISUAL -->
+                <div class="col-lg-6">
+                    <div class="about-visual">
 
-                                <h5 class="title color-white">Years Experience</h5>
-                            </div>
+                        <div class="about-main-img animate-slide-left">
+                            <img src="{{ $about_us->image_1 }}" alt="About us">
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="our-company__meida border-radius wow fadeInUp" data-wow-delay=".5s"
-                            style="height: 505px;">
-                            <img class="img-fluid" src="{{ $about_us->image_2 }}" alt="">
 
-                            {{-- <div class="horizental-bar bg-red"></div> --}}
+                        <div class="about-float-card animate-fade-up">
+                            <h3 class="text-white">1<span>+</span></h3>
+                            <p>Years Experience</p>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="our-company__content mt-md-50 mt-sm-40 mt-xs-35 wow fadeInUp" data-wow-delay=".7s">
-                            <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-20 d-block"><img
-                                    class="img-fluid mr-10" src="assets/img/home/line.svg"
-                                    alt="">{{ $about_us->title ?? 'About us' }}</span>
-                            <h2 class="title color-pd_black mb-20 mb-sm-15 mb-xs-10">{{ $about_us->short_description }}</h2>
 
-                            <div class="descriiption font-la mb-30 mb-md-25 mb-sm-20 mb-xs-15 testi-des">
-                                <p>{!! $about_us->description !!}</p>
-                            </div>
+                        <div class="about-secondary-img animate-slide-up">
+                            <img src="{{ $about_us->image_2 }}" alt="Team">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RIGHT CONTENT -->
+                <div class="col-lg-6">
+                    <div class="about-info animate-slide-right">
+                        <span class="about-tag">ABOUT US</span>
+                        <h2>Who we are?</h2>
+                        <div class="about-text">
+                            {!! $about_us->description !!}
                         </div>
                     </div>
                 </div>
+
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
     <!-- why-choose start -->
     {{-- <section
         class="why-choose why-choose__home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pb-120 overflow-hidden">
