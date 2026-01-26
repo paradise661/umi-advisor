@@ -23257,13 +23257,11 @@ object-fit: cover;
   padding: 50px 0;
   background: #ffffff;
 }
-
 /* VISUAL WRAPPER */
 .about-visual {
   position: relative;
   max-width: 520px;
 }
-
 /* MAIN IMAGE */
 .about-main-img {
   border-radius: 20px;

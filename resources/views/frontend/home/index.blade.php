@@ -24,10 +24,16 @@
                             <p style="color: white !important">{!! $sliders->description !!}</p>
                         </div>
                         <div class="theme-btn__wrapper d-flex flex-wrap">
-                            <a class="theme-btn fw-600 btn-red" href="{{ route('frontend.about') }}">Get In Touch<i
-                                    class="far fa-chevron-double-right"></i></a>
-                            {{-- <a href="about.html" class="theme-btn fw-600 btn-white-border">Read More <i class="far fa-chevron-double-right"></i></a> --}}
+                            <a 
+                                class="theme-btn fw-600 btn-red" 
+                                href="https://www.facebook.com/profile.php?id=61580086202707"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Get In Touch <i class="far fa-chevron-double-right"></i>
+                            </a>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="col-xl-6">
@@ -109,9 +115,7 @@
         
                 </div>
             </div>
-        </section>
-        
-        
+        </section> 
         <!-- our-company end -->
     </div>
     <!-- planning-success start -->
