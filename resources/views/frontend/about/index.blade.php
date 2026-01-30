@@ -43,20 +43,21 @@
                     <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
                         <div class="transparent-text">About Us</div>
                         <div class="page-title">
-                            <h1>{{ $about_us->title }}</h1>
+                            <h1>{{ $about_us->title ?? '' }}</h1>
                         </div>
                     </div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $about_us->title }}</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $about_us->title ?? '' }}</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-md-6">
                     <div class="page-banner__media mt-xs-30 mt-sm-40">
                         <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
-                        <img class="img-fluid" src="{{ asset($about_us->banner_image) }}" alt="">
+                        <img class="img-fluid" src="{{ $about_us->banner_image ? asset($about_us->banner_image) : '' }}"
+                            alt="">
                     </div>
                 </div>
             </div>
@@ -72,7 +73,7 @@
                     <div class="about-visual">
 
                         <div class="about-main-img animate-slide-left">
-                            <img src="{{ $about_us->image_1 }}" alt="About us">
+                            <img src="{{ $about_us->image_1 ? $about_us->image_1 : '' }}" alt="About us">
                         </div>
 
                         <div class="about-float-card animate-fade-up">
@@ -81,7 +82,7 @@
                         </div>
 
                         <div class="about-secondary-img animate-slide-up">
-                            <img src="{{ $about_us->image_2 }}" alt="Team">
+                            <img src="{{ $about_us->image_2 ? $about_us->image_2 : '' }}" alt="Team">
                         </div>
 
                     </div>
@@ -93,7 +94,7 @@
                         <span class="about-tag">ABOUT US</span>
                         <h2>Who we are?</h2>
                         <div class="about-text">
-                            {!! $about_us->description !!}
+                            {!! $about_us->description ?? '' !!}
                         </div>
                     </div>
                 </div>
@@ -173,7 +174,8 @@
                 <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="fade-right"
                     data-aos-duration="3000">
                     <div class="about-us-img-ceo">
-                        <img src="{{ asset($message_page->image_1) }}" alt="{{ $message_page->title }}">
+                        <img src="{{ $message_page->image_1 ? asset($message_page->image_1) : '' }}"
+                            alt="{{ $message_page->title ?? '' }}">
                     </div>
                 </div>
                 {{-- Content --}}
@@ -181,9 +183,9 @@
                     data-aos-duration="3000">
                     <div class="service-content-container">
                         <h6 class="my-2 color-red">{{ $message_page->title ?? 'About us' }}</h6>
-                        <h3 class="my-2">{{ $message_page->short_description }}</h3>
+                        <h3 class="my-2">{{ $message_page->short_description ?? '' }}</h3>
                         <p class="text-css-counter">
-                            {!! $message_page->description !!}
+                            {!! $message_page->description ?? '' !!}
                         </p>
                     </div>
                 </div>
@@ -201,7 +203,7 @@
                         <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
                                 class="img-fluid mr-10" src="assets/img/home/line.svg" alt="">
                             {{ $settings['teams_title'] }}</span>
-                        <h2 class="title color-d_black">{{ $settings['teams_subtitle'] }}</h2>
+                        <h2 class="title color-d_black">{{ $settings['teams_subtitle'] ?? '' }}</h2>
                     </div>
                 </div>
             </div>
@@ -212,24 +214,21 @@
                         <div class="team-item team-item-three text-center mb-30 d-block overflow-hidden wow fadeInUp"
                             data-wow-delay=".3s">
                             <div class="media">
-                                <img class="img-fluid" src="{{ $team->image }}" alt="">
+                                <img class="img-fluid" src="{{ $team->image ? $team->image : '' }}" alt="">
 
                                 <div class="social-profile">
                                     <ul>
                                         <li><a href="{{ $team->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="{{ $team->whatsapp }}"><i class="fab fa-whatsapp"></i></a></li>
                                         <li><a href="{{ $team->email }}"><i class="fab fa-google"></i></a></li>
-                                        {{-- <li><a href="#"><i class="fab fa-twitter"></i></a></li> --}}
-                                        {{-- <li><a href="#"><i class="fab fa-instagram"></i></a></li> --}}
-                                        {{-- <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> --}}
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="text d-flex align-items-center justify-content-center">
                                 <div class="left">
-                                    <h5 class="title color-white">{{ $team->name }}</h5>
-                                    <span class="position color-white font-la fw-500">{{ $team->position }}</span>
+                                    <h5 class="title color-white">{{ $team->name ?? '' }}</h5>
+                                    <span class="position color-white font-la fw-500">{{ $team->position ?? '' }}</span>
                                 </div>
                             </div>
 
@@ -253,8 +252,8 @@
                     <div class="employee-friendly__content wow fadeInUp" data-wow-delay=".3s">
                         <span class="sub-title fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15 d-block"><img
                                 class="img-fluid mr-10" src="assets/img/home/line.svg"
-                                alt="">{{ $settings['testioninal_title'] }}</span>
-                        <h2 class="title color-pd_black">{{ $settings['testioninal_subtitle'] }}</h2>
+                                alt="">{{ $settings['testioninal_title'] ?? '' }}</span>
+                        <h2 class="title color-pd_black">{{ $settings['testioninal_subtitle'] ?? '' }}</h2>
                     </div>
                 </div>
 
@@ -275,7 +274,9 @@
                                         class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
                                         <div class="left d-flex align-items-center">
                                             <div class="media overflow-hidden">
-                                                <img class="img-fluid" src="{{ $testimonial->image }}" alt="">
+                                                <img class="img-fluid"
+                                                    src="{{ $testimonial->image ? $testimonial->image : '' }}"
+                                                    alt="">
                                             </div>
                                             <div class="meta">
                                                 <div class="starts">
@@ -294,7 +295,7 @@
                                         </div>
                                     </div>
                                     <div class="description font-la mb-25 testi-des">
-                                        <p>{!! $testimonial->description !!}</p>
+                                        <p>{!! $testimonial->description ?? '' !!}</p>
                                     </div>
                                     <div class="testimonial__item-footer d-flex justify-content-between">
                                         <div class="socail-link">
