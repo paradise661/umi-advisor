@@ -52,6 +52,9 @@
                                         <ul>
                                             <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
 
+                                            <li><a href="{{ route('frontend.messagefromfounder') }}">Message From
+                                                    Managing
+                                                    Director</a></li>
                                             <li><a href="{{ route('frontend.team') }}">Team</a></li>
                                         </ul>
                                     </li>
@@ -81,20 +84,21 @@
 
                                 <form class="search-box" action="#" method="get">
                                     <div class="form-group d-flex align-items-center">
-                                        <input type="search" name="s" value="" class="search-input"
-                                            id="search" placeholder="Search">
+                                        <input type="search" name="s" value="" class="search-input" id="search"
+                                            placeholder="Search">
                                         <button type="submit" class="search-submit"><i
                                                 class="fas fa-search"></i></button>
                                     </div>
                                 </form>
                             </div> --}}
 
-                        <a class="header-btn" href="{{ route('frontend.contact.submit') }}">Contact us <i
-                                class="far fa-chevron-double-right"></i></a>
-                        <div class="mobile-nav-bar d-block ml-3 ml-sm-5 d-xl-none">
-                            <div class="mobile-nav-wrap">
-                                <div id="hamburger">
-                                    <i class="fal fa-bars"></i>
+                            <a class="header-btn" href="{{ route('frontend.contact.submit') }}">Contact us <i
+                                    class="far fa-chevron-double-right"></i></a>
+                            <div class="mobile-nav-bar d-block ml-3 ml-sm-5 d-xl-none">
+                                <div class="mobile-nav-wrap">
+                                    <div id="hamburger">
+                                        <i class="fal fa-bars"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +106,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- mobile menu - responsive menu  -->
     <div class="mobile-nav mobile-nav-red">
@@ -131,10 +134,10 @@
                             </a>
                             <ul>
                                 @foreach ($footer_countries as $country)
-                                    <l i><a
-                                            href="{{ route('frontend.abroadsingle', $country->slug) }}">{{ $country->title }}</a>
-                        </li>
-                        @endforeach
+                                            <l i><a
+                                                    href="{{ route('frontend.abroadsingle', $country->slug) }}">{{ $country->title }}</a>
+                                    </li>
+                                @endforeach
                     </ul>
                     </li>
                     <li>

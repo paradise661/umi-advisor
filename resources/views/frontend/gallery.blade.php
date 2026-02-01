@@ -55,20 +55,24 @@
 
                          <div class="row justify-content-center">
             @foreach ($albums as $album)
-                <div class="col-md-4 col-sm-6 mb-4">
+                                <div class="col-md-4 col-sm-6 mb-4">
                     <a href="{{ route('frontend.albums.show', $album) }}" class="text-decoration-none">
-                        <div class="card shadow-lg border-0 h-100">
-                            <img src="{{ asset($album->image) }}" 
-                                 alt="{{ $album->name }}" 
-                                 class="card-img-top img-fluid rounded" 
-                                 style="object-fit: cover; height: 300px;">
+                        <div class="card gallery-card border-0 h-100 overflow-hidden">
 
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ $album->name }}</h5>
+                            <div class="gallery-img-wrapper">
+                                <img src="{{ asset($album->image) }}"
+                                     alt="{{ $album->name }}"
+                                     class="card-img-top img-fluid">
                             </div>
+
+                            <div class="gallery-overlay">
+                                <h5 class="gallery-title">{{ $album->name }}</h5>
+                            </div>
+
                         </div>
                     </a>
                 </div>
+
             @endforeach
         </div>
 

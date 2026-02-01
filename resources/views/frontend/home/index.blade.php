@@ -223,7 +223,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                {{-- <div class="col-lg-6">
                     <div class="why-choose__content why-choose__content-home mt-md-25 mt-sm-20 mt-xs-20 wow fadeInUp"
                         data-wow-delay=".5s">
                         <div class="description font-la">
@@ -234,7 +234,7 @@
                             href="{{ route('frontend.service') }}">{{ $settings['services_button'] }} <i
                                 class="far fa-chevron-double-right"></i></a>
                     </div>
-                </div>
+                </div> --}}
             </div>
             @php
                 $icons = [
