@@ -77,18 +77,12 @@
                     <div class="why-choose__item-wrapper why-choose__item-two-wrapper d-grid justify-content-between mt-60 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".7s">
                         @foreach ($services as $key => $service)
-                            <div class="why-choose__item why-choose__item-two"
-                                style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
-                                <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
-
-                                    {{-- {!! $icons[$key % count($icons)] !!} --}}
-                                    <img height="50px" src="{{ $service->image }}">
-
+                            <div class="why-choose__item-two h-100">
+                                <div class="icon-circle">
+                                    <img height="40px" src="{{ $service->image }}">
                                 </div>
-                                <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">{{ $service->title }}</h6>
-                                <div class="description font-la mb-20 mb-sm-15 mb-xs-10  line-clamp-4 service-des">
-                                    <p>{!! $service->description !!}</p>
-                                </div>
+                                <h6 class="title fw-700">{{ $service->title }}</h6>
+                                <p class="mt-3 text-muted my-3 text-justify opacity-75">{!! Str::limit(strip_tags($service->description), 100) !!}</p>
                                 <a class="color-red d-block"
                                     href="{{ route('frontend.servicesingle', $service->slug) }}">Read More <i
                                         class="far fa-chevron-double-right"></i></a>
