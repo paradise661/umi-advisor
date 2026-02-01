@@ -10,22 +10,19 @@
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
-
 @if(!empty($settings['youtube_url']))
 <div class="modal fade" id="popupModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-0 rounded-4 overflow-hidden position-relative">
 
-            <!-- Close button -->
             <button type="button"
                 class="btn-close position-absolute top-0 end-0 m-3"
                 style="z-index: 1055;"
                 data-bs-dismiss="modal"
                 aria-label="Close"></button>
 
-            <!-- YouTube Video Embed -->
             <div class="ratio ratio-16x9">
-                <iframe
+                <iframe id="popupVideo"
                     src="{{ $settings['youtube_url'] ?? '' }}?autoplay=1&mute=1&rel=0"
                     title="YouTube video"
                     allow="autoplay; encrypted-media"
@@ -39,11 +36,20 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    var popupModal = new bootstrap.Modal(document.getElementById('popupModal'));
-    popupModal.show();
+    var popupModalEl = document.getElementById('popupModal');
+    if (popupModalEl) { // <-- This ensures JS only runs if modal exists
+        var popupModal = new bootstrap.Modal(popupModalEl);
+        popupModal.show();
+
+        popupModalEl.addEventListener('hidden.bs.modal', function () {
+            var iframe = document.getElementById('popupVideo');
+            if (iframe) iframe.src = iframe.src; // stop video
+        });
+    }
 });
 </script>
 @endif
+
 
     <!-- banner-home start -->
     <section class="banner-home overflow-hidden pt-lg-100  pt-sm-80 pt-xs-70">

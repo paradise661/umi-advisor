@@ -77,12 +77,12 @@
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('assets/js/active.js') }}"></script>
 
-    <script>
+    {{-- <script>
 document.addEventListener('DOMContentLoaded', function () {
     var popupModal = new bootstrap.Modal(document.getElementById('popupModal'));
     popupModal.show();
 });
-</script>
+</script> --}}
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
