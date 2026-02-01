@@ -294,7 +294,7 @@
                                             <i class="fal fa-quote-right"></i>
                                         </div>
                                     </div>
-                                    <div class="description font-la mb-25 testi-des">
+                                    <div class="description font-la mb-25 testi-des line-clamp-5">
                                         <p>{!! $testimonial->description ?? '' !!}</p>
                                     </div>
                                     <div class="testimonial__item-footer d-flex justify-content-between">

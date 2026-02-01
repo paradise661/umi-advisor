@@ -64,7 +64,7 @@ class FrontendController extends Controller
         $universities = University::where('status', 1)->oldest("order")->get();
 
         $abroadstudies = Country::where('status', 1)->oldest("order")->get();
-        $countrylocation = CountryLocation::where('status', 1)->oldest("order")->get();
+        $countrylocation = CountryLocation::where('status', 1)->oldest("order")->limit(4)->get();
 
 
         $faq_page = Page::where('status', 1)->where('slug', 'faq')->first();
