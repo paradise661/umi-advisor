@@ -17,13 +17,14 @@
                 <input type="text" class="form-control" id="contact_section_title" name="contact_section_title"
                     placeholder="Contact Section Title" value="{{ $settings['contact_section_title'] }}" />
                 @error('contact_section_title')
-                    <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div> --}}
 
             <div class="mb-4 col-md-12">
                 <label for="contact_description" class="form-label">Contact Description</label>
-                <textarea name="contact_description" rows="2" class="form-control br-8" placeholder="Contact Description">{{ $settings['contact_description'] }}</textarea>
+                <textarea name="contact_description" rows="2" class="form-control br-8"
+                    placeholder="Contact Description">{{ $settings['contact_description'] }}</textarea>
 
                 @error('contact_description')
                     <p class="text-danger">{{ $message }}</p>
@@ -62,9 +63,18 @@
                 <input type="text" class="form-control" id="contactform_title" name="contactform_title"
                     placeholder="Contact Form Title" value="{{ $settings['contactform_title'] }}" />
                 @error('contactform_title')
-                    <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div> --}}
+            <div class="mb-4 col-md-6">
+                <label for="contact_form_subtitle" class="form-label">Contact Form Title</label>
+                <input type="text" class="form-control" id="contact_form_subtitle" name="contact_form_subtitle"
+                    placeholder="Contact Form Title" value="{{ $settings['contact_form_subtitle'] }}" />
+                @error('contact_form_subtitle')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+
 
             {{-- <div class="mb-4 col-md-12">
                 <label for="contactform_description" class="form-label">Contact Form Description</label>
@@ -72,7 +82,7 @@
                     placeholder="Contact Form Description">{{ $settings['contactform_description'] }}</textarea>
 
                 @error('contactform_description')
-                    <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div> --}}
 
