@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-  
+
         <div class="col-md-12">
             <div class="form-group mb-3">
                 <label for="site_information">Site Information</label>
@@ -80,13 +80,23 @@
             </div>
         </div>
         <div class="col-md-6">
+    <div class="form-group mb-3">
+        <label for="youtube_url">YouTube Video Link</label>
+        <input type="text"
+               name="youtube_url"
+               value="{{ $settings['youtube_url'] ?? '' }}"
+               class="form-control br-8"
+               placeholder="https://www.youtube.com/embed/VIDEO_ID">
+    </div>
+</div>
+        <div class="col-md-6">
             <div class="form-group mb-3">
                 <label for="site_location">Location</label>
                 <input type="text" name="site_location" value="{{ $settings['site_location'] }}"
                     class="form-control br-8" placeholder="Enter Location">
             </div>
         </div>
-       
+
         <div class="col-md-12">
             <div class="form-group mb-3">
                 <label for="site_location_url">Map</label>

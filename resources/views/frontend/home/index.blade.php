@@ -10,22 +10,57 @@
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
+
+@if(!empty($settings['youtube_url']))
+<div class="modal fade" id="popupModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content border-0 rounded-4 overflow-hidden position-relative">
+
+            <!-- Close button -->
+            <button type="button"
+                class="btn-close position-absolute top-0 end-0 m-3"
+                style="z-index: 1055;"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+
+            <!-- YouTube Video Embed -->
+            <div class="ratio ratio-16x9">
+                <iframe
+                    src="{{ $settings['youtube_url'] ?? '' }}?autoplay=1&mute=1&rel=0"
+                    title="YouTube video"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var popupModal = new bootstrap.Modal(document.getElementById('popupModal'));
+    popupModal.show();
+});
+</script>
+@endif
+
     <!-- banner-home start -->
-    <section class="banner-home overflow-hidden pt-lg-100 pt-md-90 pt-sm-80 pt-xs-70">
-        <div class="container">
-            <div class="row align-items-center">
+    <section class="banner-home overflow-hidden pt-lg-100  pt-sm-80 pt-xs-70">
+        {{-- <div class="container"> --}}
+        {{-- <div class="row align-items-center">
                 <div class="col-xl-6">
                     <div class="banner-home__content pb-lg-60 pb-md-50 pb-sm-45 pb-xs-40 wow fadeInLeft" data-wow-delay=".5s">
                         <h6 class="sub-title color-white mb-20 mb-sm-15 mb-xs-10 d-inline-block">
-                            {{ $sliders->short_description }}</h6>
-                        <h1 class="title color-white fw-bold mb-20 mb-sm-15 mb-xs-10">{{ $sliders->title }}</h1>
+                            {{ $sliders->short_description ?? '' }}</h6>
+                        <h1 class="title color-white fw-bold mb-20 mb-sm-15 mb-xs-10">{{ $sliders->title ?? ''}}</h1>
 
                         <div class="description font-la color-white mb-45 mb-md-30 mb-sm-25 mb-xs-20">
-                            <p style="color: white !important">{!! $sliders->description !!}</p>
+                            <p style="color: white !important">{!! $sliders->description ?? ''!!}</p>
                         </div>
                         <div class="theme-btn__wrapper d-flex flex-wrap">
-                            <a 
-                                class="theme-btn fw-600 btn-red" 
+                            <a
+                                class="theme-btn fw-600 btn-red"
                                 href="https://www.facebook.com/profile.php?id=61580086202707"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -33,18 +68,18 @@
                                 Get In Touch <i class="far fa-chevron-double-right"></i>
                             </a>
                         </div>
-                        
+
                     </div>
                 </div>
-                <div class="col-xl-6">
-                    <div class="banner-home__media">
-                        {{-- <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt=""> --}}
-                        {{-- <img src="assets/img/banner/banner-home.png" class="img-fluid" alt=""> --}}
-                        <img class="img-fluid" src="{{ $sliders->image }}" alt="">
-                    </div>
-                </div>
-            </div>
+             <div class="col-xl-6"> --}}
+        <div class="banner-home__media">
+            {{-- <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt=""> --}}
+            {{-- <img src="assets/img/banner/banner-home.png" class="img-fluid" alt=""> --}}
+            <img class="img-fluid" src="{{ $sliders->image }}" alt="">
         </div>
+        {{-- </div>
+            </div> --}}
+        {{-- </div> --}}
     </section>
     <!-- banner-home end -->
     <div class="our-company-financial overflow-hidden">
@@ -58,7 +93,7 @@
                         <h3>Our <span>Universities</span></h3>
                     </div>
                     <div class="swiper-container swiper-universities">
-             
+
                         <div class="swiper-wrapper">
                             @foreach ($universities as $university)
                                 <div class="swiper-slide">
@@ -81,27 +116,27 @@
         <section class="about-modern">
             <div class="container">
                 <div class="row align-items-center">
-        
+
                     <!-- LEFT VISUAL -->
                     <div class="col-lg-6">
                         <div class="about-visual">
-        
+
                             <div class="about-main-img animate-slide-left">
                                 <img src="{{ $about_us->image_1 }}" alt="About us">
                             </div>
-        
+
                             <div class="about-float-card animate-fade-up">
                                 <h3 class="text-white">1<span>+</span></h3>
                                 <p>Years Experience</p>
                             </div>
-        
+
                             <div class="about-secondary-img animate-slide-up">
                                 <img src="{{ $about_us->image_2 }}" alt="Team">
                             </div>
-        
+
                         </div>
                     </div>
-        
+
                     <!-- RIGHT CONTENT -->
                     <div class="col-lg-6">
                         <div class="about-info animate-slide-right">
@@ -112,10 +147,10 @@
                             </div>
                         </div>
                     </div>
-        
+
                 </div>
             </div>
-        </section> 
+        </section>
         <!-- our-company end -->
     </div>
     <!-- planning-success start -->

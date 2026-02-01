@@ -77,6 +77,13 @@
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('assets/js/active.js') }}"></script>
 
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    var popupModal = new bootstrap.Modal(document.getElementById('popupModal'));
+    popupModal.show();
+});
+</script>
+
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -89,7 +96,7 @@
     <script src="{{ asset('admin/assets/js/sweetalert-new.js') }}"></script>
     <!-- Initialize FancyBox & Swiper or page-specific JS -->
     @stack('js')
-    
+
 </body>
 
 </html>
