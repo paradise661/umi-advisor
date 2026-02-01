@@ -23513,6 +23513,9 @@ header.transparent.stop.header-2 .main-header-wraper {
   max-height: 700px;
 }
 
-.carousel-fade .carousel-item {
-  transition-opacity: 0.8s ease-in-out;
+    .carousel-fade .carousel-item {
+        transition-opacity: 0.8s ease-in-out;
+    }
+.text-justify {
+    text-align: justify;
 }
