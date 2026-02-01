@@ -10,117 +10,103 @@
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
-@if(!empty($settings['youtube_url']))
-@php
-    $rawUrl = $settings['youtube_url'];
-    $embedUrl = '';
+    @if (!empty($settings['youtube_url']))
+        @php
+            $rawUrl = $settings['youtube_url'];
+            $embedUrl = '';
 
-    // YouTube watch URL → embed
-    if (str_contains($rawUrl, 'youtube.com/watch')) {
-        parse_str(parse_url($rawUrl, PHP_URL_QUERY), $yt);
-        $embedUrl = 'https://www.youtube.com/embed/' . ($yt['v'] ?? '') . '?autoplay=1&mute=1&rel=0';
-    }
-    // youtu.be → embed
-    elseif (str_contains($rawUrl, 'youtu.be')) {
-        $embedUrl = 'https://www.youtube.com/embed/' . basename($rawUrl) . '?autoplay=1&mute=1&rel=0';
-    }
-    // Already YouTube embed
-    elseif (str_contains($rawUrl, 'youtube.com/embed')) {
-        $embedUrl = $rawUrl . '?autoplay=1&mute=1&rel=0';
-    }
-    // Facebook video / reel
-    elseif (str_contains($rawUrl, 'facebook.com')) {
-        $embedUrl = 'https://www.facebook.com/plugins/video.php?href='
-            . urlencode($rawUrl)
-            . '&show_text=false&autoplay=1';
-    }
-@endphp
+            // YouTube watch URL → embed
+            if (str_contains($rawUrl, 'youtube.com/watch')) {
+                parse_str(parse_url($rawUrl, PHP_URL_QUERY), $yt);
+                $embedUrl = 'https://www.youtube.com/embed/' . ($yt['v'] ?? '') . '?autoplay=1&mute=1&rel=0';
+            }
+            // youtu.be → embed
+            elseif (str_contains($rawUrl, 'youtu.be')) {
+                $embedUrl = 'https://www.youtube.com/embed/' . basename($rawUrl) . '?autoplay=1&mute=1&rel=0';
+            }
+            // Already YouTube embed
+            elseif (str_contains($rawUrl, 'youtube.com/embed')) {
+                $embedUrl = $rawUrl . '?autoplay=1&mute=1&rel=0';
+            }
+            // Facebook video / reel
+            elseif (str_contains($rawUrl, 'facebook.com')) {
+                $embedUrl =
+                    'https://www.facebook.com/plugins/video.php?href=' .
+                    urlencode($rawUrl) .
+                    '&show_text=false&autoplay=1';
+            }
+        @endphp
 
-<div class="modal fade" id="popupModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 rounded-4 overflow-hidden position-relative p-3">
+        <div class="modal fade" id="popupModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0 rounded-4 overflow-hidden position-relative p-3">
 
-            <!-- Close button on top right -->
-            <div class="d-flex justify-content-end">
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-            </div>
+                    <!-- Close button on top right -->
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
 
-            <!-- Video box -->
-            <div class="p-3 bg-light rounded-3">
-                <div class="ratio ratio-16x9">
-                    <iframe id="popupVideo"
-                            src="{{ $embedUrl }}"
-                            frameborder="0"
-                            allow="autoplay; encrypted-media; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
+                    <!-- Video box -->
+                    <div class="p-3 bg-light rounded-3">
+                        <div class="ratio ratio-16x9">
+                            <iframe id="popupVideo" src="{{ $embedUrl }}" frameborder="0"
+                                allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
         </div>
-    </div>
-</div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var popupModalEl = document.getElementById('popupModal');
-    if (popupModalEl) {
-        var popupModal = new bootstrap.Modal(popupModalEl);
-        popupModal.show();
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var popupModalEl = document.getElementById('popupModal');
+                if (popupModalEl) {
+                    var popupModal = new bootstrap.Modal(popupModalEl);
+                    popupModal.show();
 
-        popupModalEl.addEventListener('hidden.bs.modal', function () {
-            var iframe = document.getElementById('popupVideo');
-            if (iframe) {
-                iframe.src = ''; // hard stop video + sound
-            }
-        });
-    }
-});
-</script>
-@endif
+                    popupModalEl.addEventListener('hidden.bs.modal', function() {
+                        var iframe = document.getElementById('popupVideo');
+                        if (iframe) {
+                            iframe.src = ''; // hard stop video + sound
+                        }
+                    });
+                }
+            });
+        </script>
+    @endif
 
 
 
 
     <!-- banner-home start -->
-    <section class="banner-home overflow-hidden pt-lg-100  pt-sm-80 pt-xs-70">
-        {{-- <div class="container"> --}}
-        {{-- <div class="row align-items-center">
-                <div class="col-xl-6">
-                    <div class="banner-home__content pb-lg-60 pb-md-50 pb-sm-45 pb-xs-40 wow fadeInLeft" data-wow-delay=".5s">
-                        <h6 class="sub-title color-white mb-20 mb-sm-15 mb-xs-10 d-inline-block">
-                            {{ $sliders->short_description ?? '' }}</h6>
-                        <h1 class="title color-white fw-bold mb-20 mb-sm-15 mb-xs-10">{{ $sliders->title ?? ''}}</h1>
-
-                        <div class="description font-la color-white mb-45 mb-md-30 mb-sm-25 mb-xs-20">
-                            <p style="color: white !important">{!! $sliders->description ?? ''!!}</p>
-                        </div>
-                        <div class="theme-btn__wrapper d-flex flex-wrap">
-                            <a
-                                class="theme-btn fw-600 btn-red"
-                                href="https://www.facebook.com/profile.php?id=61580086202707"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Get In Touch <i class="far fa-chevron-double-right"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-             <div class="col-xl-6"> --}}
-        <div class="banner-home__media">
-            {{-- <img src="assets/img/banner/banner-start.svg" class="img-fluid start" alt=""> --}}
-            {{-- <img src="assets/img/banner/banner-home.png" class="img-fluid" alt=""> --}}
-            <img class="img-fluid" src="{{ $sliders->image }}" alt="">
+   <section class="banner-home overflow-hidden pt-lg-100 pt-sm-80 pt-xs-70">
+    <div id="homeBannerSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          @foreach ($sliders as $key => $slider)
+    {{-- Check if $slider is an object and not a boolean --}}
+    @if(is_object($slider))
+        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+            <div class="banner-home__media">
+                <img src="{{ $slider->image}}" class="img-fluid d-block w-100" alt="Slider Image">
+            </div>
         </div>
-        {{-- </div>
-            </div> --}}
-        {{-- </div> --}}
-    </section>
+    @endif
+@endforeach
+        </div>
+
+        {{-- Only show navigation if there is more than one slider --}}
+        {{-- @if($sliders->count() > 1)
+            <button class="carousel-control-prev" type="button" data-bs-target="#homeBannerSlider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#homeBannerSlider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        @endif --}}
+    </div>
+</section>
     <!-- banner-home end -->
     <div class="our-company-financial overflow-hidden">
         {{-- <div class="overly">
@@ -263,19 +249,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="why-choose__item-wrapper why-choose__item-two-wrapper d-grid justify-content-between mt-60 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".7s">
                         @foreach ($services as $key => $service)
-                            <div class="why-choose__item why-choose__item-two"
-                                style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
-                                <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
-                                    {{-- {!! $icons[$key % count($icons)] !!} --}}
-                                    <img height="50px" src="{{ $service->image }}">
+                            <div class="why-choose__item-two h-100">
+                                <div class="icon-circle">
+                                    <img height="40px" src="{{ $service->image }}">
                                 </div>
-
-                                <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">{{ $service->title }}</h6>
-
-                                <div class="description font-la mb-20 mb-sm-15 mb-xs-10  line-clamp-4 service-des">
-                                    <p>{!! $service->description !!}</p>
-                                </div>
-
+                                <h6 class="title fw-700">{{ $service->title }}</h6>
+                                <p class="mt-3 text-muted my-3 opacity-75">{!! Str::limit(strip_tags($service->description), 100) !!}</p>
                                 <a class="color-red d-block"
                                     href="{{ route('frontend.servicesingle', $service->slug) }}">Read More <i
                                         class="far fa-chevron-double-right"></i></a>
@@ -452,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                             <i class="fal fa-quote-right"></i>
                                         </div>
                                     </div>
-                                    <div class="description font-la mb-25 testi-des">
+                                    <div class="description line-clamp-5 font-la mb-25 testi-des">
                                         <p>{!! $testimonial->description !!}</p>
                                     </div>
                                     <div class="testimonial__item-footer d-flex justify-content-between">

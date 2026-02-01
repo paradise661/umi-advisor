@@ -36,7 +36,7 @@ class FrontendController extends Controller
     //
     public function home()
     {
-        $sliders = Slider::where('status', 1)->oldest("order")->get()->first();
+        $sliders = Slider::where('status', 1)->oldest("order")->get();
         $about_us = Page::where('status', 1)->where('slug', 'about-us')->first();
         $why_choose_us = WhyChooseUs::where('status', 1)->first();
         $teams = Team::where('status', 1)->oldest("order")->get();
@@ -162,7 +162,7 @@ class FrontendController extends Controller
         if ($coursesingle) {
             $coursesingle->save();
             $courses = Course::where('id', '!=', $coursesingle->id)->where('status', 1)->oldest("order")->limit(5)->get();
-            
+
             return view("frontend.course.show", compact('courses', 'coursesingle', 'course_page'));
         }
     }
@@ -210,7 +210,7 @@ class FrontendController extends Controller
             $query->orderBy('title'); // or 'id' or whatever you prefer
         }])
         ->orderBy('order', 'asc')
-        ->get(); 
+        ->get();
         // dd($albums);
         return view('frontend.gallery', compact('albums', 'gallery_page'));
     }
@@ -360,5 +360,5 @@ class FrontendController extends Controller
             return redirect()->back()->with('success', 'Registration successful!');
         }
     }
-    
+
 }
