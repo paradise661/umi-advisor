@@ -254,7 +254,7 @@
                                     <img height="40px" src="{{ $service->image }}">
                                 </div>
                                 <h6 class="title fw-700">{{ $service->title }}</h6>
-                                <p class="mt-3 text-muted my-3 opacity-75">{!! Str::limit(strip_tags($service->description), 100) !!}</p>
+                                <p class="mt-3 text-muted my-3 text-justify opacity-75">{!! Str::limit(strip_tags($service->description), 100) !!}</p>
                                 <a class="color-red d-block"
                                     href="{{ route('frontend.servicesingle', $service->slug) }}">Read More <i
                                         class="far fa-chevron-double-right"></i></a>

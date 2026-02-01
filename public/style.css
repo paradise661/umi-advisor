@@ -23465,3 +23465,6 @@ object-fit: cover;
     .carousel-fade .carousel-item {
         transition-opacity: 0.8s ease-in-out;
     }
+.text-justify {
+    text-align: justify;
+}
