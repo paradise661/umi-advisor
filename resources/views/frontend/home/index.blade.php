@@ -11,23 +11,53 @@
 @extends('layouts.frontend.master')
 @section('content')
 @if(!empty($settings['youtube_url']))
+@php
+    $rawUrl = $settings['youtube_url'];
+    $embedUrl = '';
+
+    // YouTube watch URL → embed
+    if (str_contains($rawUrl, 'youtube.com/watch')) {
+        parse_str(parse_url($rawUrl, PHP_URL_QUERY), $yt);
+        $embedUrl = 'https://www.youtube.com/embed/' . ($yt['v'] ?? '') . '?autoplay=1&mute=1&rel=0';
+    }
+    // youtu.be → embed
+    elseif (str_contains($rawUrl, 'youtu.be')) {
+        $embedUrl = 'https://www.youtube.com/embed/' . basename($rawUrl) . '?autoplay=1&mute=1&rel=0';
+    }
+    // Already YouTube embed
+    elseif (str_contains($rawUrl, 'youtube.com/embed')) {
+        $embedUrl = $rawUrl . '?autoplay=1&mute=1&rel=0';
+    }
+    // Facebook video / reel
+    elseif (str_contains($rawUrl, 'facebook.com')) {
+        $embedUrl = 'https://www.facebook.com/plugins/video.php?href='
+            . urlencode($rawUrl)
+            . '&show_text=false&autoplay=1';
+    }
+@endphp
+
 <div class="modal fade" id="popupModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content border-0 rounded-4 overflow-hidden position-relative">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 rounded-4 overflow-hidden position-relative p-3">
 
-            <button type="button"
-                class="btn-close position-absolute top-0 end-0 m-3"
-                style="z-index: 1055;"
-                data-bs-dismiss="modal"
-                aria-label="Close"></button>
+            <!-- Close button on top right -->
+            <div class="d-flex justify-content-end">
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
 
-            <div class="ratio ratio-16x9">
-                <iframe id="popupVideo"
-                    src="{{ $settings['youtube_url'] ?? '' }}?autoplay=1&mute=1&rel=0"
-                    title="YouTube video"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen>
-                </iframe>
+            <!-- Video box -->
+            <div class="p-3 bg-light rounded-3">
+                <div class="ratio ratio-16x9">
+                    <iframe id="popupVideo"
+                            src="{{ $embedUrl }}"
+                            frameborder="0"
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
         </div>
@@ -37,18 +67,22 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var popupModalEl = document.getElementById('popupModal');
-    if (popupModalEl) { // <-- This ensures JS only runs if modal exists
+    if (popupModalEl) {
         var popupModal = new bootstrap.Modal(popupModalEl);
         popupModal.show();
 
         popupModalEl.addEventListener('hidden.bs.modal', function () {
             var iframe = document.getElementById('popupVideo');
-            if (iframe) iframe.src = iframe.src; // stop video
+            if (iframe) {
+                iframe.src = ''; // hard stop video + sound
+            }
         });
     }
 });
 </script>
 @endif
+
+
 
 
     <!-- banner-home start -->

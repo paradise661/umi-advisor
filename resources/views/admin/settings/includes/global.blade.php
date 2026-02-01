@@ -81,7 +81,7 @@
         </div>
         <div class="col-md-6">
     <div class="form-group mb-3">
-        <label for="youtube_url">YouTube Video Link</label>
+        <label for="youtube_url"> Video Link</label>
         <input type="text"
                name="youtube_url"
                value="{{ $settings['youtube_url'] ?? '' }}"
