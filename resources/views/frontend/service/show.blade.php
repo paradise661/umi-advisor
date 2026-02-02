@@ -152,7 +152,7 @@
 
                                     <!-- Image -->
                                     <div class="course-card-image">
-                                        <img src="{{ $service->image ?? asset('assets/img/default-service.jpg') }}"
+                                        <img src="{{ $service->image_1 ?? asset('assets/img/default-service.jpg') }}"
                                             alt="{{ $service->title }}">
                                     </div>
 
