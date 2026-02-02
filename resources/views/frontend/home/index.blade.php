@@ -49,7 +49,7 @@
                     <!-- Video box -->
                     <div class="p-3 bg-light rounded-3">
                         <div class="ratio ratio-16x9">
-                            <iframe id="popupVideo" src="{{ $embedUrl }}" frameborder="0"
+                            <iframe id="popupVideo" src="{{ $embedUrl ?? '' }}" frameborder="0"
                                 allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
                             </iframe>
                         </div>
@@ -81,23 +81,23 @@
 
 
     <!-- banner-home start -->
-   <section class="banner-home overflow-hidden pt-lg-100 pt-sm-80 pt-xs-70">
-    <div id="homeBannerSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          @foreach ($sliders as $key => $slider)
-    {{-- Check if $slider is an object and not a boolean --}}
-    @if(is_object($slider))
-        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-            <div class="banner-home__media">
-                <img src="{{ $slider->image}}" class="img-fluid d-block w-100" alt="Slider Image">
+    <section class="banner-home overflow-hidden pt-lg-100 pt-sm-80 pt-xs-70">
+        <div id="homeBannerSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach ($sliders as $key => $slider)
+                    {{-- Check if $slider is an object and not a boolean --}}
+                    @if (is_object($slider))
+                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                            <div class="banner-home__media">
+                                <img src="{{ $slider->image }}" class="img-fluid d-block w-100" alt="Slider Image">
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
-        </div>
-    @endif
-@endforeach
-        </div>
 
-        {{-- Only show navigation if there is more than one slider --}}
-        {{-- @if($sliders->count() > 1)
+            {{-- Only show navigation if there is more than one slider --}}
+            {{-- @if ($sliders->count() > 1)
             <button class="carousel-control-prev" type="button" data-bs-target="#homeBannerSlider" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </button>
@@ -105,8 +105,8 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </button>
         @endif --}}
-    </div>
-</section>
+        </div>
+    </section>
     <!-- banner-home end -->
     <div class="our-company-financial overflow-hidden">
         {{-- <div class="overly">
@@ -431,12 +431,27 @@
                                             <i class="fal fa-quote-right"></i>
                                         </div>
                                     </div>
-                                    <div class="description line-clamp-5 font-la mb-25 testi-des">
+
+                                    <div class="description text-justify line-clamp-5 font-la mb-10 testi-des">
                                         <p>{!! $testimonial->description !!}</p>
                                     </div>
+
+                                    @if (str_word_count(strip_tags($testimonial->description)) > 50)
+                                        <button type="button"
+                                            class="btn-link testimonial-btn color-red d-block border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
+                                            data-bs-toggle="modal" data-bs-target="#testimonialModal"
+                                            data-image="{{ $testimonial->image }}"
+                                            data-name="{{ $testimonial->name ?? 'name' }}"
+                                            data-role="{{ $testimonial->role ?? 'Client' }}"
+                                            data-description="{!! e($testimonial->description) !!}">
+                                            Read More
+                                            <i class="far fa-chevron-double-right"></i>
+                                        </button>
+                                    @endif
+
                                     <div class="testimonial__item-footer d-flex justify-content-between">
                                         <div class="socail-link">
-                                            {{-- <span class="name"><span>- </span></span> --}}
+                                            <span class="name"><strong>{{ $testimonial->name ?? '' }}</strong></span>
                                         </div>
                                     </div>
                                 </div>
@@ -445,8 +460,37 @@
                     </div>
                 </div>
             </div>
+
+
+
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const modal = document.getElementById('testimonialModal');
+
+            modal.addEventListener('show.bs.modal', function(event) {
+
+                const button = event.relatedTarget;
+
+                modal.querySelector('#modal-image').src =
+                    button.getAttribute('data-image');
+
+                modal.querySelector('#modal-name').textContent =
+                    button.getAttribute('data-name');
+
+                modal.querySelector('#modal-role').textContent =
+                    button.getAttribute('data-role');
+
+                modal.querySelector('#modal-description').innerHTML =
+                    button.getAttribute('data-description');
+
+            });
+
+        });
+    </script>
+
     <!-- testimonial end -->
     <!-- Teams start -->
     {{-- <section
@@ -542,35 +586,74 @@
                     </div>
 
                     <div class="col-xl-5">
-                        <div class="contact-form pt-md-30 pt-sm-25 pt-xs-20 pb-md-40 pb-sm-35 pb-xs-30 pt-xl-30 pb-xl-50 pt-45 pr-xl-50 pl-md-40 pl-sm-30 pl-xs-25 pr-md-40 pr-sm-30 pr-xs-25 pl-xl-50 pr-85 pb-60 pl-85 wow fadeInUp"
+                        <div id="contact-form"
+                            class="contact-form pt-md-30 pt-sm-25 pt-xs-20 pb-md-40 pb-sm-35 pb-xs-30 pt-xl-30 pb-xl-50 pt-45 pr-xl-50 pl-md-40 pl-sm-30 pl-xs-25 pr-md-40 pr-sm-30 pr-xs-25 pl-xl-50 pr-85 pb-60 pl-85 wow fadeInUp"
                             data-wow-delay=".5s">
+
                             <div class="contact-form__header mb-sm-35 mb-xs-30 mb-40">
-                                <h6 class="sub-title fw-500 color-red text-uppercase mb-15"><img class="img-fluid mr-10"
-                                        src="assets/img/home/line.svg" alt="">{{ $settings['contact_title'] }}
+                                <h6 class="sub-title fw-500 color-red text-uppercase mb-15">
+                                    <img class="img-fluid mr-10" src="assets/img/home/line.svg" alt="">
+                                    {{ $settings['contact_title'] }}
                                 </h6>
                                 <h3 class="title color-d_black">{{ $settings['contact_section_title'] }}</h3>
                             </div>
 
+                            @if (session('success'))
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        Toastify({
+                                            text: "{{ session('success') }}",
+                                            duration: 3000,
+                                            gravity: "top", // top or bottom
+                                            position: "right", // left, center or right
+                                            backgroundColor: "#4BB543", // green success color
+                                            stopOnFocus: true,
+                                        }).showToast();
+                                    });
+                                </script>
+                            @endif
+
                             <form action="{{ route('frontend.contact.submit.home') }}" method="POST">
                                 @csrf
+
                                 <div class="single-personal-info">
-                                    <input type="text" placeholder="Your Name" name="name">
-                                </div>
-                                <div class="single-personal-info">
-                                    <input type="email" placeholder="Your e-mail" name="email">
-                                </div>
-                                <div class="single-personal-info">
-                                    <input type="text" placeholder="Subject" name="course">
-                                </div>
-                                <div class="single-personal-info">
-                                    <textarea placeholder="Your Massage" name="message"></textarea>
+                                    <input type="text" placeholder="Your Name" name="name"
+                                        value="{{ old('name') }}">
+                                    @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
-                                <button class="theme-btn btn-sm btn-red" type="submit">Free Consultant <i
-                                        class="far fa-chevron-double-right"></i></button>
+                                <div class="single-personal-info">
+                                    <input type="email" placeholder="Your e-mail" name="email"
+                                        value="{{ old('email') }}">
+                                    @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="single-personal-info">
+                                    <input type="text" placeholder="Subject" name="course"
+                                        value="{{ old('course') }}">
+                                    @error('course')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="single-personal-info">
+                                    <textarea placeholder="Your Message" name="message">{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <button class="theme-btn btn-sm btn-red" type="submit">
+                                    Free Consultant <i class="far fa-chevron-double-right"></i>
+                                </button>
                             </form>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

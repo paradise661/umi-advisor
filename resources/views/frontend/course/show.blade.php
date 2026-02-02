@@ -142,22 +142,36 @@
                 </div>
 
                 <div class="col-xl-4">
-                    <div class="main-sidebar" data-sticky_column>
+                    <div class="course-card-list" data-sticky_column>
                         <div class="single-sidebar-widget mb-40 pt-30 pr-30 pb-40 pl-30 pl-xs-20 pr-xs-20">
-                            <h4 class="wid-title mb-30 mb-xs-20 color-d_black text-capitalize">Our provide</h4>
+                            <h4 class="wid-title mb-30 mb-xs-20 color-d_black text-capitalize">Our Courses</h4>
 
-                            <div class="widget_categories">
-                                <ul>
-                                    @foreach ($courses as $course)
-                                        <li><a href="{{ route('frontend.coursesingle', $course->slug) }}">{{ $course->title }}
-                                                <i class="fas fa-long-arrow-alt-right"></i></a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
+
+                            @foreach ($courses as $course)
+                                <a href="{{ route('frontend.coursesingle', $course->slug) }}"
+                                    class="course-card d-flex align-items-center mb-20">
+
+                                    <!-- Image -->
+                                    <div class="course-card-image">
+                                        <img src="{{ $course->image ?? asset('assets/img/default-course.jpg') }}"
+                                            alt="{{ $course->title }}">
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="course-card-content">
+                                        <h6 class="course-title">
+                                            {{ $course->title }}
+                                        </h6>
+
+                                        <p class="course-desc">
+                                            {{ Str::limit(strip_tags($course->short_description ?? $course->description), 120) }}
+                                        </p>
+                                    </div>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 @endsection

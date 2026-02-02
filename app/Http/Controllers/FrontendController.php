@@ -75,7 +75,7 @@ class FrontendController extends Controller
         $blogs = Blog::where('status', 1)->limit(4)->get();
         $recent_post = Blog::where('status', 1)->limit(2)->get();
 
-        return view('frontend.home.index', compact('sliders','popup', 'faq_page', 'countrylocation', 'faq', 'abroadstudies', 'universities', 'courses', 'countries', 'blogs', 'services', 'about_us', 'why_choose_us', 'teams', 'testimonials','service_section','recent_post'));
+        return view('frontend.home.index', compact('sliders', 'popup', 'faq_page', 'countrylocation', 'faq', 'abroadstudies', 'universities', 'courses', 'countries', 'blogs', 'services', 'about_us', 'why_choose_us', 'teams', 'testimonials', 'service_section', 'recent_post'));
     }
     public function about()
     {
@@ -87,7 +87,7 @@ class FrontendController extends Controller
         $testimonials = Testimonial::where('status', 1)->get();
         $message_page = Page::where('status', 1)->where('slug', 'message-from-ceo')->first();
         $message_from_founder_1 = Page::where('status', 1)->where('slug', 'message-from-founder-1')->first();
-        return view('frontend.about.index', compact('about_us','message_page','message_from_founder_1', 'why_us', 'teams', 'studentreviw','services','testimonials'));
+        return view('frontend.about.index', compact('about_us', 'message_page', 'message_from_founder_1', 'why_us', 'teams', 'studentreviw', 'services', 'testimonials'));
     }
     public function service()
     {
@@ -102,7 +102,7 @@ class FrontendController extends Controller
         $servicesingle = Service::where('slug', $slug)->where('status', 1)->first();
         $services = Service::where('status', 1)->oldest("order")->get();
         $more_services = Service::where('status', 1)->limit(4)->get();
-        return view('frontend.service.show', compact('servicesingle', 'services', 'service_page','more_services'));
+        return view('frontend.service.show', compact('servicesingle', 'services', 'service_page', 'more_services'));
     }
     public function event()
     {
@@ -123,7 +123,7 @@ class FrontendController extends Controller
         $abroad_page = Page::where('status', 1)->where('slug', 'destination')->first();
         $abroadstudies = Country::where('status', 1)->oldest("order")->get();
         $universities = University::where('status', 1)->oldest("order")->get();
-        return view('frontend.countrydetail', compact('abroadstudies', 'abroad_page','universities'));
+        return view('frontend.countrydetail', compact('abroadstudies', 'abroad_page', 'universities'));
     }
     function abroadstudies()
     {
@@ -143,7 +143,7 @@ class FrontendController extends Controller
 
         if ($abroadstudiesingle) {
             $abroads = CountryLocation::where('id', '!=', $abroadstudiesingle->id)->where('status', 1)->oldest("order")->limit(5)->get();
-            return view('frontend.abroad.show', compact('abroadstudiesingle','abroads' , 'abroad_page'));
+            return view('frontend.abroad.show', compact('abroadstudiesingle', 'abroads', 'abroad_page'));
 
         }
 
@@ -152,8 +152,8 @@ class FrontendController extends Controller
     {
         $course_page = Page::where('status', 1)->where('slug', 'course')->first();
         $course = Course::get();
-        $courses =  Course::where('status', 1)->get();
-        return view('frontend.course.index', compact('course', 'course_page','courses'));
+        $courses = Course::where('status', 1)->get();
+        return view('frontend.course.index', compact('course', 'course_page', 'courses'));
     }
     function coursesingle($slug)
     {
@@ -206,11 +206,13 @@ class FrontendController extends Controller
     function gallery()
     {
         $gallery_page = Page::where('status', 1)->where('slug', 'gallery')->first();
-        $albums = Album::with(['galleries' => function ($query) {
-            $query->orderBy('title'); // or 'id' or whatever you prefer
-        }])
-        ->orderBy('order', 'asc')
-        ->get();
+        $albums = Album::with([
+            'galleries' => function ($query) {
+                $query->orderBy('title'); // or 'id' or whatever you prefer
+            }
+        ])
+            ->orderBy('order', 'asc')
+            ->get();
         // dd($albums);
         return view('frontend.gallery', compact('albums', 'gallery_page'));
     }
@@ -218,7 +220,7 @@ class FrontendController extends Controller
     {
         $gallery_page = Page::where('status', 1)->where('slug', 'gallery')->first();
         $album->load('galleries');
-        return view('frontend.album.show', compact('album','gallery_page'));
+        return view('frontend.album.show', compact('album', 'gallery_page'));
     }
 
     function studentvoice()
@@ -264,20 +266,36 @@ class FrontendController extends Controller
     }
     public function contact_submite_home(Request $request)
     {
-        //
         $input = $request->all();
-        // dd($input);
+
         $rules = [
             'name' => 'required|min:3',
+            'email' => 'required|email',
+            'course' => 'required',
+            'message' => 'required',
         ];
-        $validator = Validator::make($input, $rules);
+
+        $messages = [
+            'course.required' => 'The subject field is required',
+        ];
+
+        $validator = Validator::make($input, $rules, $messages);
+
         if ($validator->fails()) {
-            return redirect()->back()->withInput()->withErrors($validator);
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validator)
+                ->withFragment('contact-form'); // Scroll to form on error
         }
-        // Create a new Inquiry instance with the validated data
+
+        // Save the data
         ContactInquiry::create($input);
-        return redirect()->back()->with('success', 'Your message has been submitted successfully.');
+
+        return redirect()->back()
+            ->with('success', 'Your message has been submitted successfully.')
+            ->withFragment('contact-form'); // Scroll to form on success
     }
+
     function register()
     {
         $register_banner = Page::where('status', 1)->where('id', 10)->first();

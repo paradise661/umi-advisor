@@ -96,7 +96,37 @@ document.addEventListener('DOMContentLoaded', function () {
     <script src="{{ asset('admin/assets/js/sweetalert-new.js') }}"></script>
     <!-- Initialize FancyBox & Swiper or page-specific JS -->
     @stack('js')
+   <div class="modal fade" id="testimonialModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content p-0 bg-white border-0">
+                        <div class="modal-body card-team">
+                            <div class="row">
+                                <div class="col-md-12 wrap modal-image text-center">
 
+                                    <div class="media-wrapper card-team-image mb-3">
+                                        <img id="modal-image" src="" alt="" >
+                                    </div>
+
+                                    <h3 class="heading-4 mt-3 text-grey-100" id="modal-name"></h3>
+
+                                    <div class="w-100 text-center mt-2">
+                                        <small class="p-1" id="modal-role"></small>
+                                    </div>
+
+                                    <div class="paragraph card-content text-grey-100 text-center mt-3 text-justify"
+                                        id="modal-description">
+                                    </div>
+
+                                    <button type="button" class="btn btn-sm btn-light mt-4" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </body>
 
 </html>

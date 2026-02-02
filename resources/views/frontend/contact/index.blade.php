@@ -138,18 +138,28 @@
                             @csrf
 
                             <div class="mb-3">
-                                <input class="form-control py-3" type="text" name="name" placeholder="Your Name"
-                                    required>
+                                <input class="form-control py-3" type="text" name="name" placeholder="Your Name">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
-                                <input class="form-control py-3" type="email" name="email" placeholder="Your Email"
-                                    required>
+                                <input class="form-control py-3" type="email" name="email" placeholder="Your Email">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <input class="form-control py-3" type="text" name="course" placeholder="Subject">
+                                @error('course')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control py-3" name="message" rows="5" placeholder="Your Message" required></textarea>
+                                <textarea class="form-control py-3" name="message" rows="5" placeholder="Your Message"></textarea>
+                                @error('message')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <button class="btn w-10 py-3 text-white" type="submit"
                                 style="background:#00b3ea; border:none;">
