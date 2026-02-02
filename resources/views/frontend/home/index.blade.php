@@ -465,31 +465,7 @@
 
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
 
-            const modal = document.getElementById('testimonialModal');
-
-            modal.addEventListener('show.bs.modal', function(event) {
-
-                const button = event.relatedTarget;
-
-                modal.querySelector('#modal-image').src =
-                    button.getAttribute('data-image');
-
-                modal.querySelector('#modal-name').textContent =
-                    button.getAttribute('data-name');
-
-                modal.querySelector('#modal-role').textContent =
-                    button.getAttribute('data-role');
-
-                modal.querySelector('#modal-description').innerHTML =
-                    button.getAttribute('data-description');
-
-            });
-
-        });
-    </script>
 
     <!-- testimonial end -->
     <!-- Teams start -->
@@ -613,44 +589,35 @@
                                 </script>
                             @endif
 
-                            <form action="{{ route('frontend.contact.submit.home') }}" method="POST">
-                                @csrf
+                          <form id="contactForm" action="{{ route('frontend.contact.submit.home') }}" method="POST">
+    @csrf
+    <div class="single-personal-info">
+        <input type="text" placeholder="Your Name" name="name" value="{{ old('name') }}">
+        <span class="text-danger" id="error-name"></span>
+    </div>
 
-                                <div class="single-personal-info">
-                                    <input type="text" placeholder="Your Name" name="name"
-                                        value="{{ old('name') }}">
-                                    @error('name')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+    <div class="single-personal-info">
+        <input type="email" placeholder="Your e-mail" name="email" value="{{ old('email') }}">
+        <span class="text-danger" id="error-email"></span>
+    </div>
 
-                                <div class="single-personal-info">
-                                    <input type="email" placeholder="Your e-mail" name="email"
-                                        value="{{ old('email') }}">
-                                    @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+    <div class="single-personal-info">
+        <input type="text" placeholder="Subject" name="course" value="{{ old('course') }}">
+        <span class="text-danger" id="error-course"></span>
+    </div>
 
-                                <div class="single-personal-info">
-                                    <input type="text" placeholder="Subject" name="course"
-                                        value="{{ old('course') }}">
-                                    @error('course')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+    <div class="single-personal-info">
+        <textarea placeholder="Your Message" name="message">{{ old('message') }}</textarea>
+        <span class="text-danger" id="error-message"></span>
+    </div>
 
-                                <div class="single-personal-info">
-                                    <textarea placeholder="Your Message" name="message">{{ old('message') }}</textarea>
-                                    @error('message')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
+    <button class="theme-btn btn-sm btn-red" type="submit">
+        Free Consultant <i class="far fa-chevron-double-right"></i>
+    </button>
+</form>
 
-                                <button class="theme-btn btn-sm btn-red" type="submit">
-                                    Free Consultant <i class="far fa-chevron-double-right"></i>
-                                </button>
-                            </form>
+<div id="form-messages"></div>
+
                         </div>
                     </div>
 

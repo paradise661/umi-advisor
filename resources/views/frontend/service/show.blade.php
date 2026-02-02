@@ -1,48 +1,50 @@
 @section('seo')
     @include('frontend.seo', [
-    'name' => $service_page->seo_title ?? '',
-    'title' => $service_page->seo_title ?? $service_page->title,
-    'description' => $service_page->meta_description ?? '',
-    'keyword' => $service_page->meta_keywords ?? '',
-    'schema' => $service_page->seo_schema ?? '',
-    'created_at' => $service_page->created_at,
-    'updated_at' => $service_page->updated_at,
-])
+        'name' => $service_page->seo_title ?? '',
+        'title' => $service_page->seo_title ?? $service_page->title,
+        'description' => $service_page->meta_description ?? '',
+        'keyword' => $service_page->meta_keywords ?? '',
+        'schema' => $service_page->seo_schema ?? '',
+        'created_at' => $service_page->created_at,
+        'updated_at' => $service_page->updated_at,
+    ])
 @endsection
 @extends('layouts.frontend.master')
-@section('content') 
+@section('content')
     <!-- page-banner start -->
-            <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                <div class="transparent-text">{{ $service_page->title }}</div>
-                                <div class="page-title">
-                                    <h1>{{ $servicesingle->title }}</h1>
-                                </div>
-                            </div>
-
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{route('frontend.home')}}">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><a href="{{route('frontend.service')}}">{{ $service_page->title }}</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ $servicesingle->title }}</li>
-                                </ol>
-                            </nav>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="page-banner__media mt-xs-30 mt-sm-40">
-                                <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                                <img src="{{ asset($service_page->banner_image) }}" class="img-fluid" alt="">
-                            </div>
+    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
+                        <div class="transparent-text">{{ $service_page->title }}</div>
+                        <div class="page-title">
+                            <h1>{{ $servicesingle->title }}</h1>
                         </div>
                     </div>
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a
+                                    href="{{ route('frontend.service') }}">{{ $service_page->title }}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $servicesingle->title }}</li>
+                        </ol>
+                    </nav>
                 </div>
-            </section>
-            <!-- team-area start -->
-    <section class="services-details pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-115 overflow-hidden">
+
+                <div class="col-md-6">
+                    <div class="page-banner__media mt-xs-30 mt-sm-40">
+                        <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
+                        <img src="{{ asset($service_page->banner_image) }}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- team-area start -->
+    <section
+        class="services-details pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-115 overflow-hidden">
         <div class="container">
             <div class="row" data-sticky_parent>
                 <div class="col-xl-8" data-sticky_column>
@@ -51,7 +53,7 @@
                     </div>
 
                     <div class="services-details__content">
-                        <h2 class="service-main-title">{{ $servicesingle->title}}</h2>
+                        <h2 class="service-main-title">{{ $servicesingle->title }}</h2>
 
                         <p>{!! $servicesingle->description !!}</p>
 
@@ -98,7 +100,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="h-faq-1">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true" aria-controls="faq-1">
-                                    <i class="icon-question-4"></i> What should i included my personal details? 
+                                    <i class="icon-question-4"></i> What should i included my personal details?
                                 </button>
                             </h2>
 
@@ -141,17 +143,31 @@
                 </div>
 
                 <div class="col-xl-4">
-                    <div class="main-sidebar" data-sticky_column>
+                    <div class="course-card-list" data-sticky_column>
                         <div class="single-sidebar-widget mb-40 pt-30 pr-30 pb-40 pl-30 pl-xs-20 pr-xs-20">
-                            <h4 class="wid-title mb-30 mb-xs-20 color-d_black text-capitalize">Our provide</h4>
+                            <h4 class="wid-title mb-30 mb-xs-20 color-d_black text-capitalize">Our Services</h4>
+                            @foreach ($more_services as $service)
+                                <a href="{{ route('frontend.servicesingle', $service->slug) }}"
+                                    class="course-card d-flex align-items-center mb-20">
 
-                            <div class="widget_categories">
-                                <ul>
-                                    @foreach ($more_services as $service)
-                                    <li><a href="{{ route('frontend.servicesingle',$service->slug) }}">{{ $service->title }} <i class="fas fa-long-arrow-alt-right"></i></a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                                    <!-- Image -->
+                                    <div class="course-card-image">
+                                        <img src="{{ $service->image ?? asset('assets/img/default-service.jpg') }}"
+                                            alt="{{ $service->title }}">
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="course-card-content">
+                                        <h6 class="course-title">
+                                            {{ $service->title }}
+                                        </h6>
+
+                                        <p class="course-desc">
+                                            {{ Str::limit(strip_tags($service->short_description ?? $service->description), 120) }}
+                                        </p>
+                                    </div>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -159,5 +175,4 @@
         </div>
     </section>
     <!-- team-area end -->
-
-@endsection    
+@endsection

@@ -124,7 +124,7 @@
                 <div class="col-12">
                     <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".5s">
-                        @foreach ($testimonials as $testimonial)
+                     @foreach ($testimonials as $testimonial)
                             <div class="slider-item active">
                                 <div class="testimonial__item testimonial-item-three">
                                     <div
@@ -133,7 +133,6 @@
                                             <div class="media overflow-hidden">
                                                 <img class="img-fluid" src="{{ $testimonial->image }}" alt="">
                                             </div>
-
                                             <div class="meta">
                                                 <div class="starts">
                                                     <ul>
@@ -146,19 +145,31 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="right">
                                             <i class="fal fa-quote-right"></i>
                                         </div>
                                     </div>
 
-                                    <div class="description font-la mb-25">
+                                    <div class="description text-justify line-clamp-5 font-la mb-10 testi-des">
                                         <p>{!! $testimonial->description !!}</p>
                                     </div>
 
+                                    @if (str_word_count(strip_tags($testimonial->description)) > 50)
+                                        <button type="button"
+                                            class="btn-link testimonial-btn color-red d-block border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
+                                            data-bs-toggle="modal" data-bs-target="#testimonialModal"
+                                            data-image="{{ $testimonial->image }}"
+                                            data-name="{{ $testimonial->name ?? 'name' }}"
+                                            data-role="{{ $testimonial->role ?? 'Client' }}"
+                                            data-description="{!! e($testimonial->description) !!}">
+                                            Read More
+                                            <i class="far fa-chevron-double-right"></i>
+                                        </button>
+                                    @endif
+
                                     <div class="testimonial__item-footer d-flex justify-content-between">
                                         <div class="socail-link">
-                                            {{-- <span class="name"><span>- </span></span> --}}
+                                            <span class="name"><strong>{{ $testimonial->name ?? '' }}</strong></span>
                                         </div>
                                     </div>
                                 </div>
@@ -169,5 +180,36 @@
             </div>
         </div>
     </section>
+       <div class="modal fade" id="testimonialModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content p-0 bg-white border-0">
+                <div class="modal-body card-team">
+                    <div class="row">
+                        <div class="col-md-12 wrap modal-image text-center">
+
+                            <div class="media-wrapper card-team-image mb-3">
+                                <img id="modal-image" src="" alt="">
+                            </div>
+
+                            <h3 class="heading-4 mt-3 text-grey-100" id="modal-name"></h3>
+
+                            <div class="w-100 text-center mt-2">
+                                <small class="p-1" id="modal-role"></small>
+                            </div>
+
+                            <div class="paragraph card-content text-grey-100 text-center mt-3 text-justify"
+                                id="modal-description">
+                            </div>
+
+                            <button type="button" class="btn btn-sm btn-light mt-4" data-bs-dismiss="modal">
+                                Close
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- testimonial end -->
 @endsection

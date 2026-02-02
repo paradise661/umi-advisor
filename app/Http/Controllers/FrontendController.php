@@ -266,8 +266,6 @@ class FrontendController extends Controller
     }
     public function contact_submite_home(Request $request)
     {
-        $input = $request->all();
-
         $rules = [
             'name' => 'required|min:3',
             'email' => 'required|email',
@@ -279,22 +277,30 @@ class FrontendController extends Controller
             'course.required' => 'The subject field is required',
         ];
 
-        $validator = Validator::make($input, $rules, $messages);
+        $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            return redirect()->back()
-                ->withInput()
-                ->withErrors($validator)
-                ->withFragment('contact-form'); // Scroll to form on error
+            if ($request->ajax()) {
+                return response()->json(['errors' => $validator->errors()], 422);
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->withErrors($validator)
+                    ->withFragment('contact-form');
+            }
         }
 
-        // Save the data
-        ContactInquiry::create($input);
+        ContactInquiry::create($request->all());
+
+        if ($request->ajax()) {
+            return response()->json(['success' => 'Your message has been submitted successfully.']);
+        }
 
         return redirect()->back()
             ->with('success', 'Your message has been submitted successfully.')
-            ->withFragment('contact-form'); // Scroll to form on success
+            ->withFragment('contact-form');
     }
+
 
     function register()
     {
