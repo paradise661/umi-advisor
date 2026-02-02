@@ -13555,10 +13555,10 @@ header.transparent.stop.header-2 .main-header-wraper {
 .testi-des p {
   color: gray;
 }
-
+/* 
 .testimonial__item:hover .testi-des p {
   color: white;
-}
+} */
 
 .banner-home__content .sub-title span {
   color: #fe0302;
@@ -15454,31 +15454,31 @@ header.transparent.stop.header-2 .main-header-wraper {
 }
 
 .testimonial__item.testimonial-item-three:hover {
-  background: #fe0302;
+  background: #FDF6F8;
 }
-.testimonial__item.testimonial-item-three:hover .testimonial-btn {
+/* .testimonial__item.testimonial-item-three:hover .testimonial-btn {
     color: white;
-}
-.testimonial__item.testimonial-item-three:hover .testimonial__item-header .right i {
+} */
+/* .testimonial__item.testimonial-item-three:hover .testimonial__item-header .right i {
   color: rgba(255, 255, 255, 0.2);
-}
+} */
 
-.testimonial__item.testimonial-item-three:hover .testimonial__item-header .left .meta .name,
+/* .testimonial__item.testimonial-item-three:hover .testimonial__item-header .left .meta .name,
 .testimonial__item.testimonial-item-three:hover .testimonial__item-header .left .meta .position {
   color: #FFF;
 }
 
 .testimonial__item.testimonial-item-three:hover .testimonial__item-footer .socail-link span {
   color: #FFF;
-}
+} */
 
-.testimonial__item.testimonial-item-three:hover .starts ul li span {
+/* .testimonial__item.testimonial-item-three:hover .starts ul li span {
   filter: brightness(0) invert(1);
 }
 
 .testimonial__item.testimonial-item-three:hover .description {
   color: #FFF !important;
-}
+} */
 
 @media (max-width: 1420px) {
   .testimonial__item {

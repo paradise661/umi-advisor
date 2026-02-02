@@ -589,34 +589,37 @@
                                 </script>
                             @endif
 
-                          <form id="contactForm" action="{{ route('frontend.contact.submit.home') }}" method="POST">
-    @csrf
-    <div class="single-personal-info">
-        <input type="text" placeholder="Your Name" name="name" value="{{ old('name') }}">
-        <span class="text-danger" id="error-name"></span>
-    </div>
+                            <form id="contactForm" action="{{ route('frontend.contact.submit.home') }}" method="POST">
+                                @csrf
+                                <div class="single-personal-info">
+                                    <input type="text" placeholder="Your Name" name="name"
+                                        value="{{ old('name') }}">
+                                    <span class="text-danger" id="error-name"></span>
+                                </div>
 
-    <div class="single-personal-info">
-        <input type="email" placeholder="Your e-mail" name="email" value="{{ old('email') }}">
-        <span class="text-danger" id="error-email"></span>
-    </div>
+                                <div class="single-personal-info">
+                                    <input type="email" placeholder="Your e-mail" name="email"
+                                        value="{{ old('email') }}">
+                                    <span class="text-danger" id="error-email"></span>
+                                </div>
 
-    <div class="single-personal-info">
-        <input type="text" placeholder="Subject" name="course" value="{{ old('course') }}">
-        <span class="text-danger" id="error-course"></span>
-    </div>
+                                <div class="single-personal-info">
+                                    <input type="text" placeholder="Subject" name="course"
+                                        value="{{ old('course') }}">
+                                    <span class="text-danger" id="error-course"></span>
+                                </div>
 
-    <div class="single-personal-info">
-        <textarea placeholder="Your Message" name="message">{{ old('message') }}</textarea>
-        <span class="text-danger" id="error-message"></span>
-    </div>
+                                <div class="single-personal-info">
+                                    <textarea placeholder="Your Message" name="message">{{ old('message') }}</textarea>
+                                    <span class="text-danger" id="error-message"></span>
+                                </div>
 
-    <button class="theme-btn btn-sm btn-red" type="submit">
-        Free Consultant <i class="far fa-chevron-double-right"></i>
-    </button>
-</form>
+                                <button class="theme-btn btn-sm btn-red" type="submit">
+                                    Free Consultant <i class="far fa-chevron-double-right"></i>
+                                </button>
+                            </form>
 
-<div id="form-messages"></div>
+                            <div id="form-messages"></div>
 
                         </div>
                     </div>
