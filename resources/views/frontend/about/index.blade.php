@@ -167,10 +167,9 @@
         </div>
         </div>
     </section> --}}
-    <section class="about-us-section py-5">
+    {{-- <section class="about-us-section py-5">
         <div class="container">
             <div class="row">
-                {{-- Image --}}
                 <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="fade-right"
                     data-aos-duration="3000">
                     <div class="about-us-img-ceo">
@@ -178,7 +177,6 @@
                             alt="{{ $message_page->title ?? '' }}">
                     </div>
                 </div>
-                {{-- Content --}}
                 <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="fade-left"
                     data-aos-duration="3000">
                     <div class="service-content-container">
@@ -191,8 +189,7 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!-- our-team-home-1 start -->
+    </section> --}}
     <section
         class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
         <div class="container">
@@ -267,16 +264,14 @@
                 <div class="col-12">
                     <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".5s">
-                        @foreach ($testimonials as $testimonial)
+                          @foreach ($testimonials as $testimonial)
                             <div class="slider-item active">
                                 <div class="testimonial__item testimonial-item-three">
                                     <div
                                         class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
                                         <div class="left d-flex align-items-center">
                                             <div class="media overflow-hidden">
-                                                <img class="img-fluid"
-                                                    src="{{ $testimonial->image ? $testimonial->image : '' }}"
-                                                    alt="">
+                                                <img class="img-fluid" src="{{ $testimonial->image }}" alt="">
                                             </div>
                                             <div class="meta">
                                                 <div class="starts">
@@ -294,12 +289,27 @@
                                             <i class="fal fa-quote-right"></i>
                                         </div>
                                     </div>
-                                    <div class="description font-la mb-25 testi-des line-clamp-5">
-                                        <p>{!! $testimonial->description ?? '' !!}</p>
+
+                                    <div class="description text-justify line-clamp-5 font-la mb-10 testi-des">
+                                        <p>{!! $testimonial->description !!}</p>
                                     </div>
+
+                                    @if (str_word_count(strip_tags($testimonial->description)) > 50)
+                                        <button type="button"
+                                            class="btn-link testimonial-btn color-red d-block border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
+                                            data-bs-toggle="modal" data-bs-target="#testimonialModal"
+                                            data-image="{{ $testimonial->image }}"
+                                            data-name="{{ $testimonial->name ?? 'name' }}"
+                                            data-role="{{ $testimonial->role ?? 'Client' }}"
+                                            data-description="{!! e($testimonial->description) !!}">
+                                            Read More
+                                            <i class="far fa-chevron-double-right"></i>
+                                        </button>
+                                    @endif
+
                                     <div class="testimonial__item-footer d-flex justify-content-between">
                                         <div class="socail-link">
-                                            {{-- <span class="name"><span>- </span></span> --}}
+                                            <span class="name"><strong>{{ $testimonial->name ?? '' }}</strong></span>
                                         </div>
                                     </div>
                                 </div>
