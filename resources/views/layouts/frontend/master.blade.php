@@ -28,7 +28,7 @@
         media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- SweetAlert JS in head (optional, can be moved to bottom if preferred) -->
     <script src="{{ asset('admin/assets/js/sweetalert-new.js') }}"></script>
 </head>
@@ -198,6 +198,10 @@ $(document).ready(function() {
     });
 
 });
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
 </script>
 
 </body>

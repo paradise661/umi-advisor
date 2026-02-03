@@ -27,6 +27,7 @@ use Illuminate\Http\Request;
 use App\Models\DocumentImage;
 use App\Models\ContactInquiry;
 use App\Models\CountryLocation;
+use App\Models\Message;
 use App\Models\Popup;
 use Illuminate\Support\Facades\Validator;
 
@@ -235,12 +236,30 @@ class FrontendController extends Controller
         $visagranted = Success::get() ?? [];
         return view('frontend.visagrant', compact('visagranted', 'visagrantes_page'));
     }
-    function messagefromfounder()
+    // function messagefromfounder()
+    // {
+    //     $message_page = Page::where('status', 1)->where('slug', 'message-from-ceo')->first();
+    //     $message_from_founder_1 = Page::where('status', 1)->where('slug', 'message-from-founder-1')->first();
+    //     $message_from_founder_2 = Page::where('status', 1)->where('slug', 'message-from-founder-2')->first();
+    //     return view('frontend.messagefromceo', compact('message_page', 'message_from_founder_1', 'message_from_founder_2'));
+    // }
+
+    function message()
     {
         $message_page = Page::where('status', 1)->where('slug', 'message-from-ceo')->first();
-        $message_from_founder_1 = Page::where('status', 1)->where('slug', 'message-from-founder-1')->first();
-        $message_from_founder_2 = Page::where('status', 1)->where('slug', 'message-from-founder-2')->first();
-        return view('frontend.messagefromceo', compact('message_page', 'message_from_founder_1', 'message_from_founder_2'));
+        $messages = Message::where('status', 1)->oldest("order")->get();
+        return view('frontend.message.index', compact('messages', 'message_page'));
+    }
+    function messagesingle($slug)
+    {
+        $message_page = Page::where('status', 1)->where('slug', 'message-from-ceo')->first();
+        $messagesingle = Message::where('slug', $slug)->where('status', 1)->first();
+        if ($messagesingle) {
+            $messagesingle->views += 1;
+            $messagesingle->save();
+            $messages = Message::where('id', '!=', $messagesingle->id)->where('status', 1)->oldest("order")->limit(5)->get();
+            return view("frontend.message.show", compact('messages', 'messagesingle', 'message_page'));
+        }
     }
     public function contact()
     {

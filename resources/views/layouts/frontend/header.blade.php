@@ -52,7 +52,7 @@
                                         <ul>
                                             <li><a href="{{ route('frontend.about') }}">Our Company</a></li>
 
-                                            <li><a href="{{ route('frontend.messagefromfounder') }}">Messages </a></li>
+                                            <li><a href="{{ route('frontend.message') }}">Messages </a></li>
                                             <li><a href="{{ route('frontend.team') }}">Team</a></li>
                                         </ul>
                                     </li>

@@ -35,6 +35,7 @@ use App\Http\Controllers\admin\ContactInquiryController;
 use App\Http\Controllers\admin\CountryLocationController;
 use App\Http\Controllers\admin\CountryLocationController as AdminCountryLocationController;
 use App\Http\Controllers\admin\EventController;
+use App\Http\Controllers\admin\MessageController;
 // use Illuminate\Support\Facades\Artisan;
 
 // Route::get('/', function () {
@@ -86,6 +87,8 @@ Route::group(
         Route::resource('blog', BlogController::class);
         Route::resource('event', EventController::class);
         Route::resource('team', TeamController::class);
+        Route::resource('message', MessageController::class);
+
         Route::resource('service', ServiceController::class);
         Route::resource('testimonial', TestimonialController::class);
         Route::resource('faq', FaqController::class);
@@ -143,34 +146,34 @@ Route::group(
 
         Route::resource('contactinquiry', ContactInquiryController::class);
         // Route::resource("university", UniversityController::class);
-    
+
         // inquries
         // Route::resource("inquiry", InquiryController::class);
-    
+
         // Delete Image only
-    
+
         // Route::delete("delete_image/{image_id}", [DeleteImage::class, 'delete'])->name('admin.setting.delete_image');
-    
+
         // Route::post("blog/{image_id}", [BlogController::class, 'deleteimg'])->name('admin.setting.delete_image');
-    
+
         // Route::resource("contact", ContactController::class);
-    
+
         // Route::resource("popup", PopupsController::class);
         // Route::resource("advertisement", AdvertisementController::class);
-    
+
         // Route::resource("payment", PaymentMethodsController::class);
-    
+
         // //inquries
         // Route::resource("inquiry", InquiryController::class);
         // Route::resource("contactinquiry", ContactInquiryController::class);
-    
+
         // Route::get("gallery", [GalleryController::class, 'index'])->name("gallery.index");
         // Route::get("gallery/create", [GalleryController::class, 'create'])->name("gallery.create");
         // Route::post("gallery/create", [GalleryController::class, 'store'])->name("gallery.store");
         // Route::post("gallery/delete/{gallery}", [GalleryController::class, 'destroy'])->name("gallery.destroy");
-    
+
         // Bookings routes
-    
+
         Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
         Route::get('/', [DashboardController::class, 'index']);
 

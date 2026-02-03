@@ -22,7 +22,10 @@ Route::name('frontend.')->group(
         Route::get('gallery', [FrontendController::class, 'gallery'])->name('gallery');
         Route::get('students-voice', [FrontendController::class, 'studentvoice'])->name('studentvoice');
         Route::get('/visa-granted', [FrontendController::class, 'visagrantes'])->name('visagrantes');
-        Route::get('/message-from-founder', [FrontendController::class, 'messagefromfounder'])->name('messagefromfounder');
+        Route::get('/message', [FrontendController::class, 'message'])->name('message');
+        Route::get('/message/{slug}', [FrontendController::class, 'messagesingle'])->name('messagesingle');
+
+        // Route::get('/message-from-founder', [FrontendController::class, 'messagefromfounder'])->name('messagefromfounder');
         Route::post('/contact-us', [FrontendController::class, 'contact_submite'])->name('contact.submit');
         Route::post('/', [FrontendController::class, 'contact_submite_home'])->name('contact.submit.home');
         Route::get('/pages/{slug}', [FrontendController::class, 'page'])->name('pages');

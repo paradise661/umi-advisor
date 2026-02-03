@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 @php
-    $title = 'Blogs';
-    $name = 'blog';
+    $title = 'Messages';
+    $name = 'message';
 @endphp
 
 @section('content')
@@ -26,7 +26,7 @@
                             <tr>
                                 <th>SN</th>
                                 <th>Image</th>
-                                <th>Title</th>
+                                <th>name</th>
                                 <th>Order</th>
                                 <th>Status</th>
                                 <th>Action</th>

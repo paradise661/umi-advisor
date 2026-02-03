@@ -13555,7 +13555,7 @@ header.transparent.stop.header-2 .main-header-wraper {
 .testi-des p {
   color: gray;
 }
-/* 
+/*
 .testimonial__item:hover .testi-des p {
   color: white;
 } */
@@ -23166,8 +23166,8 @@ header.transparent.stop.header-2 .main-header-wraper {
 }
 
 .about-us-img-ceo img {
-  height: 500px;
-  width: 100%;
+  height: 600px;
+  width: 600px;
   border-radius: 15px;
   object-fit: cover;
 }
@@ -23696,4 +23696,53 @@ transform: scale(1.05);}
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+.profile-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.profile-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.overlay-content {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.profile-card:hover img {
+    transform: scale(1.1);
+}
+
+.profile-card:hover .overlay-content {
+    transform: translateY(-5px);
+}
+.message-body{
+    font-size: 16px;
 }

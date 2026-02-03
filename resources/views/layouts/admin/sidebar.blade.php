@@ -180,6 +180,12 @@
                 <div>Teams</div>
             </a>
         </li>
+          <li class="menu-item {{ Request::segment(2) == 'message' ? 'active' : '' }}">
+            <a href="{{ route('message.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-group"></i>
+                <div>message</div>
+            </a>
+        </li>
         <li class="menu-item {{ Request::segment(2) == 'service' ? 'active' : '' }}">
             <a href="{{ route('service.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-server"></i>
