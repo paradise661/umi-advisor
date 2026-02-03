@@ -71,7 +71,7 @@ class FrontendController extends Controller
         $faq_page = Page::where('status', 1)->where('slug', 'faq')->first();
         $service_section = Page::where('status', 1)->where('slug', 'service-section')->first();
         $services = Service::where('status', 1)->limit(4)->get();
-        $courses = Course::where('status', 1)->limit(4)->get();
+        $courses = Course::where('status', 1)->oldest('order')->limit(4)->get();
         $testimonials = Testimonial::where('status', 1)->get();
         $blogs = Blog::where('status', 1)->limit(4)->get();
         $recent_post = Blog::where('status', 1)->limit(2)->get();
@@ -153,8 +153,10 @@ class FrontendController extends Controller
     {
         $course_page = Page::where('status', 1)->where('slug', 'course')->first();
         $course = Course::get();
-        $courses = Course::where('status', 1)->get();
-        return view('frontend.course.index', compact('course', 'course_page', 'courses'));
+        $courses = Course::where('status', 1)
+            ->orderBy('order', 'asc') // This ensures 1 comes before 2
+            ->get();
+                    return view('frontend.course.index', compact('course', 'course_page', 'courses'));
     }
     function coursesingle($slug)
     {
