@@ -29,7 +29,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('frontend.abroad') }}">Countries</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('frontend.abroad') }}">{{ $abroad_page->title }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 {{ $abroadstudiesingle->name }}
                             </li>
@@ -74,7 +74,7 @@
                 <div class="col-xl-4">
                     <div class="main-sidebar" data-sticky_column>
                         <div class="single-sidebar-widget mb-40 pt-30 pr-30 pb-40 pl-30 pl-xs-20 pr-xs-20">
-                            <h4 class="wid-title mb-30 mb-xs-20 color-d_black text-capitalize">More Country</h4>
+                            <h4 class="wid-title mb-30 mb-xs-20 color-d_black text-capitalize">Other Procedures</h4>
 
                             <div class="resent-posts">
                                 @foreach ($abroads as $blog)
