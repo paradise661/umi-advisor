@@ -23697,52 +23697,75 @@ transform: scale(1.05);}
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-.profile-card {
+.message-card {
     position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.image-wrapper {
-    position: relative;
-    width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+    border-radius: 4px;
 }
 
-.image-wrapper img {
+.message-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.profile-overlay {
+/* Overlay hidden by default */
+.message-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 100%);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 20px;
-    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    color: #fff;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
 }
 
-.overlay-content {
+/* Text animation */
+.message-overlay h5,
+.message-overlay p,
+.arrow-btn {
+    transform: translateY(15px);
+    opacity: 0;
+    transition: all 0.35s ease;
+}
+.message-overlay h5{
+    color: #00B3EA;
+}
+
+
+/* Hover effects */
+.message-card:hover img {
+    transform: scale(1.08);
+}
+
+.message-card:hover .message-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.message-card:hover .message-overlay h5 {
     transform: translateY(0);
-    transition: transform 0.3s ease;
+    opacity: 1;
+    transition-delay: 0.05s;
 }
 
-.profile-card:hover img {
-    transform: scale(1.1);
+.message-card:hover .message-overlay p {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.15s;
 }
 
-.profile-card:hover .overlay-content {
-    transform: translateY(-5px);
-}
-.message-body{
-    font-size: 16px;
+.message-card:hover .arrow-btn {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.25s;
 }

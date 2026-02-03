@@ -40,29 +40,28 @@
         </div>
     </section>
 
-    <section>
-        <div class="container my-5">
-            <div class="row g-4">
-                @foreach ($messages as $item)
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <a class="stretched-link"
-                            href="{{ route('frontend.messagesingle', ['slug' => $item->slug ?? 'unknown']) }}">
-                            <div class="profile-card">
-                                <div class="image-wrapper">
-                                    <img src="{{ $item->image }}" alt="{{ $item->title }}" class="img-fluid">
+   <section>
+    <div class="container my-5">
+        <div class="row g-4">
+            @foreach ($messages as $item)
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <a href="{{ route('frontend.messagesingle', ['slug' => $item->slug ?? 'unknown']) }}"
+                       class="message-card-link">
 
-                                    <div class="profile-overlay">
-                                        <div class="overlay-content">
-                                            <h5 class="text-white mb-0">{{ $item->title }}</h5>
-                                            <p class="text-light small mb-0">{{ $item->position }}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="message-card">
+                            <img src="{{ $item->image }}" alt="{{ $item->title }}">
+
+                            <div class="message-overlay">
+                                <h5>Message From<br>{{ $item->title }}</h5>
+                                <p>{{ $item->short_description }}</p>
                             </div>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
+                        </div>
+
+                    </a>
+                </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
+
 @endsection
