@@ -23072,6 +23072,10 @@ header.transparent.stop.header-2 .main-header-wraper {
 
 .service-content-container p {
   color: gray;
+  font-size: 17px;
+}
+.service-content-container h6 {
+font-size: 19px;
 }
 
 .courses-author-main img {

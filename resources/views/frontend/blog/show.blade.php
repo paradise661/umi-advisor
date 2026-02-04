@@ -90,7 +90,7 @@
                     <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
                         <div class="transparent-text">{{ $blogsingle->title }}</div>
                         <div class="page-title">
-                            <h1>{{ $blogsingle->title }}</h1>
+                            <h1>Blogs</h1>
                         </div>
                     </div>
                     <nav aria-label="breadcrumb">
