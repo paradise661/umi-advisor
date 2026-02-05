@@ -18,8 +18,8 @@
         }
 
         /* .objectives-wrapper {
-                                                                                                                                                                                    max-width: 1000px;
-                                                                                                                                                                                } */
+                                                                                                                                                                                                            max-width: 1000px;
+                                                                                                                                                                                                        } */
         /* Title */
         .objectives-heading {
             font-size: 32px;
@@ -201,94 +201,79 @@
             </div>
         </div>
     </section>
-    <!-- why-choose start -->
-    {{-- <section
-        class="why-choose why-choose__home pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pb-120 overflow-hidden">
+
+    {{-- objectives section --}}
+    <section class="objectives-section py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="why-choose__content why-choose__content-home wow fadeInUp" data-wow-delay=".3s">
-                        <div class="why-choose__text">
-                            <span class="sub-title d-block fw-500 color-red text-uppercase mb-sm-10 mb-xs-5 mb-15"><img
-                                    src="assets/img/home/line.svg" class="img-fluid mr-10" alt="">
-                                {{ $settings['services_title'] }}</span>
-                            <h2 class="title color-pd_black">{{ $settings['services_subtitle'] }}</h2>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-lg-12">
+                    <div class="objectives-wrapper">
+                        <h2 class="objectives-heading">
+                            {{ $objectives->title ?? 'Objectives' }}
+                        </h2>
 
-                <div class="col-lg-6">
-                    <div class="why-choose__content why-choose__content-home mt-md-25 mt-sm-20 mt-xs-20 wow fadeInUp"
-                        data-wow-delay=".5s">
-                        <div class="description font-la">
-                            <p>{{ $settings['services_description'] }}</p>
+                        <div class="objectives-content">
+                            {!! $objectives->description ?? '' !!}
                         </div>
-
-                        <a href="{{ route('frontend.service') }}"
-                            class="theme-btn btn-sm btn-red mt-30 mt-sm-25 mt-xs-20">{{ $settings['services_button'] }} <i
-                                class="far fa-chevron-double-right"></i></a>
                     </div>
                 </div>
             </div>
-            @php
-                $icons = [
-                    '<i class="icon-consultation"></i>',
-                    '<i class="icon-lawyer"></i>',
-                    '<i class="icon-financial"></i>',
-                    '<i class="icon-management"></i>',
-                ];
-            @endphp
-            <div class="row">
-                    <div class="col-12">
-                        <div class="why-choose__item-wrapper why-choose__item-two-wrapper d-grid justify-content-between mt-60 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
-                            data-wow-delay=".7s">
-                            @foreach ($services as $key => $service)
-                                <div class="why-choose__item why-choose__item-two"
-                                    style="background-image: url(assets/img/home/why-choose__item-two-overly.png);">
-                                    <div class="icon mb-30 mb-lg-20 mb-md-10 mb-xs-5 color-red">
-
-                                        <img height="50px" src="{{ $service->image }}">
-                                    </div>
-
-                                    <h6 class="title color-pd_black fw-600 mb-15 mb-xs-10">{{ $service->title }}</h6>
-
-                                    <div class="description font-la mb-20 mb-sm-15 mb-xs-10  line-clamp-4 service-des">
-                                        <p>{!! $service->description !!}</p>
-                                    </div>
-
-                                    <a href="{{ route('frontend.servicesingle', $service->slug) }}"
-                                        class="color-red d-block">Read More <i class="far fa-chevron-double-right"></i></a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
         </div>
-        </div>
-    </section> --}}
-    {{-- <section class="about-us-section py-5">
+    </section>
+
+    {{-- our mission and vision --}}
+    <section class="py-5 "
+        style="background-image: url({{ asset('frontend/assets/image/missionbg.png') }});
+                  background-position:cover; background-repeat:no-repeat;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="fade-right"
-                    data-aos-duration="3000">
-                    <div class="about-us-img-ceo">
-                        <img src="{{ $message_page->image_1 ? asset($message_page->image_1) : '' }}"
-                            alt="{{ $message_page->title ?? '' }}">
-                    </div>
-                </div>
-                <div class="col-lg-6 d-flex align-items-center justify-content-center" data-aos="fade-left"
-                    data-aos-duration="3000">
-                    <div class="service-content-container">
-                        <h6 class="my-2 color-red">{{ $message_page->title ?? 'About us' }}</h6>
-                        <h3 class="my-2">{{ $message_page->short_description ?? '' }}</h3>
-                        <p class="text-css-counter">
-                            {!! $message_page->description ?? '' !!}
+                <!-- Mission Card -->
+                <div class="col-md-6 py-3">
+                    <div class="service-card-home p-5 h-100 vision-align card">
+                        <div class="icon mb-2">
+                            <img class="vision-icon" src="{{ $our_mission->image_1 }}" alt="Mission" loading="lazy">
+
+                        </div>
+
+                        <h5 class="fw-bold ">
+                            {{ $our_mission->title ?? 'Our Mission' }}
+                        </h5>
+
+                        <p class="text-justify mission-desc line-clamp-4" style="color:black;">
+                            {{ strip_tags($our_mission->description ?? 'Our mission') }}
                         </p>
+
+                        <button class="read-more-btn d-none mt-2">Read More ></button>
                     </div>
                 </div>
+
+                <!-- Vision Card -->
+                <div class="col-md-6 py-3">
+                    <div class="service-card-home p-5 h-100 vision-align card">
+                        <div class="icon mb-2">
+                            <img class="vision-icon"
+                                src="{{ asset($our_vision->image_1 ?? 'frontend/assets/image/our-vision.png') }}"
+                                alt="Vision">
+                        </div>
+
+                        <h5 class="fw-bold ">
+                            {{ $our_vision->title ?? 'Our Vision' }}
+                        </h5>
+
+                        <p class="text-justify mission-desc line-clamp-4" style="color:black;">
+                            {{ strip_tags($our_vision->description ?? 'Our vision') }}
+                        </p>
+
+                        <button class="read-more-btn d-none mt-2">Read More ></button>
+
+                    </div>
+                </div>
+
             </div>
+
         </div>
-    </section> --}}
+    </section>
+
     <section
         class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
         <div class="container">
@@ -338,7 +323,7 @@
             </div>
         </div>
     </section>
-    <!-- our-team-home-1 end -->
+
     <!-- testimonial start -->
     <section
         class="testimonial test pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
@@ -420,77 +405,6 @@
         </div>
     </section>
 
-    {{-- objectives section --}}
-    <section class="objectives-section py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="objectives-wrapper">
-                        <h2 class="objectives-heading">
-                            {{ $objectives->title ?? 'Objectives' }}
-                        </h2>
-
-                        <div class="objectives-content">
-                            {!! $objectives->description ?? '' !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- our mission and vision --}}
-    <section class="py-5 "
-        style="background-image: url({{ asset('frontend/assets/image/missionbg.png') }});
-                  background-position:cover; background-repeat:no-repeat;">
-        <div class="container">
-            <div class="row">
-                <!-- Mission Card -->
-                <div class="col-md-6 py-3">
-                    <div class="service-card-home p-5 h-100 vision-align card">
-                        <div class="icon mb-2">
-                            <img class="vision-icon" src="{{ $our_mission->image_1 }}" alt="Mission" loading="lazy">
-
-                        </div>
-
-                        <h5 class="fw-bold ">
-                            {{ $our_mission->title ?? 'Our Mission' }}
-                        </h5>
-
-                        <p class="text-justify mission-desc line-clamp-4" style="color:black;">
-                            {{ strip_tags($our_mission->description ?? 'Our mission') }}
-                        </p>
-
-                        <button class="read-more-btn d-none mt-2">Read More ></button>
-                    </div>
-                </div>
-
-                <!-- Vision Card -->
-                <div class="col-md-6 py-3">
-                    <div class="service-card-home p-5 h-100 vision-align card">
-                        <div class="icon mb-2">
-                            <img class="vision-icon"
-                                src="{{ asset($our_vision->image_1 ?? 'frontend/assets/image/our-vision.png') }}"
-                                alt="Vision">
-                        </div>
-
-                        <h5 class="fw-bold ">
-                            {{ $our_vision->title ?? 'Our Vision' }}
-                        </h5>
-
-                        <p class="text-justify mission-desc line-clamp-4" style="color:black;">
-                            {{ strip_tags($our_vision->description ?? 'Our vision') }}
-                        </p>
-
-                        <button class="read-more-btn d-none mt-2">Read More ></button>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
     <script>
         document.querySelectorAll('.mission-desc').forEach(desc => {
             const btn = desc.nextElementSibling;
@@ -511,123 +425,4 @@
             });
         });
     </script>
-
-    <!-- testimonial end -->
-    <!-- why-choose end -->
-    <!-- our-company end -->
-    <!-- page-banner end -->
-    {{-- about us section --}}
-    {{-- <section class="about-us-section py-5">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                            <div class="about-us-img" data-aos="fade-right"  data-aos-duration="3000">
-                                <img src="{{ asset($about_us->image_1) }}" alt="{{ $about_us->title }}">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                            <div class="service-content-container" data-aos="fade-left"  data-aos-duration="3000">
-                                <h6 class="my-2">{{ $about_us->title ?? 'About us' }}</h6>
-                                <h3 class="my-2">{{ $about_us->short_description }}</h3>
-                                <p class="text-css-counter">
-                                    {!! $about_us->description !!}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="counter-section">
-                 <div class="container">
-                    <div class="row d-flex justify-content-center align-items-center">
-                        <div class="col-md-3 ">
-                            <div class=" p-3 text-center">
-                                <div class=" d-flex align-items-center justify-content-center">
-                                    <img class=" icon-image-about" src={{ $settings['home_counter_scholarship_img'] ? asset($settings['home_counter_scholarship_img']) : asset('frontend/assets/image/icon1.png') }}
-                                        alt="">
-                                </div>
-                                <div class="homecard-text-num">
-                                    <p>{{ $settings['home_counter_scholarship'] ?? '' }}</p>
-                                </div>
-                                <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                    {{ $settings['home_counter_scholarship_title'] ?? '' }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 ">
-                            <div class=" p-3 text-center">
-                                <div class=" d-flex align-items-center justify-content-center">
-                                    <img class=" icon-image-about" src={{ $settings['home_counter_students_img'] ? asset($settings['home_counter_students_img']) : asset('frontend/assets/image/icon1.png') }}
-                                        alt="">
-                                </div>
-                                <div class="homecard-text-num">
-                                    <p>{{ $settings['home_counter_students'] ?? '' }}</p>
-                                </div>
-                                <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                    {{ $settings['home_counter_students_title'] ?? '' }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 ">
-                            <div class=" p-3 text-center">
-                                <div class=" d-flex align-items-center justify-content-center">
-                                    <img class=" icon-image-about" src={{ $settings['home_counter_enrolled_img'] ? asset($settings['home_counter_enrolled_img']) : asset('frontend/assets/image/icon1.png') }}
-                                        alt="">
-                                </div>
-                                <div class="homecard-text-num">
-                                    <p>{{ $settings['home_counter_enrolled'] ?? '' }} </p>
-                                </div>
-                                <p class="text-css-counter d-flex align-items-center justify-content-center">
-                                    {{ $settings['home_counter_enrolled_title'] ?? '' }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-            </section>
-            <section class="about-us-section page-bg-color py-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="service-content-container" data-aos="fade-right"  data-aos-duration="3000">
-                                <h6 class="my-2">{{ $why_us->title ?? 'About us' }}</h6>
-                                <h3 class="my-2"> {{ $why_us->short_description ?? 'About us' }}</h3>
-                              <div class="custom-list">
-                                {!! $why_us->description !!}</div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="about-us-img" data-aos="fade-left"  data-aos-duration="3000">
-                                <img src="{{ asset($why_us->image_1) }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="team-section py-5">
-                <div class="service-content-container text-center">
-                    <h6 class="my-2">Our Teams</h6>
-                    <h3 class="my-2"> Helpful offers you confidently pursue
-                        your dreams </h3>
-                </div>
-                <div class="container py-3">
-                    <div class="row">
-                        @foreach ($teams as $team)
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="3000">
-                                <div class="team-card">
-                                    <div class="team-img-container shadow rounded">
-                                        <img src="{{ asset($team->image) }}" alt="{{ $team->name }}">
-                                    </div>
-                                    <div class="team-content-container">
-                                        <h4>{{ $team->name }}</h4>
-                                        <p>{{ $team->position }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </section> --}}
 @endsection
