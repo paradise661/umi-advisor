@@ -88,7 +88,10 @@ class FrontendController extends Controller
         $testimonials = Testimonial::where('status', 1)->get();
         $message_page = Page::where('status', 1)->where('slug', 'message-from-ceo')->first();
         $message_from_founder_1 = Page::where('status', 1)->where('slug', 'message-from-founder-1')->first();
-        return view('frontend.about.index', compact('about_us', 'message_page', 'message_from_founder_1', 'why_us', 'teams', 'studentreviw', 'services', 'testimonials'));
+        $objectives = Page::where('status', 1)->where('slug', 'objectives')->first();
+        $our_mission = Page::where('status', 1)->where('slug', 'our-mission1')->first();
+        $our_vision = Page::where('status', 1)->where('slug', 'our-vision1')->first();
+        return view('frontend.about.index', compact('about_us', 'message_page', 'message_from_founder_1', 'why_us', 'teams', 'studentreviw', 'services', 'testimonials', 'objectives', 'our_mission', 'our_vision'));
     }
     public function service()
     {
@@ -145,9 +148,7 @@ class FrontendController extends Controller
         if ($abroadstudiesingle) {
             $abroads = CountryLocation::where('id', '!=', $abroadstudiesingle->id)->where('status', 1)->oldest("order")->limit(5)->get();
             return view('frontend.abroad.show', compact('abroadstudiesingle', 'abroads', 'abroad_page'));
-
         }
-
     }
     function course()
     {
@@ -156,7 +157,7 @@ class FrontendController extends Controller
         $courses = Course::where('status', 1)
             ->orderBy('order', 'asc') // This ensures 1 comes before 2
             ->get();
-                    return view('frontend.course.index', compact('course', 'course_page', 'courses'));
+        return view('frontend.course.index', compact('course', 'course_page', 'courses'));
     }
     function coursesingle($slug)
     {
@@ -405,5 +406,4 @@ class FrontendController extends Controller
             return redirect()->back()->with('success', 'Registration successful!');
         }
     }
-
 }

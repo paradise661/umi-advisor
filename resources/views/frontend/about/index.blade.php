@@ -11,6 +11,91 @@
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
+    <style>
+        .objectives-section {
+            background-color: #eefaf1;
+            /* light green background */
+        }
+
+        /* .objectives-wrapper {
+                                                                                                                                                    max-width: 1000px;
+                                                                                                                                                } */
+        /* Title */
+        .objectives-heading {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        /* Green underline */
+        .objectives-heading::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 70px;
+            height: 4px;
+            background-color: #2ecc71;
+            border-radius: 2px;
+        }
+
+        /* Content */
+        .objectives-content ul>li {
+            list-style-type: disc !important;
+            display: list-item !important;
+            position: static !important;
+        }
+
+        .objectives-content ol>li {
+            list-style-type: decimal !important;
+            display: list-item !important;
+            position: static !important;
+        }
+
+        .objectives-content ul,
+        .objectives-content ol {
+            padding-left: 22px !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .objectives-heading {
+                font-size: 26px;
+            }
+        }
+
+        .objectives-heading {
+            color: #333;
+        }
+
+        .objectives-content {
+            color: #444;
+        }
+
+        .line-clamp-4 {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: #00b3ea;
+            font-weight: 600;
+            padding: 0;
+            margin-top: 6px;
+            cursor: pointer;
+        }
+
+        .read-more-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
     {{-- @if ($about_us)
                 <div class="hero-banner2 position-relative ">
                     <div class="row g-0 text-bannner-section">
@@ -264,7 +349,7 @@
                 <div class="col-12">
                     <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".5s">
-                          @foreach ($testimonials as $testimonial)
+                        @foreach ($testimonials as $testimonial)
                             <div class="slider-item active">
                                 <div class="testimonial__item testimonial-item-three">
                                     <div
@@ -295,13 +380,13 @@
                                     </div>
 
                                     @if (str_word_count(strip_tags($testimonial->description)) > 50)
-                                        <button type="button"
+                                        <button
                                             class="btn-link testimonial-btn color-red d-block border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
                                             data-bs-toggle="modal" data-bs-target="#testimonialModal"
                                             data-image="{{ $testimonial->image }}"
                                             data-name="{{ $testimonial->name ?? 'name' }}"
                                             data-role="{{ $testimonial->role ?? 'Client' }}"
-                                            data-description="{!! e($testimonial->description) !!}">
+                                            data-description="{!! e($testimonial->description) !!}" type="button">
                                             Read More
                                             <i class="far fa-chevron-double-right"></i>
                                         </button>
@@ -320,6 +405,99 @@
             </div>
         </div>
     </section>
+
+    {{-- objectives section --}}
+    <section class="objectives-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="objectives-wrapper">
+                        <h2 class="objectives-heading">
+                            {{ $objectives->title ?? 'Objectives' }}
+                        </h2>
+
+                        <div class="objectives-content">
+                            {!! $objectives->description ?? '' !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- our mission and vision --}}
+    <section class="py-5 "
+        style="background-image: url({{ asset('frontend/assets/image/missionbg.png') }});
+                  background-position:cover; background-repeat:no-repeat;">
+        <div class="container">
+            <div class="row">
+                <!-- Mission Card -->
+                <div class="col-md-6 py-3">
+                    <div class="service-card-home p-5 h-100 vision-align">
+                        <div class="icon mb-2">
+                            <img class="vision-icon" src="{{ $our_mission->image_1 }}" alt="Mission" loading="lazy">
+
+                        </div>
+
+                        <h5 class="fw-bold ">
+                            {{ $our_mission->title ?? 'Our Mission' }}
+                        </h5>
+
+                        <p class="text-justify mission-desc line-clamp-4" style="color:black;">
+                            {{ strip_tags($our_mission->description ?? 'Our mission') }}
+                        </p>
+
+                        <button class="read-more-btn d-none">Read More</button>
+                    </div>
+                </div>
+
+                <!-- Vision Card -->
+                <div class="col-md-6 py-3">
+                    <div class="service-card-home p-5 h-100 vision-align">
+                        <div class="icon mb-2">
+                            <img class="vision-icon"
+                                src="{{ asset($our_vision->image_1 ?? 'frontend/assets/image/our-vision.png') }}"
+                                alt="Vision">
+                        </div>
+
+                        <h5 class="fw-bold ">
+                            {{ $our_vision->title ?? 'Our Vision' }}
+                        </h5>
+
+                        <p class="text-justify mission-desc line-clamp-4" style="color:black;">
+                            {{ strip_tags($our_vision->description ?? 'Our vision') }}
+                        </p>
+
+                        <button class="read-more-btn d-none">Read More</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <script>
+        document.querySelectorAll('.mission-desc').forEach(desc => {
+            const btn = desc.nextElementSibling;
+
+            // Check if text overflows (needs Read More)
+            if (desc.scrollHeight > desc.clientHeight) {
+                btn.classList.remove('d-none');
+            }
+
+            btn.addEventListener('click', () => {
+                if (desc.classList.contains('line-clamp-4')) {
+                    desc.classList.remove('line-clamp-4');
+                    btn.textContent = 'Read Less';
+                } else {
+                    desc.classList.add('line-clamp-4');
+                    btn.textContent = 'Read More';
+                }
+            });
+        });
+    </script>
+
     <!-- testimonial end -->
     <!-- why-choose end -->
     <!-- our-company end -->
