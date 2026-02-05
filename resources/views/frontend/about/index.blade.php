@@ -13,13 +13,13 @@
 @section('content')
     <style>
         .objectives-section {
-            background-color: #eefaf1;
+            background-color: #fdf6f8;
             /* light green background */
         }
 
         /* .objectives-wrapper {
-                                                                                                                                                                                                            max-width: 1000px;
-                                                                                                                                                                                                        } */
+                                                                                                                                                                                                                    max-width: 1000px;
+                                                                                                                                                                                                                } */
         /* Title */
         .objectives-heading {
             font-size: 32px;
@@ -110,30 +110,7 @@
             display: block;
         }
     </style>
-    {{-- @if ($about_us)
-                <div class="hero-banner2 position-relative ">
-                    <div class="row g-0 text-bannner-section">
-                        <div class="col-md-6 d-flex justify-content-center align-items-center py-5">
-                            <div class="text-center page-banner-lft px-4">
-                                <h1 class="text-white font-weight-bold">{{ $about_us->title ?? 'About Us' }}</h1>
-                                <p class="breadcrumb-text text-white">
-                                    <a href="{{ route('frontend.home') }}" class="text-white text-decoration-none">Home</a> /
-                                    <a href="#" class="text-white text-decoration-none">{{ $about_us->title ?? 'About Us' }}</a>
 
-                                </p>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="img-container-banner">
-                                <div class="img-wrapper-2">
-                                    <img src="{{ asset($about_us->banner_image) }}" alt="Creative Design" class="background-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif --}}
     <!-- page-banner start -->
     <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
         <div class="container">
