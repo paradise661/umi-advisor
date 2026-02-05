@@ -18,8 +18,8 @@
         }
 
         /* .objectives-wrapper {
-                                                                                                                                                    max-width: 1000px;
-                                                                                                                                                } */
+                                                                                                                                                                max-width: 1000px;
+                                                                                                                                                            } */
         /* Title */
         .objectives-heading {
             font-size: 32px;
@@ -94,6 +94,20 @@
 
         .read-more-btn:hover {
             text-decoration: underline;
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .vision-icon {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            display: block;
         }
     </style>
     {{-- @if ($about_us)
