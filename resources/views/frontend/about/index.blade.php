@@ -18,8 +18,8 @@
         }
 
         /* .objectives-wrapper {
-                                                                                                                                                                max-width: 1000px;
-                                                                                                                                                            } */
+                                                                                                                                                                                max-width: 1000px;
+                                                                                                                                                                            } */
         /* Title */
         .objectives-heading {
             font-size: 32px;
@@ -447,7 +447,7 @@
             <div class="row">
                 <!-- Mission Card -->
                 <div class="col-md-6 py-3">
-                    <div class="service-card-home p-5 h-100 vision-align">
+                    <div class="service-card-home p-5 h-100 vision-align card">
                         <div class="icon mb-2">
                             <img class="vision-icon" src="{{ $our_mission->image_1 }}" alt="Mission" loading="lazy">
 
@@ -461,13 +461,13 @@
                             {{ strip_tags($our_mission->description ?? 'Our mission') }}
                         </p>
 
-                        <button class="read-more-btn d-none">Read More</button>
+                        <button class="read-more-btn d-none mt-2">Read More ></button>
                     </div>
                 </div>
 
                 <!-- Vision Card -->
                 <div class="col-md-6 py-3">
-                    <div class="service-card-home p-5 h-100 vision-align">
+                    <div class="service-card-home p-5 h-100 vision-align card">
                         <div class="icon mb-2">
                             <img class="vision-icon"
                                 src="{{ asset($our_vision->image_1 ?? 'frontend/assets/image/our-vision.png') }}"
@@ -482,7 +482,7 @@
                             {{ strip_tags($our_vision->description ?? 'Our vision') }}
                         </p>
 
-                        <button class="read-more-btn d-none">Read More</button>
+                        <button class="read-more-btn d-none mt-2">Read More ></button>
 
                     </div>
                 </div>
