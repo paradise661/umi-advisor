@@ -18,8 +18,8 @@
         }
 
         /* .objectives-wrapper {
-                                                                                                                                                                                max-width: 1000px;
-                                                                                                                                                                            } */
+                                                                                                                                                                                    max-width: 1000px;
+                                                                                                                                                                                } */
         /* Title */
         .objectives-heading {
             font-size: 32px;
@@ -503,10 +503,10 @@
             btn.addEventListener('click', () => {
                 if (desc.classList.contains('line-clamp-4')) {
                     desc.classList.remove('line-clamp-4');
-                    btn.textContent = 'Read Less';
+                    btn.textContent = '< Read Less';
                 } else {
                     desc.classList.add('line-clamp-4');
-                    btn.textContent = 'Read More';
+                    btn.textContent = 'Read More >';
                 }
             });
         });
