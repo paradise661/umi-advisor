@@ -84,7 +84,7 @@
     </section> --}}
     <!-- page-banner start -->
      <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden"
-        style="background-image: url('{{ $blogsingle->banner_image ? asset($blogsingle->banner_image) : '' }}');">
+        style="background-image: url('{{ $blog_page->banner_image ? asset($blog_page->banner_image) : '' }}');">
 
         <div class="page-banner__overlay"></div>
 
