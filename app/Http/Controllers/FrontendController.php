@@ -71,9 +71,9 @@ class FrontendController extends Controller
         $faq_page = Page::where('status', 1)->where('slug', 'faq')->first();
         $service_section = Page::where('status', 1)->where('slug', 'service-section')->first();
         $services = Service::where('status', 1)->limit(4)->get();
-        $courses = Course::where('status', 1)->oldest('order')->limit(4)->get();
+        $courses = Course::where('status', 1)->oldest('order')->limit(3)->get();
         $testimonials = Testimonial::where('status', 1)->get();
-        $blogs = Blog::where('status', 1)->limit(4)->get();
+        $blogs = Blog::where('status', 1)->limit(3)->get();
         $recent_post = Blog::where('status', 1)->limit(2)->get();
 
         return view('frontend.home.index', compact('sliders', 'popup', 'faq_page', 'countrylocation', 'faq', 'abroadstudies', 'universities', 'courses', 'countries', 'blogs', 'services', 'about_us', 'why_choose_us', 'teams', 'testimonials', 'service_section', 'recent_post'));

@@ -154,7 +154,7 @@
                                         <p>{!! $testimonial->description !!}</p>
                                     </div>
 
-                                    @if (str_word_count(strip_tags($testimonial->description)) > 50)
+                                   @if (mb_strlen(trim(strip_tags($testimonial->description))) > 250)
                                         <button type="button"
                                             class="btn-link testimonial-btn color-red d-block border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
                                             data-bs-toggle="modal" data-bs-target="#testimonialModal"

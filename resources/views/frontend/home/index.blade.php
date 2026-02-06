@@ -407,7 +407,7 @@
                     <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".5s">
                         @foreach ($testimonials as $testimonial)
-                            <div class="slider-item active">
+                            <div class="slider-item {{ $loop->first ? 'active' : '' }}">
                                 <div class="testimonial__item testimonial-item-three">
                                     <div
                                         class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
@@ -436,7 +436,7 @@
                                         <p>{!! $testimonial->description !!}</p>
                                     </div>
 
-                                    @if (str_word_count(strip_tags($testimonial->description)) > 50)
+                                   @if (mb_strlen(trim(strip_tags($testimonial->description))) > 250)
                                         <button type="button"
                                             class="btn-link testimonial-btn color-red d-block border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
                                             data-bs-toggle="modal" data-bs-target="#testimonialModal"
