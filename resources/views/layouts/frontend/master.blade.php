@@ -153,6 +153,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     </script>
     <script>
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        document.querySelectorAll('.testi-des').forEach(desc => {
+            const btn = desc.closest('.testimonial__item')
+                            .querySelector('.testimonial-btn');
+
+            if (!btn) return;
+
+            if (desc.scrollHeight > desc.clientHeight) {
+                btn.classList.remove('d-none');
+            }
+        });
+    }, 300);
+});
+</script>
+    <script>
 $(document).ready(function() {
 
     $('#contactForm').on('submit', function(e) {

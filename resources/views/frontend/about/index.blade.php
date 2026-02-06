@@ -323,11 +323,13 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
+                                    <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".5s">
+
                         @foreach ($testimonials as $testimonial)
-                            <div class="slider-item active">
+                            <div class="slider-item {{ $loop->first ? 'active' : '' }}">
                                 <div class="testimonial__item testimonial-item-three">
+
                                     <div
                                         class="testimonial__item-header d-flex justify-content-between align-items-center mb-30 mb-sm-25 mb-xs-20">
                                         <div class="left d-flex align-items-center">
@@ -355,28 +357,30 @@
                                         <p>{!! $testimonial->description !!}</p>
                                     </div>
 
-                                   @if (mb_strlen(trim(strip_tags($testimonial->description))) > 250)
-                                        <button
-                                            class="btn-link testimonial-btn color-red d-block border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
-                                            data-bs-toggle="modal" data-bs-target="#testimonialModal"
-                                            data-image="{{ $testimonial->image }}"
-                                            data-name="{{ $testimonial->name ?? 'name' }}"
-                                            data-role="{{ $testimonial->role ?? 'Client' }}"
-                                            data-description="{!! e($testimonial->description) !!}" type="button">
-                                            Read More
-                                            <i class="far fa-chevron-double-right"></i>
-                                        </button>
-                                    @endif
+                                    <!-- Button always exists, JS decides visibility -->
+                                    <button type="button"
+                                        class="btn-link testimonial-btn color-red d-none border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
+                                        data-bs-toggle="modal" data-bs-target="#testimonialModal"
+                                        data-image="{{ $testimonial->image }}"
+                                        data-name="{{ $testimonial->name ?? 'name' }}"
+                                        data-role="{{ $testimonial->role ?? 'Client' }}"
+                                        data-description="{!! e($testimonial->description) !!}">
+                                        Read More
+                                        <i class="far fa-chevron-double-right"></i>
+                                    </button>
 
                                     <div class="testimonial__item-footer d-flex justify-content-between">
                                         <div class="socail-link">
                                             <span class="name"><strong>{{ $testimonial->name ?? '' }}</strong></span>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         @endforeach
+
                     </div>
+
                 </div>
             </div>
         </div>
