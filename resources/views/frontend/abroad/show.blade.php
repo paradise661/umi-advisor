@@ -34,7 +34,7 @@
                             <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><a
                                     href="{{ route('frontend.abroad') }}">{{ $abroad_page->title ?? '' }}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $abroadstudiesingle->title }}</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $abroadstudiesingle->name }}</li>
                         </ol>
                     </nav>
                 </div>
