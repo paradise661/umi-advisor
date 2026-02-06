@@ -182,7 +182,7 @@
         </div>
     </section>
     <section class="umi-why-choose">
-        <div class="umi-container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div data-aos="fade-right" data-aos-duration="3000">

@@ -23870,19 +23870,19 @@ transform: scale(1.05);}
 }
 .umi-why-choose {
     background-color: #fdf6f8 !important;
-    padding: 60px 20px;
+    padding: 60px 0px;
     font-family: Arial, sans-serif;
     background-color: #ffffff;
 }
 
-.umi-container {
+/* .umi-container {
     max-width: 1140px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 40px;
-}
+} */
 
 /* Left Content Styles */
 .umi-text-content {
@@ -23991,7 +23991,7 @@ transform: scale(1.05);}
 .umi-img-large {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 23;
     width: 85%;
     height: 90%;
     z-index: 2;
