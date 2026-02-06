@@ -52,7 +52,7 @@
                                 <img src="{{ $item->image }}" alt="{{ $item->title }}">
 
                                 <div class="message-overlay">
-                                    <h5>Message From<br>{{ $item->title }}</h5>
+                                    <h5>{{ $item->title }}</h5>
                                     <p>{{ $item->short_description }}</p>
                                     <span class="message-cta">
     Read Message <i class="far fa-arrow-right"></i>
