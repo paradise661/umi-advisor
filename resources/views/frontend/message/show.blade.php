@@ -58,7 +58,7 @@
                                 <a href="{{ route('frontend.home') }}">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ $message_page->title }} </li>
+                               <a href="{{ route('frontend.message') }}">{{ $message_page->title }} </a>  </li>
                             <li class="breadcrumb-item active" aria-current="page">Message From {{ $messagesingle->title }}
                             </li>
 
