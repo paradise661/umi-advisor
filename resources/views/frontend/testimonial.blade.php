@@ -127,7 +127,7 @@
                                     <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".5s">
 
-                        @foreach ($testimonials as $testimonial)
+                         @foreach ($testimonials as $testimonial)
                             <div class="slider-item {{ $loop->first ? 'active' : '' }}">
                                 <div class="testimonial__item testimonial-item-three">
 
@@ -160,7 +160,7 @@
 
                                     <!-- Button always exists, JS decides visibility -->
                                     <button type="button"
-                                        class="btn-link testimonial-btn color-red d-none border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
+                                        class="btn-link testimonial-btn color-red border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
                                         data-bs-toggle="modal" data-bs-target="#testimonialModal"
                                         data-image="{{ $testimonial->image }}"
                                         data-name="{{ $testimonial->name ?? 'name' }}"
