@@ -37,28 +37,33 @@
             </div>
         </div>
     @endif --}}
-    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-        <div class="container">
+    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden"
+        style="background-image: url('{{ $message_page->banner_image ? asset($message_page->banner_image) : '' }}');">
+
+        <div class="page-banner__overlay"></div>
+
+        <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                        <div class="transparent-text"> Message from {{ $messagesingle->short_description }}</div>
+                        {{-- <div class="transparent-text">About Us</div> --}}
                         <div class="page-title">
-                            <h1> Message from {{ $messagesingle->short_description }}</h1>
+                            <h1>{{ $message_page->title ?? '' }}</h1>
                         </div>
                     </div>
+
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> Message from {{ $messagesingle->short_description }}</li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('frontend.home') }}">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ $message_page->title }} </li>
+                            <li class="breadcrumb-item active" aria-current="page">Message From {{ $messagesingle->title }}
+                            </li>
+
                         </ol>
                     </nav>
-                </div>
-                <div class="col-md-6">
-                    <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                        <img src="{{ $message_page->banner_image }}" class="img-fluid" alt="">
-                    </div>
                 </div>
             </div>
         </div>

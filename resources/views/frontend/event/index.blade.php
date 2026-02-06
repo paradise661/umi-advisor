@@ -12,28 +12,34 @@
 @extends('layouts.frontend.master')
 @section('content')
     @if ($event_page)
-        <div class="hero-banner2 position-relative ">
-            <div class="row g-0 text-bannner-section">
-                <div class="col-md-6 d-flex justify-content-center align-items-center py-5">
-                    <div class="text-center page-banner-lft px-4">
-                        <h1 class="text-white font-weight-bold">{{ $event_page->title ?? 'About Us' }}</h1>
-                        <p class="breadcrumb-text text-white">
-                            <a href="{{ route('frontend.home') }}" class="text-white text-decoration-none">Home</a> /
-                            <a href="#"
-                                class="text-white text-decoration-none">{{ $event_page->title ?? 'About Us' }}</a>
-                        </p>
-                        </p>
-                    </div>
-                </div>
+          <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden"
+        style="background-image: url('{{ $event_page->banner_image ? asset($event_page->banner_image) : '' }}');">
+
+        <div class="page-banner__overlay"></div>
+
+        <div class="container position-relative">
+            <div class="row align-items-center">
                 <div class="col-md-6">
-                    <div class="img-container-banner">
-                        <div class="img-wrapper-2">
-                            <img src="{{ asset($event_page->banner_image) }}" alt="Creative Design" class="background-img">
+                    <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
+                        {{-- <div class="transparent-text">About Us</div> --}}
+                        <div class="page-title">
+                            <h1>{{ $event_page->title ?? '' }}</h1>
                         </div>
                     </div>
+
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('frontend.home') }}">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ $event_page->title }} </li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
+    </section>
     @endif
     <div class="container py-5">
         <!-- Events Grid -->

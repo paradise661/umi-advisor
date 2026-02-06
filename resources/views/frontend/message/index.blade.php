@@ -11,57 +11,56 @@
 @endsection
 @extends('layouts.frontend.master')
 @section('content')
-    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-        <div class="container">
+    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden"
+        style="background-image: url('{{ $message_page->banner_image ? asset($message_page->banner_image) : '' }}');">
+
+        <div class="page-banner__overlay"></div>
+
+        <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                        <div class="transparent-text">{{ $message_page->title }}</div>
+                        {{-- <div class="transparent-text">About Us</div> --}}
                         <div class="page-title">
-                            <h1>{{ $message_page->title }}</h1>
+                            <h1>{{ $message_page->title ?? '' }}</h1>
                         </div>
                     </div>
 
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $message_page->title }}</li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('frontend.home') }}">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ $message_page->title }} </li>
                         </ol>
                     </nav>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
-                        <img class="img-fluid" src="{{ asset($message_page->banner_image) }}" alt="">
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-   <section>
-    <div class="container my-5">
-        <div class="row g-4">
-            @foreach ($messages as $item)
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <a href="{{ route('frontend.messagesingle', ['slug' => $item->slug ?? 'unknown']) }}"
-                       class="message-card-link">
+    <section>
+        <div class="container my-5">
+            <div class="row g-4">
+                @foreach ($messages as $item)
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <a href="{{ route('frontend.messagesingle', ['slug' => $item->slug ?? 'unknown']) }}"
+                            class="message-card-link">
 
-                        <div class="message-card">
-                            <img src="{{ $item->image }}" alt="{{ $item->title }}">
+                            <div class="message-card">
+                                <img src="{{ $item->image }}" alt="{{ $item->title }}">
 
-                            <div class="message-overlay">
-                                <h5>Message From<br>{{ $item->title }}</h5>
-                                <p>{{ $item->short_description }}</p>
+                                <div class="message-overlay">
+                                    <h5>Message From<br>{{ $item->title }}</h5>
+                                    <p>{{ $item->short_description }}</p>
+                                </div>
                             </div>
-                        </div>
 
-                    </a>
-                </div>
-            @endforeach
+                        </a>
+                    </div>
+                @endforeach
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 @endsection

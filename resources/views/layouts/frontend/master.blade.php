@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
 });
 </script>
+
     <script>
 $(document).ready(function() {
 
@@ -215,6 +216,44 @@ $(document).ready(function() {
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById('whyUsDescription');
+    const btn = document.getElementById('readMoreBtn');
+
+    if (!container || !btn) return;
+
+    const COLLAPSED_HEIGHT = 250;
+
+    const updateButtonVisibility = () => {
+        if (container.scrollHeight <= COLLAPSED_HEIGHT) {
+            btn.style.display = 'none';
+            container.classList.remove('is-collapsed');
+            container.style.maxHeight = 'none';
+        }
+    };
+
+    // Wait for layout + images + editor content
+    requestAnimationFrame(() => {
+        requestAnimationFrame(updateButtonVisibility);
+    });
+
+    btn.addEventListener('click', function () {
+        const isCollapsed = container.classList.contains('is-collapsed');
+
+        if (isCollapsed) {
+            container.style.maxHeight = container.scrollHeight + "px";
+            container.classList.remove('is-collapsed');
+            this.innerHTML = 'Read Less <i class="far fa-chevron-up"></i>';
+        } else {
+            container.style.maxHeight = COLLAPSED_HEIGHT + "px";
+            container.classList.add('is-collapsed');
+            this.innerHTML = 'Read More <i class="far fa-chevron-right"></i>';
+        }
+    });
+});
+</script>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();

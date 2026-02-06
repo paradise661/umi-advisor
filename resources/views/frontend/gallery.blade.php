@@ -2,46 +2,46 @@
 
 @section('seo')
     @include('frontend.seo', [
-    'name' => $settings['homepage_title'] ?? '',
-    'title' => $settings['homepage_seo_title'] ?? '',
-    'description' => $settings['home_seo_description'] ?? '',
-    'keyword' => $settings['homepage_seo_keywords'] ?? '',
-    'created_at' => '2024-04-26T08:09:15+00:00',
-    'updated_at' => '2024-04-26T10:54:05+00:00',
-])
+        'name' => $settings['homepage_title'] ?? '',
+        'title' => $settings['homepage_seo_title'] ?? '',
+        'description' => $settings['home_seo_description'] ?? '',
+        'keyword' => $settings['homepage_seo_keywords'] ?? '',
+        'created_at' => '2024-04-26T08:09:15+00:00',
+        'updated_at' => '2024-04-26T10:54:05+00:00',
+    ])
 @endsection
 @section('content')
-    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
-                                <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                                    <div class="transparent-text">Gallery</div>
-                                    <div class="page-title">
-                                        <h1>{{ $gallery_page->title }}</h1>
-                                    </div>
-                                </div>
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">{{ $gallery_page->title }}</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="page-banner__media mt-xs-30 mt-sm-40">
-                                    <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                                    <img src="{{ $gallery_page->banner_image }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
+      <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden"
+        style="background-image: url('{{ $gallery_page->banner_image ?? ' '}}');">
+
+        <div class="page-banner__overlay"></div>
+
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
+                        {{-- <div class="transparent-text">About Us</div> --}}
+                        <div class="page-title">
+                            <h1>{{ $gallery_page->title ?? '' }}</h1>
                         </div>
                     </div>
-                </section>
 
-
-                        <div class="container py-4">
-                        <!-- Tabs nav -->
-                        {{-- <ul class="nav nav-tabs custom-tabs justify-content-center" id="albumTab" role="tablist">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('frontend.home') }}">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ $gallery_page->title ?? ' '}} </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-4">
+        <!-- Tabs nav -->
+        {{-- <ul class="nav nav-tabs custom-tabs justify-content-center" id="albumTab" role="tablist">
                             @foreach ($albums as $key => $album)
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link custom-tab-link {{ $key == 0 ? 'active' : '' }}" id="tab-{{ $album->id }}"
@@ -53,16 +53,15 @@
                             @endforeach
                         </ul> --}}
 
-                         <div class="row justify-content-center">
+        <div class="row justify-content-center">
             @foreach ($albums as $album)
-                                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-4 col-sm-6 mb-4">
                     <a href="{{ route('frontend.albums.show', $album) }}" class="text-decoration-none">
                         <div class="card gallery-card border-0 h-100 overflow-hidden">
 
                             <div class="gallery-img-wrapper">
-                                <img src="{{ asset($album->image) }}"
-                                     alt="{{ $album->name }}"
-                                     class="card-img-top img-fluid">
+                                <img src="{{ asset($album->image) }}" alt="{{ $album->name }}"
+                                    class="card-img-top img-fluid">
                             </div>
 
                             <div class="gallery-overlay">
@@ -72,13 +71,12 @@
                         </div>
                     </a>
                 </div>
-
             @endforeach
         </div>
 
 
-                        <!-- Tabs content -->
-                        {{-- <div class="tab-content mt-4" id="albumTabContent">
+        <!-- Tabs content -->
+        {{-- <div class="tab-content mt-4" id="albumTabContent">
                             @foreach ($albums as $key => $album)
                                 <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}" id="content-{{ $album->id }}"
                                     role="tabpanel" aria-labelledby="tab-{{ $album->id }}">
@@ -97,7 +95,7 @@
                             @endforeach
                         </div>  --}}
 
-                    </div>
+    </div>
 @endsection
 @push('js')
     <script>

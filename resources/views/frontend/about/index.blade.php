@@ -13,13 +13,13 @@
 @section('content')
     <style>
         .objectives-section {
-            background-color: #fdf6f8;
+            /* background-color: #fdf6f8; */
             /* light green background */
         }
 
         /* .objectives-wrapper {
-                                                                                                                                                                                                                    max-width: 1000px;
-                                                                                                                                                                                                                } */
+                                                                                                                                                                                                                                                    max-width: 1000px;
+                                                                                                                                                                                                                                                } */
         /* Title */
         .objectives-heading {
             font-size: 32px;
@@ -112,33 +112,36 @@
     </style>
 
     <!-- page-banner start -->
-    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-        <div class="container">
+    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden"
+        style="background-image: url('{{ $about_us->banner_image ? asset($about_us->banner_image) : '' }}');">
+
+        <div class="page-banner__overlay"></div>
+
+        <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                        <div class="transparent-text">About Us</div>
+                        {{-- <div class="transparent-text">About Us</div> --}}
                         <div class="page-title">
                             <h1>{{ $about_us->title ?? '' }}</h1>
                         </div>
                     </div>
+
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $about_us->title ?? '' }}</li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('frontend.home') }}">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ $about_us->title ?? '' }}
+                            </li>
                         </ol>
                     </nav>
-                </div>
-                <div class="col-md-6">
-                    <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
-                        <img class="img-fluid" src="{{ $about_us->banner_image ? asset($about_us->banner_image) : '' }}"
-                            alt="">
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- our-company start -->
     <section class="about-modern">
         <div class="container">
@@ -178,6 +181,48 @@
             </div>
         </div>
     </section>
+    <section class="umi-why-choose">
+        <div class="umi-container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div data-aos="fade-right" data-aos-duration="3000">
+                        <div class="umi-text-content">
+                            <p class="umi-subtitle">{{ $why_us->title }}</p>
+                            <h2 class="umi-headline">{{ $why_us->short_description }}</h2>
+
+                            <div id="whyUsDescription" class="umi-body-text why-us-desc is-collapsed" style="color:black;">
+                                {!! $why_us->description ?? 'why choose us' !!}
+                            </div>
+
+                            <button id="readMoreBtn" class="read-more-btn">Read More ></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div data-aos="fade-left" data-aos-duration="3000">
+                        <div class="umi-image-section">
+                            <div class="umi-collage-wrapper">
+                                {{--
+                    <div class="umi-bar-vertical"></div>
+                    <div class="umi-bar-horizontal"></div> --}}
+
+                                <div class="umi-img-large">
+                                    <img src="{{ $why_us->banner_image }}" alt="University Campus">
+                                </div>
+
+                                {{-- <div class="umi-img-small">
+                                    <img src="{{ $why_us->image_1 }}" alt="Counseling Session">
+                                </div> --}}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
 
     {{-- objectives section --}}
     <section class="objectives-section py-5">
@@ -201,7 +246,8 @@
     {{-- our mission and vision --}}
     <section class="py-5 "
         style="background-image: url({{ asset('frontend/assets/image/missionbg.png') }});
-                  background-position:cover; background-repeat:no-repeat;">
+                  background-position:cover; background-repeat:no-repeat;
+                  background-color:#fdf6f8;">
         <div class="container">
             <div class="row">
                 <!-- Mission Card -->
@@ -252,7 +298,7 @@
     </section>
 
     <section
-        class="our-team our-team-home-1 bg-dark_red pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
+        class="our-team our-team-home-1 bg-white pb-xs-80 pt-xs-80 pt-sm-100 pb-sm-100 pt-md-100 pb-md-100 pt-120 pb-120 overflow-hidden">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -323,7 +369,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                                    <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
+                    <div class="testimonial-slider-home-1 mt-65 mt-md-50 mt-sm-40 mt-xs-30 wow fadeInUp"
                         data-wow-delay=".5s">
 
                         @foreach ($testimonials as $testimonial)
@@ -359,7 +405,7 @@
 
                                     <!-- Button always exists, JS decides visibility -->
                                     <button type="button"
-                                        class="btn-link testimonial-btn color-red d-none border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
+                                        class="btn-link testimonial-btn color-red border-0 bg-transparent p-0 mb-25 open-testimonial-modal"
                                         data-bs-toggle="modal" data-bs-target="#testimonialModal"
                                         data-image="{{ $testimonial->image }}"
                                         data-name="{{ $testimonial->name ?? 'name' }}"

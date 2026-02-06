@@ -14,36 +14,30 @@
 
 @section('content')
     <!-- page-banner start -->
-    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-        <div class="container">
-            <div class="row align-items-center">
+      <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden"
+        style="background-image: url('{{ $abroadstudiesingle->banner_image ? asset($abroadstudiesingle->banner_image) : '' }}');">
 
+        <div class="page-banner__overlay"></div>
+
+        <div class="container position-relative">
+            <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                        <div class="transparent-text">{{ $abroadstudiesingle->title }}</div>
+                        {{-- <div class="transparent-text">About Us</div> --}}
                         <div class="page-title">
-                            <h1>{{ $abroadstudiesingle->title }}</h1>
+                            <h1>{{ $abroad_page->title ?? '' }}</h1>
                         </div>
                     </div>
 
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
+                       <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('frontend.abroad') }}">{{ $abroad_page->title }}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">
-                                {{ $abroadstudiesingle->name }}
-                            </li>
+                            <li class="breadcrumb-item active" aria-current="page"><a
+                                    href="{{ route('frontend.blog') }}">{{ $abroad_page->title ?? '' }}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $abroadstudiesingle->title }}</li>
                         </ol>
                     </nav>
                 </div>
-
-                <div class="col-md-6">
-                    <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img class="img-fluid start" src="assets/img/page-banner/page-banner-start.svg" alt="">
-                        <img class="img-fluid" src="{{ asset($abroad_page->banner_image) }}" alt="">
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
