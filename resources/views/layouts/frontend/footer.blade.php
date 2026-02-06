@@ -51,29 +51,27 @@
             </div>
             <!-- /.col-lg-2 - single-footer-wid -->
 
-            <div class="col-md-6 col-xl-4">
-                <div class="single-footer-wid recent_post_widget pl-xl-10 pl-65 pr-50 pr-xl-30">
-                    <h4 class="wid-title mb-30 color-white">Recent Blogs</h4>
+            <div class="col-md-6 col-xl-4 ">
+                <div class="footer-contact-box">
+                    <h4 class="footer-title">Contact Us</h4>
 
-                    <div class="recent-post-list">
-                        @foreach ($recent_post as $post)
-                            <a class="single-recent-post mb-20 pb-20 d-flex align-items-center"
-                                href="{{ route('frontend.blogsingle', $post->slug) }}">
-                                <div class="thumb">
-                                    <img src="{{ $post->image }}" alt="blog image">
-                                </div>
-
-                                <div class="post-data">
-                                    <h5 class="color-white mb-10 fw-600">{{ $post->title }}</h5>
-                                    {{-- <span class="color-white d-flex ailign-items-center"><i
-                                            class="far fa-clock"></i>January
-                                        11, 2018</span> --}}
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="ri-map-pin-2-fill"></i>
+                            <span>{{ $settings['contact_location'] ?? 'Kathmandu, Nepal' }}</span>
+                        </li>
+                        <li>
+                            <i class="ri-phone-fill"></i>
+                            <span>{{ $settings['contact_phone'] ?? '+977 987654321' }}</span>
+                        </li>
+                        <li>
+                            <i class="ri-mail-fill"></i>
+                            <span>{{ $settings['contact_email'] ?? 'info@yourcompany.com' }}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
+
             <!-- /.col-lg-4 - single-footer-wid -->
 
             <div class="col-md-6 col-xl-3">

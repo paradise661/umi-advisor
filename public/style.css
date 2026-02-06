@@ -24042,3 +24042,42 @@ transform: scale(1.05);}
     background: #ffffff;
     box-shadow: 2px 1px 20px #cecece;
 }
+.footer-contact-box {
+    /* background: #7899d4; */
+    /* blue like screenshot */
+    padding-left: 100px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.footer-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #fff;
+}
+
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.footer-contact-list li i {
+    font-size: 18px;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.footer-contact-list li span {
+    color: #ffffff;
+}
