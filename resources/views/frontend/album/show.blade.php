@@ -12,18 +12,23 @@
 @endsection
 
 @section('content')
-    <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden">
-        <div class="container">
+   <section class="page-banner pt-xs-60 pt-sm-80 overflow-hidden"
+        style="background-image: url('{{ $gallery_page->banner_image ?? ' '}}');">
+
+        <div class="page-banner__overlay"></div>
+
+        <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="page-banner__content mb-xs-10 mb-sm-15 mb-md-15 mb-20">
-                        <div class="transparent-text">Gallery</div>
+                        {{-- <div class="transparent-text">About Us</div> --}}
                         <div class="page-title">
-                            <h1>{{ $album->name }}</h1>
+                            <h1>{{ $gallery_page->title ?? '' }}</h1>
                         </div>
                     </div>
+
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
+                    <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><a
                                     href="{{ route('frontend.gallery') }}">Gallery</a></li>
@@ -31,12 +36,6 @@
 
                         </ol>
                     </nav>
-                </div>
-                <div class="col-md-6">
-                    <div class="page-banner__media mt-xs-30 mt-sm-40">
-                        <img src="assets/img/page-banner/page-banner-start.svg" class="img-fluid start" alt="">
-                        <img src="{{ $gallery_page->banner_image }}" class="img-fluid" alt="">
-                    </div>
                 </div>
             </div>
         </div>
