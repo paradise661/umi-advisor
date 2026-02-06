@@ -33,7 +33,7 @@
                        <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('frontend.home') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><a
-                                    href="{{ route('frontend.blog') }}">{{ $abroad_page->title ?? '' }}</a></li>
+                                    href="{{ route('frontend.country') }}">{{ $abroad_page->title ?? '' }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ $abroadstudiesingle->title }}</li>
                         </ol>
                     </nav>
